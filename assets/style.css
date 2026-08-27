@@ -369,9 +369,10 @@ html[data-lang="ne"] .labels-help p{font-size:0.9375rem}
   text-transform:uppercase; color:var(--accent); margin-bottom:4px}
 html[data-lang="ne"] .resources .res-head{font-family:'Mukta',sans-serif; text-transform:none; font-size:0.8125rem}
 .resources .res-hint{font-size:0.8125rem; color:var(--muted); margin:0 0 10px}
-.res-item{display:flex; gap:10px; align-items:baseline; padding:8px 0; border-top:1px solid var(--line2); font-size:1rem}
+.res-item{display:flex; gap:12px; align-items:flex-start; padding:9px 0; border-top:1px solid var(--line2); font-size:1rem}
+.res-item > span:last-child{flex:1; min-width:0}
 .res-type{font-family:'IBM Plex Mono',monospace; font-size:0.6875rem; letter-spacing:.08em; text-transform:uppercase;
-  color:var(--muted); border:1px solid var(--line); border-radius:4px; padding:1.5px 7px; flex:none; white-space:nowrap;
+  color:var(--accent-ink); background:var(--accent-wash); border:1px solid color-mix(in srgb, var(--accent) 30%, transparent); border-radius:4px; padding:3px 8px; flex:none; white-space:nowrap; margin-top:3px;
   display:inline-flex; align-items:center; gap:5px}
 .res-type svg.lucide{width:11.5px; height:11.5px}
 .res-item a{font-weight:600}
