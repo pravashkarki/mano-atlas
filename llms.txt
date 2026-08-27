@@ -39,7 +39,7 @@ Sources: DSM-5 (APA, 2013), CTEVT PSC Curriculum (2010), Sub-module 1 & 2 and Me
 - [Gender & GBV · लैङ्गिकता र जीबीभी](https://pcs.pravashkarki.com/gbv): Sex is biology; gender is the roles, expectations and power a society attaches to it. GBV is violence that flows along those power lines, and in Nepal it is one of the most common wounds a counselor w
 - [HIV & AIDS counselling · एचआईभी परामर्श](https://pcs.pravashkarki.com/hiv): HIV is now a manageable chronic condition: a person on treatment lives a near-normal lifespan, and effective treatment with a sustained undetectable viral load makes the virus sexually untransmittable
 - [Case management · केस व्यवस्थापन](https://pcs.pravashkarki.com/casemgmt): Module 2 in one page. Counselling that is not documented, supervised, and connected to a referral network is a conversation, not a service.
-- [Ethics & self-care · नैतिकता र आत्म-हेरचाह](https://pcs.pravashkarki.com/ethics): Grounded in the ACA Code of Ethics (the code in your course pack) and the curriculum's ethics tasks. Ethics is not a list to memorise; it is how trust is manufactured, session after session.
+- [Ethics & self-care · नैतिकता र आत्म-हेरचाह](https://pcs.pravashkarki.com/ethics): Grounded in the ACA Code of Ethics (the code in the CTEVT course pack) and the curriculum's ethics tasks. Ethics is not a list to memorise; it is how trust is manufactured, session after session.
 
 ## Reference
 

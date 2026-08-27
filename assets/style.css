@@ -544,3 +544,8 @@ html[data-lang="ne"] .tryit .fine,html[data-lang="ne"] .crit .note,html[data-lan
 .pagetools:empty{display:none}
 .labels-help summary{font-weight:600; font-size:0.8125rem; letter-spacing:0; text-transform:none; color:var(--muted)}
 html[data-lang="ne"] .labels-help summary{font-size:0.9375rem}
+
+.small{font-size:1rem; color:var(--muted); line-height:1.55}
+html[data-lang="ne"] .small{font-size:1.0625rem}
+.crit .note,.crit .small{font-size:1rem}
+html[data-lang="ne"] .crit .note,html[data-lang="ne"] .crit .small{font-size:1.0625rem}
