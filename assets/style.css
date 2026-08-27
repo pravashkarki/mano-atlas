@@ -520,3 +520,14 @@ html[data-lang="ne"] .toc-grp .toc-count{font-family:'Mukta',sans-serif; font-si
 .card .ctx .ctx-label{opacity:.9}
 .callout.crisis{border:1.5px solid var(--crisis)}
 .tryit{border-color:color-mix(in srgb, var(--accent) 60%, transparent)}
+/* ===== eyebrow labels: heavier and readable (Archivo, not mono) ===== */
+.crit .crit-label,.ctx .ctx-label,.resources .res-head,.quickcheck .qc-head,.keypoints .kp-head,.onpage .onpage-h,.pagehead .kicker,.toc-grp .toc-count,.labels-help summary,.pager a .lbl{
+  font-family:'Archivo',sans-serif; font-weight:700; font-size:0.8125rem; letter-spacing:.1em; text-transform:uppercase}
+html[data-lang="ne"] .crit .crit-label,html[data-lang="ne"] .ctx .ctx-label,html[data-lang="ne"] .resources .res-head,html[data-lang="ne"] .quickcheck .qc-head,html[data-lang="ne"] .keypoints .kp-head,html[data-lang="ne"] .onpage .onpage-h,html[data-lang="ne"] .pagehead .kicker,html[data-lang="ne"] .toc-grp .toc-count,html[data-lang="ne"] .labels-help summary,html[data-lang="ne"] .pager a .lbl{
+  font-family:'Mukta',sans-serif; font-weight:700; font-size:0.9375rem; letter-spacing:0; text-transform:none}
+/* ===== small helper text: sans, not the reading serif ===== */
+.tryit .fine,.crit .note,figcaption,.resources .res-hint,.quickcheck .qc-hint,.plain,.gentle,.labels-help p,.qz-hint,.qz-again,.sitefoot .fine{
+  font-family:'Archivo',sans-serif}
+html[data-lang="ne"] .tryit .fine,html[data-lang="ne"] .crit .note,html[data-lang="ne"] figcaption,html[data-lang="ne"] .resources .res-hint,html[data-lang="ne"] .quickcheck .qc-hint,html[data-lang="ne"] .plain,html[data-lang="ne"] .gentle,html[data-lang="ne"] .labels-help p,html[data-lang="ne"] .qz-hint,html[data-lang="ne"] .qz-again{
+  font-family:'Mukta','Noto Sans Devanagari',sans-serif}
+.tryit .fine{font-size:0.8125rem}
