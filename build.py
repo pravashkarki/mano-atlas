@@ -155,6 +155,23 @@ LABELS_HELP = (
 )
 
 
+INFO_POP = (
+    '<span class="info"><button class="info-btn" type="button" aria-expanded="false" aria-label="What do these tags and codes mean?">' + ICON["info"] + '</button>'
+    '<div class="info-pop" role="tooltip">'
+    '<p class="en"><strong>CTEVT PSC curriculum</strong>: on the official Psychosocial Counselor syllabus, can appear in the exam. <strong>Beyond curriculum</strong>: added for completeness, not examinable. '
+    'A chip like <span class="code mono">296.2x · F32</span> is the diagnosis code: the DSM-5\'s older ICD-9-CM number, then the ICD-10 "F-code" used in hospital records. Non-students can ignore all of these.</p>'
+    '<p class="ne"><strong>सीटीईभीटी पाठ्यक्रम</strong>: आधिकारिक मनोसामाजिक परामर्शकर्ता पाठ्यक्रमभित्र, परीक्षामा आउन सक्ने। <strong>पाठ्यक्रमभन्दा बाहिर</strong>: पूर्णताका लागि थपिएको, परीक्षामा नआउने। '
+    '<span class="code mono">296.2x · F32</span> जस्तो चिप निदान-कोड हो: DSM-5 को पुरानो ICD-9-CM नम्बर, अनि अस्पतालको रेकर्डमा प्रयोग हुने ICD-10 «एफ-कोड»। विद्यार्थी नभएकाले यी बेवास्ता गरे हुन्छ।</p>'
+    '</div></span>'
+)
+
+
+def info_popovers(body: str) -> str:
+    """Add the tags-and-codes info popover after the curriculum pill in every card head."""
+    return re.sub(r'(<span class="pill (?:todo|beyond)"><span class="dot"></span><span class="en">[^<]*</span><span class="ne">[^<]*</span></span>)(\s*</div>\s*<div class="card-body">)',
+                  lambda m: m.group(1) + INFO_POP + m.group(2), body)
+
+
 def link_page_refs(body: str) -> str:
     """Turn plain "page 03" / "पृष्ठ ०३" cross-references in text nodes into links."""
     num_to_slug = {num: ("index" if slug == "index" else slug) for slug, _f, num, *_ in PAGES}
@@ -329,7 +346,6 @@ SHELL = """<!DOCTYPE html>
     <nav class="snav" id="snav" aria-label="Site">
       {nav}
     </nav>
-    <div class="side-foot"><span id="progress"></span></div>
   </aside>
   <main id="main">
     <div class="topctrl" id="topctrl" aria-label="Language and theme">
@@ -344,6 +360,7 @@ SHELL = """<!DOCTYPE html>
     </div>
     <div class="wrap">
 {content}
+    <p class="progress"><span id="progress"></span></p>
     <nav class="pager" aria-label="Chapter">
     {pager}
     </nav>
@@ -437,7 +454,7 @@ def main() -> None:
             body,
         )
 
-        body = card_tables(link_page_refs(body))
+        body = info_popovers(card_tables(link_page_refs(body)))
         if slug == "index":
             content = f'<header class="hero">\n{hero}\n</header>\n<section id="map">\n{body}\n</section>'
         else:
@@ -469,7 +486,7 @@ def main() -> None:
                 f'<div class="pagehead"><span class="bignum" aria-hidden="true">{num}</span>'
                 f'<div class="kicker"><span class="en">Section {num}</span>'
                 f'<span class="ne">खण्ड {num.translate(NE_DIGITS)}</span>{readtime}</div></div>\n'
-                f'{gentle}<div class="pagetools">{LABELS_HELP}</div>\n'
+                f'{gentle}<div class="pagetools"></div>\n'
                 f'<section id="{fname}" style="margin-top:12px">\n{body}\n</section>\n{careline}'
             )
         title = "Mano Atlas" if slug == "index" else f"{en} · Mano Atlas"
@@ -479,7 +496,7 @@ def main() -> None:
             items = "".join(f'<li><a href="#{cid}"><span class="en">{te}</span><span class="ne">{tn}</span></a></li>' for cid, te, tn in cards)
             onpage = (f'<nav class="onpage" aria-label="On this page"><span class="onpage-h"><span class="en">On this page</span>'
                       f'<span class="ne">यस पृष्ठमा</span></span><ol>{items}</ol></nav>\n')
-            content = content.replace(LABELS_HELP + '</div>', LABELS_HELP + onpage + '</div>', 1)
+            content = content.replace('<div class="pagetools"></div>', '<div class="pagetools">' + onpage + '</div>', 1)
         secsub = re.search(r'<p class="secsub en">(.*?)</p>', body, re.S)
         page_desc = html_mod.escape(plain_text(secsub.group(1))[:200] if secsub else SITE_DESC)
         page_url = f'{SITE["site_url"]}/' if slug == "index" else f'{SITE["site_url"]}/{slug}'

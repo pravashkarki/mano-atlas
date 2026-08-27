@@ -198,3 +198,11 @@ document.addEventListener('click', function (e) {
   }
   if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', go); } else { go(); }
 })();
+
+/* ---- tags-and-codes popover: tap toggles, tap outside or Escape closes ---- */
+document.addEventListener('click', function (e) {
+  var b = e.target.closest ? e.target.closest('.info-btn') : null;
+  document.querySelectorAll('.info.open').forEach(function (o) { if (!b || o !== b.parentNode) { o.classList.remove('open'); o.querySelector('.info-btn').setAttribute('aria-expanded', 'false'); } });
+  if (b) { var w = b.parentNode, open = !w.classList.contains('open'); w.classList.toggle('open', open); b.setAttribute('aria-expanded', open ? 'true' : 'false'); }
+});
+document.addEventListener('keydown', function (e) { if (e.key === 'Escape') document.querySelectorAll('.info.open').forEach(function (o) { o.classList.remove('open'); }); });

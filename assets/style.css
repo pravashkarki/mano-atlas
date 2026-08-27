@@ -594,3 +594,23 @@ html[data-lang="ne"] .qz-opt{font-size:1.0625rem}
 }
 .topctrl-pill{margin-left:auto}
 .pagehead .bignum{top:34px}
+
+/* ===== tags-and-codes info popover in card heads ===== */
+.info{position:relative; display:inline-flex; align-items:center}
+.info-btn{border:0; background:transparent; color:var(--muted); padding:4px; border-radius:50%; cursor:pointer; display:inline-flex; line-height:0}
+.info-btn svg.lucide{width:16px; height:16px}
+.info-btn:hover,.info-btn:focus-visible,.info.open .info-btn{color:var(--accent); background:var(--surface2)}
+.info-pop{display:none; position:absolute; top:calc(100% + 8px); left:0; width:min(380px, 84vw); background:var(--surface); border:1px solid var(--line);
+  border-radius:10px; box-shadow:var(--shadow); padding:12px 14px; z-index:30; font-family:'Archivo',sans-serif; font-size:0.875rem; line-height:1.5; color:var(--ink); text-transform:none; letter-spacing:0; font-weight:400}
+html[data-lang="ne"] .info-pop{font-family:'Mukta','Noto Sans Devanagari',sans-serif; font-size:0.9375rem}
+.info-pop p{margin:0} .info-pop strong{font-weight:700}
+.info.open .info-pop{display:block}
+@media(hover:hover){ .info:hover .info-pop{display:block} }
+.info:focus-within .info-pop{display:block}
+.card-head .info{margin-left:2px}
+@media(max-width:640px){ .info-pop{left:auto; right:0} }
+
+/* reading progress sits just above the bottom pager */
+.progress{margin:44px 0 -40px; font-family:'IBM Plex Mono',monospace; font-size:0.6875rem; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); text-align:right}
+html[data-lang="ne"] .progress{font-family:'Mukta',sans-serif; font-size:0.8125rem; letter-spacing:0; text-transform:none}
+.progress:empty{display:none}
