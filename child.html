@@ -28,8 +28,9 @@
       <input id="q" type="search" autocomplete="off" spellcheck="false"
         placeholder="Search · खोज्नुहोस्" aria-label="Search the atlas">
       <div id="qres" class="qres" hidden></div>
+      <button id="btn-nav" class="navbtn" type="button" aria-expanded="false" aria-controls="snav"><svg class="lucide" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg><span class="en">Chapters</span><span class="ne">अध्याय</span></button>
     </div>
-    <nav class="snav" aria-label="Site">
+    <nav class="snav" id="snav" aria-label="Site">
       <details class="snav-sec" data-g="overview">
       <summary><span class="en">Overview</span><span class="ne">सिंहावलोकन</span><span class="count">5</span><svg class="lucide" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
       <div class="snav-links">
@@ -90,6 +91,7 @@
     <a class="next" href="eating.html"><span class="lbl"><span class="en">Next · 13</span><span class="ne">अर्को · १३</span><svg class="lucide" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span><span class="en">Eating disorders</span><span class="ne">खानपान विकार</span></a>
 </nav>
 <p class="gentle"><svg class="lucide" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 20h10"/><path d="M10 20c5.5-2.5.8-6.4 3-10"/><path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z"/><path d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4 1-4.9 2z"/></svg><span class="gentle-tx"><span class="en">A gentle note before you read: symptom lists make almost everyone recognise themselves somewhere. That is a normal effect of reading, not a diagnosis. If something here stays on your mind, a conversation with a professional helps more than re-reading.</span><span class="ne">पढ्नुअघि एउटा कोमल कुरा: लक्षण-सूची पढ्दा झन्डै सबैलाई कतै न कतै आफ्नै झल्को मिल्छ। त्यो पढाइको सामान्य असर हो, निदान होइन। कुनै कुरा मनमा अडिरह्यो भने फेरि-फेरि पढ्नुभन्दा पेसागत व्यक्तिसँगको कुराकानीले बढी सघाउँछ।</span></span></p>
+<details class="labels-help"><summary><svg class="lucide" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg><span class="en">What do the tags and codes on this page mean?</span><span class="ne">यस पृष्ठका ट्याग र कोडको अर्थ के हो?</span></summary><p class="en"><strong>CTEVT PSC curriculum</strong> marks content on the official Psychosocial Counselor syllabus, which can appear in the exam. <strong>Beyond curriculum</strong> is added for completeness: worth knowing, not examinable. A chip like <span class="code mono">296.2x · F32</span> is the diagnosis code: the DSM-5's older ICD-9-CM number first, then the ICD-10 "F-code" used in hospital records. Letters like <em>A.2</em> or <em>C.5</em> on the ethics page are section numbers of the ACA Code of Ethics. Readers who are not students can ignore all of these.</p><p class="ne"><strong>सीटीईभीटी पाठ्यक्रम</strong> ले आधिकारिक मनोसामाजिक परामर्शकर्ता पाठ्यक्रमभित्रको, परीक्षामा आउन सक्ने सामग्री जनाउँछ। <strong>पाठ्यक्रमभन्दा बाहिर</strong> पूर्णताका लागि थपिएको हो: जान्न लायक, परीक्षामा नआउने। <span class="code mono">296.2x · F32</span> जस्तो चिप निदान-कोड हो: पहिले DSM-5 को पुरानो ICD-9-CM नम्बर, अनि अस्पतालको रेकर्डमा प्रयोग हुने ICD-10 «एफ-कोड»। नैतिकता-पृष्ठका <em>A.2</em> वा <em>C.5</em> जस्ता अक्षर एसीए नैतिक संहिताका खण्ड-नम्बर हुन्। विद्यार्थी नभएका पाठकले यी सबै बेवास्ता गरे हुन्छ।</p></details>
 <section id="child" style="margin-top:12px">
 <div class="sechead"><span class="catmark" style="background:var(--c-chi)"></span><span class="secnum">12</span>
     <h2><span class="en">Child mental illness &amp; neurodevelopmental disorders</span><span class="ne">बालबालिकाको मानसिक समस्या र स्नायु-विकासात्मक विकार</span></h2>
@@ -120,20 +122,16 @@
         <p class="note ne">गम्भीरता, हल्का / मध्यम / गम्भीर / अति गम्भीर, <strong>अनुकूली कार्य र चाहिने सहयोग</strong>ले निर्धारण हुन्छ, IQ ले मात्र होइन। कारण: आनुवंशिक (डाउन, फ्र्याजाइल-एक्स, पीकेयू) · गर्भावस्था (रुबेला, रक्सी, कुपोषण) · जन्मका बेला (अक्सिजन अभाव, समयअगावै जन्म) · जन्मपछि (मेनिन्जाइटिस, टाउकोको चोट, सिसा, चरम उपेक्षा)। यो स्थायी विकासात्मक अवस्था हो, घटबढ हुने रोग होइन, परामर्शकर्ताको काम: पारिवारिक मनोशिक्षा (कर्म/श्रापको व्याख्या हटाउने), हेरचाहकर्तासँग सीप-निर्माण (काम टुक्र्याउने, पुरस्कार, दृश्य-तालिका), अपाङ्गता परिचयपत्र र विशेष शिक्षाको वकालत, र हेरचाहकर्ताकै भावनात्मक सहयोग।</p>
       </div>
       <div class="tblwrap">
-        <table class="data en">
-          <tr><th>Aspect</th><th>Intellectual disability</th><th>Mental illness</th></tr>
-          <tr><td>Nature</td><td>Developmental limitation in intelligence &amp; adaptive skills</td><td>Disturbance of mood, thinking, or behaviour</td></tr>
-          <tr><td>Onset</td><td>During the developmental period</td><td>Any point in life</td></tr>
-          <tr><td>Course</td><td>Permanent state; skills can grow with support</td><td>Episodes that can remit, relapse, be treated</td></tr>
-          <tr><td>Main response</td><td>Skill training, environmental support, inclusion</td><td>Therapy, medication, recovery-oriented care</td></tr>
-        </table>
-        <table class="data ne">
-          <tr><th>पक्ष</th><th>बौद्धिक अपाङ्गता</th><th>मानसिक रोग</th></tr>
-          <tr><td>स्वरूप</td><td>बुद्धि र अनुकूली सीपको विकासात्मक सीमा</td><td>मन, सोच वा व्यवहारको गडबडी</td></tr>
-          <tr><td>सुरुवात</td><td>विकासात्मक अवधिमा (बाल्यकाल वा किशोरावस्था)</td><td>जीवनको जुनसुकै समय</td></tr>
-          <tr><td>क्रम</td><td>स्थायी अवस्था; सहयोगले सीप बढ्छ</td><td>एपिसोड, निको हुने, फर्कने, उपचार हुने</td></tr>
-          <tr><td>मुख्य प्रतिक्रिया</td><td>सीप तालिम, वातावरणीय सहयोग, समावेश</td><td>थेरापी, औषधि, पुनर्लाभ-केन्द्रित सेवा</td></tr>
-        </table>
+        <table class="data cardy en"><tr><th>Aspect</th><th>Intellectual disability</th><th>Mental illness</th></tr>
+<tr><td data-label="Aspect">Nature</td><td data-label="Intellectual disability">Developmental limitation in intelligence &amp; adaptive skills</td><td data-label="Mental illness">Disturbance of mood, thinking, or behaviour</td></tr>
+<tr><td data-label="Aspect">Onset</td><td data-label="Intellectual disability">During the developmental period</td><td data-label="Mental illness">Any point in life</td></tr>
+<tr><td data-label="Aspect">Course</td><td data-label="Intellectual disability">Permanent state; skills can grow with support</td><td data-label="Mental illness">Episodes that can remit, relapse, be treated</td></tr>
+<tr><td data-label="Aspect">Main response</td><td data-label="Intellectual disability">Skill training, environmental support, inclusion</td><td data-label="Mental illness">Therapy, medication, recovery-oriented care</td></tr></table>
+        <table class="data cardy ne"><tr><th>पक्ष</th><th>बौद्धिक अपाङ्गता</th><th>मानसिक रोग</th></tr>
+<tr><td data-label="पक्ष">स्वरूप</td><td data-label="बौद्धिक अपाङ्गता">बुद्धि र अनुकूली सीपको विकासात्मक सीमा</td><td data-label="मानसिक रोग">मन, सोच वा व्यवहारको गडबडी</td></tr>
+<tr><td data-label="पक्ष">सुरुवात</td><td data-label="बौद्धिक अपाङ्गता">विकासात्मक अवधिमा (बाल्यकाल वा किशोरावस्था)</td><td data-label="मानसिक रोग">जीवनको जुनसुकै समय</td></tr>
+<tr><td data-label="पक्ष">क्रम</td><td data-label="बौद्धिक अपाङ्गता">स्थायी अवस्था; सहयोगले सीप बढ्छ</td><td data-label="मानसिक रोग">एपिसोड, निको हुने, फर्कने, उपचार हुने</td></tr>
+<tr><td data-label="पक्ष">मुख्य प्रतिक्रिया</td><td data-label="बौद्धिक अपाङ्गता">सीप तालिम, वातावरणीय सहयोग, समावेश</td><td data-label="मानसिक रोग">थेरापी, औषधि, पुनर्लाभ-केन्द्रित सेवा</td></tr></table>
       </div>
     </div>
   </article>

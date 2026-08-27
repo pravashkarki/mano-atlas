@@ -49,7 +49,7 @@ function cycleTheme() {
     var mobile = window.matchMedia('(max-width: 900px)').matches;
     secs.forEach(function (d) {
       var g = d.dataset.g;
-      if (mobile) { d.open = true; return; }
+      if (mobile) { d.open = !!d.querySelector('a.active'); return; }
       if (d.querySelector('a.active')) { d.open = true; }        /* never hide where you are */
       else if (g in saved) { d.open = !!saved[g]; }
       d.addEventListener('toggle', function () {
@@ -58,6 +58,21 @@ function cycleTheme() {
         state[g] = d.open;
         try { localStorage.setItem('psc-nav', JSON.stringify(state)); } catch (e) {}
       });
+    });
+  }
+  if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', go); } else { go(); }
+})();
+
+/* ---- mobile chapter drawer ---- */
+(function () {
+  function go() {
+    var btn = document.getElementById('btn-nav'), side = document.querySelector('.sidebar');
+    if (!btn || !side) return;
+    function set(open) { side.classList.toggle('nav-open', open); btn.setAttribute('aria-expanded', open ? 'true' : 'false'); }
+    btn.addEventListener('click', function () { set(!side.classList.contains('nav-open')); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') set(false); });
+    document.addEventListener('click', function (e) {
+      if (side.classList.contains('nav-open') && e.target.closest && !e.target.closest('.sidebar')) set(false);
     });
   }
   if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', go); } else { go(); }

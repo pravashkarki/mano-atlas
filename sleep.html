@@ -28,8 +28,9 @@
       <input id="q" type="search" autocomplete="off" spellcheck="false"
         placeholder="Search · खोज्नुहोस्" aria-label="Search the atlas">
       <div id="qres" class="qres" hidden></div>
+      <button id="btn-nav" class="navbtn" type="button" aria-expanded="false" aria-controls="snav"><svg class="lucide" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg><span class="en">Chapters</span><span class="ne">अध्याय</span></button>
     </div>
-    <nav class="snav" aria-label="Site">
+    <nav class="snav" id="snav" aria-label="Site">
       <details class="snav-sec" data-g="overview">
       <summary><span class="en">Overview</span><span class="ne">सिंहावलोकन</span><span class="count">5</span><svg class="lucide" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
       <div class="snav-links">
@@ -90,6 +91,7 @@
     <a class="next" href="substance.html"><span class="lbl"><span class="en">Next · 15</span><span class="ne">अर्को · १५</span><svg class="lucide" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span><span class="en">Substance use</span><span class="ne">लागुपदार्थ प्रयोग</span></a>
 </nav>
 <p class="gentle"><svg class="lucide" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 20h10"/><path d="M10 20c5.5-2.5.8-6.4 3-10"/><path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z"/><path d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4 1-4.9 2z"/></svg><span class="gentle-tx"><span class="en">A gentle note before you read: symptom lists make almost everyone recognise themselves somewhere. That is a normal effect of reading, not a diagnosis. If something here stays on your mind, a conversation with a professional helps more than re-reading.</span><span class="ne">पढ्नुअघि एउटा कोमल कुरा: लक्षण-सूची पढ्दा झन्डै सबैलाई कतै न कतै आफ्नै झल्को मिल्छ। त्यो पढाइको सामान्य असर हो, निदान होइन। कुनै कुरा मनमा अडिरह्यो भने फेरि-फेरि पढ्नुभन्दा पेसागत व्यक्तिसँगको कुराकानीले बढी सघाउँछ।</span></span></p>
+<details class="labels-help"><summary><svg class="lucide" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg><span class="en">What do the tags and codes on this page mean?</span><span class="ne">यस पृष्ठका ट्याग र कोडको अर्थ के हो?</span></summary><p class="en"><strong>CTEVT PSC curriculum</strong> marks content on the official Psychosocial Counselor syllabus, which can appear in the exam. <strong>Beyond curriculum</strong> is added for completeness: worth knowing, not examinable. A chip like <span class="code mono">296.2x · F32</span> is the diagnosis code: the DSM-5's older ICD-9-CM number first, then the ICD-10 "F-code" used in hospital records. Letters like <em>A.2</em> or <em>C.5</em> on the ethics page are section numbers of the ACA Code of Ethics. Readers who are not students can ignore all of these.</p><p class="ne"><strong>सीटीईभीटी पाठ्यक्रम</strong> ले आधिकारिक मनोसामाजिक परामर्शकर्ता पाठ्यक्रमभित्रको, परीक्षामा आउन सक्ने सामग्री जनाउँछ। <strong>पाठ्यक्रमभन्दा बाहिर</strong> पूर्णताका लागि थपिएको हो: जान्न लायक, परीक्षामा नआउने। <span class="code mono">296.2x · F32</span> जस्तो चिप निदान-कोड हो: पहिले DSM-5 को पुरानो ICD-9-CM नम्बर, अनि अस्पतालको रेकर्डमा प्रयोग हुने ICD-10 «एफ-कोड»। नैतिकता-पृष्ठका <em>A.2</em> वा <em>C.5</em> जस्ता अक्षर एसीए नैतिक संहिताका खण्ड-नम्बर हुन्। विद्यार्थी नभएका पाठकले यी सबै बेवास्ता गरे हुन्छ।</p></details>
 <section id="sleep" style="margin-top:12px">
 <div class="sechead"><span class="catmark" style="background:var(--c-slp)"></span><span class="secnum">14</span>
     <h2><span class="en">Sleep-wake disorders</span><span class="ne">निद्रा-जागरण विकारहरू</span></h2>
@@ -175,28 +177,24 @@
         </ol>
       </div>
       <div class="tblwrap">
-        <table class="data en">
-          <tr><th>Disorder</th><th>Code</th><th>Core feature</th></tr>
-          <tr><td>Hypersomnolence disorder</td><td class="mono">F51.11</td><td>Excessive sleepiness despite ≥7 h sleep; unrefreshing naps</td></tr>
-          <tr><td>Narcolepsy</td><td class="mono">G47.41x</td><td>Irresistible sleep attacks + cataplexy / hypocretin deficiency / SOREMPs</td></tr>
-          <tr><td>Obstructive sleep apnoea</td><td class="mono">G47.33</td><td>≥5 apnoeas-hypopnoeas/hour + snoring or daytime sleepiness, or ≥15/hour regardless of symptoms</td></tr>
-          <tr><td>Circadian rhythm disorders</td><td class="mono">G47.2x</td><td>Body clock misaligned with required schedule (shift work, delayed phase)</td></tr>
-          <tr><td>NREM arousal disorders</td><td class="mono">F51.3/.4</td><td>Sleepwalking · sleep terrors: first third of night, no recall</td></tr>
-          <tr><td>Nightmare disorder</td><td class="mono">F51.5</td><td>Extended dysphoric dreams, second half of night, vivid recall</td></tr>
-          <tr><td>REM sleep behaviour disorder</td><td class="mono">G47.52</td><td>Dream enactment: REM without muscle paralysis</td></tr>
-          <tr><td>Restless legs syndrome</td><td class="mono">G25.81</td><td>Urge to move legs, worse at rest and night, relieved by movement</td></tr>
-        </table>
-        <table class="data ne">
-          <tr><th>विकार</th><th>कोड</th><th>मुख्य लक्षण</th></tr>
-          <tr><td>अति-निद्रा विकार</td><td class="mono">F51.11</td><td>≥७ घण्टा सुते पनि अत्यधिक निद्रा; झपक्क निदाएर पनि ताजगी नहुने</td></tr>
-          <tr><td>नार्कोलेप्सी</td><td class="mono">G47.41x</td><td>रोक्नै नसकिने निद्रा-आक्रमण + हाँस्दा शरीर गल्ने (क्याटाप्लेक्सी)</td></tr>
-          <tr><td>अब्सट्रक्टिभ स्लिप एप्निया</td><td class="mono">G47.33</td><td>प्रति घण्टा ≥५ पटक सास रोकिने + घुर्ने वा दिउँसो निद्रा, वा लक्षण जेसुकै होस् प्रति घण्टा ≥१५</td></tr>
-          <tr><td>सर्केडियन लय विकार</td><td class="mono">G47.2x</td><td>शरीर-घडी र चाहिने तालिकाको बेमेल (रात्रि-पाली, ढिलो-चरण)</td></tr>
-          <tr><td>NREM जागरण विकार</td><td class="mono">F51.3/.4</td><td>निद्रामा हिँड्ने · निद्रा-त्रास, रातको पहिलो तिहाइ, सम्झना हुँदैन</td></tr>
-          <tr><td>डरलाग्दो-सपना विकार</td><td class="mono">F51.5</td><td>लामा, पीडादायी सपना, रातको दोस्रो आधा, स्पष्ट सम्झना</td></tr>
-          <tr><td>REM व्यवहार विकार</td><td class="mono">G47.52</td><td>सपना «अभिनय» गर्ने: REM मा मांसपेशी पक्षाघात नहुने</td></tr>
-          <tr><td>रेस्टलेस लेग्स</td><td class="mono">G25.81</td><td>खुट्टा चलाउनैपर्ने छटपटी, आराममा र राति बढ्ने, चलाउँदा कम</td></tr>
-        </table>
+        <table class="data cardy en"><tr><th>Disorder</th><th>Code</th><th>Core feature</th></tr>
+<tr><td data-label="Disorder">Hypersomnolence disorder</td><td class="mono">F51.11</td><td data-label="Code">Excessive sleepiness despite ≥7 h sleep; unrefreshing naps</td></tr>
+<tr><td data-label="Disorder">Narcolepsy</td><td class="mono">G47.41x</td><td data-label="Code">Irresistible sleep attacks + cataplexy / hypocretin deficiency / SOREMPs</td></tr>
+<tr><td data-label="Disorder">Obstructive sleep apnoea</td><td class="mono">G47.33</td><td data-label="Code">≥5 apnoeas-hypopnoeas/hour + snoring or daytime sleepiness, or ≥15/hour regardless of symptoms</td></tr>
+<tr><td data-label="Disorder">Circadian rhythm disorders</td><td class="mono">G47.2x</td><td data-label="Code">Body clock misaligned with required schedule (shift work, delayed phase)</td></tr>
+<tr><td data-label="Disorder">NREM arousal disorders</td><td class="mono">F51.3/.4</td><td data-label="Code">Sleepwalking · sleep terrors: first third of night, no recall</td></tr>
+<tr><td data-label="Disorder">Nightmare disorder</td><td class="mono">F51.5</td><td data-label="Code">Extended dysphoric dreams, second half of night, vivid recall</td></tr>
+<tr><td data-label="Disorder">REM sleep behaviour disorder</td><td class="mono">G47.52</td><td data-label="Code">Dream enactment: REM without muscle paralysis</td></tr>
+<tr><td data-label="Disorder">Restless legs syndrome</td><td class="mono">G25.81</td><td data-label="Code">Urge to move legs, worse at rest and night, relieved by movement</td></tr></table>
+        <table class="data cardy ne"><tr><th>विकार</th><th>कोड</th><th>मुख्य लक्षण</th></tr>
+<tr><td data-label="विकार">अति-निद्रा विकार</td><td class="mono">F51.11</td><td data-label="कोड">≥७ घण्टा सुते पनि अत्यधिक निद्रा; झपक्क निदाएर पनि ताजगी नहुने</td></tr>
+<tr><td data-label="विकार">नार्कोलेप्सी</td><td class="mono">G47.41x</td><td data-label="कोड">रोक्नै नसकिने निद्रा-आक्रमण + हाँस्दा शरीर गल्ने (क्याटाप्लेक्सी)</td></tr>
+<tr><td data-label="विकार">अब्सट्रक्टिभ स्लिप एप्निया</td><td class="mono">G47.33</td><td data-label="कोड">प्रति घण्टा ≥५ पटक सास रोकिने + घुर्ने वा दिउँसो निद्रा, वा लक्षण जेसुकै होस् प्रति घण्टा ≥१५</td></tr>
+<tr><td data-label="विकार">सर्केडियन लय विकार</td><td class="mono">G47.2x</td><td data-label="कोड">शरीर-घडी र चाहिने तालिकाको बेमेल (रात्रि-पाली, ढिलो-चरण)</td></tr>
+<tr><td data-label="विकार">NREM जागरण विकार</td><td class="mono">F51.3/.4</td><td data-label="कोड">निद्रामा हिँड्ने · निद्रा-त्रास, रातको पहिलो तिहाइ, सम्झना हुँदैन</td></tr>
+<tr><td data-label="विकार">डरलाग्दो-सपना विकार</td><td class="mono">F51.5</td><td data-label="कोड">लामा, पीडादायी सपना, रातको दोस्रो आधा, स्पष्ट सम्झना</td></tr>
+<tr><td data-label="विकार">REM व्यवहार विकार</td><td class="mono">G47.52</td><td data-label="कोड">सपना «अभिनय» गर्ने: REM मा मांसपेशी पक्षाघात नहुने</td></tr>
+<tr><td data-label="विकार">रेस्टलेस लेग्स</td><td class="mono">G25.81</td><td data-label="कोड">खुट्टा चलाउनैपर्ने छटपटी, आराममा र राति बढ्ने, चलाउँदा कम</td></tr></table>
       </div>
       <div class="ctx nepal">
         <div class="ctx-label"><span class="en">Nepal</span><span class="ne">नेपाल</span></div>

@@ -28,8 +28,9 @@
       <input id="q" type="search" autocomplete="off" spellcheck="false"
         placeholder="Search · खोज्नुहोस्" aria-label="Search the atlas">
       <div id="qres" class="qres" hidden></div>
+      <button id="btn-nav" class="navbtn" type="button" aria-expanded="false" aria-controls="snav"><svg class="lucide" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg><span class="en">Chapters</span><span class="ne">अध्याय</span></button>
     </div>
-    <nav class="snav" aria-label="Site">
+    <nav class="snav" id="snav" aria-label="Site">
       <details class="snav-sec" data-g="overview" open>
       <summary><span class="en">Overview</span><span class="ne">सिंहावलोकन</span><span class="count">5</span><svg class="lucide" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
       <div class="snav-links">
@@ -89,6 +90,7 @@
 <a class="prev" href="basics.html"><span class="lbl"><svg class="lucide" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg><span class="en">Previous · 04</span><span class="ne">अघिल्लो · ०४</span></span><span class="en">Mental health basics</span><span class="ne">मानसिक स्वास्थ्यका आधार</span></a>
     <a class="next" href="anxiety.html"><span class="lbl"><span class="en">Next · 06</span><span class="ne">अर्को · ०६</span><svg class="lucide" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span><span class="en">Anxiety disorders</span><span class="ne">चिन्ता विकारहरू</span></a>
 </nav>
+<details class="labels-help"><summary><svg class="lucide" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg><span class="en">What do the tags and codes on this page mean?</span><span class="ne">यस पृष्ठका ट्याग र कोडको अर्थ के हो?</span></summary><p class="en"><strong>CTEVT PSC curriculum</strong> marks content on the official Psychosocial Counselor syllabus, which can appear in the exam. <strong>Beyond curriculum</strong> is added for completeness: worth knowing, not examinable. A chip like <span class="code mono">296.2x · F32</span> is the diagnosis code: the DSM-5's older ICD-9-CM number first, then the ICD-10 "F-code" used in hospital records. Letters like <em>A.2</em> or <em>C.5</em> on the ethics page are section numbers of the ACA Code of Ethics. Readers who are not students can ignore all of these.</p><p class="ne"><strong>सीटीईभीटी पाठ्यक्रम</strong> ले आधिकारिक मनोसामाजिक परामर्शकर्ता पाठ्यक्रमभित्रको, परीक्षामा आउन सक्ने सामग्री जनाउँछ। <strong>पाठ्यक्रमभन्दा बाहिर</strong> पूर्णताका लागि थपिएको हो: जान्न लायक, परीक्षामा नआउने। <span class="code mono">296.2x · F32</span> जस्तो चिप निदान-कोड हो: पहिले DSM-5 को पुरानो ICD-9-CM नम्बर, अनि अस्पतालको रेकर्डमा प्रयोग हुने ICD-10 «एफ-कोड»। नैतिकता-पृष्ठका <em>A.2</em> वा <em>C.5</em> जस्ता अक्षर एसीए नैतिक संहिताका खण्ड-नम्बर हुन्। विद्यार्थी नभएका पाठकले यी सबै बेवास्ता गरे हुन्छ।</p></details>
 <section id="development" style="margin-top:12px">
 <div class="sechead"><span class="secnum">05</span>
   <h2><span class="en">Human development &amp; human needs</span><span class="ne">मानव विकास र मानव आवश्यकता</span></h2>
@@ -143,28 +145,24 @@
     <p class="en">Each stage is a crisis between two poles; resolving it grows a strength ("virtue"), failing it leaves a hazard the counselor will meet years later. Ages are approximate.</p>
     <p class="ne">हरेक चरण दुई ध्रुवबीचको सङ्कट हो; समाधान भए शक्ति («गुण») बढ्छ, नभए वर्षौंपछि परामर्शकर्ताले भेट्ने जोखिम बाँकी रहन्छ। उमेर अनुमानित हुन्।</p>
     <div class="tblwrap">
-      <table class="data en">
-        <tr><th>Stage · age</th><th>Crisis</th><th>Virtue</th><th>If it fails: what walks into your room</th></tr>
-        <tr><td>1 · 0–1½</td><td>Trust vs mistrust</td><td>Hope</td><td>Difficulty trusting anyone: including the counselor</td></tr>
-        <tr><td>2 · 1½–3</td><td>Autonomy vs shame &amp; doubt</td><td>Will</td><td>Chronic shame, indecision, over-control</td></tr>
-        <tr><td>3 · 3–5</td><td>Initiative vs guilt</td><td>Purpose</td><td>Guilt at wanting anything for oneself</td></tr>
-        <tr><td>4 · 6–12</td><td>Industry vs inferiority</td><td>Competence</td><td>"I am not capable": school failure identity</td></tr>
-        <tr><td>5 · 12–18</td><td>Identity vs role confusion</td><td>Fidelity</td><td>Drift, peer-pressure vulnerability, identity crises</td></tr>
-        <tr><td>6 · 18–40</td><td>Intimacy vs isolation</td><td>Love</td><td>Loneliness, failed closeness, even inside marriage</td></tr>
-        <tr><td>7 · 40–65</td><td>Generativity vs stagnation</td><td>Care</td><td>"What is my life for?": midlife emptiness</td></tr>
-        <tr><td>8 · 65+</td><td>Integrity vs despair</td><td>Wisdom</td><td>Bitterness and despair when looking back</td></tr>
-      </table>
-      <table class="data ne">
-        <tr><th>चरण · उमेर</th><th>सङ्कट</th><th>गुण</th><th>असफल भए, तपाईंको कोठामा के आउँछ</th></tr>
-        <tr><td>१ · ०–१½</td><td>विश्वास वि. अविश्वास</td><td>आशा</td><td>कसैलाई विश्वास गर्नै गाह्रो, परामर्शकर्तालाई समेत</td></tr>
-        <tr><td>२ · १½–३</td><td>स्वायत्तता वि. लाज-शंका</td><td>इच्छाशक्ति</td><td>दीर्घ लाज, निर्णयहीनता</td></tr>
-        <tr><td>३ · ३–५</td><td>पहल वि. अपराधबोध</td><td>उद्देश्य</td><td>आफ्ना लागि केही चाहँदा पनि दोषी महसुस</td></tr>
-        <tr><td>४ · ६–१२</td><td>उद्यम वि. हीनता</td><td>सक्षमता</td><td>«म सक्दिनँ», विद्यालय-असफलताको पहिचान</td></tr>
-        <tr><td>५ · १२–१८</td><td>पहिचान वि. भूमिका-अन्योल</td><td>निष्ठा</td><td>दिशाहीनता, साथी-दबाबमा जोखिम</td></tr>
-        <tr><td>६ · १८–४०</td><td>घनिष्ठता वि. एक्लोपन</td><td>प्रेम</td><td>एक्लोपन, विवाहभित्रै पनि</td></tr>
-        <tr><td>७ · ४०–६५</td><td>सृजनशीलता वि. ठहराव</td><td>हेरचाह</td><td>«मेरो जीवन केका लागि?», मध्य-जीवन रिक्तता</td></tr>
-        <tr><td>८ · ६५+</td><td>अखण्डता वि. निराशा</td><td>बुद्धिमत्ता</td><td>फर्केर हेर्दा तिक्तता र निराशा</td></tr>
-      </table>
+      <table class="data cardy en"><tr><th>Stage · age</th><th>Crisis</th><th>Virtue</th><th>If it fails: what walks into your room</th></tr>
+<tr><td data-label="Stage · age">1 · 0–1½</td><td data-label="Crisis">Trust vs mistrust</td><td data-label="Virtue">Hope</td><td data-label="If it fails: what walks into your room">Difficulty trusting anyone: including the counselor</td></tr>
+<tr><td data-label="Stage · age">2 · 1½–3</td><td data-label="Crisis">Autonomy vs shame &amp; doubt</td><td data-label="Virtue">Will</td><td data-label="If it fails: what walks into your room">Chronic shame, indecision, over-control</td></tr>
+<tr><td data-label="Stage · age">3 · 3–5</td><td data-label="Crisis">Initiative vs guilt</td><td data-label="Virtue">Purpose</td><td data-label="If it fails: what walks into your room">Guilt at wanting anything for oneself</td></tr>
+<tr><td data-label="Stage · age">4 · 6–12</td><td data-label="Crisis">Industry vs inferiority</td><td data-label="Virtue">Competence</td><td data-label="If it fails: what walks into your room">"I am not capable": school failure identity</td></tr>
+<tr><td data-label="Stage · age">5 · 12–18</td><td data-label="Crisis">Identity vs role confusion</td><td data-label="Virtue">Fidelity</td><td data-label="If it fails: what walks into your room">Drift, peer-pressure vulnerability, identity crises</td></tr>
+<tr><td data-label="Stage · age">6 · 18–40</td><td data-label="Crisis">Intimacy vs isolation</td><td data-label="Virtue">Love</td><td data-label="If it fails: what walks into your room">Loneliness, failed closeness, even inside marriage</td></tr>
+<tr><td data-label="Stage · age">7 · 40–65</td><td data-label="Crisis">Generativity vs stagnation</td><td data-label="Virtue">Care</td><td data-label="If it fails: what walks into your room">"What is my life for?": midlife emptiness</td></tr>
+<tr><td data-label="Stage · age">8 · 65+</td><td data-label="Crisis">Integrity vs despair</td><td data-label="Virtue">Wisdom</td><td data-label="If it fails: what walks into your room">Bitterness and despair when looking back</td></tr></table>
+      <table class="data cardy ne"><tr><th>चरण · उमेर</th><th>सङ्कट</th><th>गुण</th><th>असफल भए, तपाईंको कोठामा के आउँछ</th></tr>
+<tr><td data-label="चरण · उमेर">१ · ०–१½</td><td data-label="सङ्कट">विश्वास वि. अविश्वास</td><td data-label="गुण">आशा</td><td data-label="असफल भए, तपाईंको कोठामा के आउँछ">कसैलाई विश्वास गर्नै गाह्रो, परामर्शकर्तालाई समेत</td></tr>
+<tr><td data-label="चरण · उमेर">२ · १½–३</td><td data-label="सङ्कट">स्वायत्तता वि. लाज-शंका</td><td data-label="गुण">इच्छाशक्ति</td><td data-label="असफल भए, तपाईंको कोठामा के आउँछ">दीर्घ लाज, निर्णयहीनता</td></tr>
+<tr><td data-label="चरण · उमेर">३ · ३–५</td><td data-label="सङ्कट">पहल वि. अपराधबोध</td><td data-label="गुण">उद्देश्य</td><td data-label="असफल भए, तपाईंको कोठामा के आउँछ">आफ्ना लागि केही चाहँदा पनि दोषी महसुस</td></tr>
+<tr><td data-label="चरण · उमेर">४ · ६–१२</td><td data-label="सङ्कट">उद्यम वि. हीनता</td><td data-label="गुण">सक्षमता</td><td data-label="असफल भए, तपाईंको कोठामा के आउँछ">«म सक्दिनँ», विद्यालय-असफलताको पहिचान</td></tr>
+<tr><td data-label="चरण · उमेर">५ · १२–१८</td><td data-label="सङ्कट">पहिचान वि. भूमिका-अन्योल</td><td data-label="गुण">निष्ठा</td><td data-label="असफल भए, तपाईंको कोठामा के आउँछ">दिशाहीनता, साथी-दबाबमा जोखिम</td></tr>
+<tr><td data-label="चरण · उमेर">६ · १८–४०</td><td data-label="सङ्कट">घनिष्ठता वि. एक्लोपन</td><td data-label="गुण">प्रेम</td><td data-label="असफल भए, तपाईंको कोठामा के आउँछ">एक्लोपन, विवाहभित्रै पनि</td></tr>
+<tr><td data-label="चरण · उमेर">७ · ४०–६५</td><td data-label="सङ्कट">सृजनशीलता वि. ठहराव</td><td data-label="गुण">हेरचाह</td><td data-label="असफल भए, तपाईंको कोठामा के आउँछ">«मेरो जीवन केका लागि?», मध्य-जीवन रिक्तता</td></tr>
+<tr><td data-label="चरण · उमेर">८ · ६५+</td><td data-label="सङ्कट">अखण्डता वि. निराशा</td><td data-label="गुण">बुद्धिमत्ता</td><td data-label="असफल भए, तपाईंको कोठामा के आउँछ">फर्केर हेर्दा तिक्तता र निराशा</td></tr></table>
     </div>
     <details class="quiz">
       <summary><span class="en">Test yourself</span><span class="ne">आफैंलाई जाँच्नुहोस्</span></summary>

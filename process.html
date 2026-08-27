@@ -28,8 +28,9 @@
       <input id="q" type="search" autocomplete="off" spellcheck="false"
         placeholder="Search · खोज्नुहोस्" aria-label="Search the atlas">
       <div id="qres" class="qres" hidden></div>
+      <button id="btn-nav" class="navbtn" type="button" aria-expanded="false" aria-controls="snav"><svg class="lucide" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg><span class="en">Chapters</span><span class="ne">अध्याय</span></button>
     </div>
-    <nav class="snav" aria-label="Site">
+    <nav class="snav" id="snav" aria-label="Site">
       <details class="snav-sec" data-g="overview">
       <summary><span class="en">Overview</span><span class="ne">सिंहावलोकन</span><span class="count">5</span><svg class="lucide" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
       <div class="snav-links">
@@ -89,6 +90,7 @@
 <a class="prev" href="skills.html"><span class="lbl"><svg class="lucide" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg><span class="en">Previous · 18</span><span class="ne">अघिल्लो · १८</span></span><span class="en">Communication skills</span><span class="ne">संवाद-सीप</span></a>
     <a class="next" href="tools.html"><span class="lbl"><span class="en">Next · 20</span><span class="ne">अर्को · २०</span><svg class="lucide" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span><span class="en">Tools & techniques</span><span class="ne">औजार र प्रविधि</span></a>
 </nav>
+<details class="labels-help"><summary><svg class="lucide" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg><span class="en">What do the tags and codes on this page mean?</span><span class="ne">यस पृष्ठका ट्याग र कोडको अर्थ के हो?</span></summary><p class="en"><strong>CTEVT PSC curriculum</strong> marks content on the official Psychosocial Counselor syllabus, which can appear in the exam. <strong>Beyond curriculum</strong> is added for completeness: worth knowing, not examinable. A chip like <span class="code mono">296.2x · F32</span> is the diagnosis code: the DSM-5's older ICD-9-CM number first, then the ICD-10 "F-code" used in hospital records. Letters like <em>A.2</em> or <em>C.5</em> on the ethics page are section numbers of the ACA Code of Ethics. Readers who are not students can ignore all of these.</p><p class="ne"><strong>सीटीईभीटी पाठ्यक्रम</strong> ले आधिकारिक मनोसामाजिक परामर्शकर्ता पाठ्यक्रमभित्रको, परीक्षामा आउन सक्ने सामग्री जनाउँछ। <strong>पाठ्यक्रमभन्दा बाहिर</strong> पूर्णताका लागि थपिएको हो: जान्न लायक, परीक्षामा नआउने। <span class="code mono">296.2x · F32</span> जस्तो चिप निदान-कोड हो: पहिले DSM-5 को पुरानो ICD-9-CM नम्बर, अनि अस्पतालको रेकर्डमा प्रयोग हुने ICD-10 «एफ-कोड»। नैतिकता-पृष्ठका <em>A.2</em> वा <em>C.5</em> जस्ता अक्षर एसीए नैतिक संहिताका खण्ड-नम्बर हुन्। विद्यार्थी नभएका पाठकले यी सबै बेवास्ता गरे हुन्छ।</p></details>
 <section id="process" style="margin-top:12px">
 <div class="sechead"><span class="secnum">19</span>
   <h2><span class="en">The counselling process: rapport to termination</span><span class="ne">परामर्श-प्रक्रिया, सम्बन्धदेखि समापनसम्म</span></h2>
@@ -103,24 +105,20 @@
   </div>
   <div class="card-body">
     <div class="tblwrap">
-      <table class="data en">
-        <tr><th>Stage</th><th>Tasks (curriculum numbering)</th><th>The one thing that matters most</th></tr>
-        <tr><td>1 · Build rapport</td><td>Set environment · identify client · introduce yourself · explain confidentiality and its limits · ask expectations · explain what counselling is (1–6)</td><td>Safety. No technique works before trust</td></tr>
-        <tr><td>2 · Assess</td><td>Psychosocial problems (4 dimensions + frequency + intensity) · daily functioning · family environment · work/school · childhood &amp; attachments · decision-making · <strong>suicidal thoughts: every client</strong> · coping · social support (me-map) · psychotic features (hallucination, delusion, orientation) (7–16)</td><td>Function beats symptom-lists: what can the person no longer do?</td></tr>
-        <tr><td>3 · Formulate</td><td>Identify core problems · make the 4-factor formulation (17–18)</td><td>See the diagram below: this is the exam's favourite question</td></tr>
-        <tr><td>4 · Plan</td><td>Set SMART goals with the client, prioritised (19)</td><td>The client's goals, not yours</td></tr>
-        <tr><td>5 · Intervene</td><td>Implement strategies · evaluate each session (20–21)</td><td>Small, reviewed steps; adjust what isn't working</td></tr>
-        <tr><td>6 · Close</td><td>Follow up · terminate by mutual agreement · manage the counselor-client relationship throughout (22–24)</td><td>Endings are planned, never abrupt: abandonment harms</td></tr>
-      </table>
-      <table class="data ne">
-        <tr><th>चरण</th><th>कार्यहरू</th><th>सबैभन्दा महत्त्वपूर्ण कुरा</th></tr>
-        <tr><td>१ · सम्बन्ध निर्माण</td><td>वातावरण मिलाउने · सेवाग्राही चिन्ने · आफ्नो परिचय · गोपनीयता र यसका सीमा बताउने · अपेक्षा सोध्ने · परामर्श के हो बुझाउने (१–६)</td><td>सुरक्षा। विश्वासअघि कुनै प्रविधि चल्दैन</td></tr>
-        <tr><td>२ · मूल्याङ्कन</td><td>मनोसामाजिक समस्या (४ आयाम + आवृत्ति + तीव्रता) · दैनिक कामकाज · पारिवारिक वातावरण · काम/विद्यालय · बाल्यकाल र आसक्ति · निर्णय-क्षमता · <strong>आत्महत्या-विचार, हरेक सेवाग्राहीमा</strong> · सामना-शैली · सामाजिक सहयोग (मी-म्याप) · मनोविकृति-लक्षण (७–१६)</td><td>लक्षण-सूचीभन्दा कामकाज: के गर्न छोडे?</td></tr>
-        <tr><td>३ · सूत्रीकरण</td><td>मूल समस्या पहिचान · ४-कारक सूत्रीकरण (१७–१८)</td><td>तलको चित्र, परीक्षाको प्रिय प्रश्न</td></tr>
-        <tr><td>४ · योजना</td><td>सेवाग्राहीसँगै SMART लक्ष्य, प्राथमिकतासहित (१९)</td><td>लक्ष्य सेवाग्राहीका, तपाईंका होइन</td></tr>
-        <tr><td>५ · हस्तक्षेप</td><td>रणनीति कार्यान्वयन · हरेक सत्रको मूल्याङ्कन (२०–२१)</td><td>साना, समीक्षा गरिएका पाइला</td></tr>
-        <tr><td>६ · समापन</td><td>फलोअप · आपसी सहमतिमा अन्त्य · सम्बन्ध-व्यवस्थापन (२२–२४)</td><td>अन्त्य योजनाबद्ध हुन्छ, झट्टै होइन</td></tr>
-      </table>
+      <table class="data cardy en"><tr><th>Stage</th><th>Tasks (curriculum numbering)</th><th>The one thing that matters most</th></tr>
+<tr><td data-label="Stage">1 · Build rapport</td><td data-label="Tasks (curriculum numbering)">Set environment · identify client · introduce yourself · explain confidentiality and its limits · ask expectations · explain what counselling is (1–6)</td><td data-label="The one thing that matters most">Safety. No technique works before trust</td></tr>
+<tr><td data-label="Stage">2 · Assess</td><td data-label="Tasks (curriculum numbering)">Psychosocial problems (4 dimensions + frequency + intensity) · daily functioning · family environment · work/school · childhood &amp; attachments · decision-making · <strong>suicidal thoughts: every client</strong> · coping · social support (me-map) · psychotic features (hallucination, delusion, orientation) (7–16)</td><td data-label="The one thing that matters most">Function beats symptom-lists: what can the person no longer do?</td></tr>
+<tr><td data-label="Stage">3 · Formulate</td><td data-label="Tasks (curriculum numbering)">Identify core problems · make the 4-factor formulation (17–18)</td><td data-label="The one thing that matters most">See the diagram below: this is the exam's favourite question</td></tr>
+<tr><td data-label="Stage">4 · Plan</td><td data-label="Tasks (curriculum numbering)">Set SMART goals with the client, prioritised (19)</td><td data-label="The one thing that matters most">The client's goals, not yours</td></tr>
+<tr><td data-label="Stage">5 · Intervene</td><td data-label="Tasks (curriculum numbering)">Implement strategies · evaluate each session (20–21)</td><td data-label="The one thing that matters most">Small, reviewed steps; adjust what isn't working</td></tr>
+<tr><td data-label="Stage">6 · Close</td><td data-label="Tasks (curriculum numbering)">Follow up · terminate by mutual agreement · manage the counselor-client relationship throughout (22–24)</td><td data-label="The one thing that matters most">Endings are planned, never abrupt: abandonment harms</td></tr></table>
+      <table class="data cardy ne"><tr><th>चरण</th><th>कार्यहरू</th><th>सबैभन्दा महत्त्वपूर्ण कुरा</th></tr>
+<tr><td data-label="चरण">१ · सम्बन्ध निर्माण</td><td data-label="कार्यहरू">वातावरण मिलाउने · सेवाग्राही चिन्ने · आफ्नो परिचय · गोपनीयता र यसका सीमा बताउने · अपेक्षा सोध्ने · परामर्श के हो बुझाउने (१–६)</td><td data-label="सबैभन्दा महत्त्वपूर्ण कुरा">सुरक्षा। विश्वासअघि कुनै प्रविधि चल्दैन</td></tr>
+<tr><td data-label="चरण">२ · मूल्याङ्कन</td><td data-label="कार्यहरू">मनोसामाजिक समस्या (४ आयाम + आवृत्ति + तीव्रता) · दैनिक कामकाज · पारिवारिक वातावरण · काम/विद्यालय · बाल्यकाल र आसक्ति · निर्णय-क्षमता · <strong>आत्महत्या-विचार, हरेक सेवाग्राहीमा</strong> · सामना-शैली · सामाजिक सहयोग (मी-म्याप) · मनोविकृति-लक्षण (७–१६)</td><td data-label="सबैभन्दा महत्त्वपूर्ण कुरा">लक्षण-सूचीभन्दा कामकाज: के गर्न छोडे?</td></tr>
+<tr><td data-label="चरण">३ · सूत्रीकरण</td><td data-label="कार्यहरू">मूल समस्या पहिचान · ४-कारक सूत्रीकरण (१७–१८)</td><td data-label="सबैभन्दा महत्त्वपूर्ण कुरा">तलको चित्र, परीक्षाको प्रिय प्रश्न</td></tr>
+<tr><td data-label="चरण">४ · योजना</td><td data-label="कार्यहरू">सेवाग्राहीसँगै SMART लक्ष्य, प्राथमिकतासहित (१९)</td><td data-label="सबैभन्दा महत्त्वपूर्ण कुरा">लक्ष्य सेवाग्राहीका, तपाईंका होइन</td></tr>
+<tr><td data-label="चरण">५ · हस्तक्षेप</td><td data-label="कार्यहरू">रणनीति कार्यान्वयन · हरेक सत्रको मूल्याङ्कन (२०–२१)</td><td data-label="सबैभन्दा महत्त्वपूर्ण कुरा">साना, समीक्षा गरिएका पाइला</td></tr>
+<tr><td data-label="चरण">६ · समापन</td><td data-label="कार्यहरू">फलोअप · आपसी सहमतिमा अन्त्य · सम्बन्ध-व्यवस्थापन (२२–२४)</td><td data-label="सबैभन्दा महत्त्वपूर्ण कुरा">अन्त्य योजनाबद्ध हुन्छ, झट्टै होइन</td></tr></table>
     </div>
 
     <figure>

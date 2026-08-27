@@ -28,8 +28,9 @@
       <input id="q" type="search" autocomplete="off" spellcheck="false"
         placeholder="Search · खोज्नुहोस्" aria-label="Search the atlas">
       <div id="qres" class="qres" hidden></div>
+      <button id="btn-nav" class="navbtn" type="button" aria-expanded="false" aria-controls="snav"><svg class="lucide" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg><span class="en">Chapters</span><span class="ne">अध्याय</span></button>
     </div>
-    <nav class="snav" aria-label="Site">
+    <nav class="snav" id="snav" aria-label="Site">
       <details class="snav-sec" data-g="overview">
       <summary><span class="en">Overview</span><span class="ne">सिंहावलोकन</span><span class="count">5</span><svg class="lucide" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
       <div class="snav-links">
@@ -89,6 +90,7 @@
 <a class="prev" href="more.html"><span class="lbl"><svg class="lucide" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg><span class="en">Previous · 27</span><span class="ne">अघिल्लो · २७</span></span><span class="en">The rest of the map</span><span class="ne">बाँकी नक्सा</span></a>
     <a class="next" href="crosswalk.html"><span class="lbl"><span class="en">Next · 29</span><span class="ne">अर्को · २९</span><svg class="lucide" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span><span class="en">For PSC students</span><span class="ne">पीएससी विद्यार्थीलाई</span></a>
 </nav>
+<details class="labels-help"><summary><svg class="lucide" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg><span class="en">What do the tags and codes on this page mean?</span><span class="ne">यस पृष्ठका ट्याग र कोडको अर्थ के हो?</span></summary><p class="en"><strong>CTEVT PSC curriculum</strong> marks content on the official Psychosocial Counselor syllabus, which can appear in the exam. <strong>Beyond curriculum</strong> is added for completeness: worth knowing, not examinable. A chip like <span class="code mono">296.2x · F32</span> is the diagnosis code: the DSM-5's older ICD-9-CM number first, then the ICD-10 "F-code" used in hospital records. Letters like <em>A.2</em> or <em>C.5</em> on the ethics page are section numbers of the ACA Code of Ethics. Readers who are not students can ignore all of these.</p><p class="ne"><strong>सीटीईभीटी पाठ्यक्रम</strong> ले आधिकारिक मनोसामाजिक परामर्शकर्ता पाठ्यक्रमभित्रको, परीक्षामा आउन सक्ने सामग्री जनाउँछ। <strong>पाठ्यक्रमभन्दा बाहिर</strong> पूर्णताका लागि थपिएको हो: जान्न लायक, परीक्षामा नआउने। <span class="code mono">296.2x · F32</span> जस्तो चिप निदान-कोड हो: पहिले DSM-5 को पुरानो ICD-9-CM नम्बर, अनि अस्पतालको रेकर्डमा प्रयोग हुने ICD-10 «एफ-कोड»। नैतिकता-पृष्ठका <em>A.2</em> वा <em>C.5</em> जस्ता अक्षर एसीए नैतिक संहिताका खण्ड-नम्बर हुन्। विद्यार्थी नभएका पाठकले यी सबै बेवास्ता गरे हुन्छ।</p></details>
 <section id="nepal" style="margin-top:12px">
 <div class="sechead"><span class="secnum">28</span>
     <h2><span class="en">The Nepal panorama</span><span class="ne">नेपाली परिदृश्य</span></h2>
@@ -195,24 +197,20 @@
     <p class="en">The curriculum names three: <strong>dhat, possession, soul loss</strong>. A culture-bound syndrome is a pattern of distress recognised and named by a culture, coherent inside its own explanatory world.</p>
     <p class="ne">पाठ्यक्रमले तीन वटाको नाम लिन्छ: <strong>धात, छोपुवा (आवेश), सातो जानु</strong>। संस्कृति-बद्ध सिन्ड्रोम भनेको कुनै संस्कृतिले चिनेको र नाम दिएको पीडाको ढाँचा हो, आफ्नै व्याख्या-संसारभित्र पूर्ण अर्थपूर्ण।</p>
     <div class="tblwrap">
-      <table class="data en">
-        <tr><th>Syndrome</th><th>Where</th><th>Presentation</th><th>Clinical neighbour</th></tr>
-        <tr><td>Dhat</td><td>South Asia</td><td>Anxiety, weakness, guilt attributed to semen loss</td><td>Anxiety · depressive · somatic symptoms</td></tr>
-        <tr><td>Possession / chhopne</td><td>Nepal, South Asia</td><td>Trance, altered voice, another's identity speaks; often adolescent girls, can spread in groups</td><td>Conversion · dissociation, or culturally normal ritual trance (a jhankri's trance is his job, not a disorder)</td></tr>
-        <tr><td>Saato jaanu (soul loss)</td><td>Nepal</td><td>After fright: weakness, appetite loss, withdrawal; healed by saato bolaune (calling the spirit)</td><td>Acute stress reaction · adjustment</td></tr>
-        <tr><td>Khyâl cap ("wind attack")</td><td>Cambodia</td><td>Panic attributed to wind rising in the body</td><td>Panic attack</td></tr>
-        <tr><td>Ataque de nervios</td><td>Latin America</td><td>Shouting, crying, trembling after family stress</td><td>Panic-like episode</td></tr>
-        <tr><td>Taijin kyofusho</td><td>Japan, Korea</td><td>Fear of offending others with one's body or gaze</td><td>Social anxiety variant</td></tr>
-      </table>
-      <table class="data ne">
-        <tr><th>सिन्ड्रोम</th><th>कहाँ</th><th>प्रस्तुति</th><th>क्लिनिकल छिमेकी</th></tr>
-        <tr><td>धात</td><td>दक्षिण एसिया</td><td>वीर्य-क्षयको विश्वाससँग जोडिएको चिन्ता, कमजोरी, अपराधबोध</td><td>चिन्ता · उदासी · शारीरिक लक्षण</td></tr>
-        <tr><td>छोपुवा / आवेश</td><td>नेपाल, दक्षिण एसिया</td><td>ट्रान्स-अवस्था, फेरिएको स्वर, अर्कै पहिचान बोल्ने; प्रायः किशोरी, समूहमा फैलिन सक्ने</td><td>कन्भर्सन · विघटन, वा सांस्कृतिक रूपमा सामान्य ट्रान्स (झाँक्रीको ट्रान्स उनको काम हो, विकार होइन)</td></tr>
-        <tr><td>सातो जानु</td><td>नेपाल</td><td>तर्सेपछि: कमजोरी, भोक नलाग्ने, गुम्सिने; सातो बोलाएर निको पारिने</td><td>तीव्र तनाव-प्रतिक्रिया · समायोजन</td></tr>
-        <tr><td>ख्याल क्याप («हावाको आक्रमण»)</td><td>कम्बोडिया</td><td>शरीरमा हावा चढेको विश्वाससँगको आतंक</td><td>प्यानिक एट्याक</td></tr>
-        <tr><td>अताके दे नेर्भियोस</td><td>ल्याटिन अमेरिका</td><td>पारिवारिक तनावपछि चिच्याउने, रुने, काम्ने</td><td>प्यानिक-जस्तो दौरा</td></tr>
-        <tr><td>ताइजिन क्योफुशो</td><td>जापान, कोरिया</td><td>आफ्नो शरीर-हेराइले अरूलाई असहज पार्ने डर</td><td>सामाजिक चिन्ताको रूप</td></tr>
-      </table>
+      <table class="data cardy en"><tr><th>Syndrome</th><th>Where</th><th>Presentation</th><th>Clinical neighbour</th></tr>
+<tr><td data-label="Syndrome">Dhat</td><td data-label="Where">South Asia</td><td data-label="Presentation">Anxiety, weakness, guilt attributed to semen loss</td><td data-label="Clinical neighbour">Anxiety · depressive · somatic symptoms</td></tr>
+<tr><td data-label="Syndrome">Possession / chhopne</td><td data-label="Where">Nepal, South Asia</td><td data-label="Presentation">Trance, altered voice, another's identity speaks; often adolescent girls, can spread in groups</td><td data-label="Clinical neighbour">Conversion · dissociation, or culturally normal ritual trance (a jhankri's trance is his job, not a disorder)</td></tr>
+<tr><td data-label="Syndrome">Saato jaanu (soul loss)</td><td data-label="Where">Nepal</td><td data-label="Presentation">After fright: weakness, appetite loss, withdrawal; healed by saato bolaune (calling the spirit)</td><td data-label="Clinical neighbour">Acute stress reaction · adjustment</td></tr>
+<tr><td data-label="Syndrome">Khyâl cap ("wind attack")</td><td data-label="Where">Cambodia</td><td data-label="Presentation">Panic attributed to wind rising in the body</td><td data-label="Clinical neighbour">Panic attack</td></tr>
+<tr><td data-label="Syndrome">Ataque de nervios</td><td data-label="Where">Latin America</td><td data-label="Presentation">Shouting, crying, trembling after family stress</td><td data-label="Clinical neighbour">Panic-like episode</td></tr>
+<tr><td data-label="Syndrome">Taijin kyofusho</td><td data-label="Where">Japan, Korea</td><td data-label="Presentation">Fear of offending others with one's body or gaze</td><td data-label="Clinical neighbour">Social anxiety variant</td></tr></table>
+      <table class="data cardy ne"><tr><th>सिन्ड्रोम</th><th>कहाँ</th><th>प्रस्तुति</th><th>क्लिनिकल छिमेकी</th></tr>
+<tr><td data-label="सिन्ड्रोम">धात</td><td data-label="कहाँ">दक्षिण एसिया</td><td data-label="प्रस्तुति">वीर्य-क्षयको विश्वाससँग जोडिएको चिन्ता, कमजोरी, अपराधबोध</td><td data-label="क्लिनिकल छिमेकी">चिन्ता · उदासी · शारीरिक लक्षण</td></tr>
+<tr><td data-label="सिन्ड्रोम">छोपुवा / आवेश</td><td data-label="कहाँ">नेपाल, दक्षिण एसिया</td><td data-label="प्रस्तुति">ट्रान्स-अवस्था, फेरिएको स्वर, अर्कै पहिचान बोल्ने; प्रायः किशोरी, समूहमा फैलिन सक्ने</td><td data-label="क्लिनिकल छिमेकी">कन्भर्सन · विघटन, वा सांस्कृतिक रूपमा सामान्य ट्रान्स (झाँक्रीको ट्रान्स उनको काम हो, विकार होइन)</td></tr>
+<tr><td data-label="सिन्ड्रोम">सातो जानु</td><td data-label="कहाँ">नेपाल</td><td data-label="प्रस्तुति">तर्सेपछि: कमजोरी, भोक नलाग्ने, गुम्सिने; सातो बोलाएर निको पारिने</td><td data-label="क्लिनिकल छिमेकी">तीव्र तनाव-प्रतिक्रिया · समायोजन</td></tr>
+<tr><td data-label="सिन्ड्रोम">ख्याल क्याप («हावाको आक्रमण»)</td><td data-label="कहाँ">कम्बोडिया</td><td data-label="प्रस्तुति">शरीरमा हावा चढेको विश्वाससँगको आतंक</td><td data-label="क्लिनिकल छिमेकी">प्यानिक एट्याक</td></tr>
+<tr><td data-label="सिन्ड्रोम">अताके दे नेर्भियोस</td><td data-label="कहाँ">ल्याटिन अमेरिका</td><td data-label="प्रस्तुति">पारिवारिक तनावपछि चिच्याउने, रुने, काम्ने</td><td data-label="क्लिनिकल छिमेकी">प्यानिक-जस्तो दौरा</td></tr>
+<tr><td data-label="सिन्ड्रोम">ताइजिन क्योफुशो</td><td data-label="कहाँ">जापान, कोरिया</td><td data-label="प्रस्तुति">आफ्नो शरीर-हेराइले अरूलाई असहज पार्ने डर</td><td data-label="क्लिनिकल छिमेकी">सामाजिक चिन्ताको रूप</td></tr></table>
     </div>
     <p class="en"><strong>Healing systems your clients use, usually before you:</strong> dhami-jhankri (shamanic diagnosis and ritual), jharphuk (sweeping/blowing away affliction), vaidya and Ayurveda, lamas and monasteries, temple vows and pujas. The evidence-based stance (see the traditional-healers review below) is collaboration: healers refer what they cannot heal when they are respected, and families accept counselling more easily when it does not demand they abandon their world. The counselor's line: work alongside any practice that is not harmful; act on harmful ones (beating "spirits" out, chaining, denial of urgent medical care): through relationship where possible, through protection systems where necessary.</p>
     <p class="ne"><strong>सेवाग्राहीले, प्रायः तपाईंभन्दा पहिले, प्रयोग गर्ने उपचार-प्रणाली:</strong> धामी-झाँक्री (निदान र अनुष्ठान), झारफुक, वैद्य र आयुर्वेद, लामा र गुम्बा, मन्दिरका भाकल-पूजा। प्रमाणमा आधारित अडान (तलको समीक्षा-लेख) सहकार्य हो: आदर पाएका धामीले निको पार्न नसकेको केस रेफर गर्छन्, र आफ्नो संसार त्याग्न नपर्दा परिवारले परामर्श सजिलै स्वीकार्छ। परामर्शकर्ताको रेखा: हानि नगर्ने अभ्याससँग सँगै काम गर्ने; हानिकारक (भूत «निकाल्न» कुट्ने, साङ्लाले बाँध्ने, अत्यावश्यक उपचार रोक्ने) मा, सकेसम्म सम्बन्धबाटै, नभए संरक्षण-प्रणालीबाट, हस्तक्षेप गर्ने।</p>

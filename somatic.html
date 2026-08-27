@@ -28,8 +28,9 @@
       <input id="q" type="search" autocomplete="off" spellcheck="false"
         placeholder="Search · खोज्नुहोस्" aria-label="Search the atlas">
       <div id="qres" class="qres" hidden></div>
+      <button id="btn-nav" class="navbtn" type="button" aria-expanded="false" aria-controls="snav"><svg class="lucide" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg><span class="en">Chapters</span><span class="ne">अध्याय</span></button>
     </div>
-    <nav class="snav" aria-label="Site">
+    <nav class="snav" id="snav" aria-label="Site">
       <details class="snav-sec" data-g="overview">
       <summary><span class="en">Overview</span><span class="ne">सिंहावलोकन</span><span class="count">5</span><svg class="lucide" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
       <div class="snav-links">
@@ -90,6 +91,7 @@
     <a class="next" href="psychosis.html"><span class="lbl"><span class="en">Next · 11</span><span class="ne">अर्को · ११</span><svg class="lucide" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span><span class="en">Psychosis</span><span class="ne">मनोविकृति (साइकोसिस)</span></a>
 </nav>
 <p class="gentle"><svg class="lucide" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 20h10"/><path d="M10 20c5.5-2.5.8-6.4 3-10"/><path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z"/><path d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4 1-4.9 2z"/></svg><span class="gentle-tx"><span class="en">A gentle note before you read: symptom lists make almost everyone recognise themselves somewhere. That is a normal effect of reading, not a diagnosis. If something here stays on your mind, a conversation with a professional helps more than re-reading.</span><span class="ne">पढ्नुअघि एउटा कोमल कुरा: लक्षण-सूची पढ्दा झन्डै सबैलाई कतै न कतै आफ्नै झल्को मिल्छ। त्यो पढाइको सामान्य असर हो, निदान होइन। कुनै कुरा मनमा अडिरह्यो भने फेरि-फेरि पढ्नुभन्दा पेसागत व्यक्तिसँगको कुराकानीले बढी सघाउँछ।</span></span></p>
+<details class="labels-help"><summary><svg class="lucide" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg><span class="en">What do the tags and codes on this page mean?</span><span class="ne">यस पृष्ठका ट्याग र कोडको अर्थ के हो?</span></summary><p class="en"><strong>CTEVT PSC curriculum</strong> marks content on the official Psychosocial Counselor syllabus, which can appear in the exam. <strong>Beyond curriculum</strong> is added for completeness: worth knowing, not examinable. A chip like <span class="code mono">296.2x · F32</span> is the diagnosis code: the DSM-5's older ICD-9-CM number first, then the ICD-10 "F-code" used in hospital records. Letters like <em>A.2</em> or <em>C.5</em> on the ethics page are section numbers of the ACA Code of Ethics. Readers who are not students can ignore all of these.</p><p class="ne"><strong>सीटीईभीटी पाठ्यक्रम</strong> ले आधिकारिक मनोसामाजिक परामर्शकर्ता पाठ्यक्रमभित्रको, परीक्षामा आउन सक्ने सामग्री जनाउँछ। <strong>पाठ्यक्रमभन्दा बाहिर</strong> पूर्णताका लागि थपिएको हो: जान्न लायक, परीक्षामा नआउने। <span class="code mono">296.2x · F32</span> जस्तो चिप निदान-कोड हो: पहिले DSM-5 को पुरानो ICD-9-CM नम्बर, अनि अस्पतालको रेकर्डमा प्रयोग हुने ICD-10 «एफ-कोड»। नैतिकता-पृष्ठका <em>A.2</em> वा <em>C.5</em> जस्ता अक्षर एसीए नैतिक संहिताका खण्ड-नम्बर हुन्। विद्यार्थी नभएका पाठकले यी सबै बेवास्ता गरे हुन्छ।</p></details>
 <section id="somatic" style="margin-top:12px">
 <div class="sechead"><span class="catmark" style="background:var(--c-som)"></span><span class="secnum">10</span>
     <h2><span class="en">Conversion &amp; somatic symptom disorders</span><span class="ne">कन्भर्सन र शारीरिक-लक्षण विकारहरू</span></h2>
@@ -125,26 +127,22 @@
       </div>
 
       <div class="tblwrap">
-        <table class="data en">
-          <tr><th></th><th>Epileptic seizure</th><th>Conversion (psychogenic non-epileptic) attack</th></tr>
-          <tr><td>Onset</td><td>Sudden, any time: including sleep, alone</td><td>Gradual, usually with witnesses present</td></tr>
-          <tr><td>Movements</td><td>Rhythmic, synchronous jerking; stereotyped</td><td>Asynchronous thrashing, pelvic thrusting, side-to-side head shaking, arc de cercle</td></tr>
-          <tr><td>Eyes</td><td>Usually open or deviated</td><td>Usually closed, resist opening</td></tr>
-          <tr><td>Injury &amp; incontinence</td><td>Side-of-tongue biting is fairly specific; falls and incontinence occur</td><td>Also occur; no single sign settles it, video-EEG does</td></tr>
-          <tr><td>Duration</td><td>Typically 1–2 minutes</td><td>Often prolonged, waxing-waning, &gt;5 minutes</td></tr>
-          <tr><td>After the attack</td><td>Confusion, drowsiness (post-ictal)</td><td>Rapid recovery, may cry; recall variable</td></tr>
-          <tr><td>EEG</td><td>Epileptiform activity</td><td>Normal during attack</td></tr>
-        </table>
-        <table class="data ne">
-          <tr><th></th><th>छारे रोग (मिर्गी) को दौरा</th><th>कन्भर्सन (मनोजन्य) दौरा</th></tr>
-          <tr><td>सुरुवात</td><td>अचानक, जुनसुकै बेला, निद्रामा, एक्लै हुँदा पनि</td><td>बिस्तारै, प्रायः मान्छेहरूकै अगाडि</td></tr>
-          <tr><td>चाल</td><td>लयबद्ध, एकैसाथ हात-खुट्टा बटारिने; उस्तै ढाँचा</td><td>बेमेल हात-खुट्टा चलाउने, कम्मर उचाल्ने, टाउको दायाँबायाँ हल्लाउने</td></tr>
-          <tr><td>आँखा</td><td>प्रायः खुला वा एकातिर फर्केका</td><td>प्रायः बन्द, खोल्न खोज्दा प्रतिरोध</td></tr>
-          <tr><td>चोट र दिसापिसाब</td><td>जिब्रोको छेउ टोक्नु निकै सूचक; लड्ने, पिसाब चुहिने हुन्छ</td><td>यी पनि हुन सक्छन्; कुनै एक चिह्नले टुङ्गो लगाउँदैन, भिडियो-ईईजीले लगाउँछ</td></tr>
-          <tr><td>अवधि</td><td>प्रायः १–२ मिनेट</td><td>प्रायः लामो, घटबढ हुने, &gt;५ मिनेट</td></tr>
-          <tr><td>दौरापछि</td><td>अलमल, लठ्ठ (पोस्ट-इक्टल)</td><td>चाँडै सामान्य, रुन सक्ने; घटनाको सम्झना फरक-फरक</td></tr>
-          <tr><td>ईईजी</td><td>मिर्गी-सूचक तरंग</td><td>दौराकै बेला पनि सामान्य</td></tr>
-        </table>
+        <table class="data cardy en"><tr><th></th><th>Epileptic seizure</th><th>Conversion (psychogenic non-epileptic) attack</th></tr>
+<tr><td data-label="">Onset</td><td data-label="Epileptic seizure">Sudden, any time: including sleep, alone</td><td data-label="Conversion (psychogenic non-epileptic) attack">Gradual, usually with witnesses present</td></tr>
+<tr><td data-label="">Movements</td><td data-label="Epileptic seizure">Rhythmic, synchronous jerking; stereotyped</td><td data-label="Conversion (psychogenic non-epileptic) attack">Asynchronous thrashing, pelvic thrusting, side-to-side head shaking, arc de cercle</td></tr>
+<tr><td data-label="">Eyes</td><td data-label="Epileptic seizure">Usually open or deviated</td><td data-label="Conversion (psychogenic non-epileptic) attack">Usually closed, resist opening</td></tr>
+<tr><td data-label="">Injury &amp; incontinence</td><td data-label="Epileptic seizure">Side-of-tongue biting is fairly specific; falls and incontinence occur</td><td data-label="Conversion (psychogenic non-epileptic) attack">Also occur; no single sign settles it, video-EEG does</td></tr>
+<tr><td data-label="">Duration</td><td data-label="Epileptic seizure">Typically 1–2 minutes</td><td data-label="Conversion (psychogenic non-epileptic) attack">Often prolonged, waxing-waning, &gt;5 minutes</td></tr>
+<tr><td data-label="">After the attack</td><td data-label="Epileptic seizure">Confusion, drowsiness (post-ictal)</td><td data-label="Conversion (psychogenic non-epileptic) attack">Rapid recovery, may cry; recall variable</td></tr>
+<tr><td data-label="">EEG</td><td data-label="Epileptic seizure">Epileptiform activity</td><td data-label="Conversion (psychogenic non-epileptic) attack">Normal during attack</td></tr></table>
+        <table class="data cardy ne"><tr><th></th><th>छारे रोग (मिर्गी) को दौरा</th><th>कन्भर्सन (मनोजन्य) दौरा</th></tr>
+<tr><td data-label="">सुरुवात</td><td data-label="छारे रोग (मिर्गी) को दौरा">अचानक, जुनसुकै बेला, निद्रामा, एक्लै हुँदा पनि</td><td data-label="कन्भर्सन (मनोजन्य) दौरा">बिस्तारै, प्रायः मान्छेहरूकै अगाडि</td></tr>
+<tr><td data-label="">चाल</td><td data-label="छारे रोग (मिर्गी) को दौरा">लयबद्ध, एकैसाथ हात-खुट्टा बटारिने; उस्तै ढाँचा</td><td data-label="कन्भर्सन (मनोजन्य) दौरा">बेमेल हात-खुट्टा चलाउने, कम्मर उचाल्ने, टाउको दायाँबायाँ हल्लाउने</td></tr>
+<tr><td data-label="">आँखा</td><td data-label="छारे रोग (मिर्गी) को दौरा">प्रायः खुला वा एकातिर फर्केका</td><td data-label="कन्भर्सन (मनोजन्य) दौरा">प्रायः बन्द, खोल्न खोज्दा प्रतिरोध</td></tr>
+<tr><td data-label="">चोट र दिसापिसाब</td><td data-label="छारे रोग (मिर्गी) को दौरा">जिब्रोको छेउ टोक्नु निकै सूचक; लड्ने, पिसाब चुहिने हुन्छ</td><td data-label="कन्भर्सन (मनोजन्य) दौरा">यी पनि हुन सक्छन्; कुनै एक चिह्नले टुङ्गो लगाउँदैन, भिडियो-ईईजीले लगाउँछ</td></tr>
+<tr><td data-label="">अवधि</td><td data-label="छारे रोग (मिर्गी) को दौरा">प्रायः १–२ मिनेट</td><td data-label="कन्भर्सन (मनोजन्य) दौरा">प्रायः लामो, घटबढ हुने, &gt;५ मिनेट</td></tr>
+<tr><td data-label="">दौरापछि</td><td data-label="छारे रोग (मिर्गी) को दौरा">अलमल, लठ्ठ (पोस्ट-इक्टल)</td><td data-label="कन्भर्सन (मनोजन्य) दौरा">चाँडै सामान्य, रुन सक्ने; घटनाको सम्झना फरक-फरक</td></tr>
+<tr><td data-label="">ईईजी</td><td data-label="छारे रोग (मिर्गी) को दौरा">मिर्गी-सूचक तरंग</td><td data-label="कन्भर्सन (मनोजन्य) दौरा">दौराकै बेला पनि सामान्य</td></tr></table>
       </div>
 
       <div class="ctx nepal">

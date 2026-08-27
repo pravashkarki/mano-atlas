@@ -28,8 +28,9 @@
       <input id="q" type="search" autocomplete="off" spellcheck="false"
         placeholder="Search · खोज्नुहोस्" aria-label="Search the atlas">
       <div id="qres" class="qres" hidden></div>
+      <button id="btn-nav" class="navbtn" type="button" aria-expanded="false" aria-controls="snav"><svg class="lucide" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg><span class="en">Chapters</span><span class="ne">अध्याय</span></button>
     </div>
-    <nav class="snav" aria-label="Site">
+    <nav class="snav" id="snav" aria-label="Site">
       <details class="snav-sec" data-g="overview">
       <summary><span class="en">Overview</span><span class="ne">सिंहावलोकन</span><span class="count">5</span><svg class="lucide" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
       <div class="snav-links">
@@ -89,6 +90,7 @@
 <a class="prev" href="wellbeing.html"><span class="lbl"><svg class="lucide" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg><span class="en">Previous · 16</span><span class="ne">अघिल्लो · १६</span></span><span class="en">Wellbeing & intervention</span><span class="ne">तन्दुरुस्ती र हस्तक्षेप</span></a>
     <a class="next" href="skills.html"><span class="lbl"><span class="en">Next · 18</span><span class="ne">अर्को · १८</span><svg class="lucide" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span><span class="en">Communication skills</span><span class="ne">संवाद-सीप</span></a>
 </nav>
+<details class="labels-help"><summary><svg class="lucide" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg><span class="en">What do the tags and codes on this page mean?</span><span class="ne">यस पृष्ठका ट्याग र कोडको अर्थ के हो?</span></summary><p class="en"><strong>CTEVT PSC curriculum</strong> marks content on the official Psychosocial Counselor syllabus, which can appear in the exam. <strong>Beyond curriculum</strong> is added for completeness: worth knowing, not examinable. A chip like <span class="code mono">296.2x · F32</span> is the diagnosis code: the DSM-5's older ICD-9-CM number first, then the ICD-10 "F-code" used in hospital records. Letters like <em>A.2</em> or <em>C.5</em> on the ethics page are section numbers of the ACA Code of Ethics. Readers who are not students can ignore all of these.</p><p class="ne"><strong>सीटीईभीटी पाठ्यक्रम</strong> ले आधिकारिक मनोसामाजिक परामर्शकर्ता पाठ्यक्रमभित्रको, परीक्षामा आउन सक्ने सामग्री जनाउँछ। <strong>पाठ्यक्रमभन्दा बाहिर</strong> पूर्णताका लागि थपिएको हो: जान्न लायक, परीक्षामा नआउने। <span class="code mono">296.2x · F32</span> जस्तो चिप निदान-कोड हो: पहिले DSM-5 को पुरानो ICD-9-CM नम्बर, अनि अस्पतालको रेकर्डमा प्रयोग हुने ICD-10 «एफ-कोड»। नैतिकता-पृष्ठका <em>A.2</em> वा <em>C.5</em> जस्ता अक्षर एसीए नैतिक संहिताका खण्ड-नम्बर हुन्। विद्यार्थी नभएका पाठकले यी सबै बेवास्ता गरे हुन्छ।</p></details>
 <section id="approaches" style="margin-top:12px">
 <div class="sechead"><span class="secnum">17</span>
   <h2><span class="en">Counselling: approaches, forms &amp; what it is</span><span class="ne">परामर्श: विधि, रूप र यो के हो</span></h2>
@@ -103,24 +105,20 @@
   </div>
   <div class="card-body">
     <div class="tblwrap">
-      <table class="data en">
-        <tr><th>Approach</th><th>Problem is…</th><th>Counselor does…</th><th>Best for · watch out</th></tr>
-        <tr><td>Psychodynamic</td><td>Unconscious conflict rooted in early relationships</td><td>Listens for patterns, explores childhood, works with the relationship itself</td><td>Long-standing relational patterns · slow, needs training</td></tr>
-        <tr><td>Behavioural</td><td>Learned behaviour kept alive by reinforcement</td><td>Exposure, activity scheduling, reinforcement of new behaviour</td><td>Phobia, avoidance, habits · ignores meaning if used alone</td></tr>
-        <tr><td>Humanistic (Rogers)</td><td>Growth blocked by lack of acceptance</td><td>Empathy, genuineness, unconditional positive regard; client leads</td><td>The foundation of ALL counselling · not enough alone in severe illness</td></tr>
-        <tr><td>Cognitive-behavioural (CBT)</td><td>Unhelpful thoughts drive feelings and behaviour</td><td>Identify → test → reframe distortions; homework; behavioural experiments</td><td>Depression, anxiety · needs literacy-adapted tools in Nepal</td></tr>
-        <tr><td>Exposure technique</td><td>Avoidance keeps fear alive (the loop of section 03)</td><td>Graded ladder, stay until anxiety falls, repeat</td><td>Phobia, OCD, PTSD · never force; consent and pacing are everything</td></tr>
-        <tr><td>Socio-cultural</td><td>Distress produced by context: poverty, discrimination, family, culture</td><td>Works with family/community, healers, resources, advocacy</td><td>Almost every Nepali case · don't let it excuse skipping the individual</td></tr>
-      </table>
-      <table class="data ne">
-        <tr><th>विधि</th><th>समस्या के हो…</th><th>परामर्शकर्ताले के गर्छ…</th><th>केमा राम्रो · होसियारी</th></tr>
-        <tr><td>साइकोडाइनामिक</td><td>प्रारम्भिक सम्बन्धमा जरा गाडेको अचेतन द्वन्द्व</td><td>ढाँचा सुन्छ, बाल्यकाल खोतल्छ, सम्बन्धमै काम गर्छ</td><td>पुराना सम्बन्ध-ढाँचा · ढिलो, तालिम चाहिन्छ</td></tr>
-        <tr><td>व्यवहारवादी</td><td>पुनर्बलनले जीवित राखेको सिकेको व्यवहार</td><td>एक्सपोजर, गतिविधि-तालिका, नयाँ व्यवहारको पुनर्बलन</td><td>फोबिया, पन्छाइ, बानी · एक्लै प्रयोगमा अर्थ छुट्छ</td></tr>
-        <tr><td>मानवतावादी (रोजर्स)</td><td>स्वीकृति नपाएर रोकिएको विकास</td><td>समानुभूति, निष्कपटता, निःसर्त सकारात्मक आदर; सेवाग्राही अगुवा</td><td>सबै परामर्शको जग · गम्भीर रोगमा एक्लै अपुग</td></tr>
-        <tr><td>संज्ञानात्मक-व्यवहार (सीबीटी)</td><td>अनुपयोगी विचारले भावना र व्यवहार चलाउँछ</td><td>पहिचान → जाँच → पुनःरचना; गृहकार्य; व्यवहार-प्रयोग</td><td>उदासी, चिन्ता · नेपालमा साक्षरता-अनुकूल औजार चाहिन्छ</td></tr>
-        <tr><td>एक्सपोजर प्रविधि</td><td>पन्छाइले डर जीवित राख्छ (खण्ड ०३ को चक्र)</td><td>क्रमिक भर्‍याङ, चिन्ता घट्दासम्म बस्ने, दोहोर्‍याउने</td><td>फोबिया, ओसीडी, पीटीएसडी · जबरजस्ती कहिल्यै होइन; सहमति र गति नै सबथोक</td></tr>
-        <tr><td>सामाजिक-सांस्कृतिक</td><td>सन्दर्भले जन्माएको पीडा, गरिबी, विभेद, परिवार, संस्कृति</td><td>परिवार/समुदाय, धामी, स्रोत, वकालतसँग काम</td><td>झन्डै हरेक नेपाली केस · व्यक्तिलाई भने नबिर्सने</td></tr>
-      </table>
+      <table class="data cardy en"><tr><th>Approach</th><th>Problem is…</th><th>Counselor does…</th><th>Best for · watch out</th></tr>
+<tr><td data-label="Approach">Psychodynamic</td><td data-label="Problem is…">Unconscious conflict rooted in early relationships</td><td data-label="Counselor does…">Listens for patterns, explores childhood, works with the relationship itself</td><td data-label="Best for · watch out">Long-standing relational patterns · slow, needs training</td></tr>
+<tr><td data-label="Approach">Behavioural</td><td data-label="Problem is…">Learned behaviour kept alive by reinforcement</td><td data-label="Counselor does…">Exposure, activity scheduling, reinforcement of new behaviour</td><td data-label="Best for · watch out">Phobia, avoidance, habits · ignores meaning if used alone</td></tr>
+<tr><td data-label="Approach">Humanistic (Rogers)</td><td data-label="Problem is…">Growth blocked by lack of acceptance</td><td data-label="Counselor does…">Empathy, genuineness, unconditional positive regard; client leads</td><td data-label="Best for · watch out">The foundation of ALL counselling · not enough alone in severe illness</td></tr>
+<tr><td data-label="Approach">Cognitive-behavioural (CBT)</td><td data-label="Problem is…">Unhelpful thoughts drive feelings and behaviour</td><td data-label="Counselor does…">Identify → test → reframe distortions; homework; behavioural experiments</td><td data-label="Best for · watch out">Depression, anxiety · needs literacy-adapted tools in Nepal</td></tr>
+<tr><td data-label="Approach">Exposure technique</td><td data-label="Problem is…">Avoidance keeps fear alive (the loop of section 03)</td><td data-label="Counselor does…">Graded ladder, stay until anxiety falls, repeat</td><td data-label="Best for · watch out">Phobia, OCD, PTSD · never force; consent and pacing are everything</td></tr>
+<tr><td data-label="Approach">Socio-cultural</td><td data-label="Problem is…">Distress produced by context: poverty, discrimination, family, culture</td><td data-label="Counselor does…">Works with family/community, healers, resources, advocacy</td><td data-label="Best for · watch out">Almost every Nepali case · don't let it excuse skipping the individual</td></tr></table>
+      <table class="data cardy ne"><tr><th>विधि</th><th>समस्या के हो…</th><th>परामर्शकर्ताले के गर्छ…</th><th>केमा राम्रो · होसियारी</th></tr>
+<tr><td data-label="विधि">साइकोडाइनामिक</td><td data-label="समस्या के हो…">प्रारम्भिक सम्बन्धमा जरा गाडेको अचेतन द्वन्द्व</td><td data-label="परामर्शकर्ताले के गर्छ…">ढाँचा सुन्छ, बाल्यकाल खोतल्छ, सम्बन्धमै काम गर्छ</td><td data-label="केमा राम्रो · होसियारी">पुराना सम्बन्ध-ढाँचा · ढिलो, तालिम चाहिन्छ</td></tr>
+<tr><td data-label="विधि">व्यवहारवादी</td><td data-label="समस्या के हो…">पुनर्बलनले जीवित राखेको सिकेको व्यवहार</td><td data-label="परामर्शकर्ताले के गर्छ…">एक्सपोजर, गतिविधि-तालिका, नयाँ व्यवहारको पुनर्बलन</td><td data-label="केमा राम्रो · होसियारी">फोबिया, पन्छाइ, बानी · एक्लै प्रयोगमा अर्थ छुट्छ</td></tr>
+<tr><td data-label="विधि">मानवतावादी (रोजर्स)</td><td data-label="समस्या के हो…">स्वीकृति नपाएर रोकिएको विकास</td><td data-label="परामर्शकर्ताले के गर्छ…">समानुभूति, निष्कपटता, निःसर्त सकारात्मक आदर; सेवाग्राही अगुवा</td><td data-label="केमा राम्रो · होसियारी">सबै परामर्शको जग · गम्भीर रोगमा एक्लै अपुग</td></tr>
+<tr><td data-label="विधि">संज्ञानात्मक-व्यवहार (सीबीटी)</td><td data-label="समस्या के हो…">अनुपयोगी विचारले भावना र व्यवहार चलाउँछ</td><td data-label="परामर्शकर्ताले के गर्छ…">पहिचान → जाँच → पुनःरचना; गृहकार्य; व्यवहार-प्रयोग</td><td data-label="केमा राम्रो · होसियारी">उदासी, चिन्ता · नेपालमा साक्षरता-अनुकूल औजार चाहिन्छ</td></tr>
+<tr><td data-label="विधि">एक्सपोजर प्रविधि</td><td data-label="समस्या के हो…">पन्छाइले डर जीवित राख्छ (खण्ड ०३ को चक्र)</td><td data-label="परामर्शकर्ताले के गर्छ…">क्रमिक भर्‍याङ, चिन्ता घट्दासम्म बस्ने, दोहोर्‍याउने</td><td data-label="केमा राम्रो · होसियारी">फोबिया, ओसीडी, पीटीएसडी · जबरजस्ती कहिल्यै होइन; सहमति र गति नै सबथोक</td></tr>
+<tr><td data-label="विधि">सामाजिक-सांस्कृतिक</td><td data-label="समस्या के हो…">सन्दर्भले जन्माएको पीडा, गरिबी, विभेद, परिवार, संस्कृति</td><td data-label="परामर्शकर्ताले के गर्छ…">परिवार/समुदाय, धामी, स्रोत, वकालतसँग काम</td><td data-label="केमा राम्रो · होसियारी">झन्डै हरेक नेपाली केस · व्यक्तिलाई भने नबिर्सने</td></tr></table>
     </div>
   </div>
 </article>
@@ -132,26 +130,22 @@
   </div>
   <div class="card-body">
     <div class="tblwrap">
-      <table class="data en">
-        <tr><th>Form</th><th>When</th><th>Key precaution</th></tr>
-        <tr><td>Individual</td><td>The default: one client, private space</td><td>Confidentiality; records with codes, not names</td></tr>
-        <tr><td>Family</td><td>Problem lives between members (a child's refusal, an elder's care)</td><td>Define who the client is; stay neutral between members</td></tr>
-        <tr><td>Group</td><td>Shared problems: grief, addiction recovery, GBV survivors</td><td>Screen members; group confidentiality agreement</td></tr>
-        <tr><td>Crisis</td><td>Immediately after acute events; safety first, feelings second</td><td>Short, practical, directive is OK here</td></tr>
-        <tr><td>Supportive</td><td>Ongoing emotional support where cure is not the goal (chronic illness, caregivers)</td><td>Don't promise change; prevent dependency</td></tr>
-        <tr><td>Couple / marriage</td><td>Relationship distress</td><td>Balance; screen for violence FIRST: couple work is unsafe amid GBV</td></tr>
-        <tr><td>Task-oriented</td><td>One concrete goal (exam panic, a decision)</td><td>Keep scope narrow; finish and close</td></tr>
-      </table>
-      <table class="data ne">
-        <tr><th>रूप</th><th>कहिले</th><th>मुख्य होसियारी</th></tr>
-        <tr><td>व्यक्तिगत</td><td>सामान्य अवस्था: एक सेवाग्राही, गोप्य ठाउँ</td><td>गोपनीयता; नाम होइन, कोडसहितको अभिलेख</td></tr>
-        <tr><td>पारिवारिक</td><td>समस्या सदस्यहरूबीच बस्दा</td><td>सेवाग्राही को हो प्रस्ट पार्ने; पक्षपात नगर्ने</td></tr>
-        <tr><td>सामूहिक</td><td>साझा समस्या, शोक, कुलत, जीबीभी पीडित</td><td>सदस्य छनोट; समूह-गोपनीयताको सहमति</td></tr>
-        <tr><td>सङ्कट (क्राइसिस)</td><td>तीव्र घटनालगत्तै; पहिले सुरक्षा, अनि भावना</td><td>छोटो, व्यावहारिक; यहाँ निर्देशन दिन मिल्छ</td></tr>
-        <tr><td>सहयोगी</td><td>निको पार्नु लक्ष्य नभएको निरन्तर साथ (दीर्घरोगी, हेरचाहकर्ता)</td><td>परिवर्तनको वाचा नगर्ने; परनिर्भरता रोक्ने</td></tr>
-        <tr><td>दम्पती</td><td>वैवाहिक तनाव</td><td>सन्तुलन; पहिले हिंसा जाँच्ने, हिंसाबीच दम्पती-परामर्श असुरक्षित</td></tr>
-        <tr><td>कार्य-केन्द्रित</td><td>एउटा ठोस लक्ष्य (परीक्षा-त्रास, निर्णय)</td><td>दायरा साँघुरो राख्ने; सकेर बन्द गर्ने</td></tr>
-      </table>
+      <table class="data cardy en"><tr><th>Form</th><th>When</th><th>Key precaution</th></tr>
+<tr><td data-label="Form">Individual</td><td data-label="When">The default: one client, private space</td><td data-label="Key precaution">Confidentiality; records with codes, not names</td></tr>
+<tr><td data-label="Form">Family</td><td data-label="When">Problem lives between members (a child's refusal, an elder's care)</td><td data-label="Key precaution">Define who the client is; stay neutral between members</td></tr>
+<tr><td data-label="Form">Group</td><td data-label="When">Shared problems: grief, addiction recovery, GBV survivors</td><td data-label="Key precaution">Screen members; group confidentiality agreement</td></tr>
+<tr><td data-label="Form">Crisis</td><td data-label="When">Immediately after acute events; safety first, feelings second</td><td data-label="Key precaution">Short, practical, directive is OK here</td></tr>
+<tr><td data-label="Form">Supportive</td><td data-label="When">Ongoing emotional support where cure is not the goal (chronic illness, caregivers)</td><td data-label="Key precaution">Don't promise change; prevent dependency</td></tr>
+<tr><td data-label="Form">Couple / marriage</td><td data-label="When">Relationship distress</td><td data-label="Key precaution">Balance; screen for violence FIRST: couple work is unsafe amid GBV</td></tr>
+<tr><td data-label="Form">Task-oriented</td><td data-label="When">One concrete goal (exam panic, a decision)</td><td data-label="Key precaution">Keep scope narrow; finish and close</td></tr></table>
+      <table class="data cardy ne"><tr><th>रूप</th><th>कहिले</th><th>मुख्य होसियारी</th></tr>
+<tr><td data-label="रूप">व्यक्तिगत</td><td data-label="कहिले">सामान्य अवस्था: एक सेवाग्राही, गोप्य ठाउँ</td><td data-label="मुख्य होसियारी">गोपनीयता; नाम होइन, कोडसहितको अभिलेख</td></tr>
+<tr><td data-label="रूप">पारिवारिक</td><td data-label="कहिले">समस्या सदस्यहरूबीच बस्दा</td><td data-label="मुख्य होसियारी">सेवाग्राही को हो प्रस्ट पार्ने; पक्षपात नगर्ने</td></tr>
+<tr><td data-label="रूप">सामूहिक</td><td data-label="कहिले">साझा समस्या, शोक, कुलत, जीबीभी पीडित</td><td data-label="मुख्य होसियारी">सदस्य छनोट; समूह-गोपनीयताको सहमति</td></tr>
+<tr><td data-label="रूप">सङ्कट (क्राइसिस)</td><td data-label="कहिले">तीव्र घटनालगत्तै; पहिले सुरक्षा, अनि भावना</td><td data-label="मुख्य होसियारी">छोटो, व्यावहारिक; यहाँ निर्देशन दिन मिल्छ</td></tr>
+<tr><td data-label="रूप">सहयोगी</td><td data-label="कहिले">निको पार्नु लक्ष्य नभएको निरन्तर साथ (दीर्घरोगी, हेरचाहकर्ता)</td><td data-label="मुख्य होसियारी">परिवर्तनको वाचा नगर्ने; परनिर्भरता रोक्ने</td></tr>
+<tr><td data-label="रूप">दम्पती</td><td data-label="कहिले">वैवाहिक तनाव</td><td data-label="मुख्य होसियारी">सन्तुलन; पहिले हिंसा जाँच्ने, हिंसाबीच दम्पती-परामर्श असुरक्षित</td></tr>
+<tr><td data-label="रूप">कार्य-केन्द्रित</td><td data-label="कहिले">एउटा ठोस लक्ष्य (परीक्षा-त्रास, निर्णय)</td><td data-label="मुख्य होसियारी">दायरा साँघुरो राख्ने; सकेर बन्द गर्ने</td></tr></table>
     </div>
     <p class="en"><strong>Three modes</strong> (know the difference for the exam): <em>advice-oriented</em> (telling what to do; sometimes needed in crisis, but not counselling proper), <em>informative</em> (giving accurate information: HIV facts, service directions), and <em>psychological/psychosocial counselling</em> (the real craft: helping the client find their own solution). Nepali reality check: most clients arrive expecting advice; part of session one is teaching what counselling is.</p>
     <p class="ne"><strong>तीन शैली</strong> (परीक्षाका लागि भिन्नता जान्नुहोस्): <em>अर्ती-मुखी</em> (के गर्ने भनिदिने, सङ्कटमा कहिलेकाहीं चाहिन्छ, तर साँचो परामर्श होइन), <em>सूचनामूलक</em> (सही जानकारी दिने, एचआईभी तथ्य, सेवाको बाटो), र <em>मनोवैज्ञानिक/मनोसामाजिक परामर्श</em> (साँचो सीप: सेवाग्राहीलाई आफ्नै समाधान भेट्टाउन सघाउने)। नेपाली यथार्थ: अधिकांश सेवाग्राही अर्ती खोज्दै आउँछन्; पहिलो सत्रको एक काम परामर्श के हो भनी सिकाउनु नै हो।</p>

@@ -84,6 +84,8 @@ ICON = {
     "file":    _lucide('<path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/>'),
     "audio":   _lucide('<path d="M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7a9 9 0 0 1 18 0v7a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3"/>'),
     "pencil":  _lucide('<path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/><path d="m15 5 4 4"/>'),
+    "menu":    _lucide('<line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/>'),
+    "info":    _lucide('<circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/>'),
     "sprout":  _lucide('<path d="M7 20h10"/><path d="M10 20c5.5-2.5.8-6.4 3-10"/><path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z"/><path d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4 1-4.9 2z"/>'),
 }
 
@@ -106,6 +108,46 @@ def res_type_icon(label: str) -> str:
 
 NE_DIGITS = str.maketrans("0123456789", "०१२३४५६७८९")
 HEAVY_PAGES = {"suicide", "gbv", "pfa", "trauma", "psychosis", "ethics"}
+
+
+def card_tables(body: str) -> str:
+    """Give every data table with 3+ columns per-cell data-labels so CSS can stack rows into cards on phones."""
+    def one(m):
+        cls, inner = m.group(1), m.group(2)
+        rows = re.findall(r"<tr>(.*?)</tr>", inner, re.S)
+        if not rows:
+            return m.group(0)
+        heads = [re.sub(r"<[^>]+>", "", h).strip() for h in re.findall(r"<th>(.*?)</th>", rows[0], re.S)]
+        if len(heads) < 3:
+            return m.group(0)
+        out = []
+        for r_i, row in enumerate(rows):
+            if r_i == 0:
+                out.append(f"<tr>{row}</tr>")
+                continue
+            k = [0]
+            def td(mm):
+                lab = heads[k[0]] if k[0] < len(heads) else ""
+                k[0] += 1
+                return f'<td data-label="{lab}">'
+            out.append("<tr>" + re.sub(r"<td>", td, row) + "</tr>")
+        return f'<table class="data cardy{cls}">' + "\n".join(out) + "</table>"
+    return re.sub(r'<table class="data([^"]*)">(.*?)</table>', one, body, flags=re.S)
+
+
+LABELS_HELP = (
+    '<details class="labels-help"><summary>' + ICON["info"] +
+    '<span class="en">What do the tags and codes on this page mean?</span>'
+    '<span class="ne">यस पृष्ठका ट्याग र कोडको अर्थ के हो?</span></summary>'
+    '<p class="en"><strong>CTEVT PSC curriculum</strong> marks content on the official Psychosocial Counselor syllabus, which can appear in the exam. '
+    '<strong>Beyond curriculum</strong> is added for completeness: worth knowing, not examinable. '
+    'A chip like <span class="code mono">296.2x · F32</span> is the diagnosis code: the DSM-5\'s older ICD-9-CM number first, then the ICD-10 "F-code" used in hospital records. '
+    'Letters like <em>A.2</em> or <em>C.5</em> on the ethics page are section numbers of the ACA Code of Ethics. Readers who are not students can ignore all of these.</p>'
+    '<p class="ne"><strong>सीटीईभीटी पाठ्यक्रम</strong> ले आधिकारिक मनोसामाजिक परामर्शकर्ता पाठ्यक्रमभित्रको, परीक्षामा आउन सक्ने सामग्री जनाउँछ। '
+    '<strong>पाठ्यक्रमभन्दा बाहिर</strong> पूर्णताका लागि थपिएको हो: जान्न लायक, परीक्षामा नआउने। '
+    '<span class="code mono">296.2x · F32</span> जस्तो चिप निदान-कोड हो: पहिले DSM-5 को पुरानो ICD-9-CM नम्बर, अनि अस्पतालको रेकर्डमा प्रयोग हुने ICD-10 «एफ-कोड»। '
+    'नैतिकता-पृष्ठका <em>A.2</em> वा <em>C.5</em> जस्ता अक्षर एसीए नैतिक संहिताका खण्ड-नम्बर हुन्। विद्यार्थी नभएका पाठकले यी सबै बेवास्ता गरे हुन्छ।</p></details>\n'
+)
 
 
 def link_page_refs(body: str) -> str:
@@ -249,8 +291,9 @@ SHELL = """<!DOCTYPE html>
       <input id="q" type="search" autocomplete="off" spellcheck="false"
         placeholder="Search · खोज्नुहोस्" aria-label="Search the atlas">
       <div id="qres" class="qres" hidden></div>
+      <button id="btn-nav" class="navbtn" type="button" aria-expanded="false" aria-controls="snav">{icon_menu}<span class="en">Chapters</span><span class="ne">अध्याय</span></button>
     </div>
-    <nav class="snav" aria-label="Site">
+    <nav class="snav" id="snav" aria-label="Site">
       {nav}
     </nav>
     <div class="side-foot"><span id="progress"></span></div>
@@ -349,7 +392,7 @@ def main() -> None:
             body,
         )
 
-        body = link_page_refs(body)
+        body = card_tables(link_page_refs(body))
         if slug == "index":
             content = f'<header class="hero">\n{hero}\n</header>\n<section id="map">\n{body}\n</section>'
         else:
@@ -381,12 +424,12 @@ def main() -> None:
                 f'<div class="pagehead"><span class="bignum" aria-hidden="true">{num}</span>'
                 f'<div class="kicker"><span class="en">Section {num}</span>'
                 f'<span class="ne">खण्ड {num.translate(NE_DIGITS)}</span>{readtime}</div></div>\n'
-                f'<nav class="pager pager-top" aria-label="Chapter (top)">\n{pager_html(i)}\n</nav>\n{gentle}'
+                f'<nav class="pager pager-top" aria-label="Chapter (top)">\n{pager_html(i)}\n</nav>\n{gentle}{LABELS_HELP}'
                 f'<section id="{fname}" style="margin-top:12px">\n{body}\n</section>\n{careline}'
             )
         title = "Mano Atlas" if slug == "index" else f"{en} · Mano Atlas"
         html = SHELL.format(title=title, nav=nav_html(slug), content=content, pager=pager_html(i),
-                            icon_search=ICON["search"], icon_phone=ICON["phone"], icon_mail=ICON["mail"], **SITE)
+                            icon_search=ICON["search"], icon_menu=ICON["menu"], icon_phone=ICON["phone"], icon_mail=ICON["mail"], **SITE)
         (ROOT / f"{slug}.html").write_text(html)
         print("built", f"{slug}.html")
 

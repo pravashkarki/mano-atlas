@@ -28,8 +28,9 @@
       <input id="q" type="search" autocomplete="off" spellcheck="false"
         placeholder="Search · खोज्नुहोस्" aria-label="Search the atlas">
       <div id="qres" class="qres" hidden></div>
+      <button id="btn-nav" class="navbtn" type="button" aria-expanded="false" aria-controls="snav"><svg class="lucide" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg><span class="en">Chapters</span><span class="ne">अध्याय</span></button>
     </div>
-    <nav class="snav" aria-label="Site">
+    <nav class="snav" id="snav" aria-label="Site">
       <details class="snav-sec" data-g="overview" open>
       <summary><span class="en">Overview</span><span class="ne">सिंहावलोकन</span><span class="count">5</span><svg class="lucide" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
       <div class="snav-links">
@@ -134,6 +135,12 @@
   </div>
   <p class="en" style="font-size:14px;color:var(--muted);max-width:62ch;margin-top:8px">What the two tags mean: every chapter and card carries one. <strong>CTEVT PSC curriculum</strong> marks content that is on the official Psychosocial Counselor syllabus and can appear in the exam. <strong>Beyond curriculum</strong> marks content added for completeness (the rest of the DSM-5, newer research, practical extras): worth knowing, not examinable. Readers who are not students can ignore the tags.</p>
   <p class="ne" style="font-size:14.5px;color:var(--muted);max-width:62ch;margin-top:8px">दुई ट्यागको अर्थ: हरेक अध्याय र कार्डमा एउटा हुन्छ। <strong>सीटीईभीटी पाठ्यक्रम</strong> ले आधिकारिक मनोसामाजिक परामर्शकर्ता पाठ्यक्रमभित्र पर्ने, परीक्षामा आउन सक्ने सामग्री जनाउँछ। <strong>पाठ्यक्रमभन्दा बाहिर</strong> ले पूर्णताका लागि थपिएको सामग्री जनाउँछ (DSM-5 का बाँकी भाग, नयाँ अनुसन्धान, व्यावहारिक थप): जान्न लायक, तर परीक्षामा नआउने। विद्यार्थी नभएका पाठकले ट्यागलाई बेवास्ता गरे हुन्छ।</p>
+
+  <div class="routes">
+    <a class="route" href="basics.html"><strong><span class="en">Worried about someone?</span><span class="ne">कसैको चिन्ता छ?</span></strong><span class="en">Start with the basics, then the chapter that sounds like them. Every chapter opens with where to get help now.</span><span class="ne">आधारबाट सुरु गर्नुहोस्, अनि उनीजस्तै सुनिने अध्याय। हरेक अध्याय अहिले नै सहयोग कहाँ पाइन्छ भनेर खुल्छ।</span></a>
+    <a class="route" href="pfa.html"><strong><span class="en">Health or community worker?</span><span class="ne">स्वास्थ्य वा सामुदायिक कार्यकर्ता?</span></strong><span class="en">Psychological first aid, the wellbeing pyramid, and case management are your three pages.</span><span class="ne">मनोवैज्ञानिक प्राथमिक उपचार, तन्दुरुस्तीको पिरामिड र केस व्यवस्थापन तपाईंका तीन पृष्ठ हुन्।</span></a>
+    <a class="route" href="crosswalk.html"><strong><span class="en">PSC student?</span><span class="ne">पीएससी विद्यार्थी?</span></strong><span class="en">The crosswalk maps every curriculum task to its chapter; the tags show what is examinable.</span><span class="ne">क्रसवाकले पाठ्यक्रमको हरेक कार्यलाई अध्यायसँग जोड्छ; ट्यागले परीक्षामा के आउँछ देखाउँछ।</span></a>
+  </div>
 
   <nav class="toc" aria-label="Contents">
     <a href="roots.html"><span class="secnum">02</span><span class="en">Roots: philosophy to psychology</span><span class="ne">जरा: दर्शनदेखि मनोविज्ञान</span></a>
