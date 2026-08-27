@@ -318,6 +318,11 @@ def main() -> None:
                 "x": plain_text(part)[:3000],
             })
 
+        # diagnostic code chips: explain themselves on hover/tap-hold
+        body = body.replace(
+            '<span class="code mono">',
+            '<span class="code mono" title="Diagnostic codes: DSM-5 (ICD-9-CM) · ICD-10-CM, as printed in the DSM-5">',
+        )
         # inline icon placeholders: <!--ICON:name--> anywhere in a fragment
         body = re.sub(r'<!--ICON:(\w+)-->', lambda m: ICON[m.group(1)], body)
         # resource-type icons (Lucide), picked from the label text
