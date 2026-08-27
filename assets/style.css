@@ -623,3 +623,4 @@ html[data-lang="ne"] .progress{font-family:'Mukta',sans-serif; font-size:0.8125r
 .card-head .head-right .info-pop{left:auto; right:0}
 .care-x{opacity:.45; color:var(--muted); transition:opacity .15s}
 .care-x:hover,.care-x:focus-visible{opacity:1}
+.topctrl{padding:0 34px}
