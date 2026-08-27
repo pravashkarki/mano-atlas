@@ -1,0 +1,54 @@
+# Mano Atlas (मनो एट्लास)
+
+> Mano Atlas (मनो एट्लास): a free, bilingual (English/नेपाली) atlas of mental disorders: DSM-5 criteria, teaching diagrams, and the Nepali context. Written for CTEVT Psychosocial Counselor students, community health workers and families in Nepal. Every page carries the same text in English and Nepali. Content is licensed CC BY-NC-SA 4.0. It is an educational resource, not a diagnostic tool; diagnosis belongs to qualified clinicians.
+
+Helplines inside Nepal: National Suicide Prevention Helpline 1166 (Mental Hospital, Lagankhel); TUTH mental-health hotline 1660 012 1600; women's helpline 1145 (NWC Khabar Garaun); emergency 112 / 100.
+
+Sources: DSM-5 (APA, 2013), CTEVT PSC Curriculum (2010), Sub-module 1 & 2 and Mental Health-3 class notes, WHO fact sheets and mhGAP, IASC MHPSS guidelines, Nepal MoHP policy documents.
+
+## Overview
+
+- [Home & the DSM-5 map · गृहपृष्ठ र DSM-5 नक्सा](https://pcs.pravashkarki.com/): DSM-5 organises mental disorders into about twenty chapters, ordered roughly by the age at which they typically first appear. Colour marks the categories this atlas covers in depth; the tag on each ce
+- [Roots: philosophy to psychology · जरा: दर्शनदेखि मनोविज्ञान](https://pcs.pravashkarki.com/roots): Psychology is a young science with a very old past. For more than two thousand years before the first laboratory, the questions of this whole site, what is mind? why do people suffer? how do they heal
+- [Fear: the foundation · डर: आधारशिला](https://pcs.pravashkarki.com/foundation): Fear is adaptive; the amygdala's alarm keeps you alive. Anxiety disorders are fear that has become untethered from real danger; the OCD spectrum is what happens when a person finds a behaviour that sw
+- [Mental health basics · मानसिक स्वास्थ्यका आधार](https://pcs.pravashkarki.com/basics): Before any disorder can be named, three questions have to be answered: what is mental health, where is the line between normal and abnormal, and what causes the line to be crossed. This is the CTEVT c
+- [Human development · मानव विकास](https://pcs.pravashkarki.com/development): A counselor reads every client against a map of what is normal for that age and stage . The curriculum asks for three things: the determinants of development, Maslow's hierarchy of needs, and Erikson'
+
+## Disorder categories
+
+- [Anxiety disorders · चिन्ता विकारहरू](https://pcs.pravashkarki.com/anxiety): The most common family of mental disorders worldwide. In the CTEVT PSC curriculum this is the first named category ("Anxiety", M2 · Sub-module 2 · Task 3).
+- [OCD & related · ओसीडी र सम्बन्धित](https://pcs.pravashkarki.com/ocd): DSM-5 moved OCD out of the anxiety chapter into its own family: disorders driven by repetitive behaviour that relieves distress. (In Nepali PSC training OCD is still taught within the anxiety block; a
+- [Depressive disorders · उदासी (डिप्रेसन)](https://pcs.pravashkarki.com/depression): The curriculum's second named type of mental illness, and a leading cause of disability worldwide.
+- [Trauma & stressor · आघात र तनाव](https://pcs.pravashkarki.com/trauma): The DSM-5 chapter built around an external event: no traumatic or stressful event, no diagnosis. A CTEVT PSC curriculum topic (trauma, PFA, IASC).
+- [Conversion & somatic · कन्भर्सन र शारीरिक](https://pcs.pravashkarki.com/somatic): The curriculum's third named type, and in Nepal, arguably the most important differential a psychosocial counselor ever makes: conversion versus epilepsy.
+- [Psychosis · मनोविकृति (साइकोसिस)](https://pcs.pravashkarki.com/psychosis): The curriculum's fourth named type. Psychosis = a break with shared reality: delusions, hallucinations, disorganisation. The counselor's role is detection, family psychoeducation, and referral, not so
+- [Child mental illness · बाल मानसिक समस्या](https://pcs.pravashkarki.com/child): The curriculum's fifth item ("Be familiar with child's mental illness"). Separation anxiety is covered on the Anxiety disorders page; here are the four the CTEVT curriculum and the Mental Health-3 cla
+- [Eating disorders · खानपान विकार](https://pcs.pravashkarki.com/eating): Anorexia nervosa has one of the highest mortality rates of any mental disorder: around 5% per decade. Never manage it alone; refer medically early.
+- [Sleep-wake disorders · निद्रा विकार](https://pcs.pravashkarki.com/sleep): Sleep is the most sensitive indicator of a client's mental state, and the thing you can most reliably improve in the first three sessions. DACUM lists "assess sleep disturbances" and "assess nightmare
+- [Substance use · लागुपदार्थ प्रयोग](https://pcs.pravashkarki.com/substance): A CTEVT PSC curriculum topic (substance abuse and the stages of change). DSM-5 merged the old "abuse" and "dependence" into one graded disorder per substance.
+
+## Counselling practice
+
+- [Wellbeing & intervention · तन्दुरुस्ती र हस्तक्षेप](https://pcs.pravashkarki.com/wellbeing): "Psychosocial" is one word on purpose: the psychological (thoughts, emotions, behaviour) and the social (family, community, economy, culture) shape each other constantly. Intervention means acting on 
+- [Approaches & forms · विधि र रूपहरू](https://pcs.pravashkarki.com/approaches): Counselling is a structured, confidential helping relationship in which a trained person helps a client understand their situation and find their own way through it. It is NOT advice-giving, lecturing
+- [Communication skills · संवाद-सीप](https://pcs.pravashkarki.com/skills): 99 of your 780 hours go here, more than any disorder gets, because skills, not knowledge, are what the client experiences. Non-verbal skills open the door; verbal skills do the work.
+- [The counselling process · परामर्श-प्रक्रिया](https://pcs.pravashkarki.com/process): The curriculum breaks counselling into 24 tasks; they group into six stages. The craft is knowing which stage you are in, and not skipping ahead.
+- [Tools & techniques · औजार र प्रविधि](https://pcs.pravashkarki.com/tools): Words are not the only door. For children, for low-literacy clients, and for bodies stuck in alarm, the curriculum's toolbox, play, paper, breath, story, often works before talk does.
+- [Suicide: assessment · आत्महत्या: मूल्याङ्कन](https://pcs.pravashkarki.com/suicide): The skill that outweighs every other in this course. The curriculum makes suicidal-thought assessment a task for every client (process task 13), because the question, asked calmly and directly, saves 
+- [PFA & emergencies · पीएफए र आपतकाल](https://pcs.pravashkarki.com/pfa): Nepal's counselors work in a country of earthquakes, floods, landslides, fires and bus accidents. PFA is what everyone can do in the first hours and days: humane, practical support that follows three 
+- [Gender & GBV · लैङ्गिकता र जीबीभी](https://pcs.pravashkarki.com/gbv): Sex is biology; gender is the roles, expectations and power a society attaches to it. GBV is violence that flows along those power lines, and in Nepal it is one of the most common wounds a counselor w
+- [HIV & AIDS counselling · एचआईभी परामर्श](https://pcs.pravashkarki.com/hiv): HIV is now a manageable chronic condition: a person on treatment lives a near-normal lifespan, and effective treatment with a sustained undetectable viral load makes the virus sexually untransmittable
+- [Case management · केस व्यवस्थापन](https://pcs.pravashkarki.com/casemgmt): Module 2 in one page. Counselling that is not documented, supervised, and connected to a referral network is a conversation, not a service.
+- [Ethics & self-care · नैतिकता र आत्म-हेरचाह](https://pcs.pravashkarki.com/ethics): Grounded in the ACA Code of Ethics (the code in your course pack) and the curriculum's ethics tasks. Ethics is not a list to memorise; it is how trust is manufactured, session after session.
+
+## Reference
+
+- [The rest of the map · बाँकी नक्सा](https://pcs.pravashkarki.com/more): So the map has no blank spaces: the remaining DSM-5 categories, one honest sentence each. Any of these can become a full chapter later.
+- [Culture & the Nepal panorama · संस्कृति र नेपाली परिदृश्य](https://pcs.pravashkarki.com/nepal): The cross-cutting Nepali material every chapter leaned on, gathered in one place: the ethnopsychology, the idioms of distress, and the history of mental health care.
+- [For PSC students · पीएससी विद्यार्थीलाई](https://pcs.pravashkarki.com/crosswalk): This page is for CTEVT Psychosocial Counselor trainees: how the atlas maps to the 780-hour curriculum, the PSC study handbook, and a six-month study roadmap. Everyone else can safely skip it.
+- [Glossary · शब्दावली](https://pcs.pravashkarki.com/glossary): Thirty terms that appear again and again across the atlas, each in one plain sentence. The English term is kept because it is what you will hear in hospitals, referral letters and exams; the Nepali co
+
+## Optional
+
+- [Sitemap](https://pcs.pravashkarki.com/sitemap.xml)
+- [Source repository](https://github.com/pravashkarki/mano-atlas)

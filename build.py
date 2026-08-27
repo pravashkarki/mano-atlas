@@ -281,6 +281,8 @@ SHELL = """<!DOCTYPE html>
 <meta property="og:locale" content="en_GB">
 <meta property="og:locale:alternate" content="ne_NP">
 <meta name="twitter:card" content="summary">
+<link rel="alternate" type="text/plain" href="{site_url}/llms.txt" title="llms.txt">
+<script type="application/ld+json">{jsonld}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,500;0,7..72,600;1,7..72,400&family=Mukta:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Caveat:wght@600&display=swap">
 <link rel="stylesheet" href="assets/style.css">
@@ -356,6 +358,7 @@ def main() -> None:
     content_dir = ROOT / "content"
     hero = (content_dir / "hero.html").read_text().replace('<!--TOC-->', toc_html())
     search_index = []
+    page_descs = []
     quiz_dir = ROOT / "quizzes"
     for i, (slug, fname, num, en, ne, cat, group) in enumerate(PAGES):
         body = (content_dir / f"{fname}.html").read_text()
@@ -453,7 +456,26 @@ def main() -> None:
         secsub = re.search(r'<p class="secsub en">(.*?)</p>', body, re.S)
         page_desc = html_mod.escape(plain_text(secsub.group(1))[:200] if secsub else SITE_DESC)
         page_url = f'{SITE["site_url"]}/' if slug == "index" else f'{SITE["site_url"]}/{slug}'
-        html = SHELL.format(title=title, nav=nav_html(slug), content=content, pager=pager_html(i), page_desc=page_desc, page_url=page_url,
+        group_en, group_ne = GROUPS[group]
+        jsonld = json.dumps({
+            "@context": "https://schema.org",
+            "@graph": [
+                {"@type": "WebSite", "@id": SITE["site_url"] + "/#site", "url": SITE["site_url"] + "/", "name": "Mano Atlas", "alternateName": "मनो एट्लास",
+                 "description": SITE_DESC, "inLanguage": ["en", "ne"], "license": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+                 "publisher": {"@type": "Person", "name": "Pravash Karki"}},
+                {"@type": ["Article", "LearningResource"], "@id": page_url + "#article", "url": page_url, "headline": title.replace(" · Mano Atlas", ""),
+                 "alternativeHeadline": ne, "description": html_mod.unescape(page_desc), "inLanguage": ["en", "ne"], "isPartOf": {"@id": SITE["site_url"] + "/#site"},
+                 "about": "Mental health education; DSM-5; psychosocial counselling; Nepal", "educationalLevel": "Diploma (CTEVT Psychosocial Counselor)",
+                 "learningResourceType": "reading", "audience": {"@type": "EducationalAudience", "educationalRole": "student"},
+                 "dateModified": "2026-08", "license": "https://creativecommons.org/licenses/by-nc-sa/4.0/", "isAccessibleForFree": True,
+                 "author": {"@type": "Person", "name": "Pravash Karki"}},
+                {"@type": "BreadcrumbList", "itemListElement": [
+                    {"@type": "ListItem", "position": 1, "name": "Mano Atlas", "item": SITE["site_url"] + "/"},
+                    {"@type": "ListItem", "position": 2, "name": group_en},
+                    {"@type": "ListItem", "position": 3, "name": en, "item": page_url}]}
+            ]}, ensure_ascii=False)
+        page_descs.append((slug, en, ne, html_mod.unescape(page_desc), group_en))
+        html = SHELL.format(title=title, nav=nav_html(slug), content=content, pager=pager_html(i), page_desc=page_desc, page_url=page_url, jsonld=jsonld,
                             icon_search=ICON["search"], icon_menu=ICON["menu"], icon_phone=ICON["phone"], icon_mail=ICON["mail"], **SITE)
         (ROOT / f"{slug}.html").write_text(html)
         print("built", f"{slug}.html")
@@ -469,7 +491,19 @@ def main() -> None:
           '<p class="secsub en">The address may be old or mistyped. Use the search, pick a chapter from the list, or start from the home page.</p>\n'
           '<p class="secsub ne">ठेगाना पुरानो वा गलत टाइप भएको हुन सक्छ। खोज प्रयोग गर्नुहोस्, सूचीबाट अध्याय रोज्नुहोस्, वा गृहपृष्ठबाट सुरु गर्नुहोस्।</p>\n'
           '<p><a href="index.html"><span class="en">Go to the home page</span><span class="ne">गृहपृष्ठमा जानुहोस्</span></a></p>\n')
-    html404 = SHELL.format(title="Page not found · Mano Atlas", nav=nav_html("index"), content=nf, pager="", page_desc=SITE_DESC, page_url=SITE["site_url"] + "/404",
+    # llms.txt: a plain-text map for language models and other crawlers that read it
+    by_grp = {}
+    for s, e, n_, d, g in page_descs:
+        by_grp.setdefault(g, []).append(f"- [{e} · {n_}]({SITE['site_url']}/{'' if s == 'index' else s}): {d}")
+    llms = ("# Mano Atlas (मनो एट्लास)\n\n> " + SITE_DESC + " Written for CTEVT Psychosocial Counselor students, community health workers and families in Nepal. "
+            "Every page carries the same text in English and Nepali. Content is licensed CC BY-NC-SA 4.0. It is an educational resource, not a diagnostic tool; diagnosis belongs to qualified clinicians.\n\n"
+            "Helplines inside Nepal: National Suicide Prevention Helpline 1166 (Mental Hospital, Lagankhel); TUTH mental-health hotline 1660 012 1600; women's helpline 1145 (NWC Khabar Garaun); emergency 112 / 100.\n\n"
+            "Sources: DSM-5 (APA, 2013), CTEVT PSC Curriculum (2010), Sub-module 1 & 2 and Mental Health-3 class notes, WHO fact sheets and mhGAP, IASC MHPSS guidelines, Nepal MoHP policy documents.\n\n")
+    for g, lines in by_grp.items():
+        llms += f"## {g}\n\n" + "\n".join(lines) + "\n\n"
+    llms += "## Optional\n\n- [Sitemap](" + SITE["site_url"] + "/sitemap.xml)\n- [Source repository](https://github.com/pravashkarki/mano-atlas)\n"
+    (ROOT / "llms.txt").write_text(llms)
+    html404 = SHELL.format(title="Page not found · Mano Atlas", nav=nav_html("index"), content=nf, pager="", page_desc=SITE_DESC, page_url=SITE["site_url"] + "/404", jsonld="{}",
                            icon_search=ICON["search"], icon_menu=ICON["menu"], icon_phone=ICON["phone"], icon_mail=ICON["mail"], **SITE)
     (ROOT / "404.html").write_text(html404)
     print(f"search index: {len(search_index)} entries, {len(idx_js)//1024} KB")
