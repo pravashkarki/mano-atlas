@@ -113,7 +113,22 @@ function cycleTheme() {
   if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', go); } else { go(); }
 })();
 
-/* ---- quick check: friendly, no scores ---- */
+/* ---- quick check: friendly, no scores; a missed question is gently flagged next visit ---- */
+function qzIndex(qz) { return Array.prototype.indexOf.call(document.querySelectorAll('.qz'), qz); }
+(function () {
+  function go() {
+    document.querySelectorAll('.qz').forEach(function (qz, i) {
+      var flagged = false;
+      try { flagged = !!localStorage.getItem('psc-miss:' + location.pathname + ':' + i); } catch (e) {}
+      if (!flagged) return;
+      var p = document.createElement('p'); p.className = 'qz-again';
+      p.innerHTML = '<span class="en">You missed this one last time; worth a second look.</span><span class="ne">अघिल्लो पटक यो छुटेको थियो; फेरि एकपटक हेर्न लायक।</span>';
+      var q = qz.querySelector('.qz-q'); if (q) q.insertAdjacentElement('afterend', p);
+    });
+  }
+  if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', go); } else { go(); }
+})();
+
 document.addEventListener('click', function (e) {
   var b = e.target.closest ? e.target.closest('.qz-opt') : null;
   if (!b || b.disabled) return;
@@ -125,10 +140,12 @@ document.addEventListener('click', function (e) {
     qz.querySelectorAll('.qz-opt').forEach(function (o) { o.disabled = true; });
     if (fb) fb.hidden = false;
     if (hint) hint.hidden = true;
+    try { var okKey = 'psc-miss:' + location.pathname + ':' + qzIndex(qz); localStorage.removeItem(okKey); } catch (e2) {}
   } else {
     b.classList.add('nope');
     b.disabled = true;
     if (hint) hint.hidden = false;
+    try { localStorage.setItem('psc-miss:' + location.pathname + ':' + qzIndex(qz), '1'); } catch (e3) {}
   }
 });
 

@@ -4,6 +4,7 @@
 Each page = shared shell (sidebar nav + lang switcher) + content/<slug>.html.
 Add a page: drop a file in content/, add one entry to PAGES, run: python3 build.py
 """
+import html as html_mod
 import json
 import pathlib
 import re
@@ -21,6 +22,7 @@ SITE = {
     "helpline_tuth": "1660 012 1600",
     "helpline_women": "1145",
     "helpline_emergency": "112 / 100",
+    "site_url": "https://pcs.pravashkarki.com",
 }
 
 # slug, content file, num, en title, ne title, catvar (sidebar colour mark), group
@@ -54,6 +56,7 @@ PAGES = [
     ("more",       "rest",       "27", "The rest of the map",       "बाँकी नक्सा",                   None,       "reference"),
     ("nepal",      "nepal",      "28", "Culture & the Nepal panorama", "संस्कृति र नेपाली परिदृश्य", None,       "reference"),
     ("crosswalk",  "crosswalk",  "29", "For PSC students",          "पीएससी विद्यार्थीलाई",          None,       "reference"),
+    ("glossary",   "glossary",   "30", "Glossary",                  "शब्दावली",                       None,       "reference"),
 ]
 
 GROUPS = {
@@ -106,6 +109,7 @@ def res_type_icon(label: str) -> str:
     return ICON["file"]
 
 
+SITE_DESC = "Mano Atlas (मनो एट्लास): a free, bilingual (English/नेपाली) atlas of mental disorders: DSM-5 criteria, teaching diagrams, and the Nepali context."
 NE_DIGITS = str.maketrans("0123456789", "०१२३४५६७८९")
 HEAVY_PAGES = {"suicide", "gbv", "pfa", "trauma", "psychosis", "ethics"}
 
@@ -268,6 +272,15 @@ SHELL = """<!DOCTYPE html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Mano Atlas (मनो एट्लास): a free, bilingual (English/नेपाली) atlas of mental disorders: DSM-5 criteria, teaching diagrams, and the Nepali context.">
 <title>{title}</title>
+<link rel="canonical" href="{page_url}">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Mano Atlas · मनो एट्लास">
+<meta property="og:title" content="{title}">
+<meta property="og:description" content="{page_desc}">
+<meta property="og:url" content="{page_url}">
+<meta property="og:locale" content="en_GB">
+<meta property="og:locale:alternate" content="ne_NP">
+<meta name="twitter:card" content="summary">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,500;0,7..72,600;1,7..72,400&family=Mukta:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Caveat:wght@600&display=swap">
 <link rel="stylesheet" href="assets/style.css">
@@ -430,13 +443,35 @@ def main() -> None:
                 f'<section id="{fname}" style="margin-top:12px">\n{body}\n</section>\n{careline}'
             )
         title = "Mano Atlas" if slug == "index" else f"{en} · Mano Atlas"
-        html = SHELL.format(title=title, nav=nav_html(slug), content=content, pager=pager_html(i),
+        # on-page contents for chapters with three or more cards
+        cards = re.findall(r'<article class="card" id="([^"]+)"[^>]*>\s*<div class="card-head">\s*<h3><span class="en">(.*?)</span><span class="ne">(.*?)</span>', body, re.S)
+        if slug != "index" and len(cards) >= 3:
+            items = "".join(f'<li><a href="#{cid}"><span class="en">{te}</span><span class="ne">{tn}</span></a></li>' for cid, te, tn in cards)
+            onpage = (f'<nav class="onpage" aria-label="On this page"><span class="onpage-h"><span class="en">On this page</span>'
+                      f'<span class="ne">यस पृष्ठमा</span></span><ol>{items}</ol></nav>\n')
+            content = content.replace(LABELS_HELP, LABELS_HELP + onpage, 1)
+        secsub = re.search(r'<p class="secsub en">(.*?)</p>', body, re.S)
+        page_desc = html_mod.escape(plain_text(secsub.group(1))[:200] if secsub else SITE_DESC)
+        page_url = f'{SITE["site_url"]}/' if slug == "index" else f'{SITE["site_url"]}/{slug}'
+        html = SHELL.format(title=title, nav=nav_html(slug), content=content, pager=pager_html(i), page_desc=page_desc, page_url=page_url,
                             icon_search=ICON["search"], icon_menu=ICON["menu"], icon_phone=ICON["phone"], icon_mail=ICON["mail"], **SITE)
         (ROOT / f"{slug}.html").write_text(html)
         print("built", f"{slug}.html")
 
     idx_js = "window.MANO_INDEX=" + json.dumps(search_index, ensure_ascii=False, separators=(",", ":")) + ";"
     (ROOT / "assets" / "search-index.js").write_text(idx_js)
+    # sitemap, robots, 404
+    urls = "".join(f'  <url><loc>{SITE["site_url"]}/{"" if s == "index" else s}</loc></url>\n' for s, *_ in PAGES)
+    (ROOT / "sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + urls + "</urlset>\n")
+    (ROOT / "robots.txt").write_text(f'User-agent: *\nAllow: /\nSitemap: {SITE["site_url"]}/sitemap.xml\n')
+    nf = ('<div class="pagehead"><span class="bignum" aria-hidden="true">404</span><div class="kicker"><span class="en">Page not found</span><span class="ne">पृष्ठ भेटिएन</span></div></div>\n'
+          '<h2><span class="en">That page is not here</span><span class="ne">त्यो पृष्ठ यहाँ छैन</span></h2>\n'
+          '<p class="secsub en">The address may be old or mistyped. Use the search, pick a chapter from the list, or start from the home page.</p>\n'
+          '<p class="secsub ne">ठेगाना पुरानो वा गलत टाइप भएको हुन सक्छ। खोज प्रयोग गर्नुहोस्, सूचीबाट अध्याय रोज्नुहोस्, वा गृहपृष्ठबाट सुरु गर्नुहोस्।</p>\n'
+          '<p><a href="index.html"><span class="en">Go to the home page</span><span class="ne">गृहपृष्ठमा जानुहोस्</span></a></p>\n')
+    html404 = SHELL.format(title="Page not found · Mano Atlas", nav=nav_html("index"), content=nf, pager="", page_desc=SITE_DESC, page_url=SITE["site_url"] + "/404",
+                           icon_search=ICON["search"], icon_menu=ICON["menu"], icon_phone=ICON["phone"], icon_mail=ICON["mail"], **SITE)
+    (ROOT / "404.html").write_text(html404)
     print(f"search index: {len(search_index)} entries, {len(idx_js)//1024} KB")
 
 

@@ -480,3 +480,25 @@ html[data-lang="ne"] .keypoints li{font-size:1.0625rem}
 .plain{font-size:0.9375rem; color:var(--muted); margin:-4px 0 12px; line-height:1.5}
 .plain strong{color:var(--accent); font-weight:600}
 html[data-lang="ne"] .plain{font-size:1rem}
+
+/* ===== on-page contents ===== */
+.onpage{margin:6px 0 14px; font-size:0.875rem}
+.onpage .onpage-h{font-family:'IBM Plex Mono',monospace; font-size:0.6875rem; letter-spacing:.13em; text-transform:uppercase; color:var(--muted); display:block; margin-bottom:4px}
+html[data-lang="ne"] .onpage .onpage-h{font-family:'Mukta',sans-serif; font-size:0.8125rem; letter-spacing:0; text-transform:none}
+.onpage ol{margin:0; padding:0; list-style:none; display:flex; flex-wrap:wrap; gap:6px}
+.onpage li a{display:inline-block; border:1px solid var(--line); border-radius:999px; padding:3px 10px; color:var(--ink); text-decoration:none; background:var(--surface)}
+.onpage li a:hover{border-color:var(--accent); color:var(--accent)}
+html[data-lang="ne"] .onpage{font-size:0.9375rem}
+.qz-again{font-size:0.875rem; color:var(--accent); margin:-2px 0 8px}
+html[data-lang="ne"] .qz-again{font-size:0.9375rem}
+/* ===== print: a clean study sheet ===== */
+@media print{
+  .sidebar,.pager,.quickcheck,.careline,.gentle,.labels-help,.onpage,.routes,.hero-art,.bignum,.res-type,.care-x{display:none !important}
+  .layout{display:block; max-width:none; border:0} #main{padding:0; max-width:none}
+  body{background:#fff; color:#000; font-size:11pt; line-height:1.45}
+  .card,.callout,.keypoints,.resources,.tryit{break-inside:avoid; border:1px solid #999; box-shadow:none; background:#fff}
+  .callout.crisis{border:2px solid #000}
+  a{color:#000; text-decoration:none} a[href^="http"]::after{content:" (" attr(href) ")"; font-size:9pt; color:#444}
+  figure svg{max-width:100%; width:auto}
+  .sitefoot > div:not(.crisis-col){display:none} .sitefoot .crisis-col{border:0; padding:0}
+}
