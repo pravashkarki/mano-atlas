@@ -640,3 +640,11 @@ html[data-lang="ne"] .progress{font-family:'Mukta',sans-serif; font-size:0.8125r
 .card-head .head-right{margin-left:auto; display:inline-flex; align-items:center; gap:6px}
 .card-head .head-right .info{margin-left:0}
 .card-head .head-right .info-pop{left:auto; right:0}
+/* pill: equal padding, equal control heights */
+@media(min-width:901px){
+  .topctrl-pill{padding:5px; gap:6px}
+  .topctrl-pill .langsw,.topctrl-pill .themesw,.pill-search .search input{height:32px; box-sizing:border-box}
+  .topctrl-pill .langsw button{height:30px; padding:0 12px; line-height:30px}
+  .topctrl-pill .themesw{padding:0 12px; display:inline-flex; align-items:center; line-height:1}
+  .pill-search .search input{padding-top:0; padding-bottom:0; line-height:30px}
+}
