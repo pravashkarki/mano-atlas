@@ -453,7 +453,7 @@ def main() -> None:
                 f'<div class="pagehead"><span class="bignum" aria-hidden="true">{num}</span>'
                 f'<div class="kicker"><span class="en">Section {num}</span>'
                 f'<span class="ne">खण्ड {num.translate(NE_DIGITS)}</span>{readtime}</div></div>\n'
-                f'<nav class="pager pager-top" aria-label="Chapter (top)">\n{pager_html(i)}\n</nav>\n{gentle}{LABELS_HELP}'
+                f'<nav class="pager pager-top" aria-label="Chapter (top)">\n{pager_html(i)}\n</nav>\n{gentle}<div class="pagetools">{LABELS_HELP}</div>\n'
                 f'<section id="{fname}" style="margin-top:12px">\n{body}\n</section>\n{careline}'
             )
         title = "Mano Atlas" if slug == "index" else f"{en} · Mano Atlas"
@@ -463,7 +463,7 @@ def main() -> None:
             items = "".join(f'<li><a href="#{cid}"><span class="en">{te}</span><span class="ne">{tn}</span></a></li>' for cid, te, tn in cards)
             onpage = (f'<nav class="onpage" aria-label="On this page"><span class="onpage-h"><span class="en">On this page</span>'
                       f'<span class="ne">यस पृष्ठमा</span></span><ol>{items}</ol></nav>\n')
-            content = content.replace(LABELS_HELP, LABELS_HELP + onpage, 1)
+            content = content.replace(LABELS_HELP + '</div>', LABELS_HELP + onpage + '</div>', 1)
         secsub = re.search(r'<p class="secsub en">(.*?)</p>', body, re.S)
         page_desc = html_mod.escape(plain_text(secsub.group(1))[:200] if secsub else SITE_DESC)
         page_url = f'{SITE["site_url"]}/' if slug == "index" else f'{SITE["site_url"]}/{slug}'

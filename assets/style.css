@@ -535,3 +535,12 @@ html[data-lang="ne"] .crit .crit-label,html[data-lang="ne"] .ctx .ctx-label,html
 html[data-lang="ne"] .tryit .fine,html[data-lang="ne"] .crit .note,html[data-lang="ne"] figcaption,html[data-lang="ne"] .resources .res-hint,html[data-lang="ne"] .quickcheck .qc-hint,html[data-lang="ne"] .plain,html[data-lang="ne"] .gentle,html[data-lang="ne"] .labels-help p,html[data-lang="ne"] .qz-hint,html[data-lang="ne"] .qz-again{
   font-family:'Mukta','Noto Sans Devanagari',sans-serif}
 .tryit .fine{font-size:0.8125rem}
+
+/* ===== page top: three groups (orientation · gentle note · page tools), then the title ===== */
+.pager-top{margin-bottom:6px}
+.gentle{margin:26px 0 0}
+.pagetools{margin:26px 0 34px; padding-top:14px; border-top:1px solid var(--line2); display:flex; flex-direction:column; gap:12px}
+.pagetools .labels-help,.pagetools .onpage{margin:0}
+.pagetools:empty{display:none}
+.labels-help summary{font-weight:600; font-size:0.8125rem; letter-spacing:0; text-transform:none; color:var(--muted)}
+html[data-lang="ne"] .labels-help summary{font-size:0.9375rem}
