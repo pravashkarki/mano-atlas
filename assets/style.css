@@ -624,3 +624,4 @@ html[data-lang="ne"] .progress{font-family:'Mukta',sans-serif; font-size:0.8125r
 .care-x{opacity:.45; color:var(--muted); transition:opacity .15s}
 .care-x:hover,.care-x:focus-visible{opacity:1}
 .topctrl{padding:0 34px}
+.gentle{font-weight:400; line-height:1.45} .gentle .gentle-tx{font-weight:400}
