@@ -167,9 +167,12 @@ INFO_POP = (
 
 
 def info_popovers(body: str) -> str:
-    """Add the tags-and-codes info popover after the curriculum pill in every card head."""
-    return re.sub(r'(<span class="pill (?:todo|beyond)"><span class="dot"></span><span class="en">[^<]*</span><span class="ne">[^<]*</span></span>)(\s*</div>\s*<div class="card-body">)',
-                  lambda m: m.group(1) + INFO_POP + m.group(2), body)
+    """Card head: title + curriculum tag on the left; code chip + info popover on the right."""
+    pat = re.compile(r'(<h3>.*?</h3>)\s*(<span class="code mono"[^>]*>[^<]*</span>)?\s*(<span class="pill (?:todo|beyond)">.*?</span></span>)(\s*</div>\s*<div class="card-body">)', re.S)
+    def one(m):
+        code = m.group(2) or ""
+        return m.group(1) + m.group(3) + '<span class="head-right">' + code + INFO_POP + '</span>' + m.group(4)
+    return pat.sub(one, body)
 
 
 def link_page_refs(body: str) -> str:
