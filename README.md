@@ -7,6 +7,7 @@ A multi-page static site with a centred sidebar-plus-content layout, grouped nav
 ```
 content/     one HTML fragment per section (the teaching text)
 quizzes/     one small file per page: the three Quick-check questions
+keypoints/   one small file per page: the three "Key points" bullets shown before the Quick check
 assets/      style.css, lang.js, search.js, search-index.js (generated)
 build.py     SITE config + PAGES list; assembles everything → the *.html pages
 *.html       generated pages (never edit these by hand)
@@ -18,6 +19,7 @@ build.py     SITE config + PAGES list; assembles everything → the *.html pages
 |---|---|
 | Teaching text of a page | `content/<name>.html` |
 | A quiz question | `quizzes/<name>.html` |
+| A "Key points" bullet | `keypoints/<name>.html` |
 | Helpline numbers, contact email, review date | the `SITE` dict at the top of `build.py` |
 | Page list, titles, nav order and groups | the `PAGES` list in `build.py` |
 | Colours, fonts, layout | `assets/style.css` |
