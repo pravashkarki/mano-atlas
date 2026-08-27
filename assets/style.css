@@ -502,3 +502,12 @@ html[data-lang="ne"] .qz-again{font-size:0.9375rem}
   figure svg{max-width:100%; width:auto}
   .sitefoot > div:not(.crisis-col){display:none} .sitefoot .crisis-col{border:0; padding:0}
 }
+
+/* ===== home contents: group headers with spot illustrations ===== */
+.toc-grp{grid-column:1 / -1; display:flex; align-items:center; gap:14px; margin-top:22px; padding-bottom:6px; border-bottom:1px solid var(--line)}
+.toc-grp:first-child{margin-top:0}
+.toc-grp h3{margin:0; font-family:'IBM Plex Mono',monospace; font-size:0.75rem; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); font-weight:500}
+html[data-lang="ne"] .toc-grp h3{font-family:'Mukta',sans-serif; font-size:0.9375rem; letter-spacing:0; text-transform:none}
+.toc-grp svg.spot{width:96px; height:auto; flex:none; color:var(--ink); opacity:.92}
+@media(max-width:640px){ .toc-grp svg.spot{width:72px} }
+@media print{ .toc-grp svg.spot{display:none} }
