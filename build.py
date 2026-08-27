@@ -453,7 +453,7 @@ def main() -> None:
                 f'<div class="pagehead"><span class="bignum" aria-hidden="true">{num}</span>'
                 f'<div class="kicker"><span class="en">Section {num}</span>'
                 f'<span class="ne">खण्ड {num.translate(NE_DIGITS)}</span>{readtime}</div></div>\n'
-                f'<nav class="pager pager-top" aria-label="Chapter (top)">\n{pager_html(i)}\n</nav>\n{gentle}<div class="pagetools">{LABELS_HELP}</div>\n'
+                f'{gentle}<div class="pagetools">{LABELS_HELP}</div>\n'
                 f'<section id="{fname}" style="margin-top:12px">\n{body}\n</section>\n{careline}'
             )
         title = "Mano Atlas" if slug == "index" else f"{en} · Mano Atlas"
