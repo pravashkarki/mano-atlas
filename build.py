@@ -105,6 +105,23 @@ def res_type_icon(label: str) -> str:
 
 
 NE_DIGITS = str.maketrans("0123456789", "०१२३४५६७८९")
+HEAVY_PAGES = {"suicide", "gbv", "pfa", "trauma", "psychosis", "ethics"}
+
+
+def link_page_refs(body: str) -> str:
+    """Turn plain "page 03" / "पृष्ठ ०३" cross-references in text nodes into links."""
+    num_to_slug = {num: ("index" if slug == "index" else slug) for slug, _f, num, *_ in PAGES}
+    def repl_en(m):
+        slug = num_to_slug.get(m.group(1))
+        return f'<a href="{slug}.html">{m.group(0)}</a>' if slug else m.group(0)
+    def repl_ne(m):
+        slug = num_to_slug.get(m.group(1).translate(str.maketrans("०१२३४५६७८९", "0123456789")))
+        return f'<a href="{slug}.html">{m.group(0)}</a>' if slug else m.group(0)
+    parts = re.split(r"(<[^>]+>)", body)
+    for k in range(0, len(parts), 2):
+        parts[k] = re.sub(r"\bpage (\d{2})\b", repl_en, parts[k])
+        parts[k] = re.sub(r"पृष्ठ ([०-९]{2})", repl_ne, parts[k])
+    return "".join(parts)
 
 # closing care notes: varied per page (picked by page index), dismissible for the session
 CARELINES = [
@@ -158,13 +175,13 @@ def pager_html(i: int) -> str:
         href = "index.html" if s == "index" else f"{s}.html"
         parts.append(
             f'<a class="prev" href="{href}"><span class="lbl">{ICON["left"]}<span class="en">Previous · {num}</span>'
-            f'<span class="ne">अघिल्लो · {num}</span></span><span class="en">{en}</span><span class="ne">{ne}</span></a>'
+            f'<span class="ne">अघिल्लो · {num.translate(NE_DIGITS)}</span></span><span class="en">{en}</span><span class="ne">{ne}</span></a>'
         )
     if i < len(PAGES) - 1:
         s, _f, num, en, ne, *_ = PAGES[i + 1]
         parts.append(
             f'<a class="next" href="{s}.html"><span class="lbl"><span class="en">Next · {num}</span>'
-            f'<span class="ne">अर्को · {num}</span>{ICON["right"]}</span><span class="en">{en}</span><span class="ne">{ne}</span></a>'
+            f'<span class="ne">अर्को · {num.translate(NE_DIGITS)}</span>{ICON["right"]}</span><span class="en">{en}</span><span class="ne">{ne}</span></a>'
         )
     return "\n    ".join(parts)
 
@@ -254,9 +271,9 @@ SHELL = """<!DOCTYPE html>
         </div>
         <div class="crisis-col">
           <h4>{icon_phone} <span class="en">If you need help now · Nepal</span><span class="ne">अहिले नै सहयोग चाहिए · नेपाल</span></h4>
-          <p><strong>{helpline_suicide}</strong> <span class="en">National Suicide Prevention Helpline</span><span class="ne">राष्ट्रिय आत्महत्या रोकथाम हेल्पलाइन</span></p>
-          <p><strong>{helpline_tuth}</strong> <span class="en">TUTH mental-health hotline</span><span class="ne">टिचिङ अस्पताल हटलाइन</span></p>
-          <p><strong>{helpline_women}</strong> <span class="en">Women's helpline</span><span class="ne">महिला हेल्पलाइन</span> · <strong>{helpline_emergency}</strong> <span class="en">emergency</span><span class="ne">आपतकाल</span></p>
+          <p><strong><a href="tel:1166">{helpline_suicide}</a></strong> <span class="en">National Suicide Prevention Helpline</span><span class="ne">राष्ट्रिय आत्महत्या रोकथाम हेल्पलाइन</span></p>
+          <p><strong><a href="tel:16600121600">{helpline_tuth}</a></strong> <span class="en">TUTH mental-health hotline</span><span class="ne">टिचिङ अस्पताल हटलाइन</span></p>
+          <p><strong><a href="tel:1145">{helpline_women}</a></strong> <span class="en">Women's helpline</span><span class="ne">महिला हेल्पलाइन</span> · <strong><a href="tel:112">112</a> / <a href="tel:100">100</a></strong> <span class="en">emergency</span><span class="ne">आपतकाल</span></p>
           <p class="outside"><span class="en">These numbers work inside Nepal. Elsewhere, <a href="https://findahelpline.com" target="_blank" rel="noopener">findahelpline.com</a> lists your country's lines.</span><span class="ne">यी नम्बर नेपालभित्र चल्छन्। अन्यत्र हुनुहुन्छ भने <a href="https://findahelpline.com" target="_blank" rel="noopener">findahelpline.com</a> मा आफ्नो देशका नम्बर भेटिन्छन्।</span></p>
         </div>
         <div>
@@ -332,10 +349,16 @@ def main() -> None:
             body,
         )
 
+        body = link_page_refs(body)
         if slug == "index":
             content = f'<header class="hero">\n{hero}\n</header>\n<section id="map">\n{body}\n</section>'
         else:
             gentle = ""
+            if slug in HEAVY_PAGES and group != "disorders":
+                gentle = (f'<p class="gentle">{ICON["sprout"]}<span class="gentle-tx"><span class="en">A gentle note before you read: this chapter carries heavy material. '
+                          'Read at your own pace; stopping partway and coming back is allowed.</span>'
+                          '<span class="ne">पढ्नुअघि एउटा कोमल कुरा: यो खण्डमा गह्रौं विषय छन्। '
+                          'आफ्नै गतिमा पढ्नुहोस्; बीचमै रोकेर पछि फर्कन पाइन्छ।</span></span></p>\n')
             if group == "disorders":
                 gentle = (f'<p class="gentle">{ICON["sprout"]}<span class="gentle-tx"><span class="en">A gentle note before you read: symptom lists make '
                           'almost everyone recognise themselves somewhere. That is a normal effect of reading, '
@@ -349,14 +372,15 @@ def main() -> None:
             mins = max(2, round(words / 170))
             readtime = (f'<span class="readtime">{ICON["clock"]}<span class="en">about {mins} min · no rush</span>'
                         f'<span class="ne">करिब {str(mins).translate(NE_DIGITS)} मिनेट · हतार छैन</span></span>')
-            ce, cn = CARELINES[i % len(CARELINES)]
+            # heavy chapters always get the steadying line; others rotate
+            ce, cn = CARELINES[3] if slug in HEAVY_PAGES else CARELINES[i % len(CARELINES)]
             careline = (f'<p class="careline">{ICON["heart"]}<span class="care-tx">'
                         f'<span class="en">{ce}</span><span class="ne">{cn}</span></span>'
                         '<button class="care-x" aria-label="Hide these notes for this visit" title="Hide">&times;</button></p>')
             content = (
                 f'<div class="pagehead"><span class="bignum" aria-hidden="true">{num}</span>'
                 f'<div class="kicker"><span class="en">Section {num}</span>'
-                f'<span class="ne">खण्ड {num}</span>{readtime}</div></div>\n'
+                f'<span class="ne">खण्ड {num.translate(NE_DIGITS)}</span>{readtime}</div></div>\n'
                 f'<nav class="pager pager-top" aria-label="Chapter (top)">\n{pager_html(i)}\n</nav>\n{gentle}'
                 f'<section id="{fname}" style="margin-top:12px">\n{body}\n</section>\n{careline}'
             )

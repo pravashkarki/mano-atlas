@@ -143,7 +143,6 @@
   .card-body p{margin:13px 0; max-width:70ch}   /* measure capped for readability */
   .card-body ul,.card-body ol{max-width:68ch}
   .card-body strong{color:var(--ink)}           /* bold lead-ins anchor scanning */
-  @media(max-width:640px){ body{font-size:1.0938rem} }
   .defn{font-size:1.0625rem; color:var(--muted); font-style:italic; margin-top:12px}
   html[data-lang="ne"] .defn{font-style:normal}
 
