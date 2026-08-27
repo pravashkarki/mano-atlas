@@ -227,7 +227,7 @@
   dl.idioms dt{font-weight:700; font-family:'Mukta','Archivo',sans-serif; margin-top:12px}
   dl.idioms dd{margin:2px 0 0 0; font-size:1.0312rem; color:var(--muted)}
 
-  .callout{border:1.5px solid var(--accent); background:var(--surface);
+  .callout{border:1px solid var(--line); background:var(--surface);
     border-radius:8px; padding:13px 17px; margin:18px 0; font-size:1.0312rem}
   .footer{margin-top:70px; border-top:2px solid var(--ink); padding-top:18px; font-size:0.8438rem; color:var(--muted)}
   a{color:var(--accent-ink)}
@@ -359,7 +359,7 @@ html[data-lang="ne"] .labels-help p{font-size:0.9375rem}
   .tblwrap:has(table.cardy){overflow:visible}
 }
 /* ===== learn-more resources ===== */
-.resources{background:var(--surface); border:1.5px solid var(--accent);
+.resources{background:var(--surface2); border:1px solid var(--line);
   border-radius:10px; padding:16px 20px; margin-top:28px}
 .resources .res-head{font-family:'IBM Plex Mono',monospace; font-size:0.6875rem; letter-spacing:.13em;
   text-transform:uppercase; color:var(--accent); margin-bottom:4px}
@@ -417,7 +417,7 @@ article.card{scroll-margin-top:76px}
 .sidebar .top{flex-wrap:wrap; gap:8px}
 .callout.crisis{border-color:var(--crisis); background:var(--crisis-wash)}
 .callout.crisis strong{color:var(--crisis-ink)}
-.gentle{font-size:0.9375rem; color:var(--muted); background:var(--surface2); border:1.5px solid var(--accent);
+.gentle{font-size:0.9375rem; color:var(--muted); background:var(--surface2); border:0;
   border-radius:0 8px 8px 0; padding:10px 14px; margin:14px 0 4px;
   display:flex; gap:9px; align-items:flex-start}
 .gentle svg.lucide{margin-top:2px; color:var(--accent); width:15px; height:15px}
@@ -438,7 +438,7 @@ html[data-lang="ne"] .sitefoot h4{text-transform:none; font-size:0.8438rem}
 .sitefoot a{color:var(--accent-ink)}
 .sitefoot .fine{margin-top:20px; padding-top:12px; border-top:1px solid var(--line2); font-size:0.75rem}
 /* quick check */
-.quickcheck{background:var(--surface); border:1.5px solid var(--accent);
+.quickcheck{background:var(--surface); border:0; box-shadow:var(--shadow), 0 0 0 1px var(--line2);
   border-radius:10px; padding:16px 20px; margin-top:28px}
 .quickcheck .qc-head{font-family:'IBM Plex Mono',monospace; font-size:0.6875rem; letter-spacing:.13em;
   text-transform:uppercase; color:var(--accent-ink); margin-bottom:4px}
@@ -472,7 +472,7 @@ html[data-lang="ne"] .route{font-size:1rem} html[data-lang="ne"] .route strong{f
 .qres a.qroute{border-left:3px solid var(--accent)}
 
 /* ===== key points (before the quick check) ===== */
-.keypoints{border:1.5px solid var(--accent); border-radius:10px; background:var(--surface); padding:14px 18px 10px; margin-top:28px}
+.keypoints{border:0; box-shadow:var(--shadow), 0 0 0 1px var(--line2); border-radius:10px; background:var(--surface); padding:14px 18px 10px; margin-top:28px}
 .keypoints .kp-head{font-family:'IBM Plex Mono',monospace; font-size:0.6875rem; letter-spacing:.13em; text-transform:uppercase; color:var(--accent); margin-bottom:6px}
 html[data-lang="ne"] .keypoints .kp-head{font-family:'Mukta',sans-serif; font-size:0.875rem; letter-spacing:0; text-transform:none}
 .keypoints ol{margin:0; padding-left:1.3em} .keypoints li{margin:4px 0; line-height:1.55; font-size:1rem}
@@ -515,7 +515,8 @@ html[data-lang="ne"] .toc-grp .toc-count{font-family:'Mukta',sans-serif; font-si
 @media print{ .toc-grp svg.spot{display:none} }
 
 /* nested boxes inside a card sit back: the card frame carries the attention */
-.card .callout{border-color:color-mix(in srgb, var(--accent) 40%, transparent)}
 .card .callout.crisis{border-color:color-mix(in srgb, var(--crisis) 55%, transparent)}
 .card .tryit{border-color:color-mix(in srgb, var(--accent) 45%, transparent)}
 .card .ctx .ctx-label{opacity:.9}
+.callout.crisis{border:1.5px solid var(--crisis)}
+.tryit{border-color:color-mix(in srgb, var(--accent) 60%, transparent)}
