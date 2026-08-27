@@ -17,7 +17,11 @@
 <link rel="alternate" type="text/plain" href="https://pcs.pravashkarki.com/llms.txt" title="llms.txt">
 <script type="application/ld+json">{}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,500;0,7..72,600;1,7..72,400&family=Mukta:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Caveat:wght@600&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231D6A73'/%3E%3Ctext x='32' y='45' text-anchor='middle' font-family='Mukta,sans-serif' font-size='38' font-weight='700' fill='%23fff'%3E%E0%A4%AE%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&family=Mukta:wght@400;600;700&family=IBM+Plex+Mono:wght@400&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&family=Mukta:wght@400;600;700&family=IBM+Plex+Mono:wght@400&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&family=Mukta:wght@400;600;700&family=IBM+Plex+Mono:wght@400&display=swap"></noscript>
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
@@ -33,7 +37,7 @@
           <button id="btn-en" class="btn-en" onclick="setLang('en')">EN</button>
           <button id="btn-ne" class="btn-ne" onclick="setLang('ne')">ने</button>
         </div>
-        <button id="btn-theme" class="themesw btn-theme" onclick="cycleTheme()" aria-label="Colour theme">◐ Auto</button>
+        <button id="btn-theme" class="themesw btn-theme" onclick="cycleTheme()" title="Colour theme">◐ Auto</button>
       </div>
     </div>
     <div class="search"><span class="s-ico"><svg class="lucide" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></span>
@@ -104,7 +108,7 @@
           <button class="btn-en" onclick="setLang('en')">EN</button>
           <button class="btn-ne" onclick="setLang('ne')">ने</button>
         </div>
-        <button class="themesw btn-theme" onclick="cycleTheme()" aria-label="Colour theme">◐ Auto</button>
+        <button class="themesw btn-theme" onclick="cycleTheme()" title="Colour theme">◐ Auto</button>
       </div>
     </div>
     <div class="wrap">
@@ -120,7 +124,7 @@
     <footer class="sitefoot">
       <div class="cols">
         <div>
-          <h4><span class="en">Mano Atlas</span><span class="ne">मनो एट्लास</span></h4>
+          <h3 class="foot-h"><span class="en">Mano Atlas</span><span class="ne">मनो एट्लास</span></h3>
           <p class="en">A free, open atlas of mental health in English and नेपाली. Educational resource, not a diagnostic tool: criteria are paraphrased from DSM-5 (2013). Diagnosis belongs to qualified clinicians.</p>
           <p class="ne">अंग्रेजी र नेपालीमा मानसिक स्वास्थ्यको निःशुल्क, खुला एट्लास। शैक्षिक सामग्री हो, निदान-उपकरण होइन: मापदण्ड DSM-5 (2013) बाट सरलीकृत छन्। निदान योग्य चिकित्सकको काम हो।</p>
           <p class="en">Learning sticks best in small sittings. It is fine to close this tab and come back another day.</p>
@@ -128,14 +132,14 @@
           <p><span class="en">Last reviewed: August 2026</span><span class="ne">पछिल्लो समीक्षा: भदौ २०८३</span></p>
         </div>
         <div class="crisis-col">
-          <h4><svg class="lucide" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg> <span class="en">If you need help now · Nepal</span><span class="ne">अहिले नै सहयोग चाहिए · नेपाल</span></h4>
+          <h3 class="foot-h"><svg class="lucide" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg> <span class="en">If you need help now · Nepal</span><span class="ne">अहिले नै सहयोग चाहिए · नेपाल</span></h3>
           <p><strong><a href="tel:1166">1166</a></strong> <span class="en">National Suicide Prevention Helpline</span><span class="ne">राष्ट्रिय आत्महत्या रोकथाम हेल्पलाइन</span></p>
           <p><strong><a href="tel:16600121600">1660 012 1600</a></strong> <span class="en">TUTH mental-health hotline</span><span class="ne">टिचिङ अस्पताल हटलाइन</span></p>
           <p><strong><a href="tel:1145">1145</a></strong> <span class="en">Women's helpline</span><span class="ne">महिला हेल्पलाइन</span> · <strong><a href="tel:112">112</a> / <a href="tel:100">100</a></strong> <span class="en">emergency</span><span class="ne">आपतकाल</span></p>
           <p class="outside"><span class="en">These numbers work inside Nepal. Elsewhere, <a href="https://findahelpline.com" target="_blank" rel="noopener">findahelpline.com</a> lists your country's lines.</span><span class="ne">यी नम्बर नेपालभित्र चल्छन्। अन्यत्र हुनुहुन्छ भने <a href="https://findahelpline.com" target="_blank" rel="noopener">findahelpline.com</a> मा आफ्नो देशका नम्बर भेटिन्छन्।</span></p>
         </div>
         <div>
-          <h4><span class="en">Open &amp; improvable</span><span class="ne">खुला र सुधारयोग्य</span></h4>
+          <h3 class="foot-h"><span class="en">Open &amp; improvable</span><span class="ne">खुला र सुधारयोग्य</span></h3>
           <p class="en">Content licensed <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license noopener" target="_blank">CC BY-NC-SA 4.0</a>: share and adapt with credit, non-commercially.</p>
           <p class="ne">सामग्री <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license noopener" target="_blank">CC BY-NC-SA 4.0</a> अन्तर्गत: श्रेयसहित, गैर-व्यावसायिक रूपमा बाँड्न र मिलाउन पाइन्छ।</p>
           <p><svg class="lucide" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg> <span class="en">Spotted an error?</span><span class="ne">त्रुटि भेट्नुभयो?</span> <span class="mailrev" data-u="kpravash" data-d="gmail" data-t="com">kpravash [at] gmail [dot] com</span></p>
@@ -147,7 +151,6 @@
   </main>
 </div>
 <script src="assets/lang.js"></script>
-<script src="assets/search-index.js" defer></script>
 <script src="assets/search.js" defer></script>
 </body>
 </html>

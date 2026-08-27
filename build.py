@@ -268,7 +268,7 @@ def toc_html() -> str:
             g_en, g_ne = GROUPS[group]
             art = SPOT.get(group, "")
             n = sum(1 for p in PAGES if p[6] == group)
-            out.append(f'<div class="toc-grp{" has-art" if art else ""}">{art}<div><h3><span class="en">{g_en}</span><span class="ne">{g_ne}</span></h3>'
+            out.append(f'<div class="toc-grp{" has-art" if art else ""}">{art}<div><h2><span class="en">{g_en}</span><span class="ne">{g_ne}</span></h2>'
                        f'<span class="toc-count"><span class="en">{n} chapters</span><span class="ne">{str(n).translate(NE_DIGITS)} अध्याय</span></span></div></div>')
             last_group = group
         mark = f'<span class="catmark" style="background:var({cat})"></span>' if cat else ""
@@ -296,7 +296,11 @@ SHELL = """<!DOCTYPE html>
 <link rel="alternate" type="text/plain" href="{site_url}/llms.txt" title="llms.txt">
 <script type="application/ld+json">{jsonld}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,500;0,7..72,600;1,7..72,400&family=Mukta:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Caveat:wght@600&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231D6A73'/%3E%3Ctext x='32' y='45' text-anchor='middle' font-family='Mukta,sans-serif' font-size='38' font-weight='700' fill='%23fff'%3E%E0%A4%AE%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&family=Mukta:wght@400;600;700&family=IBM+Plex+Mono:wght@400&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&family=Mukta:wght@400;600;700&family=IBM+Plex+Mono:wght@400&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&family=Mukta:wght@400;600;700&family=IBM+Plex+Mono:wght@400&display=swap"></noscript>
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
@@ -312,7 +316,7 @@ SHELL = """<!DOCTYPE html>
           <button id="btn-en" class="btn-en" onclick="setLang('en')">EN</button>
           <button id="btn-ne" class="btn-ne" onclick="setLang('ne')">ने</button>
         </div>
-        <button id="btn-theme" class="themesw btn-theme" onclick="cycleTheme()" aria-label="Colour theme">◐ Auto</button>
+        <button id="btn-theme" class="themesw btn-theme" onclick="cycleTheme()" title="Colour theme">◐ Auto</button>
       </div>
     </div>
     <div class="search"><span class="s-ico">{icon_search}</span>
@@ -334,7 +338,7 @@ SHELL = """<!DOCTYPE html>
           <button class="btn-en" onclick="setLang('en')">EN</button>
           <button class="btn-ne" onclick="setLang('ne')">ने</button>
         </div>
-        <button class="themesw btn-theme" onclick="cycleTheme()" aria-label="Colour theme">◐ Auto</button>
+        <button class="themesw btn-theme" onclick="cycleTheme()" title="Colour theme">◐ Auto</button>
       </div>
     </div>
     <div class="wrap">
@@ -345,20 +349,20 @@ SHELL = """<!DOCTYPE html>
     <footer class="sitefoot">
       <div class="cols">
         <div>
-          <h4><span class="en">Mano Atlas</span><span class="ne">मनो एट्लास</span></h4>
+          <h3 class="foot-h"><span class="en">Mano Atlas</span><span class="ne">मनो एट्लास</span></h3>
           <p class="en">A free, open atlas of mental health in English and नेपाली. Educational resource, not a diagnostic tool: criteria are paraphrased from DSM-5 (2013). Diagnosis belongs to qualified clinicians.</p>
           <p class="ne">अंग्रेजी र नेपालीमा मानसिक स्वास्थ्यको निःशुल्क, खुला एट्लास। शैक्षिक सामग्री हो, निदान-उपकरण होइन: मापदण्ड DSM-5 (2013) बाट सरलीकृत छन्। निदान योग्य चिकित्सकको काम हो।</p>
           <p class="en">Learning sticks best in small sittings. It is fine to close this tab and come back another day.</p>\n          <p class="ne">सिकाइ साना-साना बसाइमा राम्रो टिक्छ। ट्याब बन्द गरेर अर्को दिन फर्किए हुन्छ।</p>\n          <p><span class="en">Last reviewed: {reviewed_en}</span><span class="ne">पछिल्लो समीक्षा: {reviewed_ne}</span></p>
         </div>
         <div class="crisis-col">
-          <h4>{icon_phone} <span class="en">If you need help now · Nepal</span><span class="ne">अहिले नै सहयोग चाहिए · नेपाल</span></h4>
+          <h3 class="foot-h">{icon_phone} <span class="en">If you need help now · Nepal</span><span class="ne">अहिले नै सहयोग चाहिए · नेपाल</span></h3>
           <p><strong><a href="tel:1166">{helpline_suicide}</a></strong> <span class="en">National Suicide Prevention Helpline</span><span class="ne">राष्ट्रिय आत्महत्या रोकथाम हेल्पलाइन</span></p>
           <p><strong><a href="tel:16600121600">{helpline_tuth}</a></strong> <span class="en">TUTH mental-health hotline</span><span class="ne">टिचिङ अस्पताल हटलाइन</span></p>
           <p><strong><a href="tel:1145">{helpline_women}</a></strong> <span class="en">Women's helpline</span><span class="ne">महिला हेल्पलाइन</span> · <strong><a href="tel:112">112</a> / <a href="tel:100">100</a></strong> <span class="en">emergency</span><span class="ne">आपतकाल</span></p>
           <p class="outside"><span class="en">These numbers work inside Nepal. Elsewhere, <a href="https://findahelpline.com" target="_blank" rel="noopener">findahelpline.com</a> lists your country's lines.</span><span class="ne">यी नम्बर नेपालभित्र चल्छन्। अन्यत्र हुनुहुन्छ भने <a href="https://findahelpline.com" target="_blank" rel="noopener">findahelpline.com</a> मा आफ्नो देशका नम्बर भेटिन्छन्।</span></p>
         </div>
         <div>
-          <h4><span class="en">Open &amp; improvable</span><span class="ne">खुला र सुधारयोग्य</span></h4>
+          <h3 class="foot-h"><span class="en">Open &amp; improvable</span><span class="ne">खुला र सुधारयोग्य</span></h3>
           <p class="en">Content licensed <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license noopener" target="_blank">CC BY-NC-SA 4.0</a>: share and adapt with credit, non-commercially.</p>
           <p class="ne">सामग्री <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license noopener" target="_blank">CC BY-NC-SA 4.0</a> अन्तर्गत: श्रेयसहित, गैर-व्यावसायिक रूपमा बाँड्न र मिलाउन पाइन्छ।</p>
           <p>{icon_mail} <span class="en">Spotted an error?</span><span class="ne">त्रुटि भेट्नुभयो?</span> <span class="mailrev" data-u="{email_user}" data-d="{email_domain}" data-t="{email_tld}">{email_user} [at] {email_domain} [dot] {email_tld}</span></p>
@@ -370,7 +374,6 @@ SHELL = """<!DOCTYPE html>
   </main>
 </div>
 <script src="assets/lang.js"></script>
-<script src="assets/search-index.js" defer></script>
 <script src="assets/search.js" defer></script>
 </body>
 </html>

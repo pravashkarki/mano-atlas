@@ -1,5 +1,18 @@
 /* Mano Atlas: client-side search over the build-time index (assets/search-index.js). */
 (function () {
+  var loading = false;
+  function loadIndex(cb) {
+    if (window.MANO_INDEX) { cb(); return; }
+    if (loading) return; loading = true;
+    var sc = document.createElement('script'); sc.src = 'assets/search-index.js'; sc.onload = cb; document.head.appendChild(sc);
+  }
+  function boot() {
+    var input = document.getElementById('q'); if (!input) return;
+    var started = false;
+    function start() { if (started) return; started = true; loadIndex(function () { init(); if (input.value) input.dispatchEvent(new Event('input')); }); }
+    input.addEventListener('focus', start); input.addEventListener('input', start);
+    if (document.activeElement === input) start();
+  }
   function init() {
     var input = document.getElementById('q');
     var box = document.getElementById('qres');
@@ -108,8 +121,8 @@
     });
   }
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
+    document.addEventListener('DOMContentLoaded', boot);
   } else {
-    init();
+    boot();
   }
 })();

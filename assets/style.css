@@ -94,7 +94,7 @@
     font-family:'Mukta','Archivo',sans-serif; font-size:0.8125rem; font-weight:600; padding:5px 14px;
     background:transparent; color:var(--muted); border:0; cursor:pointer;
   }
-  .langsw button.active{background:var(--accent); color:#fff}
+  .langsw button.active{background:var(--accent-ink); color:var(--bg)}
   .langsw button:focus-visible{outline:2px solid var(--accent); outline-offset:-2px}
 
   /* hero */
@@ -378,7 +378,7 @@ html[data-lang="ne"] .resources .res-head{font-family:'Mukta',sans-serif; text-t
 /* ===== quiz / hand-drawn touches ===== */
 details.quiz{border:1.5px dashed var(--nepal-edge); border-radius:10px 14px 10px 12px;
   padding:10px 16px; margin:16px 0; background:var(--nepal-wash)}
-details.quiz summary{cursor:pointer; font-family:'Caveat','Mukta',cursive; font-size:1.25rem;
+details.quiz summary{cursor:pointer; font-family:'Archivo','Mukta',sans-serif; font-size:1.25rem;
   font-weight:600; color:var(--nepal-ink); list-style-position:inside}
 details.quiz summary .ne{font-family:'Mukta','Noto Sans Devanagari',sans-serif; font-size:1rem; font-weight:700}
 details.quiz[open] summary{margin-bottom:8px}
@@ -428,16 +428,16 @@ article.card{scroll-margin-top:76px}
 .sitefoot::before{content:""; display:block; height:6px; background-image:var(--dhaka);
   border-radius:2px; margin-bottom:26px}
 .sitefoot .cols{display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:22px}
-.sitefoot h4{font-family:'Archivo','Mukta',sans-serif; font-size:0.75rem; letter-spacing:.08em;
+.sitefoot h3.foot-h{font-family:'Archivo','Mukta',sans-serif; font-size:0.75rem; letter-spacing:.08em;
   text-transform:uppercase; color:var(--ink); margin-bottom:8px;
   display:flex; align-items:center; gap:6px}
-.sitefoot h4 svg.lucide{width:13px; height:13px; color:var(--crisis, currentColor)}
+.sitefoot h3.foot-h svg.lucide{width:13px; height:13px; color:var(--crisis, currentColor)}
 .sitefoot p svg.lucide{width:13px; height:13px; color:var(--muted)}
 .sitefoot .outside{font-size:0.7812rem; border-top:1px solid var(--line2); padding-top:8px; margin-top:10px}
-html[data-lang="ne"] .sitefoot h4{text-transform:none; font-size:0.8438rem}
+html[data-lang="ne"] .sitefoot h3.foot-h{text-transform:none; font-size:0.8438rem}
 .sitefoot p{margin:6px 0; line-height:1.55}
 .sitefoot .crisis-col{border-left:3px solid var(--crisis); padding-left:14px}
-.sitefoot .crisis-col h4,.sitefoot .crisis-col strong{color:var(--crisis-ink)}
+.sitefoot .crisis-col h3.foot-h,.sitefoot .crisis-col strong{color:var(--crisis-ink)}
 .sitefoot a{color:var(--accent-ink)}
 .sitefoot .fine{margin-top:20px; padding-top:12px; border-top:1px solid var(--line2); font-size:0.75rem}
 /* quick check */
@@ -509,8 +509,8 @@ html[data-lang="ne"] .qz-again{font-size:0.9375rem}
 /* ===== home contents: group headers with spot illustrations ===== */
 .toc-grp{grid-column:1 / -1; display:flex; align-items:center; gap:4px; margin-top:26px; padding-bottom:8px; border-bottom:1px solid var(--line)}
 .toc-grp:first-child{margin-top:0}
-.toc-grp h3{margin:0; font-family:'Archivo',sans-serif; font-size:1.375rem; font-weight:700; letter-spacing:-.01em; color:var(--ink); line-height:1.15}
-html[data-lang="ne"] .toc-grp h3{font-family:'Mukta',sans-serif; font-size:1.5rem}
+.toc-grp h2{margin:0; font-family:'Archivo',sans-serif; font-size:1.375rem; font-weight:700; letter-spacing:-.01em; color:var(--ink); line-height:1.15}
+html[data-lang="ne"] .toc-grp h2{font-family:'Mukta',sans-serif; font-size:1.5rem}
 .toc-grp .toc-count{display:block; margin-top:3px; font-family:'IBM Plex Mono',monospace; font-size:0.6875rem; letter-spacing:.13em; text-transform:uppercase; color:var(--muted)}
 html[data-lang="ne"] .toc-grp .toc-count{font-family:'Mukta',sans-serif; font-size:0.875rem; letter-spacing:0; text-transform:none}
 .toc-grp svg.spot{width:96px; height:auto; flex:none; color:var(--ink); opacity:.92; margin-left:-10px}
