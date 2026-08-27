@@ -508,13 +508,13 @@ html[data-lang="ne"] .qz-again{font-size:0.9375rem}
 }
 
 /* ===== home contents: group headers with spot illustrations ===== */
-.toc-grp{grid-column:1 / -1; display:flex; align-items:center; gap:16px; margin-top:26px; padding-bottom:8px; border-bottom:1px solid var(--line)}
+.toc-grp{grid-column:1 / -1; display:flex; align-items:center; gap:4px; margin-top:26px; padding-bottom:8px; border-bottom:1px solid var(--line)}
 .toc-grp:first-child{margin-top:0}
 .toc-grp h3{margin:0; font-family:'Archivo',sans-serif; font-size:1.375rem; font-weight:700; letter-spacing:-.01em; color:var(--ink); line-height:1.15}
 html[data-lang="ne"] .toc-grp h3{font-family:'Mukta',sans-serif; font-size:1.5rem}
 .toc-grp .toc-count{display:block; margin-top:3px; font-family:'IBM Plex Mono',monospace; font-size:0.6875rem; letter-spacing:.13em; text-transform:uppercase; color:var(--muted)}
 html[data-lang="ne"] .toc-grp .toc-count{font-family:'Mukta',sans-serif; font-size:0.875rem; letter-spacing:0; text-transform:none}
-.toc-grp svg.spot{width:96px; height:auto; flex:none; color:var(--ink); opacity:.92}
+.toc-grp svg.spot{width:96px; height:auto; flex:none; color:var(--ink); opacity:.92; margin-left:-10px}
 @media(max-width:640px){ .toc-grp svg.spot{width:72px} }
 @media print{ .toc-grp svg.spot{display:none} }
 
