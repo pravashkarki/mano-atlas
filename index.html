@@ -25,14 +25,15 @@
 <div class="layout">
   <aside class="sidebar">
     <div class="top">
+      <button class="collapse-btn" id="btn-collapse" type="button" aria-label="Hide chapters" title="Hide chapters"><svg class="lucide" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M9 3v18"/></svg></button>
       <a class="brand" href="index.html">Mano Atlas<span class="brand-ne">मनो एट्लास</span>
         <span class="sub"><span class="en">Mental health · two languages</span><span class="ne">मानसिक स्वास्थ्य · दुई भाषा</span></span></a>
       <div class="ctrls">
         <div class="langsw" role="group" aria-label="Language">
-          <button id="btn-en" onclick="setLang('en')">EN</button>
-          <button id="btn-ne" onclick="setLang('ne')">ने</button>
+          <button id="btn-en" class="btn-en" onclick="setLang('en')">EN</button>
+          <button id="btn-ne" class="btn-ne" onclick="setLang('ne')">ने</button>
         </div>
-        <button id="btn-theme" class="themesw" onclick="cycleTheme()" aria-label="Colour theme">◐ Auto</button>
+        <button id="btn-theme" class="themesw btn-theme" onclick="cycleTheme()" aria-label="Colour theme">◐ Auto</button>
       </div>
     </div>
     <div class="search"><span class="s-ico"><svg class="lucide" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></span>
@@ -96,6 +97,16 @@
     <div class="side-foot"><span id="progress"></span></div>
   </aside>
   <main id="main">
+    <div class="topctrl" id="topctrl" aria-label="Language and theme">
+      <button class="expand-btn" id="btn-expand" type="button" aria-label="Show chapters"><svg class="lucide" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M9 3v18"/></svg><span class="en">Chapters</span><span class="ne">अध्याय</span></button>
+      <div class="topctrl-pill">
+        <div class="langsw" role="group" aria-label="Language">
+          <button class="btn-en" onclick="setLang('en')">EN</button>
+          <button class="btn-ne" onclick="setLang('ne')">ने</button>
+        </div>
+        <button class="themesw btn-theme" onclick="cycleTheme()" aria-label="Colour theme">◐ Auto</button>
+      </div>
+    </div>
     <div class="wrap">
 <header class="hero">
 <div class="hero-art" aria-hidden="true">

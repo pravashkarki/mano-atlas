@@ -1,8 +1,8 @@
 function setLang(l){
     document.documentElement.setAttribute('data-lang', l);
     document.documentElement.lang = (l==='ne') ? 'ne' : 'en';
-    document.getElementById('btn-en').classList.toggle('active', l==='en');
-    document.getElementById('btn-ne').classList.toggle('active', l==='ne');
+    document.querySelectorAll('.btn-en').forEach(function(b){ b.classList.toggle('active', l==='en'); });
+    document.querySelectorAll('.btn-ne').forEach(function(b){ b.classList.toggle('active', l==='ne'); });
     try{ localStorage.setItem('psc-lang', l); }catch(e){}
   }
   (function(){
@@ -22,12 +22,11 @@ var THEME_ORDER = ['auto', 'light', 'dark'];
 function applyTheme(m) {
   if (m === 'auto') { document.documentElement.removeAttribute('data-theme'); }
   else { document.documentElement.setAttribute('data-theme', m); }
-  var b = document.getElementById('btn-theme');
-  if (b) { b.dataset.mode = m; b.innerHTML = THEME_LABELS[m]; }
+  document.querySelectorAll('.btn-theme').forEach(function (b) { b.dataset.mode = m; b.innerHTML = THEME_LABELS[m]; });
   try { localStorage.setItem('psc-theme', m); } catch (e) {}
 }
 function cycleTheme() {
-  var b = document.getElementById('btn-theme');
+  var b = document.querySelector('.btn-theme');
   var cur = (b && b.dataset.mode) || 'auto';
   applyTheme(THEME_ORDER[(THEME_ORDER.indexOf(cur) + 1) % 3]);
 }
@@ -159,6 +158,43 @@ document.addEventListener('click', function (e) {
       a.textContent = addr;
       el.replaceWith(a);
     });
+  }
+  if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', go); } else { go(); }
+})();
+
+/* ---- floating language/theme pill (desktop): hides on scroll down, returns on scroll up ---- */
+(function () {
+  function go() {
+    var el = document.getElementById('topctrl'); if (!el) return;
+    var last = window.scrollY, ticking = false;
+    window.addEventListener('scroll', function () {
+      if (ticking) return; ticking = true;
+      requestAnimationFrame(function () {
+        var y = window.scrollY;
+        if (y > last + 6 && y > 120) el.classList.add('hide');
+        else if (y < last - 6 || y < 120) el.classList.remove('hide');
+        last = y; ticking = false;
+      });
+    }, { passive: true });
+  }
+  if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', go); } else { go(); }
+})();
+
+/* ---- collapsible sidebar (desktop): read without the chapter list; remembered ---- */
+(function () {
+  function set(c) {
+    var lay = document.querySelector('.layout'); if (!lay) return;
+    lay.classList.toggle('nav-collapsed', c);
+    document.documentElement.classList.remove('nav-collapsed-init');
+    try { localStorage.setItem('psc-nav-collapsed', c ? '1' : ''); } catch (e) {}
+  }
+  try { if (localStorage.getItem('psc-nav-collapsed')) document.documentElement.classList.add('nav-collapsed-init'); } catch (e) {}
+  function go() {
+    var c = false; try { c = !!localStorage.getItem('psc-nav-collapsed'); } catch (e) {}
+    set(c);
+    var h = document.getElementById('btn-collapse'), x = document.getElementById('btn-expand');
+    if (h) h.addEventListener('click', function () { set(true); });
+    if (x) x.addEventListener('click', function () { set(false); });
   }
   if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', go); } else { go(); }
 })();

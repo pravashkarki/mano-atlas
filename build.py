@@ -89,6 +89,7 @@ ICON = {
     "pencil":  _lucide('<path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/><path d="m15 5 4 4"/>'),
     "menu":    _lucide('<line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/>'),
     "info":    _lucide('<circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/>'),
+    "panel":   _lucide('<rect width="18" height="18" x="3" y="3" rx="2"/><path d="M9 3v18"/>'),
     "sprout":  _lucide('<path d="M7 20h10"/><path d="M10 20c5.5-2.5.8-6.4 3-10"/><path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z"/><path d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4 1-4.9 2z"/>'),
 }
 
@@ -303,14 +304,15 @@ SHELL = """<!DOCTYPE html>
 <div class="layout">
   <aside class="sidebar">
     <div class="top">
+      <button class="collapse-btn" id="btn-collapse" type="button" aria-label="Hide chapters" title="Hide chapters">{icon_panel}</button>
       <a class="brand" href="index.html">Mano Atlas<span class="brand-ne">मनो एट्लास</span>
         <span class="sub"><span class="en">Mental health · two languages</span><span class="ne">मानसिक स्वास्थ्य · दुई भाषा</span></span></a>
       <div class="ctrls">
         <div class="langsw" role="group" aria-label="Language">
-          <button id="btn-en" onclick="setLang('en')">EN</button>
-          <button id="btn-ne" onclick="setLang('ne')">ने</button>
+          <button id="btn-en" class="btn-en" onclick="setLang('en')">EN</button>
+          <button id="btn-ne" class="btn-ne" onclick="setLang('ne')">ने</button>
         </div>
-        <button id="btn-theme" class="themesw" onclick="cycleTheme()" aria-label="Colour theme">◐ Auto</button>
+        <button id="btn-theme" class="themesw btn-theme" onclick="cycleTheme()" aria-label="Colour theme">◐ Auto</button>
       </div>
     </div>
     <div class="search"><span class="s-ico">{icon_search}</span>
@@ -325,6 +327,16 @@ SHELL = """<!DOCTYPE html>
     <div class="side-foot"><span id="progress"></span></div>
   </aside>
   <main id="main">
+    <div class="topctrl" id="topctrl" aria-label="Language and theme">
+      <button class="expand-btn" id="btn-expand" type="button" aria-label="Show chapters">{icon_panel}<span class="en">Chapters</span><span class="ne">अध्याय</span></button>
+      <div class="topctrl-pill">
+        <div class="langsw" role="group" aria-label="Language">
+          <button class="btn-en" onclick="setLang('en')">EN</button>
+          <button class="btn-ne" onclick="setLang('ne')">ने</button>
+        </div>
+        <button class="themesw btn-theme" onclick="cycleTheme()" aria-label="Colour theme">◐ Auto</button>
+      </div>
+    </div>
     <div class="wrap">
 {content}
     <nav class="pager" aria-label="Chapter">
@@ -487,7 +499,7 @@ def main() -> None:
             ]}, ensure_ascii=False)
         page_descs.append((slug, en, ne, html_mod.unescape(page_desc), group_en))
         html = SHELL.format(title=title, nav=nav_html(slug), content=content, pager=pager_html(i), page_desc=page_desc, page_url=page_url, jsonld=jsonld,
-                            icon_search=ICON["search"], icon_menu=ICON["menu"], icon_phone=ICON["phone"], icon_mail=ICON["mail"], **SITE)
+                            icon_search=ICON["search"], icon_menu=ICON["menu"], icon_panel=ICON["panel"], icon_phone=ICON["phone"], icon_mail=ICON["mail"], **SITE)
         (ROOT / f"{slug}.html").write_text(html)
         print("built", f"{slug}.html")
 
@@ -515,7 +527,7 @@ def main() -> None:
     llms += "## Optional\n\n- [Sitemap](" + SITE["site_url"] + "/sitemap.xml)\n- [Source repository](https://github.com/pravashkarki/mano-atlas)\n"
     (ROOT / "llms.txt").write_text(llms)
     html404 = SHELL.format(title="Page not found · Mano Atlas", nav=nav_html("index"), content=nf, pager="", page_desc=SITE_DESC, page_url=SITE["site_url"] + "/404", jsonld="{}",
-                           icon_search=ICON["search"], icon_menu=ICON["menu"], icon_phone=ICON["phone"], icon_mail=ICON["mail"], **SITE)
+                           icon_search=ICON["search"], icon_menu=ICON["menu"], icon_panel=ICON["panel"], icon_phone=ICON["phone"], icon_mail=ICON["mail"], **SITE)
     (ROOT / "404.html").write_text(html404)
     print(f"search index: {len(search_index)} entries, {len(idx_js)//1024} KB")
 
