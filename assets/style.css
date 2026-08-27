@@ -138,7 +138,7 @@
     display:flex; flex-wrap:wrap; gap:10px 14px; align-items:baseline; border-left:4px solid var(--cat,var(--accent))}
   .card-head h3{font-size:1.3125rem; font-weight:700}
   .card-head .code{font-family:'IBM Plex Mono',monospace; font-size:0.7812rem; color:var(--muted)}
-  .card-head .pill{margin-left:auto}
+  .card-head .pill{margin-left:0}
   .card-body{padding:6px 20px 18px}
   .card-body p{margin:13px 0; max-width:70ch}   /* measure capped for readability */
   .card-body ul,.card-body ol{max-width:68ch}
