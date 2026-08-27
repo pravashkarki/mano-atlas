@@ -132,10 +132,10 @@
   .catmark{width:12px; height:12px; border-radius:3px; align-self:center; flex:none}
 
   /* disorder card */
-  .card{background:var(--surface); border:1px solid var(--line); border-top:3px solid var(--cat,var(--line)); border-radius:10px;
+  .card{background:var(--surface); border:1.5px solid var(--cat,var(--line)); border-radius:10px;
     box-shadow:var(--shadow); margin-top:26px; overflow:hidden}
   .card-head{padding:16px 20px 12px; border-bottom:1px solid var(--line2);
-    display:flex; flex-wrap:wrap; gap:10px 14px; align-items:baseline; border-left:4px solid var(--cat,var(--accent))}
+    display:flex; flex-wrap:wrap; gap:10px 14px; align-items:baseline}
   .card-head h3{font-size:1.3125rem; font-weight:700}
   .card-head .code{font-family:'IBM Plex Mono',monospace; font-size:0.7812rem; color:var(--muted)}
   .card-head .pill{margin-left:0}
@@ -179,7 +179,7 @@
 
   /* map grid */
   .mapgrid{display:grid; grid-template-columns:repeat(auto-fill,minmax(250px,1fr)); gap:10px; margin-top:20px}
-  .mapcell{background:var(--surface); border:1px solid var(--line); border-left:4px solid var(--cat,var(--line));
+  .mapcell{background:var(--surface); border:1.5px solid var(--cat,var(--line));
     border-radius:8px; padding:12px 14px; display:flex; flex-direction:column; gap:6px}
   .mapcell .mc-name{font-family:'Archivo','Mukta',sans-serif; font-weight:700; font-size:1rem; line-height:1.3}
   .mapcell .mc-items{font-size:0.875rem; color:var(--muted); line-height:1.45}
