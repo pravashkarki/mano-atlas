@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Mano Atlas (मनो एट्लास) — a free, bilingual (English/नेपाली) atlas of mental disorders: DSM-5 criteria, teaching diagrams, and the Nepali context.">
+<title>Wellbeing & intervention · Mano Atlas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Mukta:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Caveat:wght@600&display=swap">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="layout">
+  <aside class="sidebar">
+    <div class="top">
+      <a class="brand" href="index.html"><span class="en">Mano Atlas</span><span class="ne">मनो एट्लास</span>
+        <span class="sub"><span class="en">Mental health · two languages</span><span class="ne">मानसिक स्वास्थ्य · दुई भाषा</span></span></a>
+      <div class="langsw" role="group" aria-label="Language">
+        <button id="btn-en" onclick="setLang('en')">EN</button>
+        <button id="btn-ne" onclick="setLang('ne')">ने</button>
+      </div>
+    </div>
+    <div class="search">
+      <input id="q" type="search" autocomplete="off" spellcheck="false"
+        placeholder="Search · खोज्नुहोस्" aria-label="Search the atlas">
+      <div id="qres" class="qres" hidden></div>
+    </div>
+    <nav class="snav" aria-label="Site">
+      <div class="snav-group"><span class="en">Overview</span><span class="ne">सिंहावलोकन</span></div>
+      <a href="index.html"><span class="secnum">01</span><span class="catmark" style="background:transparent"></span><span class="en">Home & the DSM-5 map</span><span class="ne">गृहपृष्ठ र DSM-5 नक्सा</span></a>
+      <a href="roots.html"><span class="secnum">02</span><span class="catmark" style="background:transparent"></span><span class="en">Roots: philosophy to psychology</span><span class="ne">जरा: दर्शनदेखि मनोविज्ञान</span></a>
+      <a href="foundation.html"><span class="secnum">03</span><span class="catmark" style="background:transparent"></span><span class="en">Fear: the foundation</span><span class="ne">डर: आधारशिला</span></a>
+      <a href="basics.html"><span class="secnum">04</span><span class="catmark" style="background:transparent"></span><span class="en">Mental health basics</span><span class="ne">मानसिक स्वास्थ्यका आधार</span></a>
+      <a href="development.html"><span class="secnum">05</span><span class="catmark" style="background:transparent"></span><span class="en">Human development</span><span class="ne">मानव विकास</span></a>
+      <div class="snav-group"><span class="en">Disorder categories</span><span class="ne">विकार वर्गहरू</span></div>
+      <a href="anxiety.html"><span class="secnum">06</span><span class="catmark" style="background:var(--c-anx)"></span><span class="en">Anxiety disorders</span><span class="ne">चिन्ता विकारहरू</span></a>
+      <a href="ocd.html"><span class="secnum">07</span><span class="catmark" style="background:var(--c-ocd)"></span><span class="en">OCD & related</span><span class="ne">ओसीडी र सम्बन्धित</span></a>
+      <a href="depression.html"><span class="secnum">08</span><span class="catmark" style="background:var(--c-dep)"></span><span class="en">Depressive disorders</span><span class="ne">उदासी (डिप्रेसन)</span></a>
+      <a href="trauma.html"><span class="secnum">09</span><span class="catmark" style="background:var(--c-tra)"></span><span class="en">Trauma & stressor</span><span class="ne">आघात र तनाव</span></a>
+      <a href="somatic.html"><span class="secnum">10</span><span class="catmark" style="background:var(--c-som)"></span><span class="en">Conversion & somatic</span><span class="ne">कन्भर्सन र शारीरिक</span></a>
+      <a href="psychosis.html"><span class="secnum">11</span><span class="catmark" style="background:var(--c-psy)"></span><span class="en">Psychosis</span><span class="ne">मनोविकृति (साइकोसिस)</span></a>
+      <a href="child.html"><span class="secnum">12</span><span class="catmark" style="background:var(--c-chi)"></span><span class="en">Child mental illness</span><span class="ne">बाल मानसिक समस्या</span></a>
+      <a href="eating.html"><span class="secnum">13</span><span class="catmark" style="background:var(--c-eat)"></span><span class="en">Eating disorders</span><span class="ne">खानपान विकार</span></a>
+      <a href="sleep.html"><span class="secnum">14</span><span class="catmark" style="background:var(--c-slp)"></span><span class="en">Sleep-wake disorders</span><span class="ne">निद्रा विकार</span></a>
+      <a href="substance.html"><span class="secnum">15</span><span class="catmark" style="background:var(--c-sub)"></span><span class="en">Substance use</span><span class="ne">लागुपदार्थ प्रयोग</span></a>
+      <div class="snav-group"><span class="en">Counselling practice</span><span class="ne">परामर्श अभ्यास</span></div>
+      <a href="wellbeing.html" class="active" aria-current="page"><span class="secnum">16</span><span class="catmark" style="background:transparent"></span><span class="en">Wellbeing & intervention</span><span class="ne">तन्दुरुस्ती र हस्तक्षेप</span></a>
+      <a href="approaches.html"><span class="secnum">17</span><span class="catmark" style="background:transparent"></span><span class="en">Approaches & forms</span><span class="ne">विधि र रूपहरू</span></a>
+      <a href="skills.html"><span class="secnum">18</span><span class="catmark" style="background:transparent"></span><span class="en">Communication skills</span><span class="ne">संवाद-सीप</span></a>
+      <a href="process.html"><span class="secnum">19</span><span class="catmark" style="background:transparent"></span><span class="en">The counselling process</span><span class="ne">परामर्श-प्रक्रिया</span></a>
+      <a href="tools.html"><span class="secnum">20</span><span class="catmark" style="background:transparent"></span><span class="en">Tools & techniques</span><span class="ne">औजार र प्रविधि</span></a>
+      <a href="suicide.html"><span class="secnum">21</span><span class="catmark" style="background:transparent"></span><span class="en">Suicide: assessment</span><span class="ne">आत्महत्या: मूल्याङ्कन</span></a>
+      <a href="pfa.html"><span class="secnum">22</span><span class="catmark" style="background:transparent"></span><span class="en">PFA & emergencies</span><span class="ne">पीएफए र आपतकाल</span></a>
+      <a href="gbv.html"><span class="secnum">23</span><span class="catmark" style="background:transparent"></span><span class="en">Gender & GBV</span><span class="ne">लैङ्गिकता र जीबीभी</span></a>
+      <a href="hiv.html"><span class="secnum">24</span><span class="catmark" style="background:transparent"></span><span class="en">HIV & AIDS counselling</span><span class="ne">एचआईभी परामर्श</span></a>
+      <a href="casemgmt.html"><span class="secnum">25</span><span class="catmark" style="background:transparent"></span><span class="en">Case management</span><span class="ne">केस व्यवस्थापन</span></a>
+      <a href="ethics.html"><span class="secnum">26</span><span class="catmark" style="background:transparent"></span><span class="en">Ethics & self-care</span><span class="ne">नैतिकता र आत्म-हेरचाह</span></a>
+      <div class="snav-group"><span class="en">Reference</span><span class="ne">सन्दर्भ</span></div>
+      <a href="more.html"><span class="secnum">27</span><span class="catmark" style="background:transparent"></span><span class="en">The rest of the map</span><span class="ne">बाँकी नक्सा</span></a>
+      <a href="nepal.html"><span class="secnum">28</span><span class="catmark" style="background:transparent"></span><span class="en">Culture & the Nepal panorama</span><span class="ne">संस्कृति र नेपाली परिदृश्य</span></a>
+      <a href="crosswalk.html"><span class="secnum">29</span><span class="catmark" style="background:transparent"></span><span class="en">For PSC students</span><span class="ne">पीएससी विद्यार्थीलाई</span></a>
+    </nav>
+    <div class="side-foot">DSM-5 (2013) · <span class="en">study resource, not a diagnostic tool</span><span class="ne">अध्ययन सामग्री — निदान-उपकरण होइन</span></div>
+  </aside>
+  <main>
+    <div class="wrap">
+<div class="pagehead"><div class="kicker"><span class="en">Section 16</span><span class="ne">खण्ड 16</span></div></div>
+<section id="wellbeing" style="margin-top:12px">
+<div class="sechead"><span class="secnum">16</span>
+  <h2><span class="en">Psychosocial wellbeing &amp; intervention</span><span class="ne">मनोसामाजिक तन्दुरुस्ती र हस्तक्षेप</span></h2>
+</div>
+<p class="secsub en">"Psychosocial" is one word on purpose: the psychological (thoughts, emotions, behaviour) and the social (family, community, economy, culture) shape each other constantly. Intervention means acting on both sides at once — and mostly through communities, not clinics.</p>
+<p class="secsub ne">«मनोसामाजिक» जानाजान एउटै शब्द हो: मानसिक (विचार, भावना, व्यवहार) र सामाजिक (परिवार, समुदाय, अर्थतन्त्र, संस्कृति) ले एकअर्कालाई निरन्तर आकार दिन्छन्। हस्तक्षेप भनेको दुवैतिर एकैसाथ काम गर्नु हो — र प्रायः क्लिनिकबाट होइन, समुदायबाटै।</p>
+
+<article class="card" id="wellbeing-c1">
+  <div class="card-head">
+    <h3><span class="en">The pyramid of need and intervention</span><span class="ne">आवश्यकता र हस्तक्षेपको पिरामिड</span></h3>
+    <span class="pill todo"><span class="dot"></span><span class="en">CTEVT PSC curriculum</span><span class="ne">सीटीईभीटी पाठ्यक्रम</span></span>
+  </div>
+  <div class="card-body">
+    <figure>
+      <svg viewBox="0 0 660 320" role="img" aria-label="The IASC intervention pyramid: basic services and security for all at the base, then community and family supports, then focused non-specialised supports, then specialised services for the few at the top.">
+        <g font-family="Archivo,sans-serif">
+          <polygon points="330,20 500,270 160,270" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+          <line x1="288" y1="82" x2="372" y2="82" stroke="currentColor" stroke-width="1.2"/>
+          <line x1="246" y1="144" x2="414" y2="144" stroke="currentColor" stroke-width="1.2"/>
+          <line x1="204" y1="207" x2="456" y2="207" stroke="currentColor" stroke-width="1.2"/>
+          <text x="330" y="60" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#B01E3C" class="en">SPECIALISED</text>
+          <text x="330" y="72" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#B01E3C" class="en">SERVICES</text>
+          <text x="330" y="66" text-anchor="middle" font-size="11" font-weight="bold" fill="#B01E3C" font-family="Mukta,sans-serif" class="ne">विशेषज्ञ सेवा</text>
+          <text x="330" y="112" text-anchor="middle" font-size="11" fill="currentColor" class="en">Focused, non-specialised supports</text>
+          <text x="330" y="128" text-anchor="middle" font-size="10" fill="currentColor" opacity=".7" class="en">← YOU work mostly here: counselling, PFA follow-up</text>
+          <text x="330" y="112" text-anchor="middle" font-size="12" fill="currentColor" font-family="Mukta,sans-serif" class="ne">केन्द्रित, गैर-विशेषज्ञ सहयोग</text>
+          <text x="330" y="128" text-anchor="middle" font-size="11" fill="currentColor" opacity=".7" font-family="Mukta,sans-serif" class="ne">← तपाईं मुख्यतः यहीँ: परामर्श, पीएफए पछिको सहयोग</text>
+          <text x="330" y="172" text-anchor="middle" font-size="11" fill="currentColor" class="en">Community &amp; family supports</text>
+          <text x="330" y="188" text-anchor="middle" font-size="10" fill="currentColor" opacity=".7" class="en">women's groups, clubs, schools, healers, festivals</text>
+          <text x="330" y="172" text-anchor="middle" font-size="12" fill="currentColor" font-family="Mukta,sans-serif" class="ne">सामुदायिक र पारिवारिक सहयोग</text>
+          <text x="330" y="188" text-anchor="middle" font-size="11" fill="currentColor" opacity=".7" font-family="Mukta,sans-serif" class="ne">आमा समूह, क्लब, विद्यालय, धामी, चाडपर्व</text>
+          <text x="330" y="235" text-anchor="middle" font-size="11" fill="currentColor" class="en">Basic services &amp; security — for everyone</text>
+          <text x="330" y="251" text-anchor="middle" font-size="10" fill="currentColor" opacity=".7" class="en">food, shelter, health care, protection, information</text>
+          <text x="330" y="235" text-anchor="middle" font-size="12" fill="currentColor" font-family="Mukta,sans-serif" class="ne">आधारभूत सेवा र सुरक्षा — सबैका लागि</text>
+          <text x="330" y="251" text-anchor="middle" font-size="11" fill="currentColor" opacity=".7" font-family="Mukta,sans-serif" class="ne">खाना, बास, स्वास्थ्य, संरक्षण, सूचना</text>
+          <text x="540" y="50" font-size="11" fill="currentColor" opacity=".75" class="en">few need the top</text>
+          <text x="540" y="265" font-size="11" fill="currentColor" opacity=".75" class="en">everyone needs the base</text>
+          <text x="540" y="50" font-size="12" fill="currentColor" opacity=".75" font-family="Mukta,sans-serif" class="ne">माथि थोरैलाई</text>
+          <text x="540" y="265" font-size="12" fill="currentColor" opacity=".75" font-family="Mukta,sans-serif" class="ne">आधार सबैलाई चाहिन्छ</text>
+        </g>
+      </svg>
+      <figcaption class="en">The intervention pyramid (after Galappatti and the IASC guidelines). Most distress is prevented or healed at the bottom two layers; the psychosocial counselor's own tier is the third; only a few clients ever need the psychiatric top — and your referral is their bridge.</figcaption>
+      <figcaption class="ne">हस्तक्षेप पिरामिड (गलप्पत्ति र आईएएससी निर्देशिकाअनुसार)। अधिकांश पीडा तल्ला दुई तहमै रोकिन्छ वा निको हुन्छ; मनोसामाजिक परामर्शकर्ताको आफ्नै तह तेस्रो हो; थोरैलाई मात्र मनोचिकित्सकीय टुप्पो चाहिन्छ — र तपाईंको रेफरल नै उनीहरूको पुल हो।</figcaption>
+    </figure>
+    <p class="en"><strong>Core ideas the curriculum names:</strong> psychosocial wellbeing has dimensions (biological, emotional, social, cultural, spiritual, material); intervention can be <em>individual</em> or <em>community-based (CBI)</em> — CBI mobilises the community's own resiliency (groups, rituals, leaders) rather than importing outside experts; a <em>rights-based approach</em> treats women's, children's (CRC) and elders' basic rights as the floor of wellbeing; and a <em>multidisciplinary holistic approach</em> means the counselor, health worker, teacher, lawyer, and social worker act as one linked system — which is why referral, coordination and linkage get their own page (25).</p>
+    <p class="ne"><strong>पाठ्यक्रमले नाम लिने मुख्य विचार:</strong> मनोसामाजिक तन्दुरुस्तीका आयामहरू छन् (जैविक, भावनात्मक, सामाजिक, सांस्कृतिक, आध्यात्मिक, भौतिक); हस्तक्षेप <em>व्यक्तिगत</em> वा <em>समुदायमा आधारित (सीबीआई)</em> हुनसक्छ — सीबीआईले बाहिरका विशेषज्ञ होइन, समुदायकै लचकता (समूह, संस्कार, अगुवा) परिचालन गर्छ; <em>अधिकारमा आधारित दृष्टिकोण</em>ले महिला, बालबालिका (सीआरसी) र ज्येष्ठ नागरिकका आधारभूत अधिकारलाई तन्दुरुस्तीको भुइँ मान्छ; र <em>बहुविषयक समग्र दृष्टिकोण</em> भनेको परामर्शकर्ता, स्वास्थ्यकर्मी, शिक्षक, वकिल र सामाजिक कार्यकर्ता एउटै जोडिएको प्रणाली हुनु हो — त्यसैले रेफरल र समन्वयको आफ्नै पृष्ठ (२५) छ।</p>
+  </div>
+</article>
+
+<div class="resources"><div class="res-head"><span class="en">Learn more</span><span class="ne">थप सिक्नुहोस्</span></div>
+<p class="res-hint"><span class="en">Pick one, not all.</span><span class="ne">सबै होइन, एउटा रोज्नुहोस्।</span></p>
+<div class="res-item"><span class="res-type">Guideline</span><span><strong>IASC Guidelines on Mental Health and Psychosocial Support in Emergency Settings (2007)</strong> — <span class="res-note"><span class="en">the source of the pyramid; skim the action sheets.</span><span class="ne">पिरामिडको स्रोत; एक्सन-सिट सरसर्ती हेर्नुहोस्।</span></span></span></div>
+<div class="res-item"><span class="res-type">Paper</span><span><strong>Galappatti (2003), "What is a psychosocial intervention?", Intervention journal</strong> — <span class="res-note"><span class="en">the typology your curriculum cites by name.</span><span class="ne">पाठ्यक्रमले नामै लिएर उद्धृत गर्ने लेख।</span></span></span></div>
+<div class="res-item"><span class="res-type">Website</span><span><a href="https://www.tponepal.org" target="_blank" rel="noopener">TPO Nepal</a> — <span class="res-note"><span class="en">Nepali CBI in practice: manuals, community programmes.</span><span class="ne">नेपाली सीबीआई व्यवहारमा: म्यानुअल, कार्यक्रम।</span></span></span></div>
+</div>
+
+</section>
+    <nav class="pager" aria-label="Chapter">
+    <a class="prev" href="substance.html"><span class="lbl"><span class="en">Previous · 15</span><span class="ne">अघिल्लो · 15</span></span><span class="en">Substance use</span><span class="ne">लागुपदार्थ प्रयोग</span></a>
+    <a class="next" href="approaches.html"><span class="lbl"><span class="en">Next · 17</span><span class="ne">अर्को · 17</span></span><span class="en">Approaches & forms</span><span class="ne">विधि र रूपहरू</span></a>
+    </nav>
+    </div>
+  </main>
+</div>
+<script src="assets/lang.js"></script>
+<script src="assets/search-index.js" defer></script>
+<script src="assets/search.js" defer></script>
+</body>
+</html>

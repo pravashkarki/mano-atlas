@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Mano Atlas (मनो एट्लास) — a free, bilingual (English/नेपाली) atlas of mental disorders: DSM-5 criteria, teaching diagrams, and the Nepali context.">
+<title>Communication skills · Mano Atlas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Mukta:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Caveat:wght@600&display=swap">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="layout">
+  <aside class="sidebar">
+    <div class="top">
+      <a class="brand" href="index.html"><span class="en">Mano Atlas</span><span class="ne">मनो एट्लास</span>
+        <span class="sub"><span class="en">Mental health · two languages</span><span class="ne">मानसिक स्वास्थ्य · दुई भाषा</span></span></a>
+      <div class="langsw" role="group" aria-label="Language">
+        <button id="btn-en" onclick="setLang('en')">EN</button>
+        <button id="btn-ne" onclick="setLang('ne')">ने</button>
+      </div>
+    </div>
+    <div class="search">
+      <input id="q" type="search" autocomplete="off" spellcheck="false"
+        placeholder="Search · खोज्नुहोस्" aria-label="Search the atlas">
+      <div id="qres" class="qres" hidden></div>
+    </div>
+    <nav class="snav" aria-label="Site">
+      <div class="snav-group"><span class="en">Overview</span><span class="ne">सिंहावलोकन</span></div>
+      <a href="index.html"><span class="secnum">01</span><span class="catmark" style="background:transparent"></span><span class="en">Home & the DSM-5 map</span><span class="ne">गृहपृष्ठ र DSM-5 नक्सा</span></a>
+      <a href="roots.html"><span class="secnum">02</span><span class="catmark" style="background:transparent"></span><span class="en">Roots: philosophy to psychology</span><span class="ne">जरा: दर्शनदेखि मनोविज्ञान</span></a>
+      <a href="foundation.html"><span class="secnum">03</span><span class="catmark" style="background:transparent"></span><span class="en">Fear: the foundation</span><span class="ne">डर: आधारशिला</span></a>
+      <a href="basics.html"><span class="secnum">04</span><span class="catmark" style="background:transparent"></span><span class="en">Mental health basics</span><span class="ne">मानसिक स्वास्थ्यका आधार</span></a>
+      <a href="development.html"><span class="secnum">05</span><span class="catmark" style="background:transparent"></span><span class="en">Human development</span><span class="ne">मानव विकास</span></a>
+      <div class="snav-group"><span class="en">Disorder categories</span><span class="ne">विकार वर्गहरू</span></div>
+      <a href="anxiety.html"><span class="secnum">06</span><span class="catmark" style="background:var(--c-anx)"></span><span class="en">Anxiety disorders</span><span class="ne">चिन्ता विकारहरू</span></a>
+      <a href="ocd.html"><span class="secnum">07</span><span class="catmark" style="background:var(--c-ocd)"></span><span class="en">OCD & related</span><span class="ne">ओसीडी र सम्बन्धित</span></a>
+      <a href="depression.html"><span class="secnum">08</span><span class="catmark" style="background:var(--c-dep)"></span><span class="en">Depressive disorders</span><span class="ne">उदासी (डिप्रेसन)</span></a>
+      <a href="trauma.html"><span class="secnum">09</span><span class="catmark" style="background:var(--c-tra)"></span><span class="en">Trauma & stressor</span><span class="ne">आघात र तनाव</span></a>
+      <a href="somatic.html"><span class="secnum">10</span><span class="catmark" style="background:var(--c-som)"></span><span class="en">Conversion & somatic</span><span class="ne">कन्भर्सन र शारीरिक</span></a>
+      <a href="psychosis.html"><span class="secnum">11</span><span class="catmark" style="background:var(--c-psy)"></span><span class="en">Psychosis</span><span class="ne">मनोविकृति (साइकोसिस)</span></a>
+      <a href="child.html"><span class="secnum">12</span><span class="catmark" style="background:var(--c-chi)"></span><span class="en">Child mental illness</span><span class="ne">बाल मानसिक समस्या</span></a>
+      <a href="eating.html"><span class="secnum">13</span><span class="catmark" style="background:var(--c-eat)"></span><span class="en">Eating disorders</span><span class="ne">खानपान विकार</span></a>
+      <a href="sleep.html"><span class="secnum">14</span><span class="catmark" style="background:var(--c-slp)"></span><span class="en">Sleep-wake disorders</span><span class="ne">निद्रा विकार</span></a>
+      <a href="substance.html"><span class="secnum">15</span><span class="catmark" style="background:var(--c-sub)"></span><span class="en">Substance use</span><span class="ne">लागुपदार्थ प्रयोग</span></a>
+      <div class="snav-group"><span class="en">Counselling practice</span><span class="ne">परामर्श अभ्यास</span></div>
+      <a href="wellbeing.html"><span class="secnum">16</span><span class="catmark" style="background:transparent"></span><span class="en">Wellbeing & intervention</span><span class="ne">तन्दुरुस्ती र हस्तक्षेप</span></a>
+      <a href="approaches.html"><span class="secnum">17</span><span class="catmark" style="background:transparent"></span><span class="en">Approaches & forms</span><span class="ne">विधि र रूपहरू</span></a>
+      <a href="skills.html" class="active" aria-current="page"><span class="secnum">18</span><span class="catmark" style="background:transparent"></span><span class="en">Communication skills</span><span class="ne">संवाद-सीप</span></a>
+      <a href="process.html"><span class="secnum">19</span><span class="catmark" style="background:transparent"></span><span class="en">The counselling process</span><span class="ne">परामर्श-प्रक्रिया</span></a>
+      <a href="tools.html"><span class="secnum">20</span><span class="catmark" style="background:transparent"></span><span class="en">Tools & techniques</span><span class="ne">औजार र प्रविधि</span></a>
+      <a href="suicide.html"><span class="secnum">21</span><span class="catmark" style="background:transparent"></span><span class="en">Suicide: assessment</span><span class="ne">आत्महत्या: मूल्याङ्कन</span></a>
+      <a href="pfa.html"><span class="secnum">22</span><span class="catmark" style="background:transparent"></span><span class="en">PFA & emergencies</span><span class="ne">पीएफए र आपतकाल</span></a>
+      <a href="gbv.html"><span class="secnum">23</span><span class="catmark" style="background:transparent"></span><span class="en">Gender & GBV</span><span class="ne">लैङ्गिकता र जीबीभी</span></a>
+      <a href="hiv.html"><span class="secnum">24</span><span class="catmark" style="background:transparent"></span><span class="en">HIV & AIDS counselling</span><span class="ne">एचआईभी परामर्श</span></a>
+      <a href="casemgmt.html"><span class="secnum">25</span><span class="catmark" style="background:transparent"></span><span class="en">Case management</span><span class="ne">केस व्यवस्थापन</span></a>
+      <a href="ethics.html"><span class="secnum">26</span><span class="catmark" style="background:transparent"></span><span class="en">Ethics & self-care</span><span class="ne">नैतिकता र आत्म-हेरचाह</span></a>
+      <div class="snav-group"><span class="en">Reference</span><span class="ne">सन्दर्भ</span></div>
+      <a href="more.html"><span class="secnum">27</span><span class="catmark" style="background:transparent"></span><span class="en">The rest of the map</span><span class="ne">बाँकी नक्सा</span></a>
+      <a href="nepal.html"><span class="secnum">28</span><span class="catmark" style="background:transparent"></span><span class="en">Culture & the Nepal panorama</span><span class="ne">संस्कृति र नेपाली परिदृश्य</span></a>
+      <a href="crosswalk.html"><span class="secnum">29</span><span class="catmark" style="background:transparent"></span><span class="en">For PSC students</span><span class="ne">पीएससी विद्यार्थीलाई</span></a>
+    </nav>
+    <div class="side-foot">DSM-5 (2013) · <span class="en">study resource, not a diagnostic tool</span><span class="ne">अध्ययन सामग्री — निदान-उपकरण होइन</span></div>
+  </aside>
+  <main>
+    <div class="wrap">
+<div class="pagehead"><div class="kicker"><span class="en">Section 18</span><span class="ne">खण्ड 18</span></div></div>
+<section id="skills" style="margin-top:12px">
+<div class="sechead"><span class="secnum">18</span>
+  <h2><span class="en">Communication skills — SOLER and the seventeen</span><span class="ne">संवाद-सीप — SOLER र सत्र सीप</span></h2>
+</div>
+<p class="secsub en">99 of your 780 hours go here — more than any disorder gets — because skills, not knowledge, are what the client experiences. Non-verbal skills open the door; verbal skills do the work.</p>
+<p class="secsub ne">तपाईंका ७८० मध्ये ९९ घण्टा यहीँ खर्चिन्छन् — कुनै पनि विकारले भन्दा बढी — किनभने सेवाग्राहीले ज्ञान होइन, सीप अनुभव गर्छ। गैर-शाब्दिक सीपले ढोका खोल्छ; शाब्दिक सीपले काम गर्छ।</p>
+
+<article class="card" id="skills-c1">
+  <div class="card-head">
+    <h3><span class="en">The non-verbal foundation</span><span class="ne">गैर-शाब्दिक जग</span></h3>
+    <span class="pill todo"><span class="dot"></span><span class="en">CTEVT PSC curriculum</span><span class="ne">सीटीईभीटी पाठ्यक्रम</span></span>
+  </div>
+  <div class="card-body">
+    <p class="en"><strong>SOLER</strong> — <strong>S</strong>it squarely facing the client · <strong>O</strong>pen posture (no crossed arms) · <strong>L</strong>ean slightly toward them · <strong>E</strong>ye contact, natural and culturally tuned · <strong>R</strong>elax. Around it: <em>affirming</em> (nodding, humming "hmm"), <em>silence</em> (the hardest skill — waiting while the client finds words), and <em>observation</em> (posture, tears held back, hands, what is NOT said). Nepali tuning: sustained direct eye contact from a young counselor to an elder, or across gender, can read as disrespect — soften it; a client may talk most freely while looking away.</p>
+    <p class="ne"><strong>SOLER</strong> — <strong>S</strong>: सेवाग्राहीतिर फर्केर बस्ने · <strong>O</strong>: खुला मुद्रा (हात नबाँध्ने) · <strong>L</strong>: अलिकति अगाडि झुक्ने · <strong>E</strong>: स्वाभाविक, संस्कृति-अनुकूल आँखा-सम्पर्क · <strong>R</strong>: शान्त रहने। वरिपरि: <em>पुष्टि</em> (टाउको हल्लाउने, «हँ» भन्ने), <em>मौनता</em> (सबैभन्दा कठिन सीप — सेवाग्राहीले शब्द भेट्टाउन्जेल पर्खने), र <em>अवलोकन</em> (मुद्रा, रोकिएका आँसु, हात, नभनिएका कुरा)। नेपाली मिलान: कान्छो परामर्शकर्ताले ज्येष्ठलाई, वा फरक लिङ्गबीच, लामो सोझो आँखा-सम्पर्क अशिष्ट देखिन सक्छ — नरम बनाउनुहोस्; सेवाग्राही अन्तै हेरेर पो खुल्न सक्छ।</p>
+  </div>
+</article>
+
+<article class="card" id="skills-c2">
+  <div class="card-head">
+    <h3><span class="en">The verbal seventeen — with one example each</span><span class="ne">सत्र शाब्दिक सीप — एक-एक उदाहरणसहित</span></h3>
+  </div>
+  <div class="card-body">
+    <div class="tblwrap">
+      <table class="data en">
+        <tr><th>Skill</th><th>What it is</th><th>Sounds like</th></tr>
+        <tr><td>Questioning</td><td>Open questions invite; closed questions confirm</td><td>"What was that time like for you?" vs "Did you sleep?"</td></tr>
+        <tr><td>Paraphrasing</td><td>Their content, your fresh words</td><td>"So since the loan came due, the nights are the worst."</td></tr>
+        <tr><td>Reflection of feeling</td><td>Naming the emotion under the words</td><td>"You sound frightened — and a little angry too."</td></tr>
+        <tr><td>Reflection of meaning</td><td>Naming what it means to them</td><td>"Failing the exam feels like failing your whole family."</td></tr>
+        <tr><td>Repetition of key words</td><td>Echo the loaded word to open it</td><td>Client: "…then everything finished." You: "Finished?"</td></tr>
+        <tr><td>Summarising</td><td>Gathering threads at turns and closings</td><td>"Let me pull together the three things you've named…"</td></tr>
+        <tr><td>Challenge</td><td>Gently naming a contradiction</td><td>"You say it doesn't matter — yet you cry when you say it."</td></tr>
+        <tr><td>Feedback</td><td>Sharing what you observe, without verdicts</td><td>"Today you looked at the floor when your father came up."</td></tr>
+        <tr><td>Information giving</td><td>Accurate, needed, digestible facts</td><td>"Panic symptoms are frightening but not dangerous — here is why."</td></tr>
+        <tr><td>Self-disclosure</td><td>A brief, purposeful sliver of your own experience — for the client's sake, rarely</td><td>"I too left my village for work; the first months were hard."</td></tr>
+        <tr><td>Psychoeducation</td><td>Teaching the mechanism behind the symptom</td><td>The fight-or-flight body map of section 03, drawn on paper</td></tr>
+        <tr><td>Brainstorming</td><td>Generating options before judging any</td><td>"List every possibility first — even the silly ones."</td></tr>
+        <tr><td>Suggest and fade</td><td>Offer an option, hand ownership back</td><td>"Some people try X — what would fit you?"</td></tr>
+        <tr><td>Empathy</td><td>Feeling-with communicated accurately</td><td>Not "I understand" but proving it in your reflection</td></tr>
+        <tr><td>Consoling &amp; appropriate touch</td><td>Water, tissue, presence; touch only if culturally safe</td><td>Silence + offered water often consoles more than words</td></tr>
+        <tr><td>Interpreting non-verbals</td><td>Reading and gently naming body signals</td><td>"Your fists closed when we mentioned the school."</td></tr>
+        <tr><td>Active listening</td><td>The umbrella: all of the above, together, honestly</td><td>The client's test: "Did this person actually hear me?"</td></tr>
+      </table>
+      <table class="data ne">
+        <tr><th>सीप</th><th>के हो</th><th>कस्तो सुनिन्छ</th></tr>
+        <tr><td>प्रश्न-सीप</td><td>खुला प्रश्नले खोल्छ; बन्दले पुष्टि गर्छ</td><td>«त्यो बेला कस्तो थियो?» वि. «निद्रा लाग्यो?»</td></tr>
+        <tr><td>पुनर्कथन</td><td>उनको कुरा, तपाईंका ताजा शब्द</td><td>«त्यसो भए ऋणको म्याद आएदेखि रात सबैभन्दा गाह्रो छ।»</td></tr>
+        <tr><td>भावनाको प्रतिबिम्ब</td><td>शब्दमुनिको भावना नाम दिने</td><td>«डराउनुभएको सुनिन्छ — अलिकति रिस पनि।»</td></tr>
+        <tr><td>अर्थको प्रतिबिम्ब</td><td>उनका लागि त्यसको अर्थ नाम दिने</td><td>«परीक्षा फेल हुनु पूरै परिवार फेल भएजस्तो लाग्छ।»</td></tr>
+        <tr><td>मुख्य शब्द दोहोर्‍याउने</td><td>भारी शब्द फर्काएर खोल्ने</td><td>सेवाग्राही: «…अनि सबै सकियो।» तपाईं: «सकियो?»</td></tr>
+        <tr><td>सारांश</td><td>मोड र अन्त्यमा धागा बटुल्ने</td><td>«तपाईंले भन्नुभएका तीन कुरा जोडौं…»</td></tr>
+        <tr><td>चुनौती</td><td>विरोधाभासलाई नरम गरी नाम दिने</td><td>«केही फरक पर्दैन भन्नुहुन्छ — तर भन्दा आँसु आउँछ।»</td></tr>
+        <tr><td>प्रतिक्रिया</td><td>फैसलाविना आफूले देखेको बाँड्ने</td><td>«आज बुबाको कुरा आउँदा भुइँतिर हेर्नुभयो।»</td></tr>
+        <tr><td>सूचना दिने</td><td>सही, आवश्यक, पचाउन मिल्ने तथ्य</td><td>«प्यानिकका लक्षण डरलाग्दा तर हानिरहित हुन्छन् — किन भने…»</td></tr>
+        <tr><td>आत्म-प्रकटीकरण</td><td>आफ्नै अनुभवको छोटो, प्रयोजनपूर्ण झलक — सेवाग्राहीकै हितका लागि, विरलै</td><td>«म पनि कामका लागि गाउँ छोडेर आएँ; सुरुका महिना गाह्रा थिए।»</td></tr>
+        <tr><td>मनोशिक्षा</td><td>लक्षणपछाडिको संयन्त्र सिकाउने</td><td>खण्ड ०३ को लड-या-भाग चित्र कागजमा कोरेर</td></tr>
+        <tr><td>मन्थन</td><td>निर्णय नगरी विकल्प निकाल्ने</td><td>«पहिले सबै सम्भावना लेखौं — जस्तासुकै।»</td></tr>
+        <tr><td>सुझाएर पछि हट्ने</td><td>विकल्प दिने, स्वामित्व फर्काउने</td><td>«कतिपयले यसो गर्छन् — तपाईंलाई के मिल्ला?»</td></tr>
+        <tr><td>समानुभूति</td><td>सँगै-महसुस, सही तरिकाले सम्प्रेषित</td><td>«बुझें» भन्ने होइन — प्रतिबिम्बमा प्रमाणित गर्ने</td></tr>
+        <tr><td>सान्त्वना र उपयुक्त स्पर्श</td><td>पानी, टिस्यु, उपस्थिति; स्पर्श संस्कृति-सुरक्षित भए मात्र</td><td>मौनता + पानीले शब्दभन्दा बढी सान्त्वना दिन्छ</td></tr>
+        <tr><td>गैर-शाब्दिक बुझाइ</td><td>शरीरका सङ्केत पढेर नरम गरी नाम दिने</td><td>«विद्यालयको कुरा आउँदा मुठ्ठी कसियो।»</td></tr>
+        <tr><td>सक्रिय सुनाइ</td><td>छाता-सीप: माथिका सबै, इमानदारीसाथ</td><td>सेवाग्राहीको जाँच: «यसले मलाई साँच्चै सुन्यो?»</td></tr>
+      </table>
+    </div>
+    <details class="quiz">
+      <summary><span class="en">Practice drill</span><span class="ne">अभ्यास</span></summary>
+      <div class="quiz-body">
+        <p class="en">Client says: "Since my husband went to Qatar I don't sleep, my chest burns, and my mother-in-law says I am pretending." Write one open question, one paraphrase, one reflection of feeling, one reflection of meaning, and one gentle challenge — then check each against the table.</p>
+        <p class="ne">सेवाग्राही भन्छिन्: «श्रीमान् कतार गएदेखि निद्रा लाग्दैन, छाती पोल्छ, सासूले नाटक गरेको भन्नुहुन्छ।» एउटा खुला प्रश्न, एउटा पुनर्कथन, एउटा भावना-प्रतिबिम्ब, एउटा अर्थ-प्रतिबिम्ब र एउटा नरम चुनौती लेख्नुहोस् — अनि तालिकासँग रुजू गर्नुहोस्।</p>
+      </div>
+    </details>
+  </div>
+</article>
+
+<div class="resources"><div class="res-head"><span class="en">Learn more</span><span class="ne">थप सिक्नुहोस्</span></div>
+<p class="res-hint"><span class="en">Pick one, not all.</span><span class="ne">सबै होइन, एउटा रोज्नुहोस्।</span></p>
+<div class="res-item"><span class="res-type">Book</span><span><strong>Gerard Egan, The Skilled Helper — ch. on attending &amp; listening</strong> — <span class="res-note"><span class="en">SOLER comes from this book.</span><span class="ne">SOLER यही पुस्तकबाट आएको हो।</span></span></span></div>
+<div class="res-item"><span class="res-type">Practice</span><span><strong>Record a 10-minute role-play with a classmate</strong> — <span class="res-note"><span class="en">count your open vs closed questions; nothing teaches faster.</span><span class="ne">खुला/बन्द प्रश्न गन्नुहोस्; यसभन्दा छिटो केहीले सिकाउँदैन।</span></span></span></div>
+</div>
+
+</section>
+    <nav class="pager" aria-label="Chapter">
+    <a class="prev" href="approaches.html"><span class="lbl"><span class="en">Previous · 17</span><span class="ne">अघिल्लो · 17</span></span><span class="en">Approaches & forms</span><span class="ne">विधि र रूपहरू</span></a>
+    <a class="next" href="process.html"><span class="lbl"><span class="en">Next · 19</span><span class="ne">अर्को · 19</span></span><span class="en">The counselling process</span><span class="ne">परामर्श-प्रक्रिया</span></a>
+    </nav>
+    </div>
+  </main>
+</div>
+<script src="assets/lang.js"></script>
+<script src="assets/search-index.js" defer></script>
+<script src="assets/search.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Mano Atlas (मनो एट्लास) — a free, bilingual (English/नेपाली) atlas of mental disorders: DSM-5 criteria, teaching diagrams, and the Nepali context.">
+<title>Substance use · Mano Atlas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Mukta:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Caveat:wght@600&display=swap">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="layout">
+  <aside class="sidebar">
+    <div class="top">
+      <a class="brand" href="index.html"><span class="en">Mano Atlas</span><span class="ne">मनो एट्लास</span>
+        <span class="sub"><span class="en">Mental health · two languages</span><span class="ne">मानसिक स्वास्थ्य · दुई भाषा</span></span></a>
+      <div class="langsw" role="group" aria-label="Language">
+        <button id="btn-en" onclick="setLang('en')">EN</button>
+        <button id="btn-ne" onclick="setLang('ne')">ने</button>
+      </div>
+    </div>
+    <div class="search">
+      <input id="q" type="search" autocomplete="off" spellcheck="false"
+        placeholder="Search · खोज्नुहोस्" aria-label="Search the atlas">
+      <div id="qres" class="qres" hidden></div>
+    </div>
+    <nav class="snav" aria-label="Site">
+      <div class="snav-group"><span class="en">Overview</span><span class="ne">सिंहावलोकन</span></div>
+      <a href="index.html"><span class="secnum">01</span><span class="catmark" style="background:transparent"></span><span class="en">Home & the DSM-5 map</span><span class="ne">गृहपृष्ठ र DSM-5 नक्सा</span></a>
+      <a href="roots.html"><span class="secnum">02</span><span class="catmark" style="background:transparent"></span><span class="en">Roots: philosophy to psychology</span><span class="ne">जरा: दर्शनदेखि मनोविज्ञान</span></a>
+      <a href="foundation.html"><span class="secnum">03</span><span class="catmark" style="background:transparent"></span><span class="en">Fear: the foundation</span><span class="ne">डर: आधारशिला</span></a>
+      <a href="basics.html"><span class="secnum">04</span><span class="catmark" style="background:transparent"></span><span class="en">Mental health basics</span><span class="ne">मानसिक स्वास्थ्यका आधार</span></a>
+      <a href="development.html"><span class="secnum">05</span><span class="catmark" style="background:transparent"></span><span class="en">Human development</span><span class="ne">मानव विकास</span></a>
+      <div class="snav-group"><span class="en">Disorder categories</span><span class="ne">विकार वर्गहरू</span></div>
+      <a href="anxiety.html"><span class="secnum">06</span><span class="catmark" style="background:var(--c-anx)"></span><span class="en">Anxiety disorders</span><span class="ne">चिन्ता विकारहरू</span></a>
+      <a href="ocd.html"><span class="secnum">07</span><span class="catmark" style="background:var(--c-ocd)"></span><span class="en">OCD & related</span><span class="ne">ओसीडी र सम्बन्धित</span></a>
+      <a href="depression.html"><span class="secnum">08</span><span class="catmark" style="background:var(--c-dep)"></span><span class="en">Depressive disorders</span><span class="ne">उदासी (डिप्रेसन)</span></a>
+      <a href="trauma.html"><span class="secnum">09</span><span class="catmark" style="background:var(--c-tra)"></span><span class="en">Trauma & stressor</span><span class="ne">आघात र तनाव</span></a>
+      <a href="somatic.html"><span class="secnum">10</span><span class="catmark" style="background:var(--c-som)"></span><span class="en">Conversion & somatic</span><span class="ne">कन्भर्सन र शारीरिक</span></a>
+      <a href="psychosis.html"><span class="secnum">11</span><span class="catmark" style="background:var(--c-psy)"></span><span class="en">Psychosis</span><span class="ne">मनोविकृति (साइकोसिस)</span></a>
+      <a href="child.html"><span class="secnum">12</span><span class="catmark" style="background:var(--c-chi)"></span><span class="en">Child mental illness</span><span class="ne">बाल मानसिक समस्या</span></a>
+      <a href="eating.html"><span class="secnum">13</span><span class="catmark" style="background:var(--c-eat)"></span><span class="en">Eating disorders</span><span class="ne">खानपान विकार</span></a>
+      <a href="sleep.html"><span class="secnum">14</span><span class="catmark" style="background:var(--c-slp)"></span><span class="en">Sleep-wake disorders</span><span class="ne">निद्रा विकार</span></a>
+      <a href="substance.html" class="active" aria-current="page"><span class="secnum">15</span><span class="catmark" style="background:var(--c-sub)"></span><span class="en">Substance use</span><span class="ne">लागुपदार्थ प्रयोग</span></a>
+      <div class="snav-group"><span class="en">Counselling practice</span><span class="ne">परामर्श अभ्यास</span></div>
+      <a href="wellbeing.html"><span class="secnum">16</span><span class="catmark" style="background:transparent"></span><span class="en">Wellbeing & intervention</span><span class="ne">तन्दुरुस्ती र हस्तक्षेप</span></a>
+      <a href="approaches.html"><span class="secnum">17</span><span class="catmark" style="background:transparent"></span><span class="en">Approaches & forms</span><span class="ne">विधि र रूपहरू</span></a>
+      <a href="skills.html"><span class="secnum">18</span><span class="catmark" style="background:transparent"></span><span class="en">Communication skills</span><span class="ne">संवाद-सीप</span></a>
+      <a href="process.html"><span class="secnum">19</span><span class="catmark" style="background:transparent"></span><span class="en">The counselling process</span><span class="ne">परामर्श-प्रक्रिया</span></a>
+      <a href="tools.html"><span class="secnum">20</span><span class="catmark" style="background:transparent"></span><span class="en">Tools & techniques</span><span class="ne">औजार र प्रविधि</span></a>
+      <a href="suicide.html"><span class="secnum">21</span><span class="catmark" style="background:transparent"></span><span class="en">Suicide: assessment</span><span class="ne">आत्महत्या: मूल्याङ्कन</span></a>
+      <a href="pfa.html"><span class="secnum">22</span><span class="catmark" style="background:transparent"></span><span class="en">PFA & emergencies</span><span class="ne">पीएफए र आपतकाल</span></a>
+      <a href="gbv.html"><span class="secnum">23</span><span class="catmark" style="background:transparent"></span><span class="en">Gender & GBV</span><span class="ne">लैङ्गिकता र जीबीभी</span></a>
+      <a href="hiv.html"><span class="secnum">24</span><span class="catmark" style="background:transparent"></span><span class="en">HIV & AIDS counselling</span><span class="ne">एचआईभी परामर्श</span></a>
+      <a href="casemgmt.html"><span class="secnum">25</span><span class="catmark" style="background:transparent"></span><span class="en">Case management</span><span class="ne">केस व्यवस्थापन</span></a>
+      <a href="ethics.html"><span class="secnum">26</span><span class="catmark" style="background:transparent"></span><span class="en">Ethics & self-care</span><span class="ne">नैतिकता र आत्म-हेरचाह</span></a>
+      <div class="snav-group"><span class="en">Reference</span><span class="ne">सन्दर्भ</span></div>
+      <a href="more.html"><span class="secnum">27</span><span class="catmark" style="background:transparent"></span><span class="en">The rest of the map</span><span class="ne">बाँकी नक्सा</span></a>
+      <a href="nepal.html"><span class="secnum">28</span><span class="catmark" style="background:transparent"></span><span class="en">Culture & the Nepal panorama</span><span class="ne">संस्कृति र नेपाली परिदृश्य</span></a>
+      <a href="crosswalk.html"><span class="secnum">29</span><span class="catmark" style="background:transparent"></span><span class="en">For PSC students</span><span class="ne">पीएससी विद्यार्थीलाई</span></a>
+    </nav>
+    <div class="side-foot">DSM-5 (2013) · <span class="en">study resource, not a diagnostic tool</span><span class="ne">अध्ययन सामग्री — निदान-उपकरण होइन</span></div>
+  </aside>
+  <main>
+    <div class="wrap">
+<div class="pagehead"><div class="kicker"><span class="en">Section 15</span><span class="ne">खण्ड 15</span></div></div>
+<section id="substance" style="margin-top:12px">
+<div class="sechead"><span class="catmark" style="background:var(--c-sub)"></span><span class="secnum">15</span>
+    <h2><span class="en">Substance-related &amp; addictive disorders</span><span class="ne">लागुपदार्थ र कुलत विकारहरू</span></h2>
+  </div>
+  <p class="secsub en">A CTEVT PSC curriculum topic (substance abuse and the stages of change). DSM-5 merged the old "abuse" and "dependence" into one graded disorder per substance.</p>
+  <p class="secsub ne">सीटीईभीटी पाठ्यक्रमको विषय (लागुपदार्थ दुर्व्यसन र परिवर्तनका चरण)। DSM-5 ले पुराना «दुरुपयोग» र «परनिर्भरता» लाई प्रत्येक पदार्थको एउटै श्रेणीकृत विकारमा गाभ्यो।</p>
+
+  <article class="card" id="substance-c1" style="--cat:var(--c-sub)">
+    <div class="card-head">
+      <h3><span class="en">Substance Use Disorder — the 11-criteria frame</span><span class="ne">लागुपदार्थ प्रयोग विकार — ११-मापदण्ड ढाँचा</span></h3>
+      <span class="code mono"><span class="en">e.g. alcohol</span><span class="ne">जस्तै रक्सी</span> · F10.x</span>
+      <span class="pill todo"><span class="dot"></span><span class="en">CTEVT PSC curriculum</span><span class="ne">सीटीईभीटी पाठ्यक्रम</span></span>
+    </div>
+    <div class="card-body">
+      <p class="en">A problematic pattern of use causing clinically significant impairment or distress, shown by <strong>≥2 of 11 criteria within 12 months</strong>. Severity: 2–3 mild · 4–5 moderate · ≥6 severe. The same frame applies to alcohol, opioids, cannabis, stimulants, sedatives, tobacco — and gambling disorder sits beside them as the one behavioural addiction.</p>
+      <p class="ne">प्रयोगको समस्याग्रस्त ढाँचा — <strong>१२ महिनाभित्र ११ मध्ये ≥२ मापदण्ड</strong>। गम्भीरता: २–३ हल्का · ४–५ मध्यम · ≥६ गम्भीर। यही ढाँचा रक्सी, अफिमजन्य, गाँजा, उत्तेजक, निद्राका औषधि, सुर्तीमा लागू हुन्छ — र जुवा-कुलत एक मात्र व्यवहारजन्य कुलतका रूपमा सँगै बस्छ।</p>
+      <div class="clusters">
+        <div class="cluster" style="--cat:var(--c-sub)">
+          <h4><span class="en">Impaired control (1–4)</span><span class="ne">नियन्त्रण गुम्नु (१–४)</span></h4>
+          <ul class="en"><li>More/longer than intended</li><li>Wants to cut down, can't</li><li>Much time obtaining, using, recovering</li><li>Craving</li></ul>
+          <ul class="ne"><li>सोचेभन्दा धेरै/लामो प्रयोग</li><li>घटाउन खोज्छ, सक्दैन</li><li>जुटाउन-खान-तंग्रिन धेरै समय</li><li>तीव्र तलतल</li></ul>
+        </div>
+        <div class="cluster" style="--cat:var(--c-sub)">
+          <h4><span class="en">Social impairment (5–7)</span><span class="ne">सामाजिक क्षति (५–७)</span></h4>
+          <ul class="en"><li>Fails role obligations</li><li>Continues despite relationship problems</li><li>Gives up important activities</li></ul>
+          <ul class="ne"><li>घर-काम-पढाइका जिम्मेवारी चुक्ने</li><li>सम्बन्ध बिग्रँदा पनि जारी</li><li>महत्त्वपूर्ण काम-सङ्गत छोड्ने</li></ul>
+        </div>
+        <div class="cluster" style="--cat:var(--c-sub)">
+          <h4><span class="en">Risky use (8–9)</span><span class="ne">जोखिमपूर्ण प्रयोग (८–९)</span></h4>
+          <ul class="en"><li>Use in hazardous situations</li><li>Continues despite physical/psychological harm</li></ul>
+          <ul class="ne"><li>खतरनाक अवस्थामा प्रयोग (सवारी…)</li><li>शारीरिक/मानसिक हानि हुँदा पनि जारी</li></ul>
+        </div>
+        <div class="cluster" style="--cat:var(--c-sub)">
+          <h4><span class="en">Pharmacological (10–11)</span><span class="ne">औषधीय (१०–११)</span></h4>
+          <ul class="en"><li>Tolerance — needs more for the same effect</li><li>Withdrawal — or use to avoid withdrawal</li></ul>
+          <ul class="ne"><li>सहनशीलता — उही असरका लागि बढी चाहिने</li><li>छुटाउँदा लक्षण — वा ती छल्न प्रयोग</li></ul>
+        </div>
+      </div>
+      <div class="ctx nepal">
+        <div class="ctx-label"><span class="en">Nepal · International</span><span class="ne">नेपाल · अन्तर्राष्ट्रिय</span></div>
+        <p class="en">Globally, alcohol and tobacco dwarf all illicit drugs in disease burden. In Nepal, alcohol sits inside culture unevenly — customary in some communities, prohibited in others — so "how much is a problem" must be judged by the 11 criteria, not by drinking per se. Home-brew (raksi, jaand) makes quantity hard to estimate; ask in local units. Watch returned migrant workers, transport and security workers; and screen for depression and suicide risk alongside alcohol in every assessment. Pair the criteria with the Stages of Change (precontemplation → contemplation → preparation → action → maintenance → relapse) from your Month-4 block for counseling planning.</p>
+        <p class="ne">विश्वभर रोग-भारमा रक्सी र सुर्तीले अवैध लागुपदार्थ सबैलाई उछिन्छन्। नेपालमा रक्सी संस्कृतिभित्र असमान बसेको छ — कतै परम्परागत, कतै निषिद्ध — त्यसैले «कति भए समस्या» भन्ने पिउनु आफैंले होइन, ११ मापदण्डले जाँचिन्छ। घरेलु रक्सी-जाँडको मात्रा अनुमान गाह्रो — स्थानीय एकाइमा सोध्नुहोस्। फर्केका आप्रवासी श्रमिक, यातायात-सुरक्षा पेसामा ध्यान दिनुहोस्; हरेक मूल्याङ्कनमा रक्सीसँगै उदासी र आत्महत्या-जोखिम पनि जाँच्नुहोस्। परामर्श-योजनाका लागि परिवर्तनका चरणहरू (पूर्व-चिन्तन → चिन्तन → तयारी → कार्य → निरन्तरता → पुनरावृत्ति) सँग जोड्नुहोस्।</p>
+      </div>
+    </div>
+  </article>
+<div class="resources"><div class="res-head"><span class="en">Learn more</span><span class="ne">थप सिक्नुहोस्</span></div><p class="res-hint"><span class="en">Pick one, not all — these are chosen to be light, not exhaustive.</span><span class="ne">सबै होइन, एउटा रोज्नुहोस् — यी हल्का, सजिला स्रोत हुन्।</span></p><div class="res-item"><span class="res-type">Video · 15 min</span><span><a href="https://www.ted.com/talks/johann_hari_everything_you_think_you_know_about_addiction_is_wrong" target="_blank" rel="noopener">Everything you think you know about addiction is wrong (TED)</a> — <span class="res-note"><span class="en">Connection vs addiction — reframes counseling goals.</span><span class="ne">कुलतको उल्टो बुझाइ — परामर्शको लक्ष्य फेरिदिन्छ।</span></span></span></div><div class="res-item"><span class="res-type">Book chapter</span><span><strong>Where There Is No Psychiatrist — alcohol &amp; drug sections</strong> — <span class="res-note"><span class="en">Screening and brief intervention, step by step.</span><span class="ne">स्क्रिनिङ र छोटो हस्तक्षेप, चरणबद्ध।</span></span></span></div></div>
+
+</section>
+    <nav class="pager" aria-label="Chapter">
+    <a class="prev" href="sleep.html"><span class="lbl"><span class="en">Previous · 14</span><span class="ne">अघिल्लो · 14</span></span><span class="en">Sleep-wake disorders</span><span class="ne">निद्रा विकार</span></a>
+    <a class="next" href="wellbeing.html"><span class="lbl"><span class="en">Next · 16</span><span class="ne">अर्को · 16</span></span><span class="en">Wellbeing & intervention</span><span class="ne">तन्दुरुस्ती र हस्तक्षेप</span></a>
+    </nav>
+    </div>
+  </main>
+</div>
+<script src="assets/lang.js"></script>
+<script src="assets/search-index.js" defer></script>
+<script src="assets/search.js" defer></script>
+</body>
+</html>

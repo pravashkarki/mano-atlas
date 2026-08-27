@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Mano Atlas (मनो एट्लास) — a free, bilingual (English/नेपाली) atlas of mental disorders: DSM-5 criteria, teaching diagrams, and the Nepali context.">
+<title>Trauma & stressor · Mano Atlas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Mukta:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Caveat:wght@600&display=swap">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="layout">
+  <aside class="sidebar">
+    <div class="top">
+      <a class="brand" href="index.html"><span class="en">Mano Atlas</span><span class="ne">मनो एट्लास</span>
+        <span class="sub"><span class="en">Mental health · two languages</span><span class="ne">मानसिक स्वास्थ्य · दुई भाषा</span></span></a>
+      <div class="langsw" role="group" aria-label="Language">
+        <button id="btn-en" onclick="setLang('en')">EN</button>
+        <button id="btn-ne" onclick="setLang('ne')">ने</button>
+      </div>
+    </div>
+    <div class="search">
+      <input id="q" type="search" autocomplete="off" spellcheck="false"
+        placeholder="Search · खोज्नुहोस्" aria-label="Search the atlas">
+      <div id="qres" class="qres" hidden></div>
+    </div>
+    <nav class="snav" aria-label="Site">
+      <div class="snav-group"><span class="en">Overview</span><span class="ne">सिंहावलोकन</span></div>
+      <a href="index.html"><span class="secnum">01</span><span class="catmark" style="background:transparent"></span><span class="en">Home & the DSM-5 map</span><span class="ne">गृहपृष्ठ र DSM-5 नक्सा</span></a>
+      <a href="roots.html"><span class="secnum">02</span><span class="catmark" style="background:transparent"></span><span class="en">Roots: philosophy to psychology</span><span class="ne">जरा: दर्शनदेखि मनोविज्ञान</span></a>
+      <a href="foundation.html"><span class="secnum">03</span><span class="catmark" style="background:transparent"></span><span class="en">Fear: the foundation</span><span class="ne">डर: आधारशिला</span></a>
+      <a href="basics.html"><span class="secnum">04</span><span class="catmark" style="background:transparent"></span><span class="en">Mental health basics</span><span class="ne">मानसिक स्वास्थ्यका आधार</span></a>
+      <a href="development.html"><span class="secnum">05</span><span class="catmark" style="background:transparent"></span><span class="en">Human development</span><span class="ne">मानव विकास</span></a>
+      <div class="snav-group"><span class="en">Disorder categories</span><span class="ne">विकार वर्गहरू</span></div>
+      <a href="anxiety.html"><span class="secnum">06</span><span class="catmark" style="background:var(--c-anx)"></span><span class="en">Anxiety disorders</span><span class="ne">चिन्ता विकारहरू</span></a>
+      <a href="ocd.html"><span class="secnum">07</span><span class="catmark" style="background:var(--c-ocd)"></span><span class="en">OCD & related</span><span class="ne">ओसीडी र सम्बन्धित</span></a>
+      <a href="depression.html"><span class="secnum">08</span><span class="catmark" style="background:var(--c-dep)"></span><span class="en">Depressive disorders</span><span class="ne">उदासी (डिप्रेसन)</span></a>
+      <a href="trauma.html" class="active" aria-current="page"><span class="secnum">09</span><span class="catmark" style="background:var(--c-tra)"></span><span class="en">Trauma & stressor</span><span class="ne">आघात र तनाव</span></a>
+      <a href="somatic.html"><span class="secnum">10</span><span class="catmark" style="background:var(--c-som)"></span><span class="en">Conversion & somatic</span><span class="ne">कन्भर्सन र शारीरिक</span></a>
+      <a href="psychosis.html"><span class="secnum">11</span><span class="catmark" style="background:var(--c-psy)"></span><span class="en">Psychosis</span><span class="ne">मनोविकृति (साइकोसिस)</span></a>
+      <a href="child.html"><span class="secnum">12</span><span class="catmark" style="background:var(--c-chi)"></span><span class="en">Child mental illness</span><span class="ne">बाल मानसिक समस्या</span></a>
+      <a href="eating.html"><span class="secnum">13</span><span class="catmark" style="background:var(--c-eat)"></span><span class="en">Eating disorders</span><span class="ne">खानपान विकार</span></a>
+      <a href="sleep.html"><span class="secnum">14</span><span class="catmark" style="background:var(--c-slp)"></span><span class="en">Sleep-wake disorders</span><span class="ne">निद्रा विकार</span></a>
+      <a href="substance.html"><span class="secnum">15</span><span class="catmark" style="background:var(--c-sub)"></span><span class="en">Substance use</span><span class="ne">लागुपदार्थ प्रयोग</span></a>
+      <div class="snav-group"><span class="en">Counselling practice</span><span class="ne">परामर्श अभ्यास</span></div>
+      <a href="wellbeing.html"><span class="secnum">16</span><span class="catmark" style="background:transparent"></span><span class="en">Wellbeing & intervention</span><span class="ne">तन्दुरुस्ती र हस्तक्षेप</span></a>
+      <a href="approaches.html"><span class="secnum">17</span><span class="catmark" style="background:transparent"></span><span class="en">Approaches & forms</span><span class="ne">विधि र रूपहरू</span></a>
+      <a href="skills.html"><span class="secnum">18</span><span class="catmark" style="background:transparent"></span><span class="en">Communication skills</span><span class="ne">संवाद-सीप</span></a>
+      <a href="process.html"><span class="secnum">19</span><span class="catmark" style="background:transparent"></span><span class="en">The counselling process</span><span class="ne">परामर्श-प्रक्रिया</span></a>
+      <a href="tools.html"><span class="secnum">20</span><span class="catmark" style="background:transparent"></span><span class="en">Tools & techniques</span><span class="ne">औजार र प्रविधि</span></a>
+      <a href="suicide.html"><span class="secnum">21</span><span class="catmark" style="background:transparent"></span><span class="en">Suicide: assessment</span><span class="ne">आत्महत्या: मूल्याङ्कन</span></a>
+      <a href="pfa.html"><span class="secnum">22</span><span class="catmark" style="background:transparent"></span><span class="en">PFA & emergencies</span><span class="ne">पीएफए र आपतकाल</span></a>
+      <a href="gbv.html"><span class="secnum">23</span><span class="catmark" style="background:transparent"></span><span class="en">Gender & GBV</span><span class="ne">लैङ्गिकता र जीबीभी</span></a>
+      <a href="hiv.html"><span class="secnum">24</span><span class="catmark" style="background:transparent"></span><span class="en">HIV & AIDS counselling</span><span class="ne">एचआईभी परामर्श</span></a>
+      <a href="casemgmt.html"><span class="secnum">25</span><span class="catmark" style="background:transparent"></span><span class="en">Case management</span><span class="ne">केस व्यवस्थापन</span></a>
+      <a href="ethics.html"><span class="secnum">26</span><span class="catmark" style="background:transparent"></span><span class="en">Ethics & self-care</span><span class="ne">नैतिकता र आत्म-हेरचाह</span></a>
+      <div class="snav-group"><span class="en">Reference</span><span class="ne">सन्दर्भ</span></div>
+      <a href="more.html"><span class="secnum">27</span><span class="catmark" style="background:transparent"></span><span class="en">The rest of the map</span><span class="ne">बाँकी नक्सा</span></a>
+      <a href="nepal.html"><span class="secnum">28</span><span class="catmark" style="background:transparent"></span><span class="en">Culture & the Nepal panorama</span><span class="ne">संस्कृति र नेपाली परिदृश्य</span></a>
+      <a href="crosswalk.html"><span class="secnum">29</span><span class="catmark" style="background:transparent"></span><span class="en">For PSC students</span><span class="ne">पीएससी विद्यार्थीलाई</span></a>
+    </nav>
+    <div class="side-foot">DSM-5 (2013) · <span class="en">study resource, not a diagnostic tool</span><span class="ne">अध्ययन सामग्री — निदान-उपकरण होइन</span></div>
+  </aside>
+  <main>
+    <div class="wrap">
+<div class="pagehead"><div class="kicker"><span class="en">Section 09</span><span class="ne">खण्ड 09</span></div></div>
+<section id="trauma" style="margin-top:12px">
+<div class="sechead"><span class="catmark" style="background:var(--c-tra)"></span><span class="secnum">09</span>
+    <h2><span class="en">Trauma- and stressor-related disorders</span><span class="ne">आघात र तनावजन्य विकारहरू</span></h2>
+  </div>
+  <p class="secsub en">The only DSM-5 chapter where a cause is part of the definition: no traumatic or stressful event, no diagnosis. A CTEVT PSC curriculum topic (trauma, PFA, IASC).</p>
+  <p class="secsub ne">कारण नै परिभाषाको अंश हुने DSM-5 को एउटै अध्याय: आघात वा तनावको घटना छैन भने निदान पनि छैन। सीटीईभीटी पाठ्यक्रमको विषय (आघात, पीएफए, आईएएससी)।</p>
+
+  <article class="card" id="trauma-c1" style="--cat:var(--c-tra)">
+    <div class="card-head">
+      <h3><span class="en">Post-Traumatic Stress Disorder (PTSD)</span><span class="ne">आघातपछिको तनाव विकार (पीटीएसडी)</span></h3>
+      <span class="code mono">309.81 · F43.10</span>
+      <span class="pill todo"><span class="dot"></span><span class="en">CTEVT PSC curriculum</span><span class="ne">सीटीईभीटी पाठ्यक्रम</span></span>
+    </div>
+    <div class="card-body">
+      <p class="defn en">After exposure to death, serious injury, or sexual violence: one month or more of intrusion, avoidance, negative mood, and hyperarousal.</p>
+      <p class="defn ne">मृत्यु, गम्भीर चोट वा यौन हिंसाको सामनापछि: एक महिना वा बढी घुसपैठ-सम्झना, पन्छाइ, नकारात्मक मनोदशा र अति-सतर्कता।</p>
+
+      <div class="crit">
+        <div class="crit-label"><span class="en">DSM-5 Criteria (adults)</span><span class="ne">DSM-5 मापदण्ड (वयस्क)</span></div>
+        <ol class="en">
+          <li><strong>Exposure</strong> to actual or threatened death, serious injury, or sexual violence: directly · witnessing · learning it happened to a close one (violent/accidental) · repeated exposure to aversive details (first responders). <em>Media exposure alone does not count unless work-related.</em></li>
+          <li>≥1 <strong>intrusion</strong> symptom (see cluster B below).</li>
+          <li>≥1 <strong>avoidance</strong> symptom (cluster C).</li>
+          <li>≥2 <strong>negative alterations in cognitions and mood</strong> (cluster D).</li>
+          <li>≥2 <strong>arousal and reactivity</strong> changes (cluster E).</li>
+          <li>Duration of B–E more than <strong>1 month</strong>.</li>
+          <li>Clinically significant distress or impairment.</li>
+          <li>Not attributable to a substance or medical condition.</li>
+        </ol>
+        <ol class="ne">
+          <li>वास्तविक वा धम्कीपूर्ण मृत्यु, गम्भीर चोट वा यौन हिंसाको <strong>सामना</strong>: प्रत्यक्ष · आँखैले देखेर · नजिकको व्यक्तिमाथि (हिंसात्मक/दुर्घटना) भएको थाहा पाएर · पीडादायी विवरणसँग बारम्बार सम्पर्क (उद्धारकर्मी)। <em>काम बाहेक, मिडिया मात्र हेर्दा गनिँदैन।</em></li>
+          <li>≥१ <strong>घुसपैठ</strong> लक्षण (तलको समूह B)।</li>
+          <li>≥१ <strong>पन्छाइ</strong> लक्षण (समूह C)।</li>
+          <li>≥२ <strong>सोच र मनोदशामा नकारात्मक परिवर्तन</strong> (समूह D)।</li>
+          <li>≥२ <strong>उत्तेजना-प्रतिक्रिया</strong> परिवर्तन (समूह E)।</li>
+          <li>B–E को अवधि <strong>१ महिनाभन्दा बढी</strong>।</li>
+          <li>उल्लेखनीय पीडा वा कार्य-बाधा।</li>
+          <li>लागुपदार्थ वा शारीरिक रोगका कारण होइन।</li>
+        </ol>
+      </div>
+
+      <div class="clusters" style="--cat:var(--c-tra)">
+        <div class="cluster" style="--cat:var(--c-tra)">
+          <h4><span class="en">B · Intrusion</span><span class="ne">B · घुसपैठ</span></h4>
+          <span class="req"><span class="en">need ≥1 of 5</span><span class="ne">५ मध्ये ≥१</span></span>
+          <ul class="en"><li>Intrusive memories</li><li>Trauma nightmares</li><li>Flashbacks</li><li>Distress at reminders</li><li>Physiological reactions to cues</li></ul>
+          <ul class="ne"><li>घुसपैठ सम्झना</li><li>आघातका डरलाग्दा सपना</li><li>फ्ल्यासब्याक</li><li>सम्झाउने कुरामा पीडा</li><li>सङ्केतमा शारीरिक प्रतिक्रिया</li></ul>
+        </div>
+        <div class="cluster" style="--cat:var(--c-tra)">
+          <h4><span class="en">C · Avoidance</span><span class="ne">C · पन्छाइ</span></h4>
+          <span class="req"><span class="en">need ≥1 of 2</span><span class="ne">२ मध्ये ≥१</span></span>
+          <ul class="en"><li>Avoiding memories, thoughts, feelings</li><li>Avoiding external reminders (people, places, activities)</li></ul>
+          <ul class="ne"><li>सम्झना, विचार, भावना पन्छाउने</li><li>बाहिरी सम्झाउने कुरा (मान्छे, ठाउँ, काम) पन्छाउने</li></ul>
+        </div>
+        <div class="cluster" style="--cat:var(--c-tra)">
+          <h4><span class="en">D · Negative cognition &amp; mood</span><span class="ne">D · नकारात्मक सोच-मनोदशा</span></h4>
+          <span class="req"><span class="en">need ≥2 of 7</span><span class="ne">७ मध्ये ≥२</span></span>
+          <ul class="en"><li>Can't recall key parts</li><li>Negative beliefs ("world is dangerous")</li><li>Distorted self/other blame</li><li>Persistent fear, anger, shame</li><li>Diminished interest</li><li>Detachment from others</li><li>Can't feel positive emotions</li></ul>
+          <ul class="ne"><li>मुख्य अंश सम्झन नसक्ने</li><li>नकारात्मक विश्वास («संसार खतरनाक छ»)</li><li>आफू/अरूलाई गलत दोष</li><li>निरन्तर डर, रिस, लाज</li><li>रुचि घट्ने</li><li>अरूबाट टाढिएको महसुस</li><li>खुसी महसुस गर्नै नसक्ने</li></ul>
+        </div>
+        <div class="cluster" style="--cat:var(--c-tra)">
+          <h4><span class="en">E · Arousal &amp; reactivity</span><span class="ne">E · उत्तेजना-प्रतिक्रिया</span></h4>
+          <span class="req"><span class="en">need ≥2 of 6</span><span class="ne">६ मध्ये ≥२</span></span>
+          <ul class="en"><li>Irritability, anger outbursts</li><li>Reckless, self-destructive behaviour</li><li>Hypervigilance</li><li>Exaggerated startle</li><li>Poor concentration</li><li>Sleep disturbance</li></ul>
+          <ul class="ne"><li>झर्को, रिसका विस्फोट</li><li>लापरबाह, आत्मघाती व्यवहार</li><li>अति-सतर्कता</li><li>सानो आवाजमै झस्कने</li><li>ध्यान केन्द्रित नहुने</li><li>निद्रा बिग्रने</li></ul>
+        </div>
+      </div>
+      <p class="note en" style="font-size:13.5px;color:var(--muted)">Specifiers: with dissociative symptoms (depersonalisation/derealisation) · with delayed expression (full criteria only after 6 months). <strong>Acute Stress Disorder</strong> (308.3/F43.0) is the same picture lasting 3 days to 1 month; <strong>Adjustment Disorder</strong> (F43.2x) is distress out of proportion to a non-traumatic stressor, within 3 months of it.</p>
+      <p class="note ne" style="font-size:14px;color:var(--muted)">विशेष: विघटनात्मक लक्षणसहित · ढिलो देखिने (६ महिनापछि मात्र पूरा मापदण्ड)। <strong>तीव्र तनाव विकार</strong> (F43.0) उही चित्र ३ दिन–१ महिना; <strong>समायोजन विकार</strong> (F43.2x) गैर-आघात तनावपछि ३ महिनाभित्र, अनुपातभन्दा बढी पीडा।</p>
+
+      <div class="ctx world">
+        <div class="ctx-label"><span class="en">International</span><span class="ne">अन्तर्राष्ट्रिय</span></div>
+        <p class="en">First systematised after the Vietnam war ("shell shock", "war neurosis" before that); today the heaviest burdens are in conflict zones and among refugees and survivors of sexual violence. Most people exposed to trauma do <em>not</em> develop PTSD — resilience is the norm; risk rises with dose, proximity, and interpersonal violence.</p>
+        <p class="ne">भियतनाम युद्धपछि व्यवस्थित रूपमा चिनियो (त्यसअघि «सेल शक», «युद्ध-स्नायुरोग»); आज सबैभन्दा ठूलो भार द्वन्द्वग्रस्त क्षेत्र, शरणार्थी र यौन हिंसा पीडितमा छ। आघात भोग्ने अधिकांशलाई पीटीएसडी <em>हुँदैन</em> — लचकता नै सामान्य नियम हो; जोखिम मात्रा, निकटता र व्यक्ति-हिंसासँग बढ्छ।</p>
+      </div>
+      <div class="ctx nepal">
+        <div class="ctx-label"><span class="en">Nepal</span><span class="ne">नेपाल</span></div>
+        <p class="en">Three national layers: the 1996–2006 conflict (disappearances, torture survivors), the 2015 earthquakes, and yearly floods and landslides — plus trafficking survivors and returned migrant workers. Post-earthquake research (e.g., TPO Nepal studies) found distress often expressed through the heart-mind: fear idioms like "man aatteko", "saato gaeko" (the spirit has fled). PFA's Look-Listen-Link, not debriefing, is the evidence-based first response; most acute reactions settle without a disorder label.</p>
+        <p class="ne">तीन राष्ट्रिय तह: २०५२–६३ को द्वन्द्व (बेपत्ता, यातना पीडित), २०७२ को भूकम्प, र वर्षेनि बाढी-पहिरो — साथै बेचबिखन पीडित र फर्केका आप्रवासी श्रमिक। भूकम्पपछिका अध्ययन (जस्तै टीपीओ नेपाल) ले पीडा प्रायः मनका शब्दमा — «मन आत्तिएको», «सातो गएको» — व्यक्त हुने देखाए। प्रमाणमा आधारित पहिलो सहायता पीएफए (हेर-सुन-जोड) हो, डिब्रिफिङ होइन; अधिकांश तत्काल प्रतिक्रिया विकार नबनी आफैं साम्य हुन्छन्।</p>
+      </div>
+    </div>
+  </article>
+<div class="resources"><div class="res-head"><span class="en">Learn more</span><span class="ne">थप सिक्नुहोस्</span></div><p class="res-hint"><span class="en">Pick one, not all — these are chosen to be light, not exhaustive.</span><span class="ne">सबै होइन, एउटा रोज्नुहोस् — यी हल्का, सजिला स्रोत हुन्।</span></p><div class="res-item"><span class="res-type">Video · 5 min</span><span><a href="https://www.youtube.com/watch?v=b_n9qegR7C4" target="_blank" rel="noopener">The psychology of PTSD (TED-Ed)</a> — <span class="res-note"><span class="en">The four symptom clusters, animated.</span><span class="ne">चार लक्षण-समूह एनिमेसनमा।</span></span></span></div><div class="res-item"><span class="res-type">Book chapter</span><span><strong>The Body Keeps the Score (van der Kolk) — ch. 1</strong> — <span class="res-note"><span class="en">How trauma lives in the body; read slowly, it is heavy.</span><span class="ne">आघात शरीरमा कसरी बस्छ; बिस्तारै पढ्नुहोस्।</span></span></span></div><div class="res-item"><span class="res-type">Article</span><span><a href="https://link.springer.com/article/10.1007/s11013-010-9170-2" target="_blank" rel="noopener">Nepali concepts of psychological trauma (Kohrt &amp; Hruschka)</a> — <span class="res-note"><span class="en">THE paper on saato, man, dimaag and trauma in Nepal.</span><span class="ne">नेपालमा सातो-मन-दिमाग र आघातबारेको मुख्य लेख।</span></span></span></div></div>
+
+</section>
+    <nav class="pager" aria-label="Chapter">
+    <a class="prev" href="depression.html"><span class="lbl"><span class="en">Previous · 08</span><span class="ne">अघिल्लो · 08</span></span><span class="en">Depressive disorders</span><span class="ne">उदासी (डिप्रेसन)</span></a>
+    <a class="next" href="somatic.html"><span class="lbl"><span class="en">Next · 10</span><span class="ne">अर्को · 10</span></span><span class="en">Conversion & somatic</span><span class="ne">कन्भर्सन र शारीरिक</span></a>
+    </nav>
+    </div>
+  </main>
+</div>
+<script src="assets/lang.js"></script>
+<script src="assets/search-index.js" defer></script>
+<script src="assets/search.js" defer></script>
+</body>
+</html>

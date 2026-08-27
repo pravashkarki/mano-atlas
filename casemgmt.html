@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Mano Atlas (मनो एट्लास) — a free, bilingual (English/नेपाली) atlas of mental disorders: DSM-5 criteria, teaching diagrams, and the Nepali context.">
+<title>Case management · Mano Atlas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Mukta:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Caveat:wght@600&display=swap">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="layout">
+  <aside class="sidebar">
+    <div class="top">
+      <a class="brand" href="index.html"><span class="en">Mano Atlas</span><span class="ne">मनो एट्लास</span>
+        <span class="sub"><span class="en">Mental health · two languages</span><span class="ne">मानसिक स्वास्थ्य · दुई भाषा</span></span></a>
+      <div class="langsw" role="group" aria-label="Language">
+        <button id="btn-en" onclick="setLang('en')">EN</button>
+        <button id="btn-ne" onclick="setLang('ne')">ने</button>
+      </div>
+    </div>
+    <div class="search">
+      <input id="q" type="search" autocomplete="off" spellcheck="false"
+        placeholder="Search · खोज्नुहोस्" aria-label="Search the atlas">
+      <div id="qres" class="qres" hidden></div>
+    </div>
+    <nav class="snav" aria-label="Site">
+      <div class="snav-group"><span class="en">Overview</span><span class="ne">सिंहावलोकन</span></div>
+      <a href="index.html"><span class="secnum">01</span><span class="catmark" style="background:transparent"></span><span class="en">Home & the DSM-5 map</span><span class="ne">गृहपृष्ठ र DSM-5 नक्सा</span></a>
+      <a href="roots.html"><span class="secnum">02</span><span class="catmark" style="background:transparent"></span><span class="en">Roots: philosophy to psychology</span><span class="ne">जरा: दर्शनदेखि मनोविज्ञान</span></a>
+      <a href="foundation.html"><span class="secnum">03</span><span class="catmark" style="background:transparent"></span><span class="en">Fear: the foundation</span><span class="ne">डर: आधारशिला</span></a>
+      <a href="basics.html"><span class="secnum">04</span><span class="catmark" style="background:transparent"></span><span class="en">Mental health basics</span><span class="ne">मानसिक स्वास्थ्यका आधार</span></a>
+      <a href="development.html"><span class="secnum">05</span><span class="catmark" style="background:transparent"></span><span class="en">Human development</span><span class="ne">मानव विकास</span></a>
+      <div class="snav-group"><span class="en">Disorder categories</span><span class="ne">विकार वर्गहरू</span></div>
+      <a href="anxiety.html"><span class="secnum">06</span><span class="catmark" style="background:var(--c-anx)"></span><span class="en">Anxiety disorders</span><span class="ne">चिन्ता विकारहरू</span></a>
+      <a href="ocd.html"><span class="secnum">07</span><span class="catmark" style="background:var(--c-ocd)"></span><span class="en">OCD & related</span><span class="ne">ओसीडी र सम्बन्धित</span></a>
+      <a href="depression.html"><span class="secnum">08</span><span class="catmark" style="background:var(--c-dep)"></span><span class="en">Depressive disorders</span><span class="ne">उदासी (डिप्रेसन)</span></a>
+      <a href="trauma.html"><span class="secnum">09</span><span class="catmark" style="background:var(--c-tra)"></span><span class="en">Trauma & stressor</span><span class="ne">आघात र तनाव</span></a>
+      <a href="somatic.html"><span class="secnum">10</span><span class="catmark" style="background:var(--c-som)"></span><span class="en">Conversion & somatic</span><span class="ne">कन्भर्सन र शारीरिक</span></a>
+      <a href="psychosis.html"><span class="secnum">11</span><span class="catmark" style="background:var(--c-psy)"></span><span class="en">Psychosis</span><span class="ne">मनोविकृति (साइकोसिस)</span></a>
+      <a href="child.html"><span class="secnum">12</span><span class="catmark" style="background:var(--c-chi)"></span><span class="en">Child mental illness</span><span class="ne">बाल मानसिक समस्या</span></a>
+      <a href="eating.html"><span class="secnum">13</span><span class="catmark" style="background:var(--c-eat)"></span><span class="en">Eating disorders</span><span class="ne">खानपान विकार</span></a>
+      <a href="sleep.html"><span class="secnum">14</span><span class="catmark" style="background:var(--c-slp)"></span><span class="en">Sleep-wake disorders</span><span class="ne">निद्रा विकार</span></a>
+      <a href="substance.html"><span class="secnum">15</span><span class="catmark" style="background:var(--c-sub)"></span><span class="en">Substance use</span><span class="ne">लागुपदार्थ प्रयोग</span></a>
+      <div class="snav-group"><span class="en">Counselling practice</span><span class="ne">परामर्श अभ्यास</span></div>
+      <a href="wellbeing.html"><span class="secnum">16</span><span class="catmark" style="background:transparent"></span><span class="en">Wellbeing & intervention</span><span class="ne">तन्दुरुस्ती र हस्तक्षेप</span></a>
+      <a href="approaches.html"><span class="secnum">17</span><span class="catmark" style="background:transparent"></span><span class="en">Approaches & forms</span><span class="ne">विधि र रूपहरू</span></a>
+      <a href="skills.html"><span class="secnum">18</span><span class="catmark" style="background:transparent"></span><span class="en">Communication skills</span><span class="ne">संवाद-सीप</span></a>
+      <a href="process.html"><span class="secnum">19</span><span class="catmark" style="background:transparent"></span><span class="en">The counselling process</span><span class="ne">परामर्श-प्रक्रिया</span></a>
+      <a href="tools.html"><span class="secnum">20</span><span class="catmark" style="background:transparent"></span><span class="en">Tools & techniques</span><span class="ne">औजार र प्रविधि</span></a>
+      <a href="suicide.html"><span class="secnum">21</span><span class="catmark" style="background:transparent"></span><span class="en">Suicide: assessment</span><span class="ne">आत्महत्या: मूल्याङ्कन</span></a>
+      <a href="pfa.html"><span class="secnum">22</span><span class="catmark" style="background:transparent"></span><span class="en">PFA & emergencies</span><span class="ne">पीएफए र आपतकाल</span></a>
+      <a href="gbv.html"><span class="secnum">23</span><span class="catmark" style="background:transparent"></span><span class="en">Gender & GBV</span><span class="ne">लैङ्गिकता र जीबीभी</span></a>
+      <a href="hiv.html"><span class="secnum">24</span><span class="catmark" style="background:transparent"></span><span class="en">HIV & AIDS counselling</span><span class="ne">एचआईभी परामर्श</span></a>
+      <a href="casemgmt.html" class="active" aria-current="page"><span class="secnum">25</span><span class="catmark" style="background:transparent"></span><span class="en">Case management</span><span class="ne">केस व्यवस्थापन</span></a>
+      <a href="ethics.html"><span class="secnum">26</span><span class="catmark" style="background:transparent"></span><span class="en">Ethics & self-care</span><span class="ne">नैतिकता र आत्म-हेरचाह</span></a>
+      <div class="snav-group"><span class="en">Reference</span><span class="ne">सन्दर्भ</span></div>
+      <a href="more.html"><span class="secnum">27</span><span class="catmark" style="background:transparent"></span><span class="en">The rest of the map</span><span class="ne">बाँकी नक्सा</span></a>
+      <a href="nepal.html"><span class="secnum">28</span><span class="catmark" style="background:transparent"></span><span class="en">Culture & the Nepal panorama</span><span class="ne">संस्कृति र नेपाली परिदृश्य</span></a>
+      <a href="crosswalk.html"><span class="secnum">29</span><span class="catmark" style="background:transparent"></span><span class="en">For PSC students</span><span class="ne">पीएससी विद्यार्थीलाई</span></a>
+    </nav>
+    <div class="side-foot">DSM-5 (2013) · <span class="en">study resource, not a diagnostic tool</span><span class="ne">अध्ययन सामग्री — निदान-उपकरण होइन</span></div>
+  </aside>
+  <main>
+    <div class="wrap">
+<div class="pagehead"><div class="kicker"><span class="en">Section 25</span><span class="ne">खण्ड 25</span></div></div>
+<section id="casemgmt" style="margin-top:12px">
+<div class="sechead"><span class="secnum">25</span>
+  <h2><span class="en">Case management: centre, documents, supervision, referral</span><span class="ne">केस व्यवस्थापन: केन्द्र, अभिलेख, सुपरिवेक्षण, रेफरल</span></h2>
+</div>
+<p class="secsub en">Module 3 in one page. Counselling that is not documented, supervised, and connected to a referral network is a conversation, not a service.</p>
+<p class="secsub ne">मोड्युल ३ एकै पृष्ठमा। अभिलेख, सुपरिवेक्षण र रेफरल-सञ्जालविनाको परामर्श सेवा होइन — गफ मात्र हो।</p>
+
+<article class="card" id="casemgmt-c1">
+  <div class="card-head">
+    <h3><span class="en">The four pillars</span><span class="ne">चार खम्बा</span></h3>
+    <span class="pill todo"><span class="dot"></span><span class="en">CTEVT PSC curriculum</span><span class="ne">सीटीईभीटी पाठ्यक्रम</span></span>
+  </div>
+  <div class="card-body">
+    <p class="en"><strong>1 · The counselling setting.</strong> A peaceful, private, confidential room; comfortable seating at an angle (not across a desk); tissue, water, first-aid box; play and drawing materials for children; a waiting space that protects privacy; barriers managed — noise, interruptions, smoke, alcohol. The room itself is an intervention: it says <em>you are safe here</em>.</p>
+    <p class="ne"><strong>१ · परामर्श-कक्ष।</strong> शान्त, एकान्त, गोपनीय कोठा; टेबल-वारपार होइन, कुनामा मिल्ने आरामदायी बसाइ; टिस्यु, पानी, प्राथमिक उपचार बाकस; बालबालिकाका लागि खेल-चित्र सामग्री; गोपनीयता जोगाउने प्रतीक्षालय; अवरोध-व्यवस्थापन — हल्ला, रोकावट, धुवाँ, रक्सी। कोठा आफैं हस्तक्षेप हो: यसले भन्छ — <em>तपाईं यहाँ सुरक्षित हुनुहुन्छ</em>।</p>
+    <p class="en"><strong>2 · Documentation.</strong> The individual file, under a <em>code number, never a name</em>: intake form · consent form · session notes (presenting problem, interventions done, plan) · assessment forms and checklists (Hopkins, PTSD) · case-update and progress reports · referral forms · supervision forms · client-satisfaction and termination forms. Plus the centre's register and daily record. Locked storage; notes written the same day; facts and observations, not judgments — write every note as if the client might one day read it, because they may.</p>
+    <p class="ne"><strong>२ · अभिलेख।</strong> व्यक्तिगत फाइल, <em>नाम होइन, कोड नम्बर</em>मा: इन्टेक फारम · सहमति फारम · सत्र-नोट (समस्या, गरिएको हस्तक्षेप, योजना) · मूल्याङ्कन फारम र चेकलिस्ट (हप्किन्स, पीटीएसडी) · केस-अपडेट र प्रगति प्रतिवेदन · रेफरल फारम · सुपरिवेक्षण फारम · सन्तुष्टि र समापन फारम। साथै केन्द्रको दर्ता र दैनिक अभिलेख। ताल्चा लाग्ने भण्डारण; नोट त्यही दिन; फैसला होइन — तथ्य र अवलोकन। हरेक नोट सेवाग्राहीले कुनै दिन पढ्न सक्छ भन्ठानेर लेख्नुहोस् — पढ्न पाउँछन् पनि।</p>
+    <p class="en"><strong>3 · Supervision.</strong> Not inspection — protection, for the client and for you. Forms: clinical supervision with a senior (case review, blind spots), peer supervision (colleagues learning from each other), and your own supervision of CPSWs and trained teachers/health workers. Bring your hardest case, your suicide-risk cases, and the case you don't want to talk about — that one first.</p>
+    <p class="ne"><strong>३ · सुपरिवेक्षण।</strong> निरीक्षण होइन — सुरक्षा, सेवाग्राही र तपाईं दुवैका लागि। रूपहरू: वरिष्ठसँग क्लिनिकल सुपरिवेक्षण (केस-समीक्षा, नदेखिएका कोण), सहकर्मी-सुपरिवेक्षण, र तपाईं आफैंले गर्ने सीपीएसडब्ल्यू तथा तालिमप्राप्त शिक्षक/स्वास्थ्यकर्मीको सुपरिवेक्षण। सबैभन्दा कठिन केस, आत्महत्या-जोखिमका केस, र भन्न मन नलाग्ने केस लैजानुहोस् — त्यही पहिलो।</p>
+    <p class="en"><strong>4 · Linkage, coordination, referral.</strong> Map your district before you need it: psychiatrist and hospital · senior counselor/psychologist · doctor · lawyer and human-rights organisations · OCMC and safe houses · VCT and drug counselors · physiotherapist · rehab centres and shelters · vocational training · schools and teachers · psychosocial-trained health post workers · child protection committees · clubs and mothers' groups · <em>traditional healers</em> — coordinate with them respectfully; they see your clients first. Referral is a skill: explain why, write the referral letter, take consent, give the client the information, follow up whether they arrived. <strong>Refer up always for:</strong> psychosis, high suicide risk, severe self-neglect, children in danger, and anything beyond your training.</p>
+    <p class="ne"><strong>४ · जोडान, समन्वय, रेफरल।</strong> आवश्यक पर्नुअघि नै आफ्नो जिल्लाको नक्सा बनाउनुहोस्: मनोचिकित्सक र अस्पताल · वरिष्ठ परामर्शकर्ता/मनोविज्ञ · चिकित्सक · वकिल र मानवअधिकार संस्था · ओसीएमसी र सुरक्षित आवास · भीसीटी र लागुपदार्थ परामर्शकर्ता · फिजियोथेरापिस्ट · पुनःस्थापना केन्द्र · सीपमूलक तालिम · विद्यालय र शिक्षक · मनोसामाजिक तालिमप्राप्त स्वास्थ्यकर्मी · बाल संरक्षण समिति · क्लब र आमा समूह · <em>धामी-झाँक्री</em> — सम्मानपूर्वक समन्वय गर्नुहोस्; तपाईंका सेवाग्राही पहिले उनैले भेट्छन्। रेफरल सीप हो: किन भनी बुझाउने, रेफरल-पत्र लेख्ने, सहमति लिने, सेवाग्राहीलाई जानकारी दिने, पुगे-नपुगेको फलोअप गर्ने। <strong>सधैं माथि रेफर गर्ने:</strong> मनोविकृति, उच्च आत्महत्या-जोखिम, गम्भीर आत्म-उपेक्षा, खतरामा परेका बालबालिका, र तालिमभन्दा बाहिरको जे पनि।</p>
+    <details class="quiz">
+      <summary><span class="en">Test yourself</span><span class="ne">आफैंलाई जाँच्नुहोस्</span></summary>
+      <div class="quiz-body">
+        <p class="en">1) List the documents of an individual file from intake to termination, in order. 2) Draft a three-line referral letter for a client with first-episode psychosis. 3) Your me-map of the district: name one real contact for six of the referral channels above — the gaps you find are this week's homework.</p>
+        <p class="ne">१) इन्टेकदेखि समापनसम्म व्यक्तिगत फाइलका कागजात क्रमैसँग भन्नुहोस्। २) पहिलो-पटक मनोविकृति देखिएका सेवाग्राहीका लागि तीन-हरफे रेफरल-पत्र लेख्नुहोस्। ३) जिल्लाको मी-म्याप: माथिका मध्ये छ च्यानलका एक-एक वास्तविक सम्पर्क लेख्नुहोस् — भेटिएका खाली ठाउँ नै यो हप्ताको गृहकार्य।</p>
+      </div>
+    </details>
+  </div>
+</article>
+
+<div class="resources"><div class="res-head"><span class="en">Learn more</span><span class="ne">थप सिक्नुहोस्</span></div>
+<p class="res-hint"><span class="en">Pick one, not all.</span><span class="ne">सबै होइन, एउटा रोज्नुहोस्।</span></p>
+<div class="res-item"><span class="res-type">Free book</span><span><a href="https://www.cambridge.org/core/books/where-there-is-no-psychiatrist/47578A845CAFC7E23A181749A4190B54" target="_blank" rel="noopener">Where There Is No Psychiatrist — service organisation chapters</a> — <span class="res-note"><span class="en">running a service with almost nothing.</span><span class="ne">झन्डै शून्य स्रोतमा सेवा चलाउने तरिका।</span></span></span></div>
+<div class="res-item"><span class="res-type">Website</span><span><a href="https://www.tponepal.org" target="_blank" rel="noopener">TPO Nepal — resources</a> — <span class="res-note"><span class="en">Nepali forms, manuals and training materials to model yours on.</span><span class="ne">आफ्ना फारम बनाउन नमुना नेपाली सामग्री।</span></span></span></div>
+</div>
+
+</section>
+    <nav class="pager" aria-label="Chapter">
+    <a class="prev" href="hiv.html"><span class="lbl"><span class="en">Previous · 24</span><span class="ne">अघिल्लो · 24</span></span><span class="en">HIV & AIDS counselling</span><span class="ne">एचआईभी परामर्श</span></a>
+    <a class="next" href="ethics.html"><span class="lbl"><span class="en">Next · 26</span><span class="ne">अर्को · 26</span></span><span class="en">Ethics & self-care</span><span class="ne">नैतिकता र आत्म-हेरचाह</span></a>
+    </nav>
+    </div>
+  </main>
+</div>
+<script src="assets/lang.js"></script>
+<script src="assets/search-index.js" defer></script>
+<script src="assets/search.js" defer></script>
+</body>
+</html>

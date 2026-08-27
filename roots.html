@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Mano Atlas (मनो एट्लास) — a free, bilingual (English/नेपाली) atlas of mental disorders: DSM-5 criteria, teaching diagrams, and the Nepali context.">
+<title>Roots: philosophy to psychology · Mano Atlas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Mukta:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Caveat:wght@600&display=swap">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="layout">
+  <aside class="sidebar">
+    <div class="top">
+      <a class="brand" href="index.html"><span class="en">Mano Atlas</span><span class="ne">मनो एट्लास</span>
+        <span class="sub"><span class="en">Mental health · two languages</span><span class="ne">मानसिक स्वास्थ्य · दुई भाषा</span></span></a>
+      <div class="langsw" role="group" aria-label="Language">
+        <button id="btn-en" onclick="setLang('en')">EN</button>
+        <button id="btn-ne" onclick="setLang('ne')">ने</button>
+      </div>
+    </div>
+    <div class="search">
+      <input id="q" type="search" autocomplete="off" spellcheck="false"
+        placeholder="Search · खोज्नुहोस्" aria-label="Search the atlas">
+      <div id="qres" class="qres" hidden></div>
+    </div>
+    <nav class="snav" aria-label="Site">
+      <div class="snav-group"><span class="en">Overview</span><span class="ne">सिंहावलोकन</span></div>
+      <a href="index.html"><span class="secnum">01</span><span class="catmark" style="background:transparent"></span><span class="en">Home & the DSM-5 map</span><span class="ne">गृहपृष्ठ र DSM-5 नक्सा</span></a>
+      <a href="roots.html" class="active" aria-current="page"><span class="secnum">02</span><span class="catmark" style="background:transparent"></span><span class="en">Roots: philosophy to psychology</span><span class="ne">जरा: दर्शनदेखि मनोविज्ञान</span></a>
+      <a href="foundation.html"><span class="secnum">03</span><span class="catmark" style="background:transparent"></span><span class="en">Fear: the foundation</span><span class="ne">डर: आधारशिला</span></a>
+      <a href="basics.html"><span class="secnum">04</span><span class="catmark" style="background:transparent"></span><span class="en">Mental health basics</span><span class="ne">मानसिक स्वास्थ्यका आधार</span></a>
+      <a href="development.html"><span class="secnum">05</span><span class="catmark" style="background:transparent"></span><span class="en">Human development</span><span class="ne">मानव विकास</span></a>
+      <div class="snav-group"><span class="en">Disorder categories</span><span class="ne">विकार वर्गहरू</span></div>
+      <a href="anxiety.html"><span class="secnum">06</span><span class="catmark" style="background:var(--c-anx)"></span><span class="en">Anxiety disorders</span><span class="ne">चिन्ता विकारहरू</span></a>
+      <a href="ocd.html"><span class="secnum">07</span><span class="catmark" style="background:var(--c-ocd)"></span><span class="en">OCD & related</span><span class="ne">ओसीडी र सम्बन्धित</span></a>
+      <a href="depression.html"><span class="secnum">08</span><span class="catmark" style="background:var(--c-dep)"></span><span class="en">Depressive disorders</span><span class="ne">उदासी (डिप्रेसन)</span></a>
+      <a href="trauma.html"><span class="secnum">09</span><span class="catmark" style="background:var(--c-tra)"></span><span class="en">Trauma & stressor</span><span class="ne">आघात र तनाव</span></a>
+      <a href="somatic.html"><span class="secnum">10</span><span class="catmark" style="background:var(--c-som)"></span><span class="en">Conversion & somatic</span><span class="ne">कन्भर्सन र शारीरिक</span></a>
+      <a href="psychosis.html"><span class="secnum">11</span><span class="catmark" style="background:var(--c-psy)"></span><span class="en">Psychosis</span><span class="ne">मनोविकृति (साइकोसिस)</span></a>
+      <a href="child.html"><span class="secnum">12</span><span class="catmark" style="background:var(--c-chi)"></span><span class="en">Child mental illness</span><span class="ne">बाल मानसिक समस्या</span></a>
+      <a href="eating.html"><span class="secnum">13</span><span class="catmark" style="background:var(--c-eat)"></span><span class="en">Eating disorders</span><span class="ne">खानपान विकार</span></a>
+      <a href="sleep.html"><span class="secnum">14</span><span class="catmark" style="background:var(--c-slp)"></span><span class="en">Sleep-wake disorders</span><span class="ne">निद्रा विकार</span></a>
+      <a href="substance.html"><span class="secnum">15</span><span class="catmark" style="background:var(--c-sub)"></span><span class="en">Substance use</span><span class="ne">लागुपदार्थ प्रयोग</span></a>
+      <div class="snav-group"><span class="en">Counselling practice</span><span class="ne">परामर्श अभ्यास</span></div>
+      <a href="wellbeing.html"><span class="secnum">16</span><span class="catmark" style="background:transparent"></span><span class="en">Wellbeing & intervention</span><span class="ne">तन्दुरुस्ती र हस्तक्षेप</span></a>
+      <a href="approaches.html"><span class="secnum">17</span><span class="catmark" style="background:transparent"></span><span class="en">Approaches & forms</span><span class="ne">विधि र रूपहरू</span></a>
+      <a href="skills.html"><span class="secnum">18</span><span class="catmark" style="background:transparent"></span><span class="en">Communication skills</span><span class="ne">संवाद-सीप</span></a>
+      <a href="process.html"><span class="secnum">19</span><span class="catmark" style="background:transparent"></span><span class="en">The counselling process</span><span class="ne">परामर्श-प्रक्रिया</span></a>
+      <a href="tools.html"><span class="secnum">20</span><span class="catmark" style="background:transparent"></span><span class="en">Tools & techniques</span><span class="ne">औजार र प्रविधि</span></a>
+      <a href="suicide.html"><span class="secnum">21</span><span class="catmark" style="background:transparent"></span><span class="en">Suicide: assessment</span><span class="ne">आत्महत्या: मूल्याङ्कन</span></a>
+      <a href="pfa.html"><span class="secnum">22</span><span class="catmark" style="background:transparent"></span><span class="en">PFA & emergencies</span><span class="ne">पीएफए र आपतकाल</span></a>
+      <a href="gbv.html"><span class="secnum">23</span><span class="catmark" style="background:transparent"></span><span class="en">Gender & GBV</span><span class="ne">लैङ्गिकता र जीबीभी</span></a>
+      <a href="hiv.html"><span class="secnum">24</span><span class="catmark" style="background:transparent"></span><span class="en">HIV & AIDS counselling</span><span class="ne">एचआईभी परामर्श</span></a>
+      <a href="casemgmt.html"><span class="secnum">25</span><span class="catmark" style="background:transparent"></span><span class="en">Case management</span><span class="ne">केस व्यवस्थापन</span></a>
+      <a href="ethics.html"><span class="secnum">26</span><span class="catmark" style="background:transparent"></span><span class="en">Ethics & self-care</span><span class="ne">नैतिकता र आत्म-हेरचाह</span></a>
+      <div class="snav-group"><span class="en">Reference</span><span class="ne">सन्दर्भ</span></div>
+      <a href="more.html"><span class="secnum">27</span><span class="catmark" style="background:transparent"></span><span class="en">The rest of the map</span><span class="ne">बाँकी नक्सा</span></a>
+      <a href="nepal.html"><span class="secnum">28</span><span class="catmark" style="background:transparent"></span><span class="en">Culture & the Nepal panorama</span><span class="ne">संस्कृति र नेपाली परिदृश्य</span></a>
+      <a href="crosswalk.html"><span class="secnum">29</span><span class="catmark" style="background:transparent"></span><span class="en">For PSC students</span><span class="ne">पीएससी विद्यार्थीलाई</span></a>
+    </nav>
+    <div class="side-foot">DSM-5 (2013) · <span class="en">study resource, not a diagnostic tool</span><span class="ne">अध्ययन सामग्री — निदान-उपकरण होइन</span></div>
+  </aside>
+  <main>
+    <div class="wrap">
+<div class="pagehead"><div class="kicker"><span class="en">Section 02</span><span class="ne">खण्ड 02</span></div></div>
+<section id="roots" style="margin-top:12px">
+<div class="sechead"><span class="secnum">02</span>
+  <h2><span class="en">Roots: from philosophy to psychology</span><span class="ne">जरा: दर्शनदेखि मनोविज्ञानसम्म</span></h2>
+</div>
+<p class="secsub en">Psychology is a young science with a very old past. For more than two thousand years before the first laboratory, the questions of this whole site — what is mind? why do people suffer? how do they heal? — belonged to philosophers, physicians, and priests, in Asia as much as in Greece.</p>
+<p class="secsub ne">मनोविज्ञान नयाँ विज्ञान हो, तर यसको अतीत निकै पुरानो छ। पहिलो प्रयोगशाला खुल्नुभन्दा दुई हजार वर्षअघिदेखि नै — मन के हो? मानिस किन दुःखी हुन्छ? कसरी निको हुन्छ? — भन्ने यही साइटका प्रश्नहरू दार्शनिक, वैद्य र पुजारीका हातमा थिए; ग्रीसमा मात्र होइन, एसियामै पनि।</p>
+
+<article class="card" id="roots-c1">
+  <div class="card-head">
+    <h3><span class="en">What is psychology?</span><span class="ne">मनोविज्ञान के हो?</span></h3>
+    <span class="pill todo"><span class="dot"></span><span class="en">CTEVT PSC curriculum</span><span class="ne">सीटीईभीटी पाठ्यक्रम</span></span>
+  </div>
+  <div class="card-body">
+    <p class="en"><strong>Psychology is the scientific study of mind and behaviour</strong> — of what people think, feel, and do, and why. Its four classic goals: <em>describe</em> behaviour, <em>explain</em> it, <em>predict</em> it, and <em>help change</em> it. It earns the word "scientific" by testing claims with evidence — observation, surveys, case studies, and experiments — rather than by authority or tradition.</p>
+    <p class="ne"><strong>मनोविज्ञान भनेको मन र व्यवहारको वैज्ञानिक अध्ययन हो</strong> — मानिसले के सोच्छ, के महसुस गर्छ, के गर्छ, र किन। यसका चार शास्त्रीय लक्ष्य: व्यवहारको <em>वर्णन</em>, <em>व्याख्या</em>, <em>पूर्वानुमान</em> र <em>परिवर्तनमा सहयोग</em>। «वैज्ञानिक» शब्द यसले प्रमाणले दाबी जाँचेर कमाउँछ — अवलोकन, सर्वेक्षण, केस-अध्ययन, प्रयोग — अधिकार वा परम्पराले होइन।</p>
+    <div class="tblwrap">
+      <table class="data en">
+        <tr><th>Don't confuse</th><th>Who they are</th><th>What they do</th></tr>
+        <tr><td>Psychologist</td><td>Studied psychology (MA/M.Phil/PhD)</td><td>Assessment, psychotherapy, testing; no medicines</td></tr>
+        <tr><td>Psychiatrist</td><td>Medical doctor (MD Psychiatry)</td><td>Diagnoses and prescribes medicines; your referral point for severe illness</td></tr>
+        <tr><td>Psychosocial counselor</td><td>Trained counselor (e.g., this 780-hour CTEVT course)</td><td>Detects, supports, counsels, refers — the community's first line</td></tr>
+        <tr><td>Traditional healer (dhami-jhankri)</td><td>Community spiritual healer</td><td>First contact for many families; collaborate, don't compete</td></tr>
+      </table>
+      <table class="data ne">
+        <tr><th>नझुक्किनुहोस्</th><th>को हुन्</th><th>के गर्छन्</th></tr>
+        <tr><td>मनोविज्ञ (साइकोलोजिस्ट)</td><td>मनोविज्ञान पढेका (एमए/एमफिल/पीएचडी)</td><td>मूल्याङ्कन, मनोचिकित्सा, परीक्षण; औषधि दिँदैनन्</td></tr>
+        <tr><td>मनोचिकित्सक (साइकियाट्रिस्ट)</td><td>चिकित्सक (एमडी साइकियाट्री)</td><td>निदान र औषधि; गम्भीर रोगमा तपाईंको रेफरल-बिन्दु</td></tr>
+        <tr><td>मनोसामाजिक परामर्शकर्ता</td><td>तालिमप्राप्त परामर्शकर्ता (जस्तै यही ७८० घण्टे कोर्स)</td><td>पहिचान, साथ, परामर्श, रेफर — समुदायको पहिलो पङ्क्ति</td></tr>
+        <tr><td>धामी-झाँक्री</td><td>सामुदायिक आध्यात्मिक उपचारक</td><td>धेरै परिवारको पहिलो सम्पर्क; प्रतिस्पर्धा होइन, सहकार्य</td></tr>
+      </table>
+    </div>
+    <p class="en" style="font-size:14px;color:var(--muted)">Main branches you will meet: clinical &amp; counselling (this course's home), developmental (page 05), social, cognitive, biological/neuro (page 03), and community psychology (page 16).</p>
+    <p class="ne" style="font-size:14.5px;color:var(--muted)">भेटिने मुख्य शाखा: क्लिनिकल र परामर्श (यस कोर्सको घर), विकासात्मक (पृष्ठ ०५), सामाजिक, संज्ञानात्मक, जैविक/स्नायु (पृष्ठ ०३), र सामुदायिक मनोविज्ञान (पृष्ठ १६)।</p>
+  </div>
+</article>
+
+<article class="card" id="roots-c2">
+  <div class="card-head">
+    <h3><span class="en">The pre-psychology era</span><span class="ne">मनोविज्ञान-पूर्व युग</span></h3>
+    <span class="pill todo"><span class="dot"></span><span class="en">CTEVT PSC curriculum</span><span class="ne">सीटीईभीटी पाठ्यक्रम</span></span>
+  </div>
+  <div class="card-body">
+    <div class="tblwrap">
+      <table class="data en">
+        <tr><th>Era &amp; thinkers</th><th>The idea</th><th>Why it still matters to a counselor</th></tr>
+        <tr><td>Ancient healing traditions</td><td>Distress caused by spirits, gods, karma, or imbalance; treated by ritual, trepanation, exorcism</td><td>This worldview is not "the past" — it is the first explanation many Nepali clients still receive</td></tr>
+        <tr><td>Hindu &amp; Buddhist psychology (Upanishads, Abhidhamma, ~800 BCE onward)</td><td>Systematic maps of mind (man, buddhi, chitta, ahamkara); suffering (dukkha) arises from craving and can be worked with through awareness and discipline</td><td>Mindfulness-based therapies descend from this line; the Nepali "man" (heart-mind) you counsel through is part of it</td></tr>
+        <tr><td>Ayurveda &amp; Greek humoral medicine (Charaka; Hippocrates, ~400 BCE)</td><td>Mental illness as bodily imbalance — three dosha (vata, pitta, kapha) or four humours — not divine punishment</td><td>The first naturalistic theory of mental illness: disorder as illness, not sin</td></tr>
+        <tr><td>Greek philosophy — Socrates, Plato, Aristotle</td><td>Reason examines the self ("know thyself"); Plato: mind separate from body; Aristotle: soul as the form of the body, memory and association</td><td>The talking cure begins here: the belief that examining one's own thoughts can change one's life</td></tr>
+        <tr><td>Stoics (Epictetus, ~100 CE)</td><td>"People are disturbed not by things, but by the views they take of them"</td><td>Quoted almost word-for-word as the founding idea of CBT</td></tr>
+        <tr><td>Descartes (1600s)</td><td>Mind-body dualism; the body as machine</td><td>Gave us the mind/body split that conversion disorder and psychosomatic medicine have been repairing ever since</td></tr>
+        <tr><td>Empiricists — Locke, Hume (1700s)</td><td>Mind as blank slate (tabula rasa); knowledge from experience and association</td><td>The seed of behaviourism and of learning-based therapy: what was learned can be relearned</td></tr>
+        <tr><td>Moral treatment — Pinel, Tuke (1790s)</td><td>Unchaining asylum patients; illness treated with dignity and routine</td><td>The direct ancestor of psychosocial care — and of the fight against chaining that Nepal still fights</td></tr>
+      </table>
+      <table class="data ne">
+        <tr><th>युग र चिन्तक</th><th>विचार</th><th>परामर्शकर्तालाई अझै किन काम लाग्छ</th></tr>
+        <tr><td>प्राचीन उपचार परम्परा</td><td>पीडाको कारण आत्मा, देवता, कर्म वा असन्तुलन; उपचार पूजा-झारफुकले</td><td>यो दृष्टिकोण «इतिहास» होइन — धेरै नेपाली सेवाग्राहीले अझै पहिलो व्याख्या यही पाउँछन्</td></tr>
+        <tr><td>हिन्दू र बौद्ध मनोविज्ञान (उपनिषद्, अभिधम्म, ~ई.पू. ८००—)</td><td>मनको व्यवस्थित नक्सा (मन, बुद्धि, चित्त, अहंकार); दुःख तृष्णाबाट जन्मन्छ, सजगता र अभ्यासले काम गर्न सकिन्छ</td><td>माइन्डफुलनेस-आधारित थेरापी यही धारबाट आएका हुन्; तपाईंले परामर्शमा प्रयोग गर्ने नेपाली «मन» यसैको अंश हो</td></tr>
+        <tr><td>आयुर्वेद र ग्रीक चिकित्सा (चरक; हिपोक्रेटिस, ~ई.पू. ४००)</td><td>मानसिक रोग शरीरको असन्तुलन — तीन दोष (वात, पित्त, कफ) वा चार रस — दैवी दण्ड होइन</td><td>मानसिक रोगको पहिलो प्राकृतिक सिद्धान्त: विकार भनेको रोग हो, पाप होइन</td></tr>
+        <tr><td>ग्रीक दर्शन — सुकरात, प्लेटो, एरिस्टोटल</td><td>विवेकले आफैंलाई जाँच्छ («आफूलाई चिन»); प्लेटो: मन शरीरबाट अलग; एरिस्टोटल: स्मृति र साहचर्य</td><td>कुराकानीबाट उपचारको सुरुवात यहीँ हो: आफ्ना विचार जाँच्दा जीवन फेरिन्छ भन्ने विश्वास</td></tr>
+        <tr><td>स्टोइकहरू (एपिक्टेटस, ~ई. १००)</td><td>«मानिसलाई घटनाले होइन, घटनाप्रतिको दृष्टिकोणले पिरोल्छ»</td><td>सीबीटीको आधार-विचारका रूपमा झन्डै शब्दशः उद्धृत</td></tr>
+        <tr><td>देकार्त (१७औं शताब्दी)</td><td>मन-शरीर द्वैतवाद; शरीर यन्त्रजस्तो</td><td>मन/शरीरको यही विभाजन कन्भर्सन विकार र मनोदैहिक चिकित्साले अझै जोड्दै छन्</td></tr>
+        <tr><td>अनुभववादी — लक, ह्युम (१८औं शताब्दी)</td><td>मन खाली पाटी (टाबुला रासा); ज्ञान अनुभव र साहचर्यबाट</td><td>व्यवहारवाद र सिकाइ-आधारित थेरापीको बीउ: सिकेको कुरा फेरि सिक्न सकिन्छ</td></tr>
+        <tr><td>नैतिक उपचार — पिनेल, ट्युक (१७९०—)</td><td>पागलखानाका बिरामीका साङ्ला खोलियो; मर्यादा र दिनचर्याले उपचार</td><td>मनोसामाजिक सेवाको प्रत्यक्ष पुर्खा — र नेपालले अझै लडिरहेको साङ्लाविरुद्धको लडाइँको पनि</td></tr>
+      </table>
+    </div>
+  </div>
+</article>
+
+<article class="card" id="roots-c3">
+  <div class="card-head">
+    <h3><span class="en">Psychology becomes a science — the schools</span><span class="ne">मनोविज्ञान विज्ञान बन्छ — विचारधाराहरू</span></h3>
+    <span class="code mono">1879 →</span>
+  </div>
+  <div class="card-body">
+    <p class="en">In <strong>1879 Wilhelm Wundt opened the first psychology laboratory</strong> in Leipzig, Germany — the conventional birthday of scientific psychology. The schools that followed each kept one piece of the truth, and each gave counselling one of its tools:</p>
+    <p class="ne">सन् <strong>१८७९ मा विल्हेल्म वुन्टले जर्मनीको लाइपजिगमा पहिलो मनोविज्ञान प्रयोगशाला</strong> खोले — वैज्ञानिक मनोविज्ञानको औपचारिक जन्मदिन। त्यसपछिका विचारधाराहरूले सत्यको एक-एक टुक्रा समाते, र हरेकले परामर्शलाई एउटा-एउटा औजार दियो:</p>
+    <div class="tblwrap">
+      <table class="data en">
+        <tr><th>School</th><th>Founder(s)</th><th>Core claim</th><th>Gift to counselling</th></tr>
+        <tr><td>Structuralism</td><td>Wundt · Titchener</td><td>Break consciousness into elements by introspection</td><td>The habit of careful observation</td></tr>
+        <tr><td>Functionalism</td><td>William James</td><td>Ask what the mind is <em>for</em> — adaptation</td><td>"What is this symptom doing for the client?"</td></tr>
+        <tr><td>Psychoanalysis</td><td>Freud</td><td>Unconscious conflict, childhood, defence mechanisms</td><td>The psychodynamic approach; the idea that talking heals</td></tr>
+        <tr><td>Behaviourism</td><td>Pavlov · Watson · Skinner</td><td>Behaviour is learned — conditioning and reinforcement</td><td>Exposure therapy; the reinforcement loop of section 03</td></tr>
+        <tr><td>Humanistic</td><td>Rogers · Maslow</td><td>People grow toward their potential given empathy, genuineness, unconditional positive regard</td><td>The core counselling attitude itself — Rogers' conditions ARE basic counselling</td></tr>
+        <tr><td>Cognitive</td><td>Beck · Ellis (1960s)</td><td>Thoughts stand between events and feelings</td><td>CBT — the most-used approach in this curriculum</td></tr>
+        <tr><td>Socio-cultural / biopsychosocial</td><td>Vygotsky · Engel (1977)</td><td>Mind develops in culture; illness is biological + psychological + social at once</td><td>The lens this whole atlas uses, and the reason "psychosocial" is in your job title</td></tr>
+      </table>
+      <table class="data ne">
+        <tr><th>विचारधारा</th><th>प्रवर्तक</th><th>मुख्य दाबी</th><th>परामर्शलाई उपहार</th></tr>
+        <tr><td>संरचनावाद</td><td>वुन्ट · टिचनर</td><td>आत्मनिरीक्षणबाट चेतनालाई तत्त्वमा टुक्र्याउने</td><td>सूक्ष्म अवलोकनको बानी</td></tr>
+        <tr><td>क्रियावाद</td><td>विलियम जेम्स</td><td>मन <em>केका लागि</em> छ — अनुकूलन</td><td>«यो लक्षणले सेवाग्राहीका लागि के काम गरिरहेको छ?»</td></tr>
+        <tr><td>मनोविश्लेषण</td><td>फ्रायड</td><td>अचेतन द्वन्द्व, बाल्यकाल, रक्षा-संयन्त्र</td><td>साइकोडाइनामिक विधि; कुराले निको पार्छ भन्ने विचार</td></tr>
+        <tr><td>व्यवहारवाद</td><td>पाभलोभ · वाट्सन · स्किनर</td><td>व्यवहार सिकिन्छ — अनुकूलन र पुनर्बलन</td><td>एक्सपोजर थेरापी; खण्ड ०३ को पुनर्बलन-चक्र</td></tr>
+        <tr><td>मानवतावादी</td><td>रोजर्स · मास्लो</td><td>समानुभूति, निष्कपटता र निःसर्त सकारात्मक आदर पाए मानिस आफ्नो क्षमतातर्फ बढ्छ</td><td>परामर्शको आधारभूत मनोवृत्ति नै — रोजर्सका सर्तहरू नै आधारभूत परामर्श हुन्</td></tr>
+        <tr><td>संज्ञानात्मक</td><td>बेक · एलिस (१९६०—)</td><td>घटना र भावनाबीच विचार उभिन्छ</td><td>सीबीटी — यस पाठ्यक्रमको सबैभन्दा प्रयोग हुने विधि</td></tr>
+        <tr><td>सामाजिक-सांस्कृतिक / जैव-मनो-सामाजिक</td><td>भाइगोत्स्की · एंगेल (१९७७)</td><td>मन संस्कृतिमा हुर्कन्छ; रोग एकैसाथ जैविक + मानसिक + सामाजिक</td><td>यस एट्लासको चस्मा — र तपाईंको पदनाममा «मनोसामाजिक» हुनुको कारण</td></tr>
+      </table>
+    </div>
+    <div class="callout">
+      <p class="en" style="margin:0"><strong>The thread to hold:</strong> every school survives inside your practice. When you normalise a body reaction, you are a biologist; when you trace a thought, a cognitivist; when you set an exposure ladder, a behaviourist; when you listen without judgment, a humanist; when you ask what the family and the village believe, you are doing what no laboratory can — and that is the psychosocial part.</p>
+      <p class="ne" style="margin:0"><strong>समात्ने धागो:</strong> हरेक विचारधारा तपाईंकै अभ्यासभित्र बाँचेको छ। शरीरको प्रतिक्रिया सामान्य हो भनी बुझाउँदा तपाईं जीवशास्त्री; विचार पछ्याउँदा संज्ञानवादी; एक्सपोजरको भर्‍याङ बनाउँदा व्यवहारवादी; निर्णय नगरी सुन्दा मानवतावादी; अनि परिवार र गाउँ के मान्छ भनी सोध्दा — प्रयोगशालाले गर्न नसक्ने काम — त्यही नै «मनोसामाजिक» हो।</p>
+    </div>
+  </div>
+</article>
+
+</section>
+    <nav class="pager" aria-label="Chapter">
+    <a class="prev" href="index.html"><span class="lbl"><span class="en">Previous · 01</span><span class="ne">अघिल्लो · 01</span></span><span class="en">Home & the DSM-5 map</span><span class="ne">गृहपृष्ठ र DSM-5 नक्सा</span></a>
+    <a class="next" href="foundation.html"><span class="lbl"><span class="en">Next · 03</span><span class="ne">अर्को · 03</span></span><span class="en">Fear: the foundation</span><span class="ne">डर: आधारशिला</span></a>
+    </nav>
+    </div>
+  </main>
+</div>
+<script src="assets/lang.js"></script>
+<script src="assets/search-index.js" defer></script>
+<script src="assets/search.js" defer></script>
+</body>
+</html>

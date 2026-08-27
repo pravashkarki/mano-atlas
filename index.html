@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Mano Atlas (मनो एट्लास) — a free, bilingual (English/नेपाली) atlas of mental disorders: DSM-5 criteria, teaching diagrams, and the Nepali context.">
+<title>Mano Atlas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Mukta:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Caveat:wght@600&display=swap">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="layout">
+  <aside class="sidebar">
+    <div class="top">
+      <a class="brand" href="index.html"><span class="en">Mano Atlas</span><span class="ne">मनो एट्लास</span>
+        <span class="sub"><span class="en">Mental health · two languages</span><span class="ne">मानसिक स्वास्थ्य · दुई भाषा</span></span></a>
+      <div class="langsw" role="group" aria-label="Language">
+        <button id="btn-en" onclick="setLang('en')">EN</button>
+        <button id="btn-ne" onclick="setLang('ne')">ने</button>
+      </div>
+    </div>
+    <div class="search">
+      <input id="q" type="search" autocomplete="off" spellcheck="false"
+        placeholder="Search · खोज्नुहोस्" aria-label="Search the atlas">
+      <div id="qres" class="qres" hidden></div>
+    </div>
+    <nav class="snav" aria-label="Site">
+      <div class="snav-group"><span class="en">Overview</span><span class="ne">सिंहावलोकन</span></div>
+      <a href="index.html" class="active" aria-current="page"><span class="secnum">01</span><span class="catmark" style="background:transparent"></span><span class="en">Home & the DSM-5 map</span><span class="ne">गृहपृष्ठ र DSM-5 नक्सा</span></a>
+      <a href="roots.html"><span class="secnum">02</span><span class="catmark" style="background:transparent"></span><span class="en">Roots: philosophy to psychology</span><span class="ne">जरा: दर्शनदेखि मनोविज्ञान</span></a>
+      <a href="foundation.html"><span class="secnum">03</span><span class="catmark" style="background:transparent"></span><span class="en">Fear: the foundation</span><span class="ne">डर: आधारशिला</span></a>
+      <a href="basics.html"><span class="secnum">04</span><span class="catmark" style="background:transparent"></span><span class="en">Mental health basics</span><span class="ne">मानसिक स्वास्थ्यका आधार</span></a>
+      <a href="development.html"><span class="secnum">05</span><span class="catmark" style="background:transparent"></span><span class="en">Human development</span><span class="ne">मानव विकास</span></a>
+      <div class="snav-group"><span class="en">Disorder categories</span><span class="ne">विकार वर्गहरू</span></div>
+      <a href="anxiety.html"><span class="secnum">06</span><span class="catmark" style="background:var(--c-anx)"></span><span class="en">Anxiety disorders</span><span class="ne">चिन्ता विकारहरू</span></a>
+      <a href="ocd.html"><span class="secnum">07</span><span class="catmark" style="background:var(--c-ocd)"></span><span class="en">OCD & related</span><span class="ne">ओसीडी र सम्बन्धित</span></a>
+      <a href="depression.html"><span class="secnum">08</span><span class="catmark" style="background:var(--c-dep)"></span><span class="en">Depressive disorders</span><span class="ne">उदासी (डिप्रेसन)</span></a>
+      <a href="trauma.html"><span class="secnum">09</span><span class="catmark" style="background:var(--c-tra)"></span><span class="en">Trauma & stressor</span><span class="ne">आघात र तनाव</span></a>
+      <a href="somatic.html"><span class="secnum">10</span><span class="catmark" style="background:var(--c-som)"></span><span class="en">Conversion & somatic</span><span class="ne">कन्भर्सन र शारीरिक</span></a>
+      <a href="psychosis.html"><span class="secnum">11</span><span class="catmark" style="background:var(--c-psy)"></span><span class="en">Psychosis</span><span class="ne">मनोविकृति (साइकोसिस)</span></a>
+      <a href="child.html"><span class="secnum">12</span><span class="catmark" style="background:var(--c-chi)"></span><span class="en">Child mental illness</span><span class="ne">बाल मानसिक समस्या</span></a>
+      <a href="eating.html"><span class="secnum">13</span><span class="catmark" style="background:var(--c-eat)"></span><span class="en">Eating disorders</span><span class="ne">खानपान विकार</span></a>
+      <a href="sleep.html"><span class="secnum">14</span><span class="catmark" style="background:var(--c-slp)"></span><span class="en">Sleep-wake disorders</span><span class="ne">निद्रा विकार</span></a>
+      <a href="substance.html"><span class="secnum">15</span><span class="catmark" style="background:var(--c-sub)"></span><span class="en">Substance use</span><span class="ne">लागुपदार्थ प्रयोग</span></a>
+      <div class="snav-group"><span class="en">Counselling practice</span><span class="ne">परामर्श अभ्यास</span></div>
+      <a href="wellbeing.html"><span class="secnum">16</span><span class="catmark" style="background:transparent"></span><span class="en">Wellbeing & intervention</span><span class="ne">तन्दुरुस्ती र हस्तक्षेप</span></a>
+      <a href="approaches.html"><span class="secnum">17</span><span class="catmark" style="background:transparent"></span><span class="en">Approaches & forms</span><span class="ne">विधि र रूपहरू</span></a>
+      <a href="skills.html"><span class="secnum">18</span><span class="catmark" style="background:transparent"></span><span class="en">Communication skills</span><span class="ne">संवाद-सीप</span></a>
+      <a href="process.html"><span class="secnum">19</span><span class="catmark" style="background:transparent"></span><span class="en">The counselling process</span><span class="ne">परामर्श-प्रक्रिया</span></a>
+      <a href="tools.html"><span class="secnum">20</span><span class="catmark" style="background:transparent"></span><span class="en">Tools & techniques</span><span class="ne">औजार र प्रविधि</span></a>
+      <a href="suicide.html"><span class="secnum">21</span><span class="catmark" style="background:transparent"></span><span class="en">Suicide: assessment</span><span class="ne">आत्महत्या: मूल्याङ्कन</span></a>
+      <a href="pfa.html"><span class="secnum">22</span><span class="catmark" style="background:transparent"></span><span class="en">PFA & emergencies</span><span class="ne">पीएफए र आपतकाल</span></a>
+      <a href="gbv.html"><span class="secnum">23</span><span class="catmark" style="background:transparent"></span><span class="en">Gender & GBV</span><span class="ne">लैङ्गिकता र जीबीभी</span></a>
+      <a href="hiv.html"><span class="secnum">24</span><span class="catmark" style="background:transparent"></span><span class="en">HIV & AIDS counselling</span><span class="ne">एचआईभी परामर्श</span></a>
+      <a href="casemgmt.html"><span class="secnum">25</span><span class="catmark" style="background:transparent"></span><span class="en">Case management</span><span class="ne">केस व्यवस्थापन</span></a>
+      <a href="ethics.html"><span class="secnum">26</span><span class="catmark" style="background:transparent"></span><span class="en">Ethics & self-care</span><span class="ne">नैतिकता र आत्म-हेरचाह</span></a>
+      <div class="snav-group"><span class="en">Reference</span><span class="ne">सन्दर्भ</span></div>
+      <a href="more.html"><span class="secnum">27</span><span class="catmark" style="background:transparent"></span><span class="en">The rest of the map</span><span class="ne">बाँकी नक्सा</span></a>
+      <a href="nepal.html"><span class="secnum">28</span><span class="catmark" style="background:transparent"></span><span class="en">Culture & the Nepal panorama</span><span class="ne">संस्कृति र नेपाली परिदृश्य</span></a>
+      <a href="crosswalk.html"><span class="secnum">29</span><span class="catmark" style="background:transparent"></span><span class="en">For PSC students</span><span class="ne">पीएससी विद्यार्थीलाई</span></a>
+    </nav>
+    <div class="side-foot">DSM-5 (2013) · <span class="en">study resource, not a diagnostic tool</span><span class="ne">अध्ययन सामग्री — निदान-उपकरण होइन</span></div>
+  </aside>
+  <main>
+    <div class="wrap">
+<header class="hero">
+<div class="kicker"><span class="en">An open atlas of mental disorders · Free to read</span><span class="ne">मानसिक विकारहरूको खुला एट्लास · निःशुल्क</span></div>
+  <h1><span class="en">Mano Atlas</span><span class="ne">मनो एट्लास</span></h1>
+  <p class="sub en">A plain-language map of mental disorders, open to anyone learning — DSM-5 diagnostic criteria, teaching diagrams, international examples, and the Nepali context for each. Topics from the CTEVT Psychosocial Counselor curriculum carry a small tag, so counselling students can see at a glance what is examinable.</p>
+  <p class="sub ne">जो कोहीका लागि मानसिक विकारहरूको सरल-भाषा नक्सा — DSM-5 निदान मापदण्ड, चित्रहरू, अन्तर्राष्ट्रिय उदाहरण र नेपाली सन्दर्भसहित। सीटीईभीटी मनोसामाजिक परामर्शकर्ता पाठ्यक्रमका विषयमा सानो चिन्ह छ — परामर्श-विद्यार्थीले परीक्षामा के आउँछ, एकै नजरमा देख्न सक्छन्।</p>
+  <div class="meta">
+    <span class="chip">DSM-5 (2013)</span>
+    <span class="chip"><span class="en">English / नेपाली</span><span class="ne">अंग्रेजी / नेपाली</span></span>
+    <span class="chip"><span class="en">Free &amp; open to everyone</span><span class="ne">सबैका लागि खुला</span></span>
+  </div>
+  <div class="meta" style="margin-top:12px">
+    <span class="pill todo"><span class="dot"></span><span class="en">CTEVT PSC curriculum</span><span class="ne">सीटीईभीटी पाठ्यक्रम</span></span>
+    <span class="pill beyond"><span class="dot"></span><span class="en">Beyond curriculum</span><span class="ne">पाठ्यक्रमभन्दा बाहिर</span></span>
+  </div>
+
+  <nav class="toc" aria-label="Contents">
+    <a href="roots.html"><span class="secnum">02</span><span class="en">Roots: philosophy to psychology</span><span class="ne">जरा: दर्शनदेखि मनोविज्ञान</span></a>
+    <a href="foundation.html"><span class="secnum">03</span><span class="en">Fear: the foundation</span><span class="ne">डर: आधारशिला</span></a>
+    <a href="basics.html"><span class="secnum">04</span><span class="en">Mental health basics</span><span class="ne">मानसिक स्वास्थ्यका आधार</span></a>
+    <a href="development.html"><span class="secnum">05</span><span class="en">Human development</span><span class="ne">मानव विकास</span></a>
+    <a href="anxiety.html"><span class="catmark" style="background:var(--c-anx)"></span><span class="secnum">06</span><span class="en">Anxiety disorders</span><span class="ne">चिन्ता विकारहरू</span></a>
+    <a href="ocd.html"><span class="catmark" style="background:var(--c-ocd)"></span><span class="secnum">07</span><span class="en">OCD & related</span><span class="ne">ओसीडी र सम्बन्धित</span></a>
+    <a href="depression.html"><span class="catmark" style="background:var(--c-dep)"></span><span class="secnum">08</span><span class="en">Depressive disorders</span><span class="ne">उदासी (डिप्रेसन)</span></a>
+    <a href="trauma.html"><span class="catmark" style="background:var(--c-tra)"></span><span class="secnum">09</span><span class="en">Trauma & stressor</span><span class="ne">आघात र तनाव</span></a>
+    <a href="somatic.html"><span class="catmark" style="background:var(--c-som)"></span><span class="secnum">10</span><span class="en">Conversion & somatic</span><span class="ne">कन्भर्सन र शारीरिक</span></a>
+    <a href="psychosis.html"><span class="catmark" style="background:var(--c-psy)"></span><span class="secnum">11</span><span class="en">Psychosis</span><span class="ne">मनोविकृति (साइकोसिस)</span></a>
+    <a href="child.html"><span class="catmark" style="background:var(--c-chi)"></span><span class="secnum">12</span><span class="en">Child mental illness</span><span class="ne">बाल मानसिक समस्या</span></a>
+    <a href="eating.html"><span class="catmark" style="background:var(--c-eat)"></span><span class="secnum">13</span><span class="en">Eating disorders</span><span class="ne">खानपान विकार</span></a>
+    <a href="sleep.html"><span class="catmark" style="background:var(--c-slp)"></span><span class="secnum">14</span><span class="en">Sleep-wake disorders</span><span class="ne">निद्रा विकार</span></a>
+    <a href="substance.html"><span class="catmark" style="background:var(--c-sub)"></span><span class="secnum">15</span><span class="en">Substance use</span><span class="ne">लागुपदार्थ प्रयोग</span></a>
+    <a href="wellbeing.html"><span class="secnum">16</span><span class="en">Wellbeing & intervention</span><span class="ne">तन्दुरुस्ती र हस्तक्षेप</span></a>
+    <a href="approaches.html"><span class="secnum">17</span><span class="en">Approaches & forms</span><span class="ne">विधि र रूपहरू</span></a>
+    <a href="skills.html"><span class="secnum">18</span><span class="en">Communication skills</span><span class="ne">संवाद-सीप</span></a>
+    <a href="process.html"><span class="secnum">19</span><span class="en">The counselling process</span><span class="ne">परामर्श-प्रक्रिया</span></a>
+    <a href="tools.html"><span class="secnum">20</span><span class="en">Tools & techniques</span><span class="ne">औजार र प्रविधि</span></a>
+    <a href="suicide.html"><span class="secnum">21</span><span class="en">Suicide: assessment</span><span class="ne">आत्महत्या: मूल्याङ्कन</span></a>
+    <a href="pfa.html"><span class="secnum">22</span><span class="en">PFA & emergencies</span><span class="ne">पीएफए र आपतकाल</span></a>
+    <a href="gbv.html"><span class="secnum">23</span><span class="en">Gender & GBV</span><span class="ne">लैङ्गिकता र जीबीभी</span></a>
+    <a href="hiv.html"><span class="secnum">24</span><span class="en">HIV & AIDS counselling</span><span class="ne">एचआईभी परामर्श</span></a>
+    <a href="casemgmt.html"><span class="secnum">25</span><span class="en">Case management</span><span class="ne">केस व्यवस्थापन</span></a>
+    <a href="ethics.html"><span class="secnum">26</span><span class="en">Ethics & self-care</span><span class="ne">नैतिकता र आत्म-हेरचाह</span></a>
+    <a href="more.html"><span class="secnum">27</span><span class="en">The rest of the map</span><span class="ne">बाँकी नक्सा</span></a>
+    <a href="nepal.html"><span class="secnum">28</span><span class="en">Culture & the Nepal panorama</span><span class="ne">संस्कृति र नेपाली परिदृश्य</span></a>
+    <a href="crosswalk.html"><span class="secnum">29</span><span class="en">For PSC students</span><span class="ne">पीएससी विद्यार्थीलाई</span></a>
+  </nav>
+<div class="callout" style="margin-top:26px">
+  <p class="en" style="margin:0"><strong>If you or someone near you is struggling right now:</strong> in Nepal, call the National Suicide Prevention Helpline <strong>1166</strong> (Mental Hospital, Lagankhel) or the TUTH mental-health hotline <strong>1660&#8201;012&#8201;1600</strong>; in an emergency dial <strong>112</strong> or <strong>100</strong>. This site is for learning — it cannot replace a person who can help.</p>
+  <p class="ne" style="margin:0"><strong>तपाईं वा नजिकको कोही अहिले नै संकटमा हुनुहुन्छ भने:</strong> राष्ट्रिय आत्महत्या रोकथाम हेल्पलाइन <strong>११६६</strong> (मानसिक अस्पताल, लगनखेल) वा टिचिङ अस्पतालको हटलाइन <strong>१६६०&#8201;०१२&#8201;१६००</strong> मा फोन गर्नुहोस्; आपतकालमा <strong>११२</strong> वा <strong>१००</strong>। यो साइट सिक्नका लागि हो — सहयोग गर्ने मान्छेको ठाउँ यसले लिन सक्दैन।</p>
+</div>
+
+</header>
+<section id="map">
+<div class="sechead"><span class="secnum">01</span>
+    <h2><span class="en">The DSM-5 map — where everything lives</span><span class="ne">DSM-5 नक्सा — के कहाँ पर्छ</span></h2>
+  </div>
+  <p class="secsub en">DSM-5 organises mental disorders into about twenty chapters, ordered roughly by the age at which they typically first appear. Colour marks the categories this atlas covers in depth; the tag on each cell shows whether it sits inside the CTEVT PSC curriculum.</p>
+  <p class="secsub ne">DSM-5 ले मानसिक विकारहरूलाई करिब बीस अध्यायमा बाँड्छ — प्रायः जुन उमेरमा पहिलो पटक देखा पर्छ, त्यही क्रममा। रङले यस एट्लासले गहिराइमा समेट्ने वर्गहरू देखाउँछ; प्रत्येक कोठाको चिन्हले त्यो सीटीईभीटी पाठ्यक्रमभित्र पर्छ कि पर्दैन भन्ने देखाउँछ।</p>
+
+  <div class="mapgrid">
+    <div class="mapcell" style="--cat:var(--c-chi)">
+      <div class="mc-name"><span class="en">Neurodevelopmental disorders</span><span class="ne">स्नायु-विकासात्मक विकार</span></div>
+      <div class="mc-items"><span class="en">Intellectual disability · autism · ADHD · learning &amp; motor disorders</span><span class="ne">बौद्धिक अपाङ्गता · अटिजम · एडीएचडी · सिकाइ विकार</span></div>
+      <span class="pill todo"><span class="dot"></span><span class="en">CTEVT PSC curriculum</span><span class="ne">सीटीईभीटी पाठ्यक्रम</span></span>
+    </div>
+    <div class="mapcell" style="--cat:var(--c-psy)">
+      <div class="mc-name"><span class="en">Schizophrenia spectrum &amp; other psychotic</span><span class="ne">स्किजोफ्रेनिया र अन्य मनोविकृति</span></div>
+      <div class="mc-items"><span class="en">Schizophrenia · delusional · brief psychotic · schizoaffective</span><span class="ne">स्किजोफ्रेनिया · भ्रम विकार · छोटो मनोविकृति</span></div>
+      <span class="pill todo"><span class="dot"></span><span class="en">CTEVT PSC curriculum</span><span class="ne">सीटीईभीटी पाठ्यक्रम</span></span>
+    </div>
+    <div class="mapcell">
+      <div class="mc-name"><span class="en">Bipolar &amp; related disorders</span><span class="ne">बाइपोलर र सम्बन्धित</span></div>
+      <div class="mc-items"><span class="en">Bipolar I &amp; II · cyclothymic disorder</span><span class="ne">बाइपोलर I र II · साइक्लोथाइमिया</span></div>
+      <span class="pill beyond"><span class="dot"></span><span class="en">Not yet</span><span class="ne">बाँकी</span></span>
+    </div>
+    <div class="mapcell" style="--cat:var(--c-dep)">
+      <div class="mc-name"><span class="en">Depressive disorders</span><span class="ne">उदासी (डिप्रेसिभ) विकार</span></div>
+      <div class="mc-items"><span class="en">Major depression · persistent depressive · premenstrual dysphoric</span><span class="ne">प्रमुख उदासी · दीर्घ उदासी</span></div>
+      <span class="pill todo"><span class="dot"></span><span class="en">CTEVT PSC curriculum</span><span class="ne">सीटीईभीटी पाठ्यक्रम</span></span>
+    </div>
+    <div class="mapcell" style="--cat:var(--c-anx)">
+      <div class="mc-name"><span class="en">Anxiety disorders</span><span class="ne">चिन्ता विकारहरू</span></div>
+      <div class="mc-items"><span class="en">Phobia · social anxiety · separation anxiety · panic · GAD · agoraphobia</span><span class="ne">फोबिया · सामाजिक चिन्ता · विछोड चिन्ता · प्यानिक · जीएडी</span></div>
+      <span class="pill todo"><span class="dot"></span><span class="en">CTEVT PSC curriculum</span><span class="ne">सीटीईभीटी पाठ्यक्रम</span></span>
+    </div>
+    <div class="mapcell" style="--cat:var(--c-ocd)">
+      <div class="mc-name"><span class="en">Obsessive-compulsive &amp; related</span><span class="ne">मनोग्रस्ति-बाध्यता र सम्बन्धित</span></div>
+      <div class="mc-items"><span class="en">OCD · body dysmorphic · hoarding · hair-pulling · skin-picking</span><span class="ne">ओसीडी · शारीरिक कुरूपता विकार · सङ्ग्रह विकार</span></div>
+      <span class="pill todo"><span class="dot"></span><span class="en">CTEVT PSC curriculum</span><span class="ne">सीटीईभीटी पाठ्यक्रम</span></span>
+    </div>
+    <div class="mapcell" style="--cat:var(--c-tra)">
+      <div class="mc-name"><span class="en">Trauma- &amp; stressor-related</span><span class="ne">आघात र तनावजन्य विकार</span></div>
+      <div class="mc-items"><span class="en">PTSD · acute stress · adjustment · attachment disorders</span><span class="ne">पीटीएसडी · तीव्र तनाव · समायोजन विकार</span></div>
+      <span class="pill todo"><span class="dot"></span><span class="en">CTEVT PSC curriculum</span><span class="ne">सीटीईभीटी पाठ्यक्रम</span></span>
+    </div>
+    <div class="mapcell">
+      <div class="mc-name"><span class="en">Dissociative disorders</span><span class="ne">विघटनात्मक (डिसोसिएटिभ) विकार</span></div>
+      <div class="mc-items"><span class="en">Dissociative identity · amnesia · depersonalisation</span><span class="ne">पहिचान विघटन · स्मृतिलोप</span></div>
+      <span class="pill beyond"><span class="dot"></span><span class="en">Not yet</span><span class="ne">बाँकी</span></span>
+    </div>
+    <div class="mapcell" style="--cat:var(--c-som)">
+      <div class="mc-name"><span class="en">Somatic symptom &amp; related</span><span class="ne">शारीरिक लक्षण र सम्बन्धित</span></div>
+      <div class="mc-items"><span class="en">Conversion (functional neurological) · somatic symptom · illness anxiety</span><span class="ne">कन्भर्सन · शारीरिक लक्षण विकार · रोग-चिन्ता</span></div>
+      <span class="pill todo"><span class="dot"></span><span class="en">CTEVT PSC curriculum</span><span class="ne">सीटीईभीटी पाठ्यक्रम</span></span>
+    </div>
+    <div class="mapcell" style="--cat:var(--c-eat)">
+      <div class="mc-name"><span class="en">Feeding &amp; eating disorders</span><span class="ne">खानपान विकार</span></div>
+      <div class="mc-items"><span class="en">Anorexia · bulimia · binge-eating · ARFID · pica · rumination</span><span class="ne">एनोरेक्सिया · बुलिमिया · बिन्ज-इटिङ · अर्फिड · पाइका</span></div>
+      <span class="pill beyond"><span class="dot"></span><span class="en">Beyond curriculum</span><span class="ne">पाठ्यक्रमभन्दा बाहिर</span></span>
+    </div>
+    <div class="mapcell">
+      <div class="mc-name"><span class="en">Elimination disorders</span><span class="ne">उत्सर्जन विकार</span></div>
+      <div class="mc-items"><span class="en">Enuresis (bed-wetting) · encopresis</span><span class="ne">ओछ्यान भिजाउने · दिसा रोक्न नसक्ने</span></div>
+      <span class="pill beyond"><span class="dot"></span><span class="en">Not yet</span><span class="ne">बाँकी</span></span>
+    </div>
+    <div class="mapcell" style="--cat:var(--c-slp)">
+      <div class="mc-name"><span class="en">Sleep-wake disorders</span><span class="ne">निद्रा-जागरण विकार</span></div>
+      <div class="mc-items"><span class="en">Insomnia · nightmare · narcolepsy · apnoea · parasomnias · RLS</span><span class="ne">अनिद्रा · डरलाग्दो सपना · नार्कोलेप्सी · स्लिप एप्निया</span></div>
+      <span class="pill beyond"><span class="dot"></span><span class="en">Beyond curriculum</span><span class="ne">पाठ्यक्रमभन्दा बाहिर</span></span>
+    </div>
+    <div class="mapcell">
+      <div class="mc-name"><span class="en">Sexual dysfunctions · Gender dysphoria · Paraphilic disorders</span><span class="ne">यौन समस्या · लैङ्गिक असन्तुष्टि · प्याराफिलिया</span></div>
+      <div class="mc-items"><span class="en">Three separate DSM-5 chapters</span><span class="ne">DSM-5 का तीन छुट्टाछुट्टै अध्याय</span></div>
+      <span class="pill beyond"><span class="dot"></span><span class="en">Not yet</span><span class="ne">बाँकी</span></span>
+    </div>
+    <div class="mapcell">
+      <div class="mc-name"><span class="en">Disruptive, impulse-control &amp; conduct</span><span class="ne">विघ्नकारी र आचरण विकार</span></div>
+      <div class="mc-items"><span class="en">Oppositional defiant · conduct disorder · intermittent explosive</span><span class="ne">अटेरी विकार · आचरण विकार</span></div>
+      <span class="pill todo"><span class="dot"></span><span class="en">CTEVT PSC curriculum</span><span class="ne">सीटीईभीटी पाठ्यक्रम</span></span>
+    </div>
+    <div class="mapcell" style="--cat:var(--c-sub)">
+      <div class="mc-name"><span class="en">Substance-related &amp; addictive</span><span class="ne">लागुपदार्थ र कुलत</span></div>
+      <div class="mc-items"><span class="en">Alcohol, opioid, cannabis, stimulant use disorders · gambling</span><span class="ne">रक्सी, अफिम, गाँजा, उत्तेजक · जुवा कुलत</span></div>
+      <span class="pill todo"><span class="dot"></span><span class="en">CTEVT PSC curriculum</span><span class="ne">सीटीईभीटी पाठ्यक्रम</span></span>
+    </div>
+    <div class="mapcell">
+      <div class="mc-name"><span class="en">Neurocognitive disorders</span><span class="ne">स्नायु-संज्ञानात्मक विकार</span></div>
+      <div class="mc-items"><span class="en">Delirium · dementia (Alzheimer's and others)</span><span class="ne">डेलिरियम · डिमेन्सिया (अल्जाइमर आदि)</span></div>
+      <span class="pill beyond"><span class="dot"></span><span class="en">Not yet</span><span class="ne">बाँकी</span></span>
+    </div>
+    <div class="mapcell">
+      <div class="mc-name"><span class="en">Personality disorders</span><span class="ne">व्यक्तित्व विकार</span></div>
+      <div class="mc-items"><span class="en">Clusters A (odd) · B (dramatic) · C (anxious)</span><span class="ne">समूह A (अनौठो) · B (नाटकीय) · C (चिन्तित)</span></div>
+      <span class="pill beyond"><span class="dot"></span><span class="en">Not yet</span><span class="ne">बाँकी</span></span>
+    </div>
+  </div>
+
+  <div class="callout">
+    <p class="en" style="margin:0"><strong>For CTEVT PSC exam takers:</strong> if a paper asks you to list the types of mental illness, give the curriculum's own answer first — <strong>anxiety, depression, conversion disorder, psychosis, plus child mental illness</strong> — and only then add breadth. Breadth after accuracy, never instead of it.</p>
+    <p class="ne" style="margin:0"><strong>सीटीईभीटी परीक्षार्थीका लागि:</strong> परीक्षामा मानसिक रोगका प्रकार सोधिए, पहिले पाठ्यक्रमकै उत्तर दिनुहोस् — <strong>चिन्ता, उदासी (डिप्रेसन), कन्भर्सन विकार, मनोविकृति, र बालबालिकाको मानसिक समस्या</strong> — त्यसपछि मात्र थप विस्तार गर्नुहोस्। शुद्धता पहिले, विस्तार पछि।</p>
+  </div>
+<div class="resources"><div class="res-head"><span class="en">Learn more</span><span class="ne">थप सिक्नुहोस्</span></div><p class="res-hint"><span class="en">Pick one, not all — these are chosen to be light, not exhaustive.</span><span class="ne">सबै होइन, एउटा रोज्नुहोस् — यी हल्का, सजिला स्रोत हुन्।</span></p><div class="res-item"><span class="res-type">Video series</span><span><a href="https://thecrashcourse.com/topic/psychology/" target="_blank" rel="noopener">Crash Course Psychology</a> — <span class="res-note"><span class="en">10-minute animated episodes; disorders start around episode 28.</span><span class="ne">१०-मिनेटका एनिमेटेड भिडियो; विकारहरू एपिसोड २८ बाट।</span></span></span></div><div class="res-item"><span class="res-type">Free book</span><span><a href="https://www.cambridge.org/core/books/where-there-is-no-psychiatrist/47578A845CAFC7E23A181749A4190B54" target="_blank" rel="noopener">Where There Is No Psychiatrist (Vikram Patel)</a> — <span class="res-note"><span class="en">THE field manual for counselors in low-resource settings; open access.</span><span class="ne">कम-स्रोत ठाउँका परामर्शकर्ताका लागि मुख्य पुस्तक; निःशुल्क।</span></span></span></div><div class="res-item"><span class="res-type">Book chapter</span><span><strong>Introduction to Psychology — "Psychological Disorders" chapter</strong> — <span class="res-note"><span class="en">Your own course text; read it once before any DSM-5 page.</span><span class="ne">तपाईंकै पाठ्यपुस्तक; DSM-5 अघि एकपटक पढ्नुहोस्।</span></span></span></div></div>
+
+</section>
+    <nav class="pager" aria-label="Chapter">
+    <a class="next" href="roots.html"><span class="lbl"><span class="en">Next · 02</span><span class="ne">अर्को · 02</span></span><span class="en">Roots: philosophy to psychology</span><span class="ne">जरा: दर्शनदेखि मनोविज्ञान</span></a>
+    </nav>
+    </div>
+  </main>
+</div>
+<script src="assets/lang.js"></script>
+<script src="assets/search-index.js" defer></script>
+<script src="assets/search.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Mano Atlas (मनो एट्लास) — a free, bilingual (English/नेपाली) atlas of mental disorders: DSM-5 criteria, teaching diagrams, and the Nepali context.">
+<title>Fear: the foundation · Mano Atlas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Mukta:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Caveat:wght@600&display=swap">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="layout">
+  <aside class="sidebar">
+    <div class="top">
+      <a class="brand" href="index.html"><span class="en">Mano Atlas</span><span class="ne">मनो एट्लास</span>
+        <span class="sub"><span class="en">Mental health · two languages</span><span class="ne">मानसिक स्वास्थ्य · दुई भाषा</span></span></a>
+      <div class="langsw" role="group" aria-label="Language">
+        <button id="btn-en" onclick="setLang('en')">EN</button>
+        <button id="btn-ne" onclick="setLang('ne')">ने</button>
+      </div>
+    </div>
+    <div class="search">
+      <input id="q" type="search" autocomplete="off" spellcheck="false"
+        placeholder="Search · खोज्नुहोस्" aria-label="Search the atlas">
+      <div id="qres" class="qres" hidden></div>
+    </div>
+    <nav class="snav" aria-label="Site">
+      <div class="snav-group"><span class="en">Overview</span><span class="ne">सिंहावलोकन</span></div>
+      <a href="index.html"><span class="secnum">01</span><span class="catmark" style="background:transparent"></span><span class="en">Home & the DSM-5 map</span><span class="ne">गृहपृष्ठ र DSM-5 नक्सा</span></a>
+      <a href="roots.html"><span class="secnum">02</span><span class="catmark" style="background:transparent"></span><span class="en">Roots: philosophy to psychology</span><span class="ne">जरा: दर्शनदेखि मनोविज्ञान</span></a>
+      <a href="foundation.html" class="active" aria-current="page"><span class="secnum">03</span><span class="catmark" style="background:transparent"></span><span class="en">Fear: the foundation</span><span class="ne">डर: आधारशिला</span></a>
+      <a href="basics.html"><span class="secnum">04</span><span class="catmark" style="background:transparent"></span><span class="en">Mental health basics</span><span class="ne">मानसिक स्वास्थ्यका आधार</span></a>
+      <a href="development.html"><span class="secnum">05</span><span class="catmark" style="background:transparent"></span><span class="en">Human development</span><span class="ne">मानव विकास</span></a>
+      <div class="snav-group"><span class="en">Disorder categories</span><span class="ne">विकार वर्गहरू</span></div>
+      <a href="anxiety.html"><span class="secnum">06</span><span class="catmark" style="background:var(--c-anx)"></span><span class="en">Anxiety disorders</span><span class="ne">चिन्ता विकारहरू</span></a>
+      <a href="ocd.html"><span class="secnum">07</span><span class="catmark" style="background:var(--c-ocd)"></span><span class="en">OCD & related</span><span class="ne">ओसीडी र सम्बन्धित</span></a>
+      <a href="depression.html"><span class="secnum">08</span><span class="catmark" style="background:var(--c-dep)"></span><span class="en">Depressive disorders</span><span class="ne">उदासी (डिप्रेसन)</span></a>
+      <a href="trauma.html"><span class="secnum">09</span><span class="catmark" style="background:var(--c-tra)"></span><span class="en">Trauma & stressor</span><span class="ne">आघात र तनाव</span></a>
+      <a href="somatic.html"><span class="secnum">10</span><span class="catmark" style="background:var(--c-som)"></span><span class="en">Conversion & somatic</span><span class="ne">कन्भर्सन र शारीरिक</span></a>
+      <a href="psychosis.html"><span class="secnum">11</span><span class="catmark" style="background:var(--c-psy)"></span><span class="en">Psychosis</span><span class="ne">मनोविकृति (साइकोसिस)</span></a>
+      <a href="child.html"><span class="secnum">12</span><span class="catmark" style="background:var(--c-chi)"></span><span class="en">Child mental illness</span><span class="ne">बाल मानसिक समस्या</span></a>
+      <a href="eating.html"><span class="secnum">13</span><span class="catmark" style="background:var(--c-eat)"></span><span class="en">Eating disorders</span><span class="ne">खानपान विकार</span></a>
+      <a href="sleep.html"><span class="secnum">14</span><span class="catmark" style="background:var(--c-slp)"></span><span class="en">Sleep-wake disorders</span><span class="ne">निद्रा विकार</span></a>
+      <a href="substance.html"><span class="secnum">15</span><span class="catmark" style="background:var(--c-sub)"></span><span class="en">Substance use</span><span class="ne">लागुपदार्थ प्रयोग</span></a>
+      <div class="snav-group"><span class="en">Counselling practice</span><span class="ne">परामर्श अभ्यास</span></div>
+      <a href="wellbeing.html"><span class="secnum">16</span><span class="catmark" style="background:transparent"></span><span class="en">Wellbeing & intervention</span><span class="ne">तन्दुरुस्ती र हस्तक्षेप</span></a>
+      <a href="approaches.html"><span class="secnum">17</span><span class="catmark" style="background:transparent"></span><span class="en">Approaches & forms</span><span class="ne">विधि र रूपहरू</span></a>
+      <a href="skills.html"><span class="secnum">18</span><span class="catmark" style="background:transparent"></span><span class="en">Communication skills</span><span class="ne">संवाद-सीप</span></a>
+      <a href="process.html"><span class="secnum">19</span><span class="catmark" style="background:transparent"></span><span class="en">The counselling process</span><span class="ne">परामर्श-प्रक्रिया</span></a>
+      <a href="tools.html"><span class="secnum">20</span><span class="catmark" style="background:transparent"></span><span class="en">Tools & techniques</span><span class="ne">औजार र प्रविधि</span></a>
+      <a href="suicide.html"><span class="secnum">21</span><span class="catmark" style="background:transparent"></span><span class="en">Suicide: assessment</span><span class="ne">आत्महत्या: मूल्याङ्कन</span></a>
+      <a href="pfa.html"><span class="secnum">22</span><span class="catmark" style="background:transparent"></span><span class="en">PFA & emergencies</span><span class="ne">पीएफए र आपतकाल</span></a>
+      <a href="gbv.html"><span class="secnum">23</span><span class="catmark" style="background:transparent"></span><span class="en">Gender & GBV</span><span class="ne">लैङ्गिकता र जीबीभी</span></a>
+      <a href="hiv.html"><span class="secnum">24</span><span class="catmark" style="background:transparent"></span><span class="en">HIV & AIDS counselling</span><span class="ne">एचआईभी परामर्श</span></a>
+      <a href="casemgmt.html"><span class="secnum">25</span><span class="catmark" style="background:transparent"></span><span class="en">Case management</span><span class="ne">केस व्यवस्थापन</span></a>
+      <a href="ethics.html"><span class="secnum">26</span><span class="catmark" style="background:transparent"></span><span class="en">Ethics & self-care</span><span class="ne">नैतिकता र आत्म-हेरचाह</span></a>
+      <div class="snav-group"><span class="en">Reference</span><span class="ne">सन्दर्भ</span></div>
+      <a href="more.html"><span class="secnum">27</span><span class="catmark" style="background:transparent"></span><span class="en">The rest of the map</span><span class="ne">बाँकी नक्सा</span></a>
+      <a href="nepal.html"><span class="secnum">28</span><span class="catmark" style="background:transparent"></span><span class="en">Culture & the Nepal panorama</span><span class="ne">संस्कृति र नेपाली परिदृश्य</span></a>
+      <a href="crosswalk.html"><span class="secnum">29</span><span class="catmark" style="background:transparent"></span><span class="en">For PSC students</span><span class="ne">पीएससी विद्यार्थीलाई</span></a>
+    </nav>
+    <div class="side-foot">DSM-5 (2013) · <span class="en">study resource, not a diagnostic tool</span><span class="ne">अध्ययन सामग्री — निदान-उपकरण होइन</span></div>
+  </aside>
+  <main>
+    <div class="wrap">
+<div class="pagehead"><div class="kicker"><span class="en">Section 03</span><span class="ne">खण्ड 03</span></div></div>
+<section id="foundation" style="margin-top:12px">
+<div class="sechead"><span class="secnum">03</span>
+    <h2><span class="en">Fear: the foundation under all of it</span><span class="ne">डर: सबैको आधारशिला</span></h2>
+  </div>
+  <p class="secsub en">Fear is adaptive — the amygdala's alarm keeps you alive. Anxiety disorders are fear that has become untethered from real danger; the OCD spectrum is what happens when a person finds a behaviour that switches the fear off, and the relief reinforces the behaviour. Learn these two diagrams once and you can explain eight disorders with them.</p>
+  <p class="secsub ne">डर आफैंमा उपयोगी छ — एमिग्डालाको चेतावनीले हामीलाई बचाउँछ। चिन्ता विकार भनेको वास्तविक खतरासँग सम्बन्ध टुटेको डर हो; ओसीडी-वर्ग भनेको डर बन्द गर्ने कुनै व्यवहार भेटिएपछि त्यही राहतले व्यवहारलाई झन् बलियो बनाउने चक्र हो। यी दुई चित्र एकपटक बुझ्नुहोस् — आठ विकार यिनैले व्याख्या हुन्छन्।</p>
+
+  <figure>
+    <svg viewBox="0 0 720 340" role="img" aria-label="Fight-or-flight: the amygdala triggers sympathetic arousal — pupils dilate, heart rate rises, breathing quickens, muscles tense, sweating starts, digestion pauses.">
+      <defs>
+        <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0,0 L10,5 L0,10 z" fill="currentColor"/>
+        </marker>
+      </defs>
+      <!-- body -->
+      <g stroke="currentColor" stroke-width="2" fill="none">
+        <circle cx="360" cy="60" r="30"/>
+        <line x1="360" y1="90" x2="360" y2="200"/>
+        <line x1="360" y1="115" x2="310" y2="170"/>
+        <line x1="360" y1="115" x2="410" y2="170"/>
+        <line x1="360" y1="200" x2="325" y2="290"/>
+        <line x1="360" y1="200" x2="395" y2="290"/>
+      </g>
+      <!-- amygdala dot -->
+      <circle cx="368" cy="66" r="5" fill="#B01E3C"/>
+      <line x1="373" y1="66" x2="470" y2="40" stroke="#B01E3C" stroke-width="1.5"/>
+      <text x="476" y="38" font-size="13" font-weight="bold" fill="#B01E3C" font-family="Archivo,sans-serif" class="en">Amygdala: the alarm</text>
+      <text x="476" y="38" font-size="14" font-weight="bold" fill="#B01E3C" font-family="Mukta,sans-serif" class="ne">एमिग्डाला: खतराको घण्टी</text>
+      <text x="476" y="54" font-size="11" fill="currentColor" opacity=".65" class="en">fires before thinking</text>
+      <text x="476" y="56" font-size="12" fill="currentColor" opacity=".65" font-family="Mukta,sans-serif" class="ne">सोच्नुअघि नै सक्रिय</text>
+      <!-- left callouts -->
+      <g font-size="12" fill="currentColor" font-family="Archivo,sans-serif">
+        <line x1="345" y1="52" x2="235" y2="52" stroke="currentColor" stroke-width="1"/>
+        <text x="228" y="56" text-anchor="end" class="en">Pupils dilate</text>
+        <text x="228" y="56" text-anchor="end" font-family="Mukta,sans-serif" class="ne">आँखाको नानी फैलिन्छ</text>
+        <line x1="352" y1="130" x2="235" y2="115" stroke="currentColor" stroke-width="1"/>
+        <text x="228" y="119" text-anchor="end" class="en">Heart races — palpitations</text>
+        <text x="228" y="119" text-anchor="end" font-family="Mukta,sans-serif" class="ne">मुटुको धड्कन बढ्छ</text>
+        <line x1="355" y1="165" x2="235" y2="175" stroke="currentColor" stroke-width="1"/>
+        <text x="228" y="179" text-anchor="end" class="en">Digestion pauses — "butterflies"</text>
+        <text x="228" y="179" text-anchor="end" font-family="Mukta,sans-serif" class="ne">पाचन रोकिन्छ — पेट हल्लिएको महसुस</text>
+        <line x1="340" y1="250" x2="235" y2="245" stroke="currentColor" stroke-width="1"/>
+        <text x="228" y="249" text-anchor="end" class="en">Legs ready to run — trembling</text>
+        <text x="228" y="249" text-anchor="end" font-family="Mukta,sans-serif" class="ne">खुट्टा भाग्न तयार — काम्ने</text>
+      </g>
+      <!-- right callouts -->
+      <g font-size="12" fill="currentColor" font-family="Archivo,sans-serif">
+        <line x1="372" y1="105" x2="480" y2="105" stroke="currentColor" stroke-width="1"/>
+        <text x="486" y="109" class="en">Breathing fast &amp; shallow</text>
+        <text x="486" y="109" font-family="Mukta,sans-serif" class="ne">सास छिटो र छोटो</text>
+        <line x1="400" y1="150" x2="480" y2="150" stroke="currentColor" stroke-width="1"/>
+        <text x="486" y="154" class="en">Sweating; cold hands</text>
+        <text x="486" y="154" font-family="Mukta,sans-serif" class="ne">पसिना; चिसा हात</text>
+        <line x1="380" y1="195" x2="480" y2="195" stroke="currentColor" stroke-width="1"/>
+        <text x="486" y="199" class="en">Muscles tense — jham-jham tingling</text>
+        <text x="486" y="199" font-family="Mukta,sans-serif" class="ne">मांसपेशी कसिन्छ — झमझम, लाटोपन</text>
+      </g>
+      <text x="360" y="325" text-anchor="middle" font-size="12" fill="currentColor" opacity=".7" font-family="Archivo,sans-serif" class="en">Every arrow here is a panic-attack symptom when it fires without danger</text>
+      <text x="360" y="325" text-anchor="middle" font-size="13" fill="currentColor" opacity=".7" font-family="Mukta,sans-serif" class="ne">खतरा नभई यी सबै सक्रिय हुँदा — त्यही नै प्यानिक एट्याकका लक्षण हुन्</text>
+    </svg>
+    <figcaption class="en">Fight-or-flight. The same body responses that save you from a real threat become the "symptoms" a client brings to you — palpitations, tingling, breathlessness — when the alarm fires without danger.</figcaption>
+    <figcaption class="ne">लड-या-भाग प्रतिक्रिया। वास्तविक खतराबाट बचाउने यही शारीरिक प्रतिक्रिया, खतरा नहुँदा सक्रिय भयो भने — मुटु ढुकढुक, झमझम, सास फेर्न गाह्रो — सेवाग्राहीले ल्याउने «लक्षण» बन्छ।</figcaption>
+  </figure>
+
+  <figure>
+    <svg viewBox="0 0 720 250" role="img" aria-label="The negative reinforcement loop: trigger leads to fear, fear to a safety behaviour, the behaviour to relief, and relief reinforces the loop.">
+      <defs>
+        <marker id="arr2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0,0 L10,5 L0,10 z" fill="currentColor"/>
+        </marker>
+      </defs>
+      <g font-family="Archivo,sans-serif">
+        <rect x="20" y="95" width="140" height="60" rx="8" fill="none" stroke="currentColor" stroke-width="1.5"/>
+        <text x="90" y="120" text-anchor="middle" font-size="13" font-weight="bold" fill="currentColor" class="en">TRIGGER</text>
+        <text x="90" y="118" text-anchor="middle" font-size="14" font-weight="bold" fill="currentColor" font-family="Mukta,sans-serif" class="ne">उत्तेजक</text>
+        <text x="90" y="138" text-anchor="middle" font-size="10.5" fill="currentColor" opacity=".65" class="en">dog · crowd · dirt · thought</text>
+        <text x="90" y="140" text-anchor="middle" font-size="11.5" fill="currentColor" opacity=".65" font-family="Mukta,sans-serif" class="ne">कुकुर · भीड · फोहोर · विचार</text>
+
+        <rect x="210" y="95" width="140" height="60" rx="8" fill="none" stroke="#B01E3C" stroke-width="2"/>
+        <text x="280" y="120" text-anchor="middle" font-size="13" font-weight="bold" fill="#B01E3C" class="en">FEAR / ANXIETY</text>
+        <text x="280" y="118" text-anchor="middle" font-size="14" font-weight="bold" fill="#B01E3C" font-family="Mukta,sans-serif" class="ne">डर / चिन्ता</text>
+        <text x="280" y="138" text-anchor="middle" font-size="10.5" fill="currentColor" opacity=".65" class="en">amygdala alarm</text>
+        <text x="280" y="140" text-anchor="middle" font-size="11.5" fill="currentColor" opacity=".65" font-family="Mukta,sans-serif" class="ne">एमिग्डालाको घण्टी</text>
+
+        <rect x="400" y="95" width="150" height="60" rx="8" fill="none" stroke="currentColor" stroke-width="1.5"/>
+        <text x="475" y="115" text-anchor="middle" font-size="12.5" font-weight="bold" fill="currentColor" class="en">SAFETY BEHAVIOUR</text>
+        <text x="475" y="114" text-anchor="middle" font-size="13.5" font-weight="bold" fill="currentColor" font-family="Mukta,sans-serif" class="ne">सुरक्षा-व्यवहार</text>
+        <text x="475" y="132" text-anchor="middle" font-size="10.5" fill="currentColor" opacity=".65" class="en">avoid · escape · wash · check</text>
+        <text x="475" y="136" text-anchor="middle" font-size="11.5" fill="currentColor" opacity=".65" font-family="Mukta,sans-serif" class="ne">पन्छिने · भाग्ने · धुने · जाँच्ने</text>
+
+        <rect x="600" y="95" width="100" height="60" rx="8" fill="none" stroke="currentColor" stroke-width="1.5"/>
+        <text x="650" y="120" text-anchor="middle" font-size="13" font-weight="bold" fill="currentColor" class="en">RELIEF</text>
+        <text x="650" y="118" text-anchor="middle" font-size="14" font-weight="bold" fill="currentColor" font-family="Mukta,sans-serif" class="ne">राहत</text>
+        <text x="650" y="138" text-anchor="middle" font-size="10.5" fill="currentColor" opacity=".65" class="en">anxiety drops fast</text>
+        <text x="650" y="140" text-anchor="middle" font-size="11.5" fill="currentColor" opacity=".65" font-family="Mukta,sans-serif" class="ne">चिन्ता झट्टै घट्छ</text>
+
+        <line x1="160" y1="125" x2="203" y2="125" stroke="currentColor" stroke-width="1.5" marker-end="url(#arr2)"/>
+        <line x1="350" y1="125" x2="393" y2="125" stroke="currentColor" stroke-width="1.5" marker-end="url(#arr2)"/>
+        <line x1="550" y1="125" x2="593" y2="125" stroke="currentColor" stroke-width="1.5" marker-end="url(#arr2)"/>
+        <!-- feedback arrow -->
+        <path d="M 650 155 L 650 205 L 475 205 L 300 205 L 280 205 L 280 162" fill="none" stroke="#B01E3C" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#arr2)"/>
+        <text x="465" y="196" text-anchor="middle" font-size="12" font-weight="bold" fill="#B01E3C" class="en">relief reinforces the behaviour — the loop tightens</text>
+        <text x="465" y="196" text-anchor="middle" font-size="13" font-weight="bold" fill="#B01E3C" font-family="Mukta,sans-serif" class="ne">राहतले व्यवहारलाई बलियो बनाउँछ — चक्र कसिँदै जान्छ</text>
+        <text x="465" y="232" text-anchor="middle" font-size="11" fill="currentColor" opacity=".7" class="en">Negative reinforcement — the most examinable principle in this whole atlas</text>
+        <text x="465" y="232" text-anchor="middle" font-size="12" fill="currentColor" opacity=".7" font-family="Mukta,sans-serif" class="ne">नकारात्मक पुनर्बलन — यस एट्लासभरि सबैभन्दा धेरै सोधिने सिद्धान्त</text>
+      </g>
+    </svg>
+    <figcaption class="en">The negative reinforcement loop. Phobic avoidance, compulsive washing, reassurance-seeking, mirror-checking in BDD, even bingeing after restriction — the mechanism is one and the same. Treatment (exposure) works by breaking the loop at the safety-behaviour link.</figcaption>
+    <figcaption class="ne">नकारात्मक पुनर्बलनको चक्र। फोबियामा पन्छिने, ओसीडीमा धुने, बीडीडीमा ऐना हेर्ने, आश्वासन खोज्ने — संयन्त्र एउटै हो। उपचार (एक्सपोजर) ले यही चक्रलाई सुरक्षा-व्यवहारकै कडीमा तोड्छ।</figcaption>
+  </figure>
+<div class="resources"><div class="res-head"><span class="en">Learn more</span><span class="ne">थप सिक्नुहोस्</span></div><p class="res-hint"><span class="en">Pick one, not all — these are chosen to be light, not exhaustive.</span><span class="ne">सबै होइन, एउटा रोज्नुहोस् — यी हल्का, सजिला स्रोत हुन्।</span></p><div class="res-item"><span class="res-type">Book chapter</span><span><strong>Introduction to Psychology — "Emotion &amp; Stress" chapter</strong> — <span class="res-note"><span class="en">The fight-or-flight physiology behind every diagram on this page.</span><span class="ne">यस पृष्ठका चित्रपछाडिको शरीरक्रिया।</span></span></span></div><div class="res-item"><span class="res-type">Video · 19 min</span><span><a href="https://www.ted.com/talks/matt_walker_sleep_is_your_superpower" target="_blank" rel="noopener">Sleep is your superpower (Matt Walker, TED)</a> — <span class="res-note"><span class="en">Why the fear system needs sleep — bridges this page to the Sleep page.</span><span class="ne">डर-प्रणालीलाई निद्रा किन चाहिन्छ — निद्रा-पृष्ठसँग जोड्छ।</span></span></span></div></div>
+
+</section>
+    <nav class="pager" aria-label="Chapter">
+    <a class="prev" href="roots.html"><span class="lbl"><span class="en">Previous · 02</span><span class="ne">अघिल्लो · 02</span></span><span class="en">Roots: philosophy to psychology</span><span class="ne">जरा: दर्शनदेखि मनोविज्ञान</span></a>
+    <a class="next" href="basics.html"><span class="lbl"><span class="en">Next · 04</span><span class="ne">अर्को · 04</span></span><span class="en">Mental health basics</span><span class="ne">मानसिक स्वास्थ्यका आधार</span></a>
+    </nav>
+    </div>
+  </main>
+</div>
+<script src="assets/lang.js"></script>
+<script src="assets/search-index.js" defer></script>
+<script src="assets/search.js" defer></script>
+</body>
+</html>

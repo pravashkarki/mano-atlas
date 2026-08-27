@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Mano Atlas (मनो एट्लास) — a free, bilingual (English/नेपाली) atlas of mental disorders: DSM-5 criteria, teaching diagrams, and the Nepali context.">
+<title>HIV & AIDS counselling · Mano Atlas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Mukta:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Caveat:wght@600&display=swap">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="layout">
+  <aside class="sidebar">
+    <div class="top">
+      <a class="brand" href="index.html"><span class="en">Mano Atlas</span><span class="ne">मनो एट्लास</span>
+        <span class="sub"><span class="en">Mental health · two languages</span><span class="ne">मानसिक स्वास्थ्य · दुई भाषा</span></span></a>
+      <div class="langsw" role="group" aria-label="Language">
+        <button id="btn-en" onclick="setLang('en')">EN</button>
+        <button id="btn-ne" onclick="setLang('ne')">ने</button>
+      </div>
+    </div>
+    <div class="search">
+      <input id="q" type="search" autocomplete="off" spellcheck="false"
+        placeholder="Search · खोज्नुहोस्" aria-label="Search the atlas">
+      <div id="qres" class="qres" hidden></div>
+    </div>
+    <nav class="snav" aria-label="Site">
+      <div class="snav-group"><span class="en">Overview</span><span class="ne">सिंहावलोकन</span></div>
+      <a href="index.html"><span class="secnum">01</span><span class="catmark" style="background:transparent"></span><span class="en">Home & the DSM-5 map</span><span class="ne">गृहपृष्ठ र DSM-5 नक्सा</span></a>
+      <a href="roots.html"><span class="secnum">02</span><span class="catmark" style="background:transparent"></span><span class="en">Roots: philosophy to psychology</span><span class="ne">जरा: दर्शनदेखि मनोविज्ञान</span></a>
+      <a href="foundation.html"><span class="secnum">03</span><span class="catmark" style="background:transparent"></span><span class="en">Fear: the foundation</span><span class="ne">डर: आधारशिला</span></a>
+      <a href="basics.html"><span class="secnum">04</span><span class="catmark" style="background:transparent"></span><span class="en">Mental health basics</span><span class="ne">मानसिक स्वास्थ्यका आधार</span></a>
+      <a href="development.html"><span class="secnum">05</span><span class="catmark" style="background:transparent"></span><span class="en">Human development</span><span class="ne">मानव विकास</span></a>
+      <div class="snav-group"><span class="en">Disorder categories</span><span class="ne">विकार वर्गहरू</span></div>
+      <a href="anxiety.html"><span class="secnum">06</span><span class="catmark" style="background:var(--c-anx)"></span><span class="en">Anxiety disorders</span><span class="ne">चिन्ता विकारहरू</span></a>
+      <a href="ocd.html"><span class="secnum">07</span><span class="catmark" style="background:var(--c-ocd)"></span><span class="en">OCD & related</span><span class="ne">ओसीडी र सम्बन्धित</span></a>
+      <a href="depression.html"><span class="secnum">08</span><span class="catmark" style="background:var(--c-dep)"></span><span class="en">Depressive disorders</span><span class="ne">उदासी (डिप्रेसन)</span></a>
+      <a href="trauma.html"><span class="secnum">09</span><span class="catmark" style="background:var(--c-tra)"></span><span class="en">Trauma & stressor</span><span class="ne">आघात र तनाव</span></a>
+      <a href="somatic.html"><span class="secnum">10</span><span class="catmark" style="background:var(--c-som)"></span><span class="en">Conversion & somatic</span><span class="ne">कन्भर्सन र शारीरिक</span></a>
+      <a href="psychosis.html"><span class="secnum">11</span><span class="catmark" style="background:var(--c-psy)"></span><span class="en">Psychosis</span><span class="ne">मनोविकृति (साइकोसिस)</span></a>
+      <a href="child.html"><span class="secnum">12</span><span class="catmark" style="background:var(--c-chi)"></span><span class="en">Child mental illness</span><span class="ne">बाल मानसिक समस्या</span></a>
+      <a href="eating.html"><span class="secnum">13</span><span class="catmark" style="background:var(--c-eat)"></span><span class="en">Eating disorders</span><span class="ne">खानपान विकार</span></a>
+      <a href="sleep.html"><span class="secnum">14</span><span class="catmark" style="background:var(--c-slp)"></span><span class="en">Sleep-wake disorders</span><span class="ne">निद्रा विकार</span></a>
+      <a href="substance.html"><span class="secnum">15</span><span class="catmark" style="background:var(--c-sub)"></span><span class="en">Substance use</span><span class="ne">लागुपदार्थ प्रयोग</span></a>
+      <div class="snav-group"><span class="en">Counselling practice</span><span class="ne">परामर्श अभ्यास</span></div>
+      <a href="wellbeing.html"><span class="secnum">16</span><span class="catmark" style="background:transparent"></span><span class="en">Wellbeing & intervention</span><span class="ne">तन्दुरुस्ती र हस्तक्षेप</span></a>
+      <a href="approaches.html"><span class="secnum">17</span><span class="catmark" style="background:transparent"></span><span class="en">Approaches & forms</span><span class="ne">विधि र रूपहरू</span></a>
+      <a href="skills.html"><span class="secnum">18</span><span class="catmark" style="background:transparent"></span><span class="en">Communication skills</span><span class="ne">संवाद-सीप</span></a>
+      <a href="process.html"><span class="secnum">19</span><span class="catmark" style="background:transparent"></span><span class="en">The counselling process</span><span class="ne">परामर्श-प्रक्रिया</span></a>
+      <a href="tools.html"><span class="secnum">20</span><span class="catmark" style="background:transparent"></span><span class="en">Tools & techniques</span><span class="ne">औजार र प्रविधि</span></a>
+      <a href="suicide.html"><span class="secnum">21</span><span class="catmark" style="background:transparent"></span><span class="en">Suicide: assessment</span><span class="ne">आत्महत्या: मूल्याङ्कन</span></a>
+      <a href="pfa.html"><span class="secnum">22</span><span class="catmark" style="background:transparent"></span><span class="en">PFA & emergencies</span><span class="ne">पीएफए र आपतकाल</span></a>
+      <a href="gbv.html"><span class="secnum">23</span><span class="catmark" style="background:transparent"></span><span class="en">Gender & GBV</span><span class="ne">लैङ्गिकता र जीबीभी</span></a>
+      <a href="hiv.html" class="active" aria-current="page"><span class="secnum">24</span><span class="catmark" style="background:transparent"></span><span class="en">HIV & AIDS counselling</span><span class="ne">एचआईभी परामर्श</span></a>
+      <a href="casemgmt.html"><span class="secnum">25</span><span class="catmark" style="background:transparent"></span><span class="en">Case management</span><span class="ne">केस व्यवस्थापन</span></a>
+      <a href="ethics.html"><span class="secnum">26</span><span class="catmark" style="background:transparent"></span><span class="en">Ethics & self-care</span><span class="ne">नैतिकता र आत्म-हेरचाह</span></a>
+      <div class="snav-group"><span class="en">Reference</span><span class="ne">सन्दर्भ</span></div>
+      <a href="more.html"><span class="secnum">27</span><span class="catmark" style="background:transparent"></span><span class="en">The rest of the map</span><span class="ne">बाँकी नक्सा</span></a>
+      <a href="nepal.html"><span class="secnum">28</span><span class="catmark" style="background:transparent"></span><span class="en">Culture & the Nepal panorama</span><span class="ne">संस्कृति र नेपाली परिदृश्य</span></a>
+      <a href="crosswalk.html"><span class="secnum">29</span><span class="catmark" style="background:transparent"></span><span class="en">For PSC students</span><span class="ne">पीएससी विद्यार्थीलाई</span></a>
+    </nav>
+    <div class="side-foot">DSM-5 (2013) · <span class="en">study resource, not a diagnostic tool</span><span class="ne">अध्ययन सामग्री — निदान-उपकरण होइन</span></div>
+  </aside>
+  <main>
+    <div class="wrap">
+<div class="pagehead"><div class="kicker"><span class="en">Section 24</span><span class="ne">खण्ड 24</span></div></div>
+<section id="hiv" style="margin-top:12px">
+<div class="sechead"><span class="secnum">24</span>
+  <h2><span class="en">HIV &amp; AIDS counselling</span><span class="ne">एचआईभी र एड्स परामर्श</span></h2>
+</div>
+<p class="secsub en">HIV is now a manageable chronic condition — a person on treatment lives a near-normal lifespan, and effective treatment makes the virus untransmittable (U=U). The counselor's battle is therefore mostly with stigma, disclosure, and adherence, not the virus.</p>
+<p class="secsub ne">एचआईभी अब व्यवस्थापन गर्न सकिने दीर्घ अवस्था हो — उपचारमा रहेको व्यक्ति झन्डै सामान्य आयु बाँच्छ, र प्रभावकारी उपचारले भाइरस सर्दैन (U=U)। त्यसैले परामर्शकर्ताको लडाइँ भाइरससँग होइन — कलंक, खुलासा र औषधि-निरन्तरतासँग हो।</p>
+
+<article class="card" id="hiv-c1">
+  <div class="card-head">
+    <h3><span class="en">Facts, VCT, and the psychosocial load</span><span class="ne">तथ्य, भीसीटी र मनोसामाजिक भार</span></h3>
+    <span class="pill todo"><span class="dot"></span><span class="en">CTEVT PSC curriculum</span><span class="ne">सीटीईभीटी पाठ्यक्रम</span></span>
+  </div>
+  <div class="card-body">
+    <p class="en"><strong>Transmission — only four routes:</strong> unprotected sex with an infected person; infected blood (transfusion, shared needles); mother-to-child (pregnancy, birth, breastfeeding — largely preventable with treatment); contaminated sharp instruments. <strong>Not transmitted</strong> by touch, sharing food or utensils, mosquitoes, toilets, or living together — the facts that dissolve most household stigma. HIV (the virus) is not AIDS (the late, untreated stage); with antiretroviral therapy most people never reach AIDS.</p>
+    <p class="ne"><strong>सर्ने बाटो — चार वटा मात्र:</strong> संक्रमित व्यक्तिसँग असुरक्षित यौन सम्पर्क; संक्रमित रगत (रक्तदान, साझा सुई); आमाबाट बच्चामा (गर्भ, जन्म, स्तनपान — उपचारले प्रायः रोकिन्छ); दूषित धारिला औजार। <strong>सर्दैन:</strong> छुँदा, खाना-भाँडा बाँड्दा, लामखुट्टेबाट, शौचालयबाट, सँगै बस्दा — घरायसी कलंक पगाल्ने तथ्य यिनै हुन्। एचआईभी (भाइरस) एड्स (उपचारविहीन अन्तिम चरण) होइन; एआरटी लिनेहरू प्रायः एड्ससम्म पुग्दैनन्।</p>
+    <p class="en"><strong>VCT — voluntary counselling and testing</strong> — is the curriculum's named service. <em>Pre-test counselling:</em> informed consent, what the test can and cannot say (window period), risk review, preparing for either result. <em>Post-test:</em> a negative result is a prevention conversation; a positive result is delivered simply and humanely, sitting with the shock, assessing suicide risk, planning who to tell and how, and linking to ART the same week. <em>The 5 C's:</em> consent, confidentiality, counselling, correct results, connection to care.</p>
+    <p class="ne"><strong>भीसीटी — स्वैच्छिक परामर्श र परीक्षण</strong> — पाठ्यक्रमले नाम लिने सेवा हो। <em>परीक्षण-पूर्व:</em> सुसूचित सहमति, परीक्षणले के भन्छ-भन्दैन (विन्डो पिरियड), जोखिम-समीक्षा, दुवै नतिजाको तयारी। <em>परीक्षण-पछि:</em> नकारात्मक नतिजा रोकथामको कुराकानी हो; सकारात्मक नतिजा सरल र मानवीय ढङ्गले दिइन्छ — स्तब्धतासँगै बस्ने, आत्महत्या-जोखिम जाँच्ने, कसलाई कसरी भन्ने योजना बनाउने, र त्यही हप्ता एआरटीसँग जोड्ने। <em>पाँच «सी»:</em> सहमति, गोपनीयता, परामर्श, सही नतिजा, सेवासँग जडान।</p>
+    <div class="ctx nepal">
+      <div class="ctx-label"><span class="en">Nepal</span><span class="ne">नेपाल</span></div>
+      <p class="en">Concentrated epidemic: key populations include people who inject drugs, sex workers and their clients, men who have sex with men, and returned migrant workers and their wives — the last group is why HIV counselling belongs in every district, not just cities. ART is free at government centres. Stigma ("HIV = immorality") still blocks testing; your confidentiality practice is the counterweight. Ethical note from the ACA code: disclosure to an identifiable at-risk partner is a last resort, only after working with the client toward voluntary disclosure — take such cases to supervision.</p>
+      <p class="ne">केन्द्रित महामारी: सुई प्रयोगकर्ता, यौनकर्मी र ग्राहक, पुरुष-समलिङ्गी, र फर्केका आप्रवासी श्रमिक तथा उनका श्रीमती — अन्तिम समूहकै कारण एचआईभी परामर्श सहरमा मात्र होइन, हरेक जिल्लामा चाहिन्छ। सरकारी केन्द्रमा एआरटी निःशुल्क छ। «एचआईभी = अनैतिकता» भन्ने कलंकले परीक्षण रोकिरहेको छ; तपाईंको गोपनीयता-अभ्यास नै त्यसको प्रतिरोध हो। नैतिक नोट (एसीए संहिता): जोखिममा रहेको पहिचानयोग्य साथीलाई खुलासा अन्तिम विकल्प हो — पहिले सेवाग्राहीसँगै स्वैच्छिक खुलासामा काम गर्ने; यस्ता केस सुपरिवेक्षणमा लैजाने।</p>
+    </div>
+  </div>
+</article>
+
+<div class="resources"><div class="res-head"><span class="en">Learn more</span><span class="ne">थप सिक्नुहोस्</span></div>
+<p class="res-hint"><span class="en">Pick one, not all.</span><span class="ne">सबै होइन, एउटा रोज्नुहोस्।</span></p>
+<div class="res-item"><span class="res-type">Article</span><span><strong>WHO HIV/AIDS fact sheet (who.int)</strong> — <span class="res-note"><span class="en">current global picture, U=U, treatment basics.</span><span class="ne">विश्व-चित्र, U=U, उपचारका आधार।</span></span></span></div>
+<div class="res-item"><span class="res-type">Film</span><span><strong>Philadelphia (1993)</strong> — <span class="res-note"><span class="en">stigma's anatomy, still accurate about the social disease.</span><span class="ne">कलंकको शरीररचना — सामाजिक रोगबारे अझै सटीक।</span></span></span></div>
+<div class="res-item"><span class="res-type">Free book</span><span><a href="https://www.cambridge.org/core/books/where-there-is-no-psychiatrist/47578A845CAFC7E23A181749A4190B54" target="_blank" rel="noopener">Where There Is No Psychiatrist — HIV counselling section</a> — <span class="res-note"><span class="en">scripts for pre- and post-test sessions.</span><span class="ne">परीक्षण-अघि/पछिका सत्रका ढाँचा।</span></span></span></div>
+</div>
+
+</section>
+    <nav class="pager" aria-label="Chapter">
+    <a class="prev" href="gbv.html"><span class="lbl"><span class="en">Previous · 23</span><span class="ne">अघिल्लो · 23</span></span><span class="en">Gender & GBV</span><span class="ne">लैङ्गिकता र जीबीभी</span></a>
+    <a class="next" href="casemgmt.html"><span class="lbl"><span class="en">Next · 25</span><span class="ne">अर्को · 25</span></span><span class="en">Case management</span><span class="ne">केस व्यवस्थापन</span></a>
+    </nav>
+    </div>
+  </main>
+</div>
+<script src="assets/lang.js"></script>
+<script src="assets/search-index.js" defer></script>
+<script src="assets/search.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Mano Atlas (मनो एट्लास) — a free, bilingual (English/नेपाली) atlas of mental disorders: DSM-5 criteria, teaching diagrams, and the Nepali context.">
+<title>Culture & the Nepal panorama · Mano Atlas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Mukta:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Caveat:wght@600&display=swap">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="layout">
+  <aside class="sidebar">
+    <div class="top">
+      <a class="brand" href="index.html"><span class="en">Mano Atlas</span><span class="ne">मनो एट्लास</span>
+        <span class="sub"><span class="en">Mental health · two languages</span><span class="ne">मानसिक स्वास्थ्य · दुई भाषा</span></span></a>
+      <div class="langsw" role="group" aria-label="Language">
+        <button id="btn-en" onclick="setLang('en')">EN</button>
+        <button id="btn-ne" onclick="setLang('ne')">ने</button>
+      </div>
+    </div>
+    <div class="search">
+      <input id="q" type="search" autocomplete="off" spellcheck="false"
+        placeholder="Search · खोज्नुहोस्" aria-label="Search the atlas">
+      <div id="qres" class="qres" hidden></div>
+    </div>
+    <nav class="snav" aria-label="Site">
+      <div class="snav-group"><span class="en">Overview</span><span class="ne">सिंहावलोकन</span></div>
+      <a href="index.html"><span class="secnum">01</span><span class="catmark" style="background:transparent"></span><span class="en">Home & the DSM-5 map</span><span class="ne">गृहपृष्ठ र DSM-5 नक्सा</span></a>
+      <a href="roots.html"><span class="secnum">02</span><span class="catmark" style="background:transparent"></span><span class="en">Roots: philosophy to psychology</span><span class="ne">जरा: दर्शनदेखि मनोविज्ञान</span></a>
+      <a href="foundation.html"><span class="secnum">03</span><span class="catmark" style="background:transparent"></span><span class="en">Fear: the foundation</span><span class="ne">डर: आधारशिला</span></a>
+      <a href="basics.html"><span class="secnum">04</span><span class="catmark" style="background:transparent"></span><span class="en">Mental health basics</span><span class="ne">मानसिक स्वास्थ्यका आधार</span></a>
+      <a href="development.html"><span class="secnum">05</span><span class="catmark" style="background:transparent"></span><span class="en">Human development</span><span class="ne">मानव विकास</span></a>
+      <div class="snav-group"><span class="en">Disorder categories</span><span class="ne">विकार वर्गहरू</span></div>
+      <a href="anxiety.html"><span class="secnum">06</span><span class="catmark" style="background:var(--c-anx)"></span><span class="en">Anxiety disorders</span><span class="ne">चिन्ता विकारहरू</span></a>
+      <a href="ocd.html"><span class="secnum">07</span><span class="catmark" style="background:var(--c-ocd)"></span><span class="en">OCD & related</span><span class="ne">ओसीडी र सम्बन्धित</span></a>
+      <a href="depression.html"><span class="secnum">08</span><span class="catmark" style="background:var(--c-dep)"></span><span class="en">Depressive disorders</span><span class="ne">उदासी (डिप्रेसन)</span></a>
+      <a href="trauma.html"><span class="secnum">09</span><span class="catmark" style="background:var(--c-tra)"></span><span class="en">Trauma & stressor</span><span class="ne">आघात र तनाव</span></a>
+      <a href="somatic.html"><span class="secnum">10</span><span class="catmark" style="background:var(--c-som)"></span><span class="en">Conversion & somatic</span><span class="ne">कन्भर्सन र शारीरिक</span></a>
+      <a href="psychosis.html"><span class="secnum">11</span><span class="catmark" style="background:var(--c-psy)"></span><span class="en">Psychosis</span><span class="ne">मनोविकृति (साइकोसिस)</span></a>
+      <a href="child.html"><span class="secnum">12</span><span class="catmark" style="background:var(--c-chi)"></span><span class="en">Child mental illness</span><span class="ne">बाल मानसिक समस्या</span></a>
+      <a href="eating.html"><span class="secnum">13</span><span class="catmark" style="background:var(--c-eat)"></span><span class="en">Eating disorders</span><span class="ne">खानपान विकार</span></a>
+      <a href="sleep.html"><span class="secnum">14</span><span class="catmark" style="background:var(--c-slp)"></span><span class="en">Sleep-wake disorders</span><span class="ne">निद्रा विकार</span></a>
+      <a href="substance.html"><span class="secnum">15</span><span class="catmark" style="background:var(--c-sub)"></span><span class="en">Substance use</span><span class="ne">लागुपदार्थ प्रयोग</span></a>
+      <div class="snav-group"><span class="en">Counselling practice</span><span class="ne">परामर्श अभ्यास</span></div>
+      <a href="wellbeing.html"><span class="secnum">16</span><span class="catmark" style="background:transparent"></span><span class="en">Wellbeing & intervention</span><span class="ne">तन्दुरुस्ती र हस्तक्षेप</span></a>
+      <a href="approaches.html"><span class="secnum">17</span><span class="catmark" style="background:transparent"></span><span class="en">Approaches & forms</span><span class="ne">विधि र रूपहरू</span></a>
+      <a href="skills.html"><span class="secnum">18</span><span class="catmark" style="background:transparent"></span><span class="en">Communication skills</span><span class="ne">संवाद-सीप</span></a>
+      <a href="process.html"><span class="secnum">19</span><span class="catmark" style="background:transparent"></span><span class="en">The counselling process</span><span class="ne">परामर्श-प्रक्रिया</span></a>
+      <a href="tools.html"><span class="secnum">20</span><span class="catmark" style="background:transparent"></span><span class="en">Tools & techniques</span><span class="ne">औजार र प्रविधि</span></a>
+      <a href="suicide.html"><span class="secnum">21</span><span class="catmark" style="background:transparent"></span><span class="en">Suicide: assessment</span><span class="ne">आत्महत्या: मूल्याङ्कन</span></a>
+      <a href="pfa.html"><span class="secnum">22</span><span class="catmark" style="background:transparent"></span><span class="en">PFA & emergencies</span><span class="ne">पीएफए र आपतकाल</span></a>
+      <a href="gbv.html"><span class="secnum">23</span><span class="catmark" style="background:transparent"></span><span class="en">Gender & GBV</span><span class="ne">लैङ्गिकता र जीबीभी</span></a>
+      <a href="hiv.html"><span class="secnum">24</span><span class="catmark" style="background:transparent"></span><span class="en">HIV & AIDS counselling</span><span class="ne">एचआईभी परामर्श</span></a>
+      <a href="casemgmt.html"><span class="secnum">25</span><span class="catmark" style="background:transparent"></span><span class="en">Case management</span><span class="ne">केस व्यवस्थापन</span></a>
+      <a href="ethics.html"><span class="secnum">26</span><span class="catmark" style="background:transparent"></span><span class="en">Ethics & self-care</span><span class="ne">नैतिकता र आत्म-हेरचाह</span></a>
+      <div class="snav-group"><span class="en">Reference</span><span class="ne">सन्दर्भ</span></div>
+      <a href="more.html"><span class="secnum">27</span><span class="catmark" style="background:transparent"></span><span class="en">The rest of the map</span><span class="ne">बाँकी नक्सा</span></a>
+      <a href="nepal.html" class="active" aria-current="page"><span class="secnum">28</span><span class="catmark" style="background:transparent"></span><span class="en">Culture & the Nepal panorama</span><span class="ne">संस्कृति र नेपाली परिदृश्य</span></a>
+      <a href="crosswalk.html"><span class="secnum">29</span><span class="catmark" style="background:transparent"></span><span class="en">For PSC students</span><span class="ne">पीएससी विद्यार्थीलाई</span></a>
+    </nav>
+    <div class="side-foot">DSM-5 (2013) · <span class="en">study resource, not a diagnostic tool</span><span class="ne">अध्ययन सामग्री — निदान-उपकरण होइन</span></div>
+  </aside>
+  <main>
+    <div class="wrap">
+<div class="pagehead"><div class="kicker"><span class="en">Section 28</span><span class="ne">खण्ड 28</span></div></div>
+<section id="nepal" style="margin-top:12px">
+<div class="sechead"><span class="secnum">28</span>
+    <h2><span class="en">The Nepal panorama</span><span class="ne">नेपाली परिदृश्य</span></h2>
+  </div>
+  <p class="secsub en">The cross-cutting Nepali material every chapter leaned on, gathered in one place: the ethnopsychology, the idioms of distress, and the history of mental health care.</p>
+  <p class="secsub ne">हरेक अध्यायले अड्याएको नेपाली सामग्री एकै ठाउँमा: जन-मनोविज्ञान, पीडाका स्थानीय अभिव्यक्ति, र मानसिक स्वास्थ्य सेवाको इतिहास।</p>
+
+  <figure>
+    <svg viewBox="0 0 720 300" role="img" aria-label="Nepali ethnopsychology: dimaag (brain-mind) in the head, man (heart-mind) in the chest, saato (spirit) around the body, ijjat (social honour) surrounding the person.">
+      <g stroke="currentColor" stroke-width="2" fill="none">
+        <circle cx="360" cy="70" r="32"/>
+        <line x1="360" y1="102" x2="360" y2="215"/>
+        <line x1="360" y1="130" x2="308" y2="185"/>
+        <line x1="360" y1="130" x2="412" y2="185"/>
+        <line x1="360" y1="215" x2="328" y2="285"/>
+        <line x1="360" y1="215" x2="392" y2="285"/>
+      </g>
+      <ellipse cx="360" cy="160" rx="120" ry="135" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="3 5" opacity=".6"/>
+      <g font-family="Archivo,sans-serif">
+        <circle cx="360" cy="70" r="10" fill="none" stroke="#B01E3C" stroke-width="2"/>
+        <line x1="372" y1="64" x2="472" y2="48" stroke="#B01E3C" stroke-width="1.2"/>
+        <text x="478" y="46" font-size="13" font-weight="bold" fill="#B01E3C" class="en">Dimaag — brain-mind</text>
+        <text x="478" y="46" font-size="14" font-weight="bold" fill="#B01E3C" font-family="Mukta,sans-serif" class="ne">दिमाग</text>
+        <text x="478" y="62" font-size="11" fill="currentColor" opacity=".7" class="en">thought, reason. "Dimaag kharab" = grave,</text>
+        <text x="478" y="75" font-size="11" fill="currentColor" opacity=".7" class="en">stigmatised label — use with care</text>
+        <text x="478" y="64" font-size="12" fill="currentColor" opacity=".7" font-family="Mukta,sans-serif" class="ne">सोच, विवेक। «दिमाग खराब» = गम्भीर,</text>
+        <text x="478" y="79" font-size="12" fill="currentColor" opacity=".7" font-family="Mukta,sans-serif" class="ne">कलंकित लेबल — होसियारीसाथ</text>
+        <circle cx="360" cy="150" r="12" fill="#B01E3C" opacity=".85"/>
+        <line x1="348" y1="150" x2="240" y2="140" stroke="#B01E3C" stroke-width="1.2"/>
+        <text x="232" y="132" text-anchor="end" font-size="13" font-weight="bold" fill="#B01E3C" class="en">Man — heart-mind</text>
+        <text x="232" y="132" text-anchor="end" font-size="14" font-weight="bold" fill="#B01E3C" font-family="Mukta,sans-serif" class="ne">मन</text>
+        <text x="232" y="148" text-anchor="end" font-size="11" fill="currentColor" opacity=".7" class="en">feeling, memory, desire — where distress</text>
+        <text x="232" y="161" text-anchor="end" font-size="11" fill="currentColor" opacity=".7" class="en">is felt and safely spoken: "man dukhcha"</text>
+        <text x="232" y="150" text-anchor="end" font-size="12" fill="currentColor" opacity=".7" font-family="Mukta,sans-serif" class="ne">भावना, सम्झना, चाहना — पीडा यहीं</text>
+        <text x="232" y="165" text-anchor="end" font-size="12" fill="currentColor" opacity=".7" font-family="Mukta,sans-serif" class="ne">महसुस र सुरक्षित रूपमा भनिन्छ: «मन दुख्छ»</text>
+        <line x1="266" y1="240" x2="180" y2="255" stroke="currentColor" stroke-width="1.2"/>
+        <text x="172" y="252" text-anchor="end" font-size="13" font-weight="bold" fill="currentColor" class="en">Saato — spirit</text>
+        <text x="172" y="252" text-anchor="end" font-size="14" font-weight="bold" fill="currentColor" font-family="Mukta,sans-serif" class="ne">सातो</text>
+        <text x="172" y="268" text-anchor="end" font-size="11" fill="currentColor" opacity=".7" class="en">can flee in fright: "saato gayo" —</text>
+        <text x="172" y="281" text-anchor="end" font-size="11" fill="currentColor" opacity=".7" class="en">healers call it back (saato bolaune)</text>
+        <text x="172" y="270" text-anchor="end" font-size="12" fill="currentColor" opacity=".7" font-family="Mukta,sans-serif" class="ne">तर्सिँदा भाग्न सक्छ: «सातो गयो» —</text>
+        <text x="172" y="285" text-anchor="end" font-size="12" fill="currentColor" opacity=".7" font-family="Mukta,sans-serif" class="ne">धामीले फर्काउँछन् (सातो बोलाउने)</text>
+        <line x1="470" y1="220" x2="545" y2="230" stroke="currentColor" stroke-width="1.2"/>
+        <text x="551" y="228" font-size="13" font-weight="bold" fill="currentColor" class="en">Ijjat — honour</text>
+        <text x="551" y="228" font-size="14" font-weight="bold" fill="currentColor" font-family="Mukta,sans-serif" class="ne">इज्जत</text>
+        <text x="551" y="244" font-size="11" fill="currentColor" opacity=".7" class="en">the social skin: stigma wounds it,</text>
+        <text x="551" y="257" font-size="11" fill="currentColor" opacity=".7" class="en">so families hide illness</text>
+        <text x="551" y="246" font-size="12" fill="currentColor" opacity=".7" font-family="Mukta,sans-serif" class="ne">सामाजिक छाला: कलंकले घाइते हुन्छ,</text>
+        <text x="551" y="261" font-size="12" fill="currentColor" opacity=".7" font-family="Mukta,sans-serif" class="ne">त्यसैले परिवारले रोग लुकाउँछ</text>
+      </g>
+    </svg>
+    <figcaption class="en">The Nepali map of the person (after Kohrt &amp; Harper's ethnopsychology work). A skilled counselor speaks to the <em>man</em> (heart-mind) — "man ko kura" — because problems of the man are shareable, while "dimaag kharab" invites stigma. The dotted ring is saato and ijjat: fright and honour, both of which the family will be managing alongside the symptom.</figcaption>
+    <figcaption class="ne">व्यक्तिको नेपाली नक्सा (कोर्ट र हार्परको जन-मनोविज्ञान अनुसन्धानमा आधारित)। सिपालु परामर्शकर्ता <em>मन</em>सँग बोल्छ — «मनको कुरा» — किनभने मनका समस्या भन्न मिल्छ; «दिमाग खराब» ले कलंक निम्त्याउँछ। बिन्दुदार घेरा सातो र इज्जत हुन् — त्रास र मान, जुन परिवारले लक्षणसँगै सम्हालिरहेको हुन्छ।</figcaption>
+  </figure>
+
+  <div class="twopanel">
+    <div class="panel">
+      <h4><span class="en">Idioms of distress — hear these, think of these</span><span class="ne">पीडाका अभिव्यक्ति — यी सुन्दा यी सोच्नुहोस्</span></h4>
+      <dl class="idioms en">
+        <dt>Man dukhne / man bhari</dt><dd>heart-mind aching / heavy → depression screen</dd>
+        <dt>Man aattine</dt><dd>heart-mind panicking → anxiety, panic</dd>
+        <dt>Jham-jham</dt><dd>tingling-numbness in limbs → anxiety, hyperventilation, somatic presentation</dd>
+        <dt>Jiu galne / kamjori</dt><dd>body wilting / weakness → depression, GAD, anaemia work-up</dd>
+        <dt>Saato jaane</dt><dd>soul flees after fright → acute stress, trauma; healer-treated</dd>
+        <dt>Chhopne / lagne</dt><dd>possession-like state / spirit affliction → conversion, dissociation — or culturally normal trance</dd>
+        <dt>Nindra nalagne</dt><dd>no sleep → the universal doorway complaint</dd>
+      </dl>
+      <dl class="idioms ne">
+        <dt>मन दुख्ने / मन भारी</dt><dd>→ उदासी (डिप्रेसन) जाँच</dd>
+        <dt>मन आत्तिने</dt><dd>→ चिन्ता, प्यानिक</dd>
+        <dt>झमझम</dt><dd>हात-खुट्टा झमझम, लाटो हुने → चिन्ता, छिटो सास, शारीरिक प्रस्तुति</dd>
+        <dt>जिउ गल्ने / कमजोरी</dt><dd>→ उदासी, जीएडी; रक्तअल्पता जाँच</dd>
+        <dt>सातो जाने</dt><dd>तर्सेपछि → तीव्र तनाव, आघात; धामीकहाँ लगिने</dd>
+        <dt>छोप्ने / लाग्ने</dt><dd>→ कन्भर्सन, विघटन — वा सांस्कृतिक रूपमा सामान्य समाधि</dd>
+        <dt>निद्रा नलाग्ने</dt><dd>→ सबै समस्याको साझा प्रवेशद्वार</dd>
+      </dl>
+    </div>
+    <div class="panel">
+      <h4><span class="en">Mental health care in Nepal — the timeline (from MH-3)</span><span class="ne">नेपालमा मानसिक स्वास्थ्य — समयरेखा (एमएच-३ बाट)</span></h4>
+      <ul class="en">
+        <li><strong>Pre-1960s</strong> — distress read through karma and spirits; dhami-jhankri and elders as first help</li>
+        <li><strong>1961</strong> — first psychiatric OPD, Bir Hospital (Dr. Bishnu Prasad Sharma)</li>
+        <li><strong>1984–85</strong> — Mental Hospital, Lagankhel, Patan</li>
+        <li><strong>1997</strong> — first National Mental Health Policy (primary-care integration)</li>
+        <li><strong>2020</strong> — National Mental Health Strategy &amp; Action Plan: community psychosocial workers, task-sharing — the policy ground your own profession stands on</li>
+      </ul>
+      <ul class="ne">
+        <li><strong>२०१७ साल अघि</strong> — पीडालाई कर्म र आत्माको चस्माले हेरिन्थ्यो; धामी-झाँक्री र अग्रज नै पहिलो सहारा</li>
+        <li><strong>वि.सं. २०१८ (सन् १९६१)</strong> — वीर अस्पतालमा पहिलो मनोचिकित्सा ओपीडी (डा. विष्णुप्रसाद शर्मा)</li>
+        <li><strong>सन् १९८४–८५</strong> — मानसिक अस्पताल, लगनखेल, पाटन</li>
+        <li><strong>सन् १९९७</strong> — पहिलो राष्ट्रिय मानसिक स्वास्थ्य नीति (प्राथमिक सेवामा एकीकरण)</li>
+        <li><strong>सन् २०२०</strong> — राष्ट्रिय मानसिक स्वास्थ्य रणनीति तथा कार्ययोजना: सामुदायिक मनोसामाजिक कार्यकर्ता, कार्य-साझेदारी — तपाईंकै पेसा उभिएको नीतिगत जग</li>
+      </ul>
+    </div>
+  </div>
+
+  
+<article class="card" id="nepal-c1">
+  <div class="card-head">
+    <h3><span class="en">Culture-bound syndromes &amp; healing systems</span><span class="ne">संस्कृति-बद्ध सिन्ड्रोम र उपचार-प्रणाली</span></h3>
+    <span class="pill todo"><span class="dot"></span><span class="en">CTEVT PSC curriculum</span><span class="ne">सीटीईभीटी पाठ्यक्रम</span></span>
+  </div>
+  <div class="card-body">
+    <p class="en">The curriculum names three: <strong>dhat, possession, soul loss</strong>. A culture-bound syndrome is a pattern of distress recognised and named by a culture, coherent inside its own explanatory world.</p>
+    <p class="ne">पाठ्यक्रमले तीन वटाको नाम लिन्छ: <strong>धात, छोपुवा (आवेश), सातो जानु</strong>। संस्कृति-बद्ध सिन्ड्रोम भनेको कुनै संस्कृतिले चिनेको र नाम दिएको पीडाको ढाँचा हो — आफ्नै व्याख्या-संसारभित्र पूर्ण अर्थपूर्ण।</p>
+    <div class="tblwrap">
+      <table class="data en">
+        <tr><th>Syndrome</th><th>Where</th><th>Presentation</th><th>Clinical neighbour</th></tr>
+        <tr><td>Dhat</td><td>South Asia</td><td>Anxiety, weakness, guilt attributed to semen loss</td><td>Anxiety · depressive · somatic symptoms</td></tr>
+        <tr><td>Possession / chhopne</td><td>Nepal, South Asia</td><td>Trance, altered voice, another's identity speaks; often adolescent girls, can spread in groups</td><td>Conversion · dissociation — or culturally normal ritual trance (a jhankri's trance is his job, not a disorder)</td></tr>
+        <tr><td>Saato jaanu (soul loss)</td><td>Nepal</td><td>After fright: weakness, appetite loss, withdrawal; healed by saato bolaune (calling the spirit)</td><td>Acute stress reaction · adjustment</td></tr>
+        <tr><td>Khyâl cap ("wind attack")</td><td>Cambodia</td><td>Panic attributed to wind rising in the body</td><td>Panic attack</td></tr>
+        <tr><td>Ataque de nervios</td><td>Latin America</td><td>Shouting, crying, trembling after family stress</td><td>Panic-like episode</td></tr>
+        <tr><td>Taijin kyofusho</td><td>Japan, Korea</td><td>Fear of offending others with one's body or gaze</td><td>Social anxiety variant</td></tr>
+      </table>
+      <table class="data ne">
+        <tr><th>सिन्ड्रोम</th><th>कहाँ</th><th>प्रस्तुति</th><th>क्लिनिकल छिमेकी</th></tr>
+        <tr><td>धात</td><td>दक्षिण एसिया</td><td>वीर्य-क्षयको विश्वाससँग जोडिएको चिन्ता, कमजोरी, अपराधबोध</td><td>चिन्ता · उदासी · शारीरिक लक्षण</td></tr>
+        <tr><td>छोपुवा / आवेश</td><td>नेपाल, दक्षिण एसिया</td><td>समाधि-अवस्था, फेरिएको स्वर, अर्कै पहिचान बोल्ने; प्रायः किशोरी, समूहमा फैलिन सक्ने</td><td>कन्भर्सन · विघटन — वा सांस्कृतिक रूपमा सामान्य समाधि (झाँक्रीको समाधि उनको काम हो, विकार होइन)</td></tr>
+        <tr><td>सातो जानु</td><td>नेपाल</td><td>तर्सेपछि: कमजोरी, भोक नलाग्ने, गुम्सिने; सातो बोलाएर निको पारिने</td><td>तीव्र तनाव-प्रतिक्रिया · समायोजन</td></tr>
+        <tr><td>ख्याल क्याप («हावाको आक्रमण»)</td><td>कम्बोडिया</td><td>शरीरमा हावा चढेको विश्वाससँगको आतंक</td><td>प्यानिक एट्याक</td></tr>
+        <tr><td>अताके दे नेर्भियोस</td><td>ल्याटिन अमेरिका</td><td>पारिवारिक तनावपछि चिच्याउने, रुने, काम्ने</td><td>प्यानिक-जस्तो दौरा</td></tr>
+        <tr><td>ताइजिन क्योफुशो</td><td>जापान, कोरिया</td><td>आफ्नो शरीर-हेराइले अरूलाई असहज पार्ने डर</td><td>सामाजिक चिन्ताको रूप</td></tr>
+      </table>
+    </div>
+    <p class="en"><strong>Healing systems your clients use, usually before you:</strong> dhami-jhankri (shamanic diagnosis and ritual), jharphuk (sweeping/blowing away affliction), vaidya and Ayurveda, lamas and monasteries, temple vows and pujas. The evidence-based stance (see the traditional-healers review below) is collaboration: healers refer what they cannot heal when they are respected, and families accept counselling more easily when it does not demand they abandon their world. The counselor's line: work alongside any practice that is not harmful; act on harmful ones (beating "spirits" out, chaining, denial of urgent medical care) — through relationship where possible, through protection systems where necessary.</p>
+    <p class="ne"><strong>सेवाग्राहीले — प्रायः तपाईंभन्दा पहिले — प्रयोग गर्ने उपचार-प्रणाली:</strong> धामी-झाँक्री (निदान र अनुष्ठान), झारफुक, वैद्य र आयुर्वेद, लामा र गुम्बा, मन्दिरका भाकल-पूजा। प्रमाणमा आधारित अडान (तलको समीक्षा-लेख) सहकार्य हो: आदर पाएका धामीले निको पार्न नसकेको केस रेफर गर्छन्, र आफ्नो संसार त्याग्न नपर्दा परिवारले परामर्श सजिलै स्वीकार्छ। परामर्शकर्ताको रेखा: हानि नगर्ने अभ्याससँग सँगै काम गर्ने; हानिकारक (भूत «निकाल्न» कुट्ने, साङ्लाले बाँध्ने, अत्यावश्यक उपचार रोक्ने) मा — सकेसम्म सम्बन्धबाटै, नभए संरक्षण-प्रणालीबाट — हस्तक्षेप गर्ने।</p>
+  </div>
+</article>
+
+<div class="callout">
+    <p class="en" style="margin:0"><strong>The standing rule:</strong> never invent Nepali prevalence figures. For OCD, eating disorders, and sleep disorders no national figure exists — say so. Where Nepali evidence does exist (post-earthquake distress studies, the maternal-mortality suicide finding, the National Mental Health Survey 2020), cite it by name and year.</p>
+    <p class="ne" style="margin:0"><strong>स्थायी नियम:</strong> नेपाली व्यापकता-तथ्याङ्क कहिल्यै आफैं नबनाउनुहोस्। ओसीडी, खानपान र निद्रा विकारका राष्ट्रिय तथ्याङ्क छैनन् — छैन नै भन्नुहोस्। नेपाली प्रमाण भएका ठाउँमा (भूकम्पपछिका अध्ययन, मातृ-मृत्यु अध्ययनको आत्महत्या-निष्कर्ष, राष्ट्रिय मानसिक स्वास्थ्य सर्वेक्षण २०२०) नाम र वर्षसहित उल्लेख गर्नुहोस्।</p>
+  </div>
+<div class="resources"><div class="res-head"><span class="en">Learn more</span><span class="ne">थप सिक्नुहोस्</span></div><p class="res-hint"><span class="en">Pick one, not all — these are chosen to be light, not exhaustive.</span><span class="ne">सबै होइन, एउटा रोज्नुहोस् — यी हल्का, सजिला स्रोत हुन्।</span></p><div class="res-item"><span class="res-type">Article</span><span><a href="https://link.springer.com/article/10.1007/s11013-010-9170-2" target="_blank" rel="noopener">Nepali concepts of psychological trauma (Kohrt &amp; Hruschka, 2010)</a> — <span class="res-note"><span class="en">Source of the man/dimaag/saato/ijjat map above.</span><span class="ne">माथिको मन/दिमाग/सातो/इज्जत नक्साको स्रोत।</span></span></span></div><div class="res-item"><span class="res-type">Article</span><span><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7680349/" target="_blank" rel="noopener">Traditional healers and mental health in Nepal (review)</a> — <span class="res-note"><span class="en">Evidence on dhami-jhankri collaboration — free full text.</span><span class="ne">धामी-झाँक्री सहकार्यको प्रमाण — निःशुल्क।</span></span></span></div><div class="res-item"><span class="res-type">Website</span><span><a href="https://www.tponepal.org" target="_blank" rel="noopener">TPO Nepal</a> — <span class="res-note"><span class="en">Nepal's leading psychosocial organisation — tools, manuals, jobs.</span><span class="ne">नेपालको अग्रणी मनोसामाजिक संस्था — औजार, म्यानुअल।</span></span></span></div></div>
+
+</section>
+    <nav class="pager" aria-label="Chapter">
+    <a class="prev" href="more.html"><span class="lbl"><span class="en">Previous · 27</span><span class="ne">अघिल्लो · 27</span></span><span class="en">The rest of the map</span><span class="ne">बाँकी नक्सा</span></a>
+    <a class="next" href="crosswalk.html"><span class="lbl"><span class="en">Next · 29</span><span class="ne">अर्को · 29</span></span><span class="en">For PSC students</span><span class="ne">पीएससी विद्यार्थीलाई</span></a>
+    </nav>
+    </div>
+  </main>
+</div>
+<script src="assets/lang.js"></script>
+<script src="assets/search-index.js" defer></script>
+<script src="assets/search.js" defer></script>
+</body>
+</html>
