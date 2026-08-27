@@ -162,9 +162,9 @@
   .ctx{border-radius:8px; padding:12px 16px; margin:14px 0; font-size:1.0312rem}
   .ctx .ctx-label{font-family:'IBM Plex Mono',monospace; font-size:0.6875rem; letter-spacing:.14em;
     text-transform:uppercase; margin-bottom:5px; font-weight:500}
-  .ctx.world{background:var(--world-wash); border:1.5px solid var(--world-edge)}
+  .ctx.world{background:var(--world-wash); border:1.5px solid color-mix(in srgb, var(--world-edge) 40%, transparent)}
   .ctx.world .ctx-label{color:var(--world-ink)}
-  .ctx.nepal{background:var(--nepal-wash); border:1.5px solid var(--nepal-edge)}
+  .ctx.nepal{background:var(--nepal-wash); border:1.5px solid color-mix(in srgb, var(--nepal-edge) 40%, transparent)}
   .ctx.nepal .ctx-label{color:var(--nepal-ink)}
   .ctx p{margin:6px 0}
 
@@ -513,3 +513,9 @@ html[data-lang="ne"] .toc-grp .toc-count{font-family:'Mukta',sans-serif; font-si
 .toc-grp svg.spot{width:96px; height:auto; flex:none; color:var(--ink); opacity:.92}
 @media(max-width:640px){ .toc-grp svg.spot{width:72px} }
 @media print{ .toc-grp svg.spot{display:none} }
+
+/* nested boxes inside a card sit back: the card frame carries the attention */
+.card .callout{border-color:color-mix(in srgb, var(--accent) 40%, transparent)}
+.card .callout.crisis{border-color:color-mix(in srgb, var(--crisis) 55%, transparent)}
+.card .tryit{border-color:color-mix(in srgb, var(--accent) 45%, transparent)}
+.card .ctx .ctx-label{opacity:.9}
