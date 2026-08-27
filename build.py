@@ -327,8 +327,7 @@ SHELL = """<!DOCTYPE html>
   <aside class="sidebar">
     <div class="top">
       <button class="collapse-btn" id="btn-collapse" type="button" aria-label="Hide chapters" title="Hide chapters">{icon_panel}</button>
-      <a class="brand" href="index.html">Mano Atlas<span class="brand-ne">मनो एट्लास</span>
-        <span class="sub"><span class="en">Mental health · two languages</span><span class="ne">मानसिक स्वास्थ्य · दुई भाषा</span></span></a>
+      <a class="brand" href="index.html"><span class="en">Mano Atlas</span><span class="ne">मनो एट्लास</span></a>
       <div class="ctrls">
         <div class="langsw" role="group" aria-label="Language">
           <button id="btn-en" class="btn-en" onclick="setLang('en')">EN</button>
@@ -337,7 +336,7 @@ SHELL = """<!DOCTYPE html>
         <button id="btn-theme" class="themesw btn-theme" onclick="cycleTheme()" title="Colour theme">◐ Auto</button>
       </div>
     </div>
-    <div class="search"><span class="s-ico">{icon_search}</span>
+    <div class="search" id="searchbox"><span class="s-ico">{icon_search}</span>
       <input id="q" type="search" autocomplete="off" spellcheck="false"
         placeholder="Search · खोज्नुहोस्" aria-label="Search the atlas">
       <div id="qres" class="qres" hidden></div>
@@ -350,7 +349,8 @@ SHELL = """<!DOCTYPE html>
   <main id="main">
     <div class="topctrl" id="topctrl" aria-label="Language and theme">
       <button class="expand-btn" id="btn-expand" type="button" aria-label="Show chapters">{icon_panel}<span class="en">Chapters</span><span class="ne">अध्याय</span></button>
-      <div class="topctrl-pill">
+      <div class="topctrl-pill" id="pill">
+        <span class="pill-search" id="pill-search"></span>
         <div class="langsw" role="group" aria-label="Language">
           <button class="btn-en" onclick="setLang('en')">EN</button>
           <button class="btn-ne" onclick="setLang('ne')">ने</button>

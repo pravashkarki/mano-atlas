@@ -206,3 +206,16 @@ document.addEventListener('click', function (e) {
   if (b) { var w = b.parentNode, open = !w.classList.contains('open'); w.classList.toggle('open', open); b.setAttribute('aria-expanded', open ? 'true' : 'false'); }
 });
 document.addEventListener('keydown', function (e) { if (e.key === 'Escape') document.querySelectorAll('.info.open').forEach(function (o) { o.classList.remove('open'); }); });
+
+/* ---- desktop: search lives in the floating pill; phones keep it in the header ---- */
+(function () {
+  var mq = window.matchMedia('(min-width: 901px)');
+  function place() {
+    var box = document.getElementById('searchbox'), slot = document.getElementById('pill-search'), snav = document.getElementById('snav');
+    if (!box || !slot || !snav) return;
+    if (mq.matches) { if (box.parentNode !== slot) slot.appendChild(box); }
+    else if (box.parentNode === slot) { snav.parentNode.insertBefore(box, snav); }
+  }
+  function go() { place(); if (mq.addEventListener) mq.addEventListener('change', place); else mq.addListener(place); }
+  if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', go); } else { go(); }
+})();
