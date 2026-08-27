@@ -548,3 +548,12 @@ html[data-lang="ne"] .labels-help summary{font-size:0.9375rem}
 html[data-lang="ne"] .small{font-size:1.0625rem}
 .crit .note,.crit .small{font-size:1rem}
 html[data-lang="ne"] .crit .note,html[data-lang="ne"] .crit .small{font-size:1.0625rem}
+/* quick check options: read as tappable choices, not as background */
+.qz-opt{background:var(--bg); border:1.5px solid var(--line); padding:10px 14px 10px 40px; position:relative; font-size:1rem; line-height:1.4; border-radius:9px; transition:border-color .15s, background .15s}
+.qz-opt::before{content:""; position:absolute; left:14px; top:50%; width:14px; height:14px; margin-top:-8px; border-radius:50%; border:2px solid var(--muted); background:var(--bg)}
+.qz-opt:hover:not(:disabled){border-color:var(--accent); background:var(--surface2)}
+.qz-opt:hover:not(:disabled)::before{border-color:var(--accent)}
+.qz-opt.good{border-color:var(--ok); background:var(--ok-wash)}
+.qz-opt.good::before{border-color:var(--ok); background:var(--ok); box-shadow:inset 0 0 0 3px var(--bg)}
+.qz-opt.nope::before{border-color:var(--muted); background:transparent}
+html[data-lang="ne"] .qz-opt{font-size:1.0625rem}
