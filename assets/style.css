@@ -419,7 +419,7 @@ article.card{scroll-margin-top:76px}
 .themesw:hover{color:var(--ink)}
 .themesw:focus-visible{outline:2px solid var(--accent)}
 .sidebar .top{flex-wrap:wrap; gap:8px}
-.callout.crisis{border-color:var(--crisis); background:var(--crisis-wash)}
+.callout.crisis{border:0; background:var(--crisis-wash)}
 .callout.crisis strong{color:var(--crisis-ink)}
 .gentle{font-size:0.9375rem; color:var(--muted); background:var(--surface2); border:0;
   border-radius:0 8px 8px 0; padding:10px 14px; margin:14px 0 4px;
@@ -519,10 +519,9 @@ html[data-lang="ne"] .toc-grp .toc-count{font-family:'Mukta',sans-serif; font-si
 @media print{ .toc-grp svg.spot{display:none} }
 
 /* nested boxes inside a card sit back: the card frame carries the attention */
-.card .callout.crisis{border-color:color-mix(in srgb, var(--crisis) 55%, transparent)}
 .card .tryit{border-color:color-mix(in srgb, var(--accent) 45%, transparent)}
 .card .ctx .ctx-label{opacity:.9}
-.callout.crisis{border:1.5px solid var(--crisis)}
+.callout.crisis{border:0}
 .tryit{border-color:color-mix(in srgb, var(--accent) 60%, transparent)}
 /* ===== eyebrow labels: heavier and readable (Archivo, not mono) ===== */
 .crit .crit-label,.ctx .ctx-label,.resources .res-head,.quickcheck .qc-head,.keypoints .kp-head,.onpage .onpage-h,.pagehead .kicker,.toc-grp .toc-count,.labels-help summary,.pager a .lbl{
