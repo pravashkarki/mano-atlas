@@ -470,3 +470,13 @@ html[data-lang="ne"] .qz-hint{font-style:normal}
 html[data-lang="ne"] .route{font-size:1rem} html[data-lang="ne"] .route strong{font-family:'Mukta',sans-serif; font-size:1.0625rem}
 .route:hover{border-color:var(--accent)}
 .qres a.qroute{border-left:3px solid var(--accent)}
+
+/* ===== key points (before the quick check) ===== */
+.keypoints{border:1px solid var(--line); border-left:4px solid var(--accent); border-radius:10px; background:var(--surface); padding:14px 18px 10px; margin-top:28px}
+.keypoints .kp-head{font-family:'IBM Plex Mono',monospace; font-size:0.6875rem; letter-spacing:.13em; text-transform:uppercase; color:var(--accent); margin-bottom:6px}
+html[data-lang="ne"] .keypoints .kp-head{font-family:'Mukta',sans-serif; font-size:0.875rem; letter-spacing:0; text-transform:none}
+.keypoints ol{margin:0; padding-left:1.3em} .keypoints li{margin:4px 0; line-height:1.55; font-size:1rem}
+html[data-lang="ne"] .keypoints li{font-size:1.0625rem}
+.plain{font-size:0.9375rem; color:var(--muted); margin:-4px 0 12px; line-height:1.5}
+.plain strong{color:var(--accent); font-weight:600}
+html[data-lang="ne"] .plain{font-size:1rem}

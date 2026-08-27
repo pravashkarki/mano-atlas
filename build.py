@@ -347,8 +347,10 @@ def main() -> None:
     for i, (slug, fname, num, en, ne, cat, group) in enumerate(PAGES):
         body = (content_dir / f"{fname}.html").read_text()
         quiz_file = quiz_dir / f"{fname}.html"
+        kp_file = ROOT / "keypoints" / f"{fname}.html"
+        keypoints = kp_file.read_text() if kp_file.exists() else ""
         if quiz_file.exists():
-            quiz = quiz_file.read_text().rstrip() + "\n"
+            quiz = keypoints + quiz_file.read_text().rstrip() + "\n"
             if '<div class="resources">' in body:
                 k = body.index('<div class="resources">')
                 body = body[:k] + quiz + body[k:]
