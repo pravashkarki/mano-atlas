@@ -106,6 +106,22 @@ def res_type_icon(label: str) -> str:
 
 NE_DIGITS = str.maketrans("0123456789", "०१२३४५६७८९")
 
+# closing care notes: varied per page (picked by page index), dismissible for the session
+CARELINES = [
+    ("That is plenty for one sitting. Whatever brought you here, reading about the mind with care is itself an act of care.",
+     "एक बसाइका लागि यति नै प्रशस्त छ। जुनसुकै कारणले आइपुग्नुभयो, मनका कुरा ध्यानले पढ्नु आफैंमा हेरचाहको काम हो।"),
+    ("In the flow? The next chapter is one click below. Tired? Stopping here is also progress.",
+     "पढ्ने जोश छ? अर्को खण्ड एक क्लिक तल छ। थाक्नुभयो? यहीँ रोकिनु पनि प्रगति हो।"),
+    ("One idea from this page will stay with you longer than the whole page read twice. Which one is yours?",
+     "पूरै पृष्ठ दुई पटक पढ्नुभन्दा यसको एउटा विचार तपाईंसँग लामो समय रहनेछ। तपाईंको चाहिँ कुन हो?"),
+    ("Learning about the mind can stir the mind. If something here sat heavily, saying it aloud to someone you trust helps.",
+     "मनका कुरा पढ्दा मन नै हल्लिन सक्छ। कुनै कुरा गह्रौं लाग्यो भने भरपर्दो मान्छेलाई भन्दा हलुका हुन्छ।"),
+    ("This page will still be here tomorrow, and it reads differently once you have met its ideas in real life.",
+     "यो पृष्ठ भोलि पनि यहीँ हुनेछ, र वास्तविक जीवनमा यी कुरा भेटेपछि यसैलाई पढ्दा अर्कै अर्थ खुल्छ।"),
+    ("Slow is fine. This curriculum took years to write; nobody expects it in one evening.",
+     "बिस्तारै पढे हुन्छ। यो पाठ्यक्रम लेख्न वर्षौं लाग्यो; एकै साँझमा सक्नुपर्छ भन्ने छैन।"),
+]
+
 
 def nav_html(active_slug: str) -> str:
     active_group = next((g for s, _f, _n, _e, _ne, _c, g in PAGES if s == active_slug), None)
@@ -220,6 +236,7 @@ SHELL = """<!DOCTYPE html>
     <nav class="snav" aria-label="Site">
       {nav}
     </nav>
+    <div class="side-foot"><span id="progress"></span></div>
   </aside>
   <main id="main">
     <div class="wrap">
@@ -301,6 +318,8 @@ def main() -> None:
                 "x": plain_text(part)[:3000],
             })
 
+        # inline icon placeholders: <!--ICON:name--> anywhere in a fragment
+        body = re.sub(r'<!--ICON:(\w+)-->', lambda m: ICON[m.group(1)], body)
         # resource-type icons (Lucide), picked from the label text
         body = re.sub(
             r'<span class="res-type">(?!<svg)(.*?)</span>',
@@ -325,13 +344,10 @@ def main() -> None:
             mins = max(2, round(words / 170))
             readtime = (f'<span class="readtime">{ICON["clock"]}<span class="en">about {mins} min · no rush</span>'
                         f'<span class="ne">करिब {str(mins).translate(NE_DIGITS)} मिनेट · हतार छैन</span></span>')
+            ce, cn = CARELINES[i % len(CARELINES)]
             careline = (f'<p class="careline">{ICON["heart"]}<span class="care-tx">'
-                        '<span class="en">That is plenty for one sitting. Whatever brought you to this page, '
-                        'reading about the mind with care, for yourself or for someone else, is itself an act of care. '
-                        'Rest; the ideas settle on their own.</span>'
-                        '<span class="ne">एक बसाइका लागि यति नै प्रशस्त छ। जुनसुकै कारणले यो पृष्ठसम्म आइपुग्नुभयो, '
-                        'आफ्ना वा अरूका लागि मनका कुरा ध्यानले पढ्नु आफैंमा हेरचाहको काम हो। '
-                        'आराम गर्नुहोस्; बुझेका कुरा आफैं बस्दै जान्छन्।</span></span></p>')
+                        f'<span class="en">{ce}</span><span class="ne">{cn}</span></span>'
+                        '<button class="care-x" aria-label="Hide these notes for this visit" title="Hide">&times;</button></p>')
             content = (
                 f'<div class="pagehead"><div class="kicker"><span class="en">Section {num}</span>'
                 f'<span class="ne">खण्ड {num}</span>{readtime}</div></div>\n'

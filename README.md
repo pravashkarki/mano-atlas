@@ -44,7 +44,9 @@ DSM-5 (APA, 2013) · CTEVT PSC Curriculum (2010) · Sub-module 1 & 2 class notes
 
 Open `index.html` in a browser. To add content, edit the section markers (`<!-- ============ NN ... -->`). Every user-visible string appears twice: `class="en"` and `class="ne"`.
 
-**House style rules:** no em-dashes anywhere (use a colon, comma, semicolon, or parentheses instead); no client case studies on the public site; resource links only when verified, otherwise cite by title; never invent Nepali prevalence figures.
+**House style rules:** no em-dashes anywhere (use a colon, comma, semicolon, or parentheses instead); no client case studies on the public site; resource links only when verified, otherwise cite by title; never invent Nepali prevalence figures; soft, humanistic reader voice (care elements: reading time, closing line, no-judgment quizzes, coping-skill boxes framed as skills, never treatment).
+
+**Fixed page order** (every disorder page, same sequence): definition → DSM-5 criteria → international context → Nepal context → diagram (where one exists) → "A skill to try" box → Quick check → Learn more. Practice pages: intro → teaching cards → Quick check → Learn more. Keep new content in this order.
 
 ## Deployment
 

@@ -63,6 +63,41 @@ function cycleTheme() {
   if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', go); } else { go(); }
 })();
 
+/* ---- closing care note: dismissible for this visit (sessionStorage) ---- */
+(function () {
+  try { if (sessionStorage.getItem('psc-careline-off')) document.documentElement.classList.add('careline-off'); } catch (e) {}
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest ? e.target.closest('.care-x') : null;
+    if (!b) return;
+    document.documentElement.classList.add('careline-off');
+    try { sessionStorage.setItem('psc-careline-off', '1'); } catch (e2) {}
+  });
+})();
+
+/* ---- soft reading tracker: visited marks + gentle count; no scores, no streaks ---- */
+(function () {
+  function nd(n) { return String(n).replace(/\d/g, function (d) { return '०१२३४५६७८९'[d]; }); }
+  function go() {
+    var slug = (location.pathname.split('/').pop() || 'index.html').replace('.html', '') || 'index';
+    var seen = {};
+    try { seen = JSON.parse(localStorage.getItem('psc-seen') || '{}'); } catch (e) {}
+    seen[slug] = 1;
+    try { localStorage.setItem('psc-seen', JSON.stringify(seen)); } catch (e) {}
+    var total = 0, read = 0;
+    document.querySelectorAll('.snav a').forEach(function (a) {
+      var s = (a.getAttribute('href') || '').replace('.html', '');
+      total++;
+      if (seen[s]) { read++; a.classList.add('seen'); }
+    });
+    var el = document.getElementById('progress');
+    if (el && total) {
+      el.innerHTML = '<span class="en">' + read + ' of ' + total + ' chapters visited · at your pace</span>' +
+        '<span class="ne">' + nd(total) + ' मध्ये ' + nd(read) + ' खण्ड हेरियो · आफ्नै गतिमा</span>';
+    }
+  }
+  if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', go); } else { go(); }
+})();
+
 /* ---- quick check: friendly, no scores ---- */
 document.addEventListener('click', function (e) {
   var b = e.target.closest ? e.target.closest('.qz-opt') : null;
