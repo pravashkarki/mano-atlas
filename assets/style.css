@@ -137,7 +137,8 @@
 
   /* disorder card */
   .card{background:var(--surface); border:1.5px solid var(--cat,var(--line)); border-radius:10px;
-    box-shadow:var(--shadow); margin-top:26px; overflow:hidden}
+    box-shadow:var(--shadow); margin-top:26px}
+  .card-head{border-radius:9px 9px 0 0}
   .card-head{padding:16px 20px 12px; border-bottom:1px solid var(--line2);
     display:flex; flex-wrap:wrap; gap:10px 14px; align-items:baseline}
   .card-head h3{font-size:1.3125rem; font-weight:700}
@@ -635,3 +636,7 @@ html[data-lang="ne"] .progress{font-family:'Mukta',sans-serif; font-size:0.8125r
   .topctrl{pointer-events:none} .topctrl-pill,.expand-btn{pointer-events:auto}
   @media (prefers-reduced-motion:reduce){ .pill-search .search{transition:none} }
 }
+/* card head: right-hand group (code chip + info) */
+.card-head .head-right{margin-left:auto; display:inline-flex; align-items:center; gap:6px}
+.card-head .head-right .info{margin-left:0}
+.card-head .head-right .info-pop{left:auto; right:0}
