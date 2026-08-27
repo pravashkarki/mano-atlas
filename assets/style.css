@@ -649,3 +649,4 @@ html[data-lang="ne"] .progress{font-family:'Mukta',sans-serif; font-size:0.8125r
   .topctrl-pill .themesw{padding:0 12px; display:inline-flex; align-items:center; line-height:1}
   .pill-search .search input{padding-top:0; padding-bottom:0; line-height:30px}
 }
+@media(min-width:901px){ .pill-search .search{height:32px; display:flex; align-items:center} .pill-search .search .qres{top:calc(100% + 10px)} }
