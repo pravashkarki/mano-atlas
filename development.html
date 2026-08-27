@@ -3,13 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Mano Atlas (मनो एट्लास) — a free, bilingual (English/नेपाली) atlas of mental disorders: DSM-5 criteria, teaching diagrams, and the Nepali context.">
+<meta name="description" content="Mano Atlas (मनो एट्लास): a free, bilingual (English/नेपाली) atlas of mental disorders: DSM-5 criteria, teaching diagrams, and the Nepali context.">
 <title>Human development · Mano Atlas</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Mukta:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Caveat:wght@600&display=swap">
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
+<a class="skip" href="#main"><span class="en">Skip to content</span><span class="ne">सामग्रीमा जानुहोस्</span></a>
 <div class="layout">
   <aside class="sidebar">
     <div class="top">
@@ -19,6 +20,7 @@
         <button id="btn-en" onclick="setLang('en')">EN</button>
         <button id="btn-ne" onclick="setLang('ne')">ने</button>
       </div>
+      <button id="btn-theme" class="themesw" onclick="cycleTheme()" aria-label="Colour theme">◐ Auto</button>
     </div>
     <div class="search">
       <input id="q" type="search" autocomplete="off" spellcheck="false"
@@ -60,9 +62,8 @@
       <a href="nepal.html"><span class="secnum">28</span><span class="catmark" style="background:transparent"></span><span class="en">Culture & the Nepal panorama</span><span class="ne">संस्कृति र नेपाली परिदृश्य</span></a>
       <a href="crosswalk.html"><span class="secnum">29</span><span class="catmark" style="background:transparent"></span><span class="en">For PSC students</span><span class="ne">पीएससी विद्यार्थीलाई</span></a>
     </nav>
-    <div class="side-foot">DSM-5 (2013) · <span class="en">study resource, not a diagnostic tool</span><span class="ne">अध्ययन सामग्री — निदान-उपकरण होइन</span></div>
   </aside>
-  <main>
+  <main id="main">
     <div class="wrap">
 <div class="pagehead"><div class="kicker"><span class="en">Section 05</span><span class="ne">खण्ड 05</span></div></div>
 <section id="development" style="margin-top:12px">
@@ -78,8 +79,8 @@
     <span class="pill todo"><span class="dot"></span><span class="en">CTEVT PSC curriculum</span><span class="ne">सीटीईभीटी पाठ्यक्रम</span></span>
   </div>
   <div class="card-body">
-    <p class="en">Development is driven by four interacting determinants: <strong>biological</strong> (genes, nutrition, health), <strong>cognitive</strong> (thinking processes maturing over time), <strong>socio-cultural</strong> (family, caste/ethnic context, norms, schooling), and <strong>environmental</strong> (poverty or security, village or city, disaster exposure). Human needs follow a rough order — Maslow's insight is that counselling a hungry, unsafe person about self-esteem skips the floors the building stands on.</p>
-    <p class="ne">विकासलाई चार अन्तरक्रियाशील निर्धारकले चलाउँछन्: <strong>जैविक</strong> (वंशाणु, पोषण, स्वास्थ्य), <strong>संज्ञानात्मक</strong> (उमेरसँगै परिपक्व हुँदै जाने सोच), <strong>सामाजिक-सांस्कृतिक</strong> (परिवार, जात-जाति सन्दर्भ, मूल्य-मान्यता, विद्यालय), र <strong>वातावरणीय</strong> (गरिबी वा सुरक्षा, गाउँ वा सहर, विपद्)। मानव आवश्यकताको मोटामोटी क्रम हुन्छ — मास्लोको अन्तर्दृष्टि: भोकै, असुरक्षित मानिसलाई आत्म-सम्मानको परामर्श दिनु भनेको घर उभिएका तला नै छाड्नु हो।</p>
+    <p class="en">Development is driven by four interacting determinants: <strong>biological</strong> (genes, nutrition, health), <strong>cognitive</strong> (thinking processes maturing over time), <strong>socio-cultural</strong> (family, caste/ethnic context, norms, schooling), and <strong>environmental</strong> (poverty or security, village or city, disaster exposure). Human needs follow a rough order: Maslow's insight is that counselling a hungry, unsafe person about self-esteem skips the floors the building stands on.</p>
+    <p class="ne">विकासलाई चार अन्तरक्रियाशील निर्धारकले चलाउँछन्: <strong>जैविक</strong> (वंशाणु, पोषण, स्वास्थ्य), <strong>संज्ञानात्मक</strong> (उमेरसँगै परिपक्व हुँदै जाने सोच), <strong>सामाजिक-सांस्कृतिक</strong> (परिवार, जात-जाति सन्दर्भ, मूल्य-मान्यता, विद्यालय), र <strong>वातावरणीय</strong> (गरिबी वा सुरक्षा, गाउँ वा सहर, विपद्)। मानव आवश्यकताको मोटामोटी क्रम हुन्छ, मास्लोको अन्तर्दृष्टि: भोकै, असुरक्षित मानिसलाई आत्म-सम्मानको परामर्श दिनु भनेको घर उभिएका तला नै छाड्नु हो।</p>
     <figure>
       <svg viewBox="0 0 640 300" role="img" aria-label="Maslow's hierarchy of needs as a five-level pyramid, from physiological needs at the base to self-actualization at the top.">
         <g font-family="Archivo,sans-serif" stroke-linejoin="round">
@@ -88,16 +89,16 @@
           <line x1="260" y1="112" x2="380" y2="112" stroke="currentColor" stroke-width="1.2"/>
           <line x1="230" y1="158" x2="410" y2="158" stroke="currentColor" stroke-width="1.2"/>
           <line x1="200" y1="204" x2="440" y2="204" stroke="currentColor" stroke-width="1.2"/>
-          <text x="320" y="54" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#B01E3C" class="en">SELF-ACTUALIZATION</text>
-          <text x="320" y="54" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#B01E3C" font-family="Mukta,sans-serif" class="ne">आत्म-साक्षात्कार</text>
-          <text x="320" y="100" text-anchor="middle" font-size="11" fill="currentColor" class="en">Esteem — respect, achievement, ijjat</text>
-          <text x="320" y="100" text-anchor="middle" font-size="11.5" fill="currentColor" font-family="Mukta,sans-serif" class="ne">सम्मान — आदर, उपलब्धि, इज्जत</text>
-          <text x="320" y="146" text-anchor="middle" font-size="11" fill="currentColor" class="en">Love &amp; belonging — family, friends, community</text>
-          <text x="320" y="146" text-anchor="middle" font-size="11.5" fill="currentColor" font-family="Mukta,sans-serif" class="ne">माया र आत्मीयता — परिवार, साथी, समुदाय</text>
-          <text x="320" y="192" text-anchor="middle" font-size="11" fill="currentColor" class="en">Safety — shelter, income, health, no violence</text>
-          <text x="320" y="192" text-anchor="middle" font-size="11.5" fill="currentColor" font-family="Mukta,sans-serif" class="ne">सुरक्षा — बास, आम्दानी, स्वास्थ्य, हिंसा-मुक्त</text>
-          <text x="320" y="238" text-anchor="middle" font-size="11" fill="currentColor" class="en">Physiological — food, water, sleep, warmth</text>
-          <text x="320" y="238" text-anchor="middle" font-size="11.5" fill="currentColor" font-family="Mukta,sans-serif" class="ne">शारीरिक — खाना, पानी, निद्रा, न्यानो</text>
+          <text x="320" y="54" text-anchor="middle" font-size="10.5" font-weight="bold" style="fill:var(--accent)" class="en">SELF-ACTUALIZATION</text>
+          <text x="320" y="54" text-anchor="middle" font-size="10.5" font-weight="bold" style="fill:var(--accent)" font-family="Mukta,sans-serif" class="ne">आत्म-साक्षात्कार</text>
+          <text x="320" y="100" text-anchor="middle" font-size="11" fill="currentColor" class="en">Esteem: respect, achievement, ijjat</text>
+          <text x="320" y="100" text-anchor="middle" font-size="11.5" fill="currentColor" font-family="Mukta,sans-serif" class="ne">सम्मान, आदर, उपलब्धि, इज्जत</text>
+          <text x="320" y="146" text-anchor="middle" font-size="11" fill="currentColor" class="en">Love &amp; belonging: family, friends, community</text>
+          <text x="320" y="146" text-anchor="middle" font-size="11.5" fill="currentColor" font-family="Mukta,sans-serif" class="ne">माया र आत्मीयता, परिवार, साथी, समुदाय</text>
+          <text x="320" y="192" text-anchor="middle" font-size="11" fill="currentColor" class="en">Safety: shelter, income, health, no violence</text>
+          <text x="320" y="192" text-anchor="middle" font-size="11.5" fill="currentColor" font-family="Mukta,sans-serif" class="ne">सुरक्षा, बास, आम्दानी, स्वास्थ्य, हिंसा-मुक्त</text>
+          <text x="320" y="238" text-anchor="middle" font-size="11" fill="currentColor" class="en">Physiological: food, water, sleep, warmth</text>
+          <text x="320" y="238" text-anchor="middle" font-size="11.5" fill="currentColor" font-family="Mukta,sans-serif" class="ne">शारीरिक, खाना, पानी, निद्रा, न्यानो</text>
           <text x="510" y="240" font-size="12" fill="currentColor" opacity=".75" class="en">← counselling starts</text>
           <text x="510" y="254" font-size="12" fill="currentColor" opacity=".75" class="en">where the client is</text>
           <text x="510" y="240" font-size="13" fill="currentColor" opacity=".75" font-family="Mukta,sans-serif" class="ne">← परामर्श सेवाग्राही</text>
@@ -120,43 +121,44 @@
     <p class="ne">हरेक चरण दुई ध्रुवबीचको सङ्कट हो; समाधान भए शक्ति («गुण») बढ्छ, नभए वर्षौंपछि परामर्शकर्ताले भेट्ने जोखिम बाँकी रहन्छ। उमेर अनुमानित हुन्।</p>
     <div class="tblwrap">
       <table class="data en">
-        <tr><th>Stage · age</th><th>Crisis</th><th>Virtue</th><th>If it fails — what walks into your room</th></tr>
-        <tr><td>1 · 0–1½</td><td>Trust vs mistrust</td><td>Hope</td><td>Difficulty trusting anyone — including the counselor</td></tr>
+        <tr><th>Stage · age</th><th>Crisis</th><th>Virtue</th><th>If it fails: what walks into your room</th></tr>
+        <tr><td>1 · 0–1½</td><td>Trust vs mistrust</td><td>Hope</td><td>Difficulty trusting anyone: including the counselor</td></tr>
         <tr><td>2 · 1½–3</td><td>Autonomy vs shame &amp; doubt</td><td>Will</td><td>Chronic shame, indecision, over-control</td></tr>
         <tr><td>3 · 3–5</td><td>Initiative vs guilt</td><td>Purpose</td><td>Guilt at wanting anything for oneself</td></tr>
-        <tr><td>4 · 6–12</td><td>Industry vs inferiority</td><td>Competence</td><td>"I am not capable" — school failure identity</td></tr>
+        <tr><td>4 · 6–12</td><td>Industry vs inferiority</td><td>Competence</td><td>"I am not capable": school failure identity</td></tr>
         <tr><td>5 · 12–18</td><td>Identity vs role confusion</td><td>Fidelity</td><td>Drift, peer-pressure vulnerability, identity crises</td></tr>
-        <tr><td>6 · 18–40</td><td>Intimacy vs isolation</td><td>Love</td><td>Loneliness, failed closeness — even inside marriage</td></tr>
-        <tr><td>7 · 40–65</td><td>Generativity vs stagnation</td><td>Care</td><td>"What is my life for?" — midlife emptiness</td></tr>
+        <tr><td>6 · 18–40</td><td>Intimacy vs isolation</td><td>Love</td><td>Loneliness, failed closeness, even inside marriage</td></tr>
+        <tr><td>7 · 40–65</td><td>Generativity vs stagnation</td><td>Care</td><td>"What is my life for?": midlife emptiness</td></tr>
         <tr><td>8 · 65+</td><td>Integrity vs despair</td><td>Wisdom</td><td>Bitterness and despair when looking back</td></tr>
       </table>
       <table class="data ne">
-        <tr><th>चरण · उमेर</th><th>सङ्कट</th><th>गुण</th><th>असफल भए — तपाईंको कोठामा के आउँछ</th></tr>
-        <tr><td>१ · ०–१½</td><td>विश्वास वि. अविश्वास</td><td>आशा</td><td>कसैलाई विश्वास गर्नै गाह्रो — परामर्शकर्तालाई समेत</td></tr>
+        <tr><th>चरण · उमेर</th><th>सङ्कट</th><th>गुण</th><th>असफल भए, तपाईंको कोठामा के आउँछ</th></tr>
+        <tr><td>१ · ०–१½</td><td>विश्वास वि. अविश्वास</td><td>आशा</td><td>कसैलाई विश्वास गर्नै गाह्रो, परामर्शकर्तालाई समेत</td></tr>
         <tr><td>२ · १½–३</td><td>स्वायत्तता वि. लाज-शंका</td><td>इच्छाशक्ति</td><td>दीर्घ लाज, निर्णयहीनता</td></tr>
         <tr><td>३ · ३–५</td><td>पहल वि. अपराधबोध</td><td>उद्देश्य</td><td>आफ्ना लागि केही चाहँदा पनि दोषी महसुस</td></tr>
-        <tr><td>४ · ६–१२</td><td>उद्यम वि. हीनता</td><td>सक्षमता</td><td>«म सक्दिनँ» — विद्यालय-असफलताको पहिचान</td></tr>
+        <tr><td>४ · ६–१२</td><td>उद्यम वि. हीनता</td><td>सक्षमता</td><td>«म सक्दिनँ», विद्यालय-असफलताको पहिचान</td></tr>
         <tr><td>५ · १२–१८</td><td>पहिचान वि. भूमिका-अन्योल</td><td>निष्ठा</td><td>दिशाहीनता, साथी-दबाबमा जोखिम</td></tr>
-        <tr><td>६ · १८–४०</td><td>घनिष्ठता वि. एक्लोपन</td><td>प्रेम</td><td>एक्लोपन — विवाहभित्रै पनि</td></tr>
-        <tr><td>७ · ४०–६५</td><td>सृजनशीलता वि. ठहराव</td><td>हेरचाह</td><td>«मेरो जीवन केका लागि?» — मध्य-जीवन रिक्तता</td></tr>
+        <tr><td>६ · १८–४०</td><td>घनिष्ठता वि. एक्लोपन</td><td>प्रेम</td><td>एक्लोपन, विवाहभित्रै पनि</td></tr>
+        <tr><td>७ · ४०–६५</td><td>सृजनशीलता वि. ठहराव</td><td>हेरचाह</td><td>«मेरो जीवन केका लागि?», मध्य-जीवन रिक्तता</td></tr>
         <tr><td>८ · ६५+</td><td>अखण्डता वि. निराशा</td><td>बुद्धिमत्ता</td><td>फर्केर हेर्दा तिक्तता र निराशा</td></tr>
       </table>
     </div>
     <details class="quiz">
       <summary><span class="en">Test yourself</span><span class="ne">आफैंलाई जाँच्नुहोस्</span></summary>
       <div class="quiz-body">
-        <p class="en">1) Which Erikson stage is a school-refusing 8-year-old negotiating, and which virtue is at stake? 2) A father abroad for 12 of his son's 15 years — trace the possible impact through stages 1, 4 and 5. 3) Why does Maslow explain the failure of "just counsel her" for a woman in an unsafe marriage?</p>
-        <p class="ne">१) विद्यालय जान नमान्ने ८ वर्षे बच्चा एरिक्सनको कुन चरणमा छ, कुन गुण दाउमा छ? २) छोराका १५ मध्ये १२ वर्ष विदेशमा बिताएका बुबा — चरण १, ४ र ५ मा सम्भावित असर केलाउनुहोस्। ३) असुरक्षित विवाहमा रहेकी महिलालाई «परामर्श मात्र» किन पुग्दैन — मास्लोले कसरी बताउँछ?</p>
+        <p class="en">1) Which Erikson stage is a school-refusing 8-year-old negotiating, and which virtue is at stake? 2) A father abroad for 12 of his son's 15 years: trace the possible impact through stages 1, 4 and 5. 3) Why does Maslow explain the failure of "just counsel her" for a woman in an unsafe marriage?</p>
+        <p class="ne">१) विद्यालय जान नमान्ने ८ वर्षे बच्चा एरिक्सनको कुन चरणमा छ, कुन गुण दाउमा छ? २) छोराका १५ मध्ये १२ वर्ष विदेशमा बिताएका बुबा, चरण १, ४ र ५ मा सम्भावित असर केलाउनुहोस्। ३) असुरक्षित विवाहमा रहेकी महिलालाई «परामर्श मात्र» किन पुग्दैन, मास्लोले कसरी बताउँछ?</p>
       </div>
     </details>
   </div>
 </article>
 
+<div class="quickcheck"><div class="qc-head"><span class="en">Quick check</span><span class="ne">छिटो जाँच</span></div><p class="qc-hint"><span class="en">Three friendly questions to settle what you just read. This is reassurance, not a test: a wrong tap is part of learning, and you can try again.</span><span class="ne">भर्खर पढेको कुरा बसाल्न तीन मैत्री प्रश्न। यो परीक्षा होइन, ढुक्क हुने तरिका हो: गलत छनोट पनि सिकाइकै अंश हो, फेरि प्रयास गर्न पाइन्छ।</span></p><div class="qz" data-a="2"><p class="qz-q"><span class="en">The base of Maslow's pyramid is:</span><span class="ne">मास्लोको पिरामिडको आधार:</span></p><div class="qz-opts"><button type="button" class="qz-opt" data-i="1"><span class="en">Esteem</span><span class="ne">सम्मान</span></button><button type="button" class="qz-opt" data-i="2"><span class="en">Food, water, sleep, warmth</span><span class="ne">खाना, पानी, निद्रा, न्यानो</span></button><button type="button" class="qz-opt" data-i="3"><span class="en">Self-actualization</span><span class="ne">आत्म-साक्षात्कार</span></button></div><p class="qz-fb" hidden>✔ <span class="en">Yes. <span class="why">Counselling a hungry, unsafe person starts with the bottom floors.</span></span><span class="ne">सही। <span class="why">भोकै, असुरक्षित व्यक्तिको परामर्श तल्लो तलाबाटै सुरु हुन्छ।</span></span></p><p class="qz-hint" hidden><span class="en">Not quite; have another look. The answer is in this section.</span><span class="ne">ठ्याक्कै मिलेन; फेरि हेर्नुहोस्। उत्तर यही खण्डमा छ।</span></p></div><div class="qz" data-a="1"><p class="qz-q"><span class="en">Erikson's adolescent crisis is:</span><span class="ne">एरिक्सनको किशोर-चरणको सङ्कट:</span></p><div class="qz-opts"><button type="button" class="qz-opt" data-i="1"><span class="en">Identity vs role confusion</span><span class="ne">पहिचान वि. भूमिका-अन्योल</span></button><button type="button" class="qz-opt" data-i="2"><span class="en">Trust vs mistrust</span><span class="ne">विश्वास वि. अविश्वास</span></button><button type="button" class="qz-opt" data-i="3"><span class="en">Integrity vs despair</span><span class="ne">अखण्डता वि. निराशा</span></button></div><p class="qz-fb" hidden>✔ <span class="en">Yes. <span class="why">Ages 12 to 18: who am I, which earns the virtue of fidelity.</span></span><span class="ne">सही। <span class="why">१२ देखि १८: म को हुँ; सफल भए निष्ठा भन्ने गुण बन्छ।</span></span></p><p class="qz-hint" hidden><span class="en">Not quite; have another look. The answer is in this section.</span><span class="ne">ठ्याक्कै मिलेन; फेरि हेर्नुहोस्। उत्तर यही खण्डमा छ।</span></p></div><div class="qz" data-a="1"><p class="qz-q"><span class="en">A school-refusing 8-year-old is negotiating which stage?</span><span class="ne">विद्यालय जान नमान्ने ८ वर्षे बच्चा कुन चरणमा छ?</span></p><div class="qz-opts"><button type="button" class="qz-opt" data-i="1"><span class="en">Industry vs inferiority</span><span class="ne">उद्यम वि. हीनता</span></button><button type="button" class="qz-opt" data-i="2"><span class="en">Intimacy vs isolation</span><span class="ne">घनिष्ठता वि. एक्लोपन</span></button><button type="button" class="qz-opt" data-i="3"><span class="en">Autonomy vs shame</span><span class="ne">स्वायत्तता वि. लाज</span></button></div><p class="qz-fb" hidden>✔ <span class="en">Yes. <span class="why">School age is where competence, or an "I can't" identity, is built.</span></span><span class="ne">सही। <span class="why">विद्यालय-उमेरमै सक्षमता, वा «म सक्दिनँ» भन्ने पहिचान बन्छ।</span></span></p><p class="qz-hint" hidden><span class="en">Not quite; have another look. The answer is in this section.</span><span class="ne">ठ्याक्कै मिलेन; फेरि हेर्नुहोस्। उत्तर यही खण्डमा छ।</span></p></div></div>
 <div class="resources"><div class="res-head"><span class="en">Learn more</span><span class="ne">थप सिक्नुहोस्</span></div>
 <p class="res-hint"><span class="en">Pick one, not all.</span><span class="ne">सबै होइन, एउटा रोज्नुहोस्।</span></p>
-<div class="res-item"><span class="res-type">Video series</span><span><a href="https://thecrashcourse.com/topic/psychology/" target="_blank" rel="noopener">Crash Course Psychology — the development episodes ("The Growth of Knowledge" and "Monkeys and Morality")</a> — <span class="res-note"><span class="en">Piaget, attachment and moral development in ~20 min total.</span><span class="ne">पियाजे, आसक्ति र नैतिक विकास ~२० मिनेटमा।</span></span></span></div>
-<div class="res-item"><span class="res-type">Book</span><span><strong>Erik Erikson, Childhood and Society — ch. 7 ("The Eight Ages of Man")</strong> — <span class="res-note"><span class="en">the original statement of the eight stages, only ~30 pages.</span><span class="ne">आठ चरणको मूल स्रोत, जम्मा ~३० पृष्ठ।</span></span></span></div>
-<div class="res-item"><span class="res-type">Paper</span><span><strong>Harlow (1958), "The nature of love"</strong> — <span class="res-note"><span class="en">the monkey experiments behind everything we teach about attachment.</span><span class="ne">आसक्ति-शिक्षाको पछाडिका बाँदर-प्रयोग।</span></span></span></div>
+<div class="res-item"><span class="res-type">Video series</span><span><a href="https://thecrashcourse.com/topic/psychology/" target="_blank" rel="noopener">Crash Course Psychology: the development episodes ("The Growth of Knowledge" and "Monkeys and Morality")</a>: <span class="res-note"><span class="en">Piaget, attachment and moral development in ~20 min total.</span><span class="ne">पियाजे, आसक्ति र नैतिक विकास ~२० मिनेटमा।</span></span></span></div>
+<div class="res-item"><span class="res-type">Book</span><span><strong>Erik Erikson, Childhood and Society: ch. 7 ("The Eight Ages of Man")</strong>: <span class="res-note"><span class="en">the original statement of the eight stages, only ~30 pages.</span><span class="ne">आठ चरणको मूल स्रोत, जम्मा ~३० पृष्ठ।</span></span></span></div>
+<div class="res-item"><span class="res-type">Paper</span><span><strong>Harlow (1958), "The nature of love"</strong>: <span class="res-note"><span class="en">the monkey experiments behind everything we teach about attachment.</span><span class="ne">आसक्ति-शिक्षाको पछाडिका बाँदर-प्रयोग।</span></span></span></div>
 </div>
 
 </section>
@@ -164,6 +166,29 @@
     <a class="prev" href="basics.html"><span class="lbl"><span class="en">Previous · 04</span><span class="ne">अघिल्लो · 04</span></span><span class="en">Mental health basics</span><span class="ne">मानसिक स्वास्थ्यका आधार</span></a>
     <a class="next" href="anxiety.html"><span class="lbl"><span class="en">Next · 06</span><span class="ne">अर्को · 06</span></span><span class="en">Anxiety disorders</span><span class="ne">चिन्ता विकारहरू</span></a>
     </nav>
+    <footer class="sitefoot">
+      <div class="cols">
+        <div>
+          <h4><span class="en">Mano Atlas</span><span class="ne">मनो एट्लास</span></h4>
+          <p class="en">A free, open atlas of mental health in English and नेपाली. Educational resource, not a diagnostic tool: criteria are paraphrased from DSM-5 (2013). Diagnosis belongs to qualified clinicians.</p>
+          <p class="ne">अंग्रेजी र नेपालीमा मानसिक स्वास्थ्यको निःशुल्क, खुला एट्लास। शैक्षिक सामग्री हो, निदान-उपकरण होइन: मापदण्ड DSM-5 (2013) बाट सरलीकृत छन्। निदान योग्य चिकित्सकको काम हो।</p>
+          <p><span class="en">Last reviewed: August 2026</span><span class="ne">पछिल्लो समीक्षा: भदौ २०८३</span></p>
+        </div>
+        <div class="crisis-col">
+          <h4><span class="en">If you need help now</span><span class="ne">अहिले नै सहयोग चाहिए</span></h4>
+          <p><strong>1166</strong> <span class="en">National Suicide Prevention Helpline</span><span class="ne">राष्ट्रिय आत्महत्या रोकथाम हेल्पलाइन</span></p>
+          <p><strong>1660 012 1600</strong> <span class="en">TUTH mental-health hotline</span><span class="ne">टिचिङ अस्पताल हटलाइन</span></p>
+          <p><strong>1145</strong> <span class="en">Women's helpline</span><span class="ne">महिला हेल्पलाइन</span> · <strong>112 / 100</strong> <span class="en">emergency</span><span class="ne">आपतकाल</span></p>
+        </div>
+        <div>
+          <h4><span class="en">Open &amp; improvable</span><span class="ne">खुला र सुधारयोग्य</span></h4>
+          <p class="en">Content licensed <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license noopener" target="_blank">CC BY-NC-SA 4.0</a>: share and adapt with credit, non-commercially.</p>
+          <p class="ne">सामग्री <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license noopener" target="_blank">CC BY-NC-SA 4.0</a> अन्तर्गत: श्रेयसहित, गैर-व्यावसायिक रूपमा बाँड्न र मिलाउन पाइन्छ।</p>
+          <p><span class="en">Spotted an error?</span><span class="ne">त्रुटि भेट्नुभयो?</span> <span class="mailrev" data-u="kpravash" data-d="gmail" data-t="com">kpravash [at] gmail [dot] com</span></p>
+        </div>
+      </div>
+      <p class="fine"><span class="en">Built from the CTEVT Psychosocial Counselor curriculum, class notes, and the sources named on each page.</span><span class="ne">सीटीईभीटी मनोसामाजिक परामर्शकर्ता पाठ्यक्रम, कक्षा-नोट र प्रत्येक पृष्ठमा उल्लिखित स्रोतबाट निर्मित।</span></p>
+    </footer>
     </div>
   </main>
 </div>

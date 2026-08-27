@@ -1,4 +1,4 @@
-/* Mano Atlas — client-side search over the build-time index (assets/search-index.js). */
+/* Mano Atlas: client-side search over the build-time index (assets/search-index.js). */
 (function () {
   function init() {
     var input = document.getElementById('q');
@@ -39,8 +39,8 @@
       res.sort(function (a, b) { return b.score - a.score; });
       res = res.slice(0, 8);
       if (!res.length) {
-        box.innerHTML = '<div class="qempty"><span class="en">No results — try an English or नेपाली term</span>' +
-          '<span class="ne">केही भेटिएन — अर्को शब्द प्रयास गर्नुहोस्</span></div>';
+        box.innerHTML = '<div class="qempty"><span class="en">No results. Try an English or नेपाली term</span>' +
+          '<span class="ne">केही भेटिएन। अर्को शब्द प्रयास गर्नुहोस्</span></div>';
         box.hidden = false;
         return;
       }

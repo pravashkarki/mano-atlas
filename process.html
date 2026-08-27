@@ -3,13 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Mano Atlas (मनो एट्लास) — a free, bilingual (English/नेपाली) atlas of mental disorders: DSM-5 criteria, teaching diagrams, and the Nepali context.">
+<meta name="description" content="Mano Atlas (मनो एट्लास): a free, bilingual (English/नेपाली) atlas of mental disorders: DSM-5 criteria, teaching diagrams, and the Nepali context.">
 <title>The counselling process · Mano Atlas</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Mukta:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Caveat:wght@600&display=swap">
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
+<a class="skip" href="#main"><span class="en">Skip to content</span><span class="ne">सामग्रीमा जानुहोस्</span></a>
 <div class="layout">
   <aside class="sidebar">
     <div class="top">
@@ -19,6 +20,7 @@
         <button id="btn-en" onclick="setLang('en')">EN</button>
         <button id="btn-ne" onclick="setLang('ne')">ने</button>
       </div>
+      <button id="btn-theme" class="themesw" onclick="cycleTheme()" aria-label="Colour theme">◐ Auto</button>
     </div>
     <div class="search">
       <input id="q" type="search" autocomplete="off" spellcheck="false"
@@ -60,17 +62,16 @@
       <a href="nepal.html"><span class="secnum">28</span><span class="catmark" style="background:transparent"></span><span class="en">Culture & the Nepal panorama</span><span class="ne">संस्कृति र नेपाली परिदृश्य</span></a>
       <a href="crosswalk.html"><span class="secnum">29</span><span class="catmark" style="background:transparent"></span><span class="en">For PSC students</span><span class="ne">पीएससी विद्यार्थीलाई</span></a>
     </nav>
-    <div class="side-foot">DSM-5 (2013) · <span class="en">study resource, not a diagnostic tool</span><span class="ne">अध्ययन सामग्री — निदान-उपकरण होइन</span></div>
   </aside>
-  <main>
+  <main id="main">
     <div class="wrap">
 <div class="pagehead"><div class="kicker"><span class="en">Section 19</span><span class="ne">खण्ड 19</span></div></div>
 <section id="process" style="margin-top:12px">
 <div class="sechead"><span class="secnum">19</span>
-  <h2><span class="en">The counselling process — rapport to termination</span><span class="ne">परामर्श-प्रक्रिया — सम्बन्धदेखि समापनसम्म</span></h2>
+  <h2><span class="en">The counselling process: rapport to termination</span><span class="ne">परामर्श-प्रक्रिया, सम्बन्धदेखि समापनसम्म</span></h2>
 </div>
-<p class="secsub en">The curriculum breaks counselling into 24 tasks; they group into six stages. The craft is knowing which stage you are in — and not skipping ahead.</p>
-<p class="secsub ne">पाठ्यक्रमले परामर्शलाई २४ कार्यमा टुक्र्याउँछ; ती छ चरणमा बाँधिन्छन्। सीप भनेको आफू कुन चरणमा छु भनी जान्नु — र फड्को नमार्नु हो।</p>
+<p class="secsub en">The curriculum breaks counselling into 24 tasks; they group into six stages. The craft is knowing which stage you are in, and not skipping ahead.</p>
+<p class="secsub ne">पाठ्यक्रमले परामर्शलाई २४ कार्यमा टुक्र्याउँछ; ती छ चरणमा बाँधिन्छन्। सीप भनेको आफू कुन चरणमा छु भनी जान्नु, र फड्को नमार्नु हो।</p>
 
 <article class="card" id="process-c1">
   <div class="card-head">
@@ -82,17 +83,17 @@
       <table class="data en">
         <tr><th>Stage</th><th>Tasks (curriculum numbering)</th><th>The one thing that matters most</th></tr>
         <tr><td>1 · Build rapport</td><td>Set environment · identify client · introduce yourself · explain confidentiality and its limits · ask expectations · explain what counselling is (1–6)</td><td>Safety. No technique works before trust</td></tr>
-        <tr><td>2 · Assess</td><td>Psychosocial problems (4 dimensions + frequency + intensity) · daily functioning · family environment · work/school · childhood &amp; attachments · decision-making · <strong>suicidal thoughts — every client</strong> · coping · social support (me-map) · psychotic features (hallucination, delusion, orientation) (7–16)</td><td>Function beats symptom-lists: what can the person no longer do?</td></tr>
-        <tr><td>3 · Formulate</td><td>Identify core problems · make the 4-factor formulation (17–18)</td><td>See the diagram below — this is the exam's favourite question</td></tr>
+        <tr><td>2 · Assess</td><td>Psychosocial problems (4 dimensions + frequency + intensity) · daily functioning · family environment · work/school · childhood &amp; attachments · decision-making · <strong>suicidal thoughts: every client</strong> · coping · social support (me-map) · psychotic features (hallucination, delusion, orientation) (7–16)</td><td>Function beats symptom-lists: what can the person no longer do?</td></tr>
+        <tr><td>3 · Formulate</td><td>Identify core problems · make the 4-factor formulation (17–18)</td><td>See the diagram below: this is the exam's favourite question</td></tr>
         <tr><td>4 · Plan</td><td>Set SMART goals with the client, prioritised (19)</td><td>The client's goals, not yours</td></tr>
         <tr><td>5 · Intervene</td><td>Implement strategies · evaluate each session (20–21)</td><td>Small, reviewed steps; adjust what isn't working</td></tr>
-        <tr><td>6 · Close</td><td>Follow up · terminate by mutual agreement · manage the counselor-client relationship throughout (22–24)</td><td>Endings are planned, never abrupt — abandonment harms</td></tr>
+        <tr><td>6 · Close</td><td>Follow up · terminate by mutual agreement · manage the counselor-client relationship throughout (22–24)</td><td>Endings are planned, never abrupt: abandonment harms</td></tr>
       </table>
       <table class="data ne">
         <tr><th>चरण</th><th>कार्यहरू</th><th>सबैभन्दा महत्त्वपूर्ण कुरा</th></tr>
         <tr><td>१ · सम्बन्ध निर्माण</td><td>वातावरण मिलाउने · सेवाग्राही चिन्ने · आफ्नो परिचय · गोपनीयता र यसका सीमा बताउने · अपेक्षा सोध्ने · परामर्श के हो बुझाउने (१–६)</td><td>सुरक्षा। विश्वासअघि कुनै प्रविधि चल्दैन</td></tr>
-        <tr><td>२ · मूल्याङ्कन</td><td>मनोसामाजिक समस्या (४ आयाम + आवृत्ति + तीव्रता) · दैनिक कामकाज · पारिवारिक वातावरण · काम/विद्यालय · बाल्यकाल र आसक्ति · निर्णय-क्षमता · <strong>आत्महत्या-विचार — हरेक सेवाग्राहीमा</strong> · सामना-शैली · सामाजिक सहयोग (मी-म्याप) · मनोविकृति-लक्षण (७–१६)</td><td>लक्षण-सूचीभन्दा कामकाज: के गर्न छोडे?</td></tr>
-        <tr><td>३ · सूत्रीकरण</td><td>मूल समस्या पहिचान · ४-कारक सूत्रीकरण (१७–१८)</td><td>तलको चित्र — परीक्षाको प्रिय प्रश्न</td></tr>
+        <tr><td>२ · मूल्याङ्कन</td><td>मनोसामाजिक समस्या (४ आयाम + आवृत्ति + तीव्रता) · दैनिक कामकाज · पारिवारिक वातावरण · काम/विद्यालय · बाल्यकाल र आसक्ति · निर्णय-क्षमता · <strong>आत्महत्या-विचार, हरेक सेवाग्राहीमा</strong> · सामना-शैली · सामाजिक सहयोग (मी-म्याप) · मनोविकृति-लक्षण (७–१६)</td><td>लक्षण-सूचीभन्दा कामकाज: के गर्न छोडे?</td></tr>
+        <tr><td>३ · सूत्रीकरण</td><td>मूल समस्या पहिचान · ४-कारक सूत्रीकरण (१७–१८)</td><td>तलको चित्र, परीक्षाको प्रिय प्रश्न</td></tr>
         <tr><td>४ · योजना</td><td>सेवाग्राहीसँगै SMART लक्ष्य, प्राथमिकतासहित (१९)</td><td>लक्ष्य सेवाग्राहीका, तपाईंका होइन</td></tr>
         <tr><td>५ · हस्तक्षेप</td><td>रणनीति कार्यान्वयन · हरेक सत्रको मूल्याङ्कन (२०–२१)</td><td>साना, समीक्षा गरिएका पाइला</td></tr>
         <tr><td>६ · समापन</td><td>फलोअप · आपसी सहमतिमा अन्त्य · सम्बन्ध-व्यवस्थापन (२२–२४)</td><td>अन्त्य योजनाबद्ध हुन्छ, झट्टै होइन</td></tr>
@@ -107,9 +108,9 @@
           </marker>
         </defs>
         <g font-family="Archivo,sans-serif">
-          <rect x="255" y="95" width="170" height="60" rx="10" fill="none" stroke="#B01E3C" stroke-width="2.5"/>
-          <text x="340" y="120" text-anchor="middle" font-size="13" font-weight="bold" fill="#B01E3C" class="en">THE PROBLEM</text>
-          <text x="340" y="120" text-anchor="middle" font-size="13.5" font-weight="bold" fill="#B01E3C" font-family="Mukta,sans-serif" class="ne">समस्या</text>
+          <rect x="255" y="95" width="170" height="60" rx="10" fill="none" style="stroke:var(--accent)" stroke-width="2.5"/>
+          <text x="340" y="120" text-anchor="middle" font-size="13" font-weight="bold" style="fill:var(--accent)" class="en">THE PROBLEM</text>
+          <text x="340" y="120" text-anchor="middle" font-size="13.5" font-weight="bold" style="fill:var(--accent)" font-family="Mukta,sans-serif" class="ne">समस्या</text>
           <text x="340" y="138" text-anchor="middle" font-size="10.5" fill="currentColor" opacity=".7" class="en">as the client presents it now</text>
           <text x="340" y="140" text-anchor="middle" font-size="11" fill="currentColor" opacity=".7" font-family="Mukta,sans-serif" class="ne">सेवाग्राहीले अहिले ल्याएको रूपमा</text>
 
@@ -123,8 +124,8 @@
           <rect x="475" y="20" width="185" height="52" rx="8" fill="none" stroke="currentColor" stroke-width="1.5"/>
           <text x="567" y="40" text-anchor="middle" font-size="11.5" font-weight="bold" fill="currentColor" class="en">PRECIPITATING (triggering)</text>
           <text x="567" y="40" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor" font-family="Mukta,sans-serif" class="ne">उत्प्रेरक (ट्रिगर)</text>
-          <text x="567" y="58" text-anchor="middle" font-size="10" fill="currentColor" opacity=".7" class="en">why NOW — loss, exam, migration, disaster</text>
-          <text x="567" y="60" text-anchor="middle" font-size="10.5" fill="currentColor" opacity=".7" font-family="Mukta,sans-serif" class="ne">किन अहिले — क्षति, परीक्षा, बसाइँ, विपद्</text>
+          <text x="567" y="58" text-anchor="middle" font-size="10" fill="currentColor" opacity=".7" class="en">why NOW: loss, exam, migration, disaster</text>
+          <text x="567" y="60" text-anchor="middle" font-size="10.5" fill="currentColor" opacity=".7" font-family="Mukta,sans-serif" class="ne">किन अहिले, क्षति, परीक्षा, बसाइँ, विपद्</text>
           <line x1="475" y1="60" x2="418" y2="98" stroke="currentColor" stroke-width="1.5" marker-end="url(#arrF)"/>
 
           <rect x="20" y="180" width="185" height="52" rx="8" fill="none" stroke="currentColor" stroke-width="1.5"/>
@@ -134,12 +135,12 @@
           <text x="112" y="220" text-anchor="middle" font-size="10.5" fill="currentColor" opacity=".7" font-family="Mukta,sans-serif" class="ne">पन्छाइ · परिवारको प्रतिक्रिया · जारी तनाव</text>
           <line x1="205" y1="195" x2="262" y2="152" stroke="currentColor" stroke-width="1.5" marker-end="url(#arrF)"/>
 
-          <rect x="475" y="180" width="185" height="52" rx="8" fill="none" stroke="#2E7D4F" stroke-width="2"/>
-          <text x="567" y="200" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#2E7D4F" class="en">PROTECTIVE</text>
-          <text x="567" y="200" text-anchor="middle" font-size="12" font-weight="bold" fill="#2E7D4F" font-family="Mukta,sans-serif" class="ne">संरक्षक</text>
-          <text x="567" y="218" text-anchor="middle" font-size="10" fill="currentColor" opacity=".7" class="en">faith · family · skills · income — build on THESE</text>
-          <text x="567" y="220" text-anchor="middle" font-size="10.5" fill="currentColor" opacity=".7" font-family="Mukta,sans-serif" class="ne">आस्था · परिवार · सीप · आम्दानी — यिनैमा निर्माण</text>
-          <line x1="475" y1="195" x2="418" y2="152" stroke="#2E7D4F" stroke-width="2" marker-end="url(#arrF)"/>
+          <rect x="475" y="180" width="185" height="52" rx="8" fill="none" style="stroke:var(--ok)" stroke-width="2"/>
+          <text x="567" y="200" text-anchor="middle" font-size="11.5" font-weight="bold" style="fill:var(--ok)" class="en">PROTECTIVE</text>
+          <text x="567" y="200" text-anchor="middle" font-size="12" font-weight="bold" style="fill:var(--ok)" font-family="Mukta,sans-serif" class="ne">संरक्षक</text>
+          <text x="567" y="218" text-anchor="middle" font-size="10" fill="currentColor" opacity=".7" class="en">faith · family · skills · income: build on THESE</text>
+          <text x="567" y="220" text-anchor="middle" font-size="10.5" fill="currentColor" opacity=".7" font-family="Mukta,sans-serif" class="ne">आस्था · परिवार · सीप · आम्दानी, यिनैमा निर्माण</text>
+          <line x1="475" y1="195" x2="418" y2="152" style="stroke:var(--ok)" stroke-width="2" marker-end="url(#arrF)"/>
         </g>
       </svg>
       <figcaption class="en">The 4-P formulation (curriculum task 18). Interventions map onto arrows: you cannot change predisposing factors, you can defuse triggers, you MUST break maintaining loops, and you always strengthen the protective corner.</figcaption>
@@ -155,10 +156,11 @@
   </div>
 </article>
 
+<div class="quickcheck"><div class="qc-head"><span class="en">Quick check</span><span class="ne">छिटो जाँच</span></div><p class="qc-hint"><span class="en">Three friendly questions to settle what you just read. This is reassurance, not a test: a wrong tap is part of learning, and you can try again.</span><span class="ne">भर्खर पढेको कुरा बसाल्न तीन मैत्री प्रश्न। यो परीक्षा होइन, ढुक्क हुने तरिका हो: गलत छनोट पनि सिकाइकै अंश हो, फेरि प्रयास गर्न पाइन्छ।</span></p><div class="qz" data-a="2"><p class="qz-q"><span class="en">The correct order of the counselling process:</span><span class="ne">परामर्श-प्रक्रियाको सही क्रम:</span></p><div class="qz-opts"><button type="button" class="qz-opt" data-i="1"><span class="en">Assess, advise, close</span><span class="ne">मूल्याङ्कन, अर्ती, अन्त्य</span></button><button type="button" class="qz-opt" data-i="2"><span class="en">Rapport, assess, formulate, plan, intervene, close</span><span class="ne">सम्बन्ध, मूल्याङ्कन, सूत्रीकरण, योजना, हस्तक्षेप, समापन</span></button><button type="button" class="qz-opt" data-i="3"><span class="en">Plan, rapport, close</span><span class="ne">योजना, सम्बन्ध, अन्त्य</span></button></div><p class="qz-fb" hidden>✔ <span class="en">Yes. <span class="why">And the craft is not skipping ahead of the stage you are in.</span></span><span class="ne">सही। <span class="why">सीप भनेको आफ्नो चरणभन्दा अगाडि फड्को नमार्नु हो।</span></span></p><p class="qz-hint" hidden><span class="en">Not quite; have another look. The answer is in this section.</span><span class="ne">ठ्याक्कै मिलेन; फेरि हेर्नुहोस्। उत्तर यही खण्डमा छ।</span></p></div><div class="qz" data-a="2"><p class="qz-q"><span class="en">In the 4-P formulation, protective factors are:</span><span class="ne">४-कारक सूत्रीकरणमा संरक्षक कारक:</span></p><div class="qz-opts"><button type="button" class="qz-opt" data-i="1"><span class="en">Ignored</span><span class="ne">बेवास्ता गरिन्छ</span></button><button type="button" class="qz-opt" data-i="2"><span class="en">The corner you always strengthen</span><span class="ne">सधैं बलियो बनाइने कुना</span></button><button type="button" class="qz-opt" data-i="3"><span class="en">Only for children</span><span class="ne">बालबालिकाका लागि मात्र</span></button></div><p class="qz-fb" hidden>✔ <span class="en">Yes. <span class="why">Faith, family, skills, income: interventions build on what already holds.</span></span><span class="ne">सही। <span class="why">आस्था, परिवार, सीप, आम्दानी: भइरहेकै बलमा निर्माण गरिन्छ।</span></span></p><p class="qz-hint" hidden><span class="en">Not quite; have another look. The answer is in this section.</span><span class="ne">ठ्याक्कै मिलेन; फेरि हेर्नुहोस्। उत्तर यही खण्डमा छ।</span></p></div><div class="qz" data-a="1"><p class="qz-q"><span class="en">Suicidal thoughts are assessed in:</span><span class="ne">आत्महत्या-विचारको मूल्याङ्कन कसमा गरिन्छ?</span></p><div class="qz-opts"><button type="button" class="qz-opt" data-i="1"><span class="en">Every client</span><span class="ne">हरेक सेवाग्राहीमा</span></button><button type="button" class="qz-opt" data-i="2"><span class="en">Only depressed clients</span><span class="ne">उदास सेवाग्राहीमा मात्र</span></button><button type="button" class="qz-opt" data-i="3"><span class="en">Only when raised</span><span class="ne">उठाए मात्र</span></button></div><p class="qz-fb" hidden>✔ <span class="en">Yes. <span class="why">Curriculum task 13: every client, every assessment.</span></span><span class="ne">सही। <span class="why">पाठ्यक्रम कार्य १३: हरेक सेवाग्राही, हरेक मूल्याङ्कन।</span></span></p><p class="qz-hint" hidden><span class="en">Not quite; have another look. The answer is in this section.</span><span class="ne">ठ्याक्कै मिलेन; फेरि हेर्नुहोस्। उत्तर यही खण्डमा छ।</span></p></div></div>
 <div class="resources"><div class="res-head"><span class="en">Learn more</span><span class="ne">थप सिक्नुहोस्</span></div>
 <p class="res-hint"><span class="en">Pick one, not all.</span><span class="ne">सबै होइन, एउटा रोज्नुहोस्।</span></p>
-<div class="res-item"><span class="res-type">Free book</span><span><a href="https://www.cambridge.org/core/books/where-there-is-no-psychiatrist/47578A845CAFC7E23A181749A4190B54" target="_blank" rel="noopener">Where There Is No Psychiatrist — assessment chapters</a> — <span class="res-note"><span class="en">step-by-step assessment written for exactly your role.</span><span class="ne">तपाईंकै भूमिकाका लागि लेखिएको चरणबद्ध मूल्याङ्कन।</span></span></span></div>
-<div class="res-item"><span class="res-type">Book</span><span><strong>Egan, The Skilled Helper — the three-stage model</strong> — <span class="res-note"><span class="en">a compatible, simpler frame: story → possibilities → action.</span><span class="ne">मिल्दो, सरल ढाँचा: कथा → सम्भावना → कार्य।</span></span></span></div>
+<div class="res-item"><span class="res-type">Free book</span><span><a href="https://www.cambridge.org/core/books/where-there-is-no-psychiatrist/47578A845CAFC7E23A181749A4190B54" target="_blank" rel="noopener">Where There Is No Psychiatrist: assessment chapters</a>: <span class="res-note"><span class="en">step-by-step assessment written for exactly your role.</span><span class="ne">तपाईंकै भूमिकाका लागि लेखिएको चरणबद्ध मूल्याङ्कन।</span></span></span></div>
+<div class="res-item"><span class="res-type">Book</span><span><strong>Egan, The Skilled Helper: the three-stage model</strong>: <span class="res-note"><span class="en">a compatible, simpler frame: story → possibilities → action.</span><span class="ne">मिल्दो, सरल ढाँचा: कथा → सम्भावना → कार्य।</span></span></span></div>
 </div>
 
 </section>
@@ -166,6 +168,29 @@
     <a class="prev" href="skills.html"><span class="lbl"><span class="en">Previous · 18</span><span class="ne">अघिल्लो · 18</span></span><span class="en">Communication skills</span><span class="ne">संवाद-सीप</span></a>
     <a class="next" href="tools.html"><span class="lbl"><span class="en">Next · 20</span><span class="ne">अर्को · 20</span></span><span class="en">Tools & techniques</span><span class="ne">औजार र प्रविधि</span></a>
     </nav>
+    <footer class="sitefoot">
+      <div class="cols">
+        <div>
+          <h4><span class="en">Mano Atlas</span><span class="ne">मनो एट्लास</span></h4>
+          <p class="en">A free, open atlas of mental health in English and नेपाली. Educational resource, not a diagnostic tool: criteria are paraphrased from DSM-5 (2013). Diagnosis belongs to qualified clinicians.</p>
+          <p class="ne">अंग्रेजी र नेपालीमा मानसिक स्वास्थ्यको निःशुल्क, खुला एट्लास। शैक्षिक सामग्री हो, निदान-उपकरण होइन: मापदण्ड DSM-5 (2013) बाट सरलीकृत छन्। निदान योग्य चिकित्सकको काम हो।</p>
+          <p><span class="en">Last reviewed: August 2026</span><span class="ne">पछिल्लो समीक्षा: भदौ २०८३</span></p>
+        </div>
+        <div class="crisis-col">
+          <h4><span class="en">If you need help now</span><span class="ne">अहिले नै सहयोग चाहिए</span></h4>
+          <p><strong>1166</strong> <span class="en">National Suicide Prevention Helpline</span><span class="ne">राष्ट्रिय आत्महत्या रोकथाम हेल्पलाइन</span></p>
+          <p><strong>1660 012 1600</strong> <span class="en">TUTH mental-health hotline</span><span class="ne">टिचिङ अस्पताल हटलाइन</span></p>
+          <p><strong>1145</strong> <span class="en">Women's helpline</span><span class="ne">महिला हेल्पलाइन</span> · <strong>112 / 100</strong> <span class="en">emergency</span><span class="ne">आपतकाल</span></p>
+        </div>
+        <div>
+          <h4><span class="en">Open &amp; improvable</span><span class="ne">खुला र सुधारयोग्य</span></h4>
+          <p class="en">Content licensed <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license noopener" target="_blank">CC BY-NC-SA 4.0</a>: share and adapt with credit, non-commercially.</p>
+          <p class="ne">सामग्री <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license noopener" target="_blank">CC BY-NC-SA 4.0</a> अन्तर्गत: श्रेयसहित, गैर-व्यावसायिक रूपमा बाँड्न र मिलाउन पाइन्छ।</p>
+          <p><span class="en">Spotted an error?</span><span class="ne">त्रुटि भेट्नुभयो?</span> <span class="mailrev" data-u="kpravash" data-d="gmail" data-t="com">kpravash [at] gmail [dot] com</span></p>
+        </div>
+      </div>
+      <p class="fine"><span class="en">Built from the CTEVT Psychosocial Counselor curriculum, class notes, and the sources named on each page.</span><span class="ne">सीटीईभीटी मनोसामाजिक परामर्शकर्ता पाठ्यक्रम, कक्षा-नोट र प्रत्येक पृष्ठमा उल्लिखित स्रोतबाट निर्मित।</span></p>
+    </footer>
     </div>
   </main>
 </div>

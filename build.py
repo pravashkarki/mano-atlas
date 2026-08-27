@@ -10,6 +10,19 @@ import re
 
 ROOT = pathlib.Path(__file__).parent
 
+# ---- site-wide values: edit HERE, then run python3 build.py ----
+SITE = {
+    "reviewed_en": "August 2026",
+    "reviewed_ne": "भदौ २०८३",
+    "email_user": "kpravash",       # contact email, kept out of raw HTML for spam bots
+    "email_domain": "gmail",
+    "email_tld": "com",
+    "helpline_suicide": "1166",
+    "helpline_tuth": "1660 012 1600",
+    "helpline_women": "1145",
+    "helpline_emergency": "112 / 100",
+}
+
 # slug, content file, num, en title, ne title, catvar (sidebar colour mark), group
 PAGES = [
     ("index",      "map",        "01", "Home & the DSM-5 map",      "गृहपृष्ठ र DSM-5 नक्सा",        None,       "overview"),
@@ -125,13 +138,14 @@ SHELL = """<!DOCTYPE html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Mano Atlas (मनो एट्लास) — a free, bilingual (English/नेपाली) atlas of mental disorders: DSM-5 criteria, teaching diagrams, and the Nepali context.">
+<meta name="description" content="Mano Atlas (मनो एट्लास): a free, bilingual (English/नेपाली) atlas of mental disorders: DSM-5 criteria, teaching diagrams, and the Nepali context.">
 <title>{title}</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Mukta:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Caveat:wght@600&display=swap">
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
+<a class="skip" href="#main"><span class="en">Skip to content</span><span class="ne">सामग्रीमा जानुहोस्</span></a>
 <div class="layout">
   <aside class="sidebar">
     <div class="top">
@@ -141,6 +155,7 @@ SHELL = """<!DOCTYPE html>
         <button id="btn-en" onclick="setLang('en')">EN</button>
         <button id="btn-ne" onclick="setLang('ne')">ने</button>
       </div>
+      <button id="btn-theme" class="themesw" onclick="cycleTheme()" aria-label="Colour theme">◐ Auto</button>
     </div>
     <div class="search">
       <input id="q" type="search" autocomplete="off" spellcheck="false"
@@ -150,14 +165,36 @@ SHELL = """<!DOCTYPE html>
     <nav class="snav" aria-label="Site">
       {nav}
     </nav>
-    <div class="side-foot">DSM-5 (2013) · <span class="en">study resource, not a diagnostic tool</span><span class="ne">अध्ययन सामग्री — निदान-उपकरण होइन</span></div>
   </aside>
-  <main>
+  <main id="main">
     <div class="wrap">
 {content}
     <nav class="pager" aria-label="Chapter">
     {pager}
     </nav>
+    <footer class="sitefoot">
+      <div class="cols">
+        <div>
+          <h4><span class="en">Mano Atlas</span><span class="ne">मनो एट्लास</span></h4>
+          <p class="en">A free, open atlas of mental health in English and नेपाली. Educational resource, not a diagnostic tool: criteria are paraphrased from DSM-5 (2013). Diagnosis belongs to qualified clinicians.</p>
+          <p class="ne">अंग्रेजी र नेपालीमा मानसिक स्वास्थ्यको निःशुल्क, खुला एट्लास। शैक्षिक सामग्री हो, निदान-उपकरण होइन: मापदण्ड DSM-5 (2013) बाट सरलीकृत छन्। निदान योग्य चिकित्सकको काम हो।</p>
+          <p><span class="en">Last reviewed: {reviewed_en}</span><span class="ne">पछिल्लो समीक्षा: {reviewed_ne}</span></p>
+        </div>
+        <div class="crisis-col">
+          <h4><span class="en">If you need help now</span><span class="ne">अहिले नै सहयोग चाहिए</span></h4>
+          <p><strong>{helpline_suicide}</strong> <span class="en">National Suicide Prevention Helpline</span><span class="ne">राष्ट्रिय आत्महत्या रोकथाम हेल्पलाइन</span></p>
+          <p><strong>{helpline_tuth}</strong> <span class="en">TUTH mental-health hotline</span><span class="ne">टिचिङ अस्पताल हटलाइन</span></p>
+          <p><strong>{helpline_women}</strong> <span class="en">Women's helpline</span><span class="ne">महिला हेल्पलाइन</span> · <strong>{helpline_emergency}</strong> <span class="en">emergency</span><span class="ne">आपतकाल</span></p>
+        </div>
+        <div>
+          <h4><span class="en">Open &amp; improvable</span><span class="ne">खुला र सुधारयोग्य</span></h4>
+          <p class="en">Content licensed <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license noopener" target="_blank">CC BY-NC-SA 4.0</a>: share and adapt with credit, non-commercially.</p>
+          <p class="ne">सामग्री <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license noopener" target="_blank">CC BY-NC-SA 4.0</a> अन्तर्गत: श्रेयसहित, गैर-व्यावसायिक रूपमा बाँड्न र मिलाउन पाइन्छ।</p>
+          <p><span class="en">Spotted an error?</span><span class="ne">त्रुटि भेट्नुभयो?</span> <span class="mailrev" data-u="{email_user}" data-d="{email_domain}" data-t="{email_tld}">{email_user} [at] {email_domain} [dot] {email_tld}</span></p>
+        </div>
+      </div>
+      <p class="fine"><span class="en">Built from the CTEVT Psychosocial Counselor curriculum, class notes, and the sources named on each page.</span><span class="ne">सीटीईभीटी मनोसामाजिक परामर्शकर्ता पाठ्यक्रम, कक्षा-नोट र प्रत्येक पृष्ठमा उल्लिखित स्रोतबाट निर्मित।</span></p>
+    </footer>
     </div>
   </main>
 </div>
@@ -173,8 +210,20 @@ def main() -> None:
     content_dir = ROOT / "content"
     hero = (content_dir / "hero.html").read_text().replace('<!--TOC-->', toc_html())
     search_index = []
+    quiz_dir = ROOT / "quizzes"
     for i, (slug, fname, num, en, ne, cat, group) in enumerate(PAGES):
         body = (content_dir / f"{fname}.html").read_text()
+        quiz_file = quiz_dir / f"{fname}.html"
+        if quiz_file.exists():
+            quiz = quiz_file.read_text().rstrip() + "\n"
+            if '<div class="resources">' in body:
+                k = body.index('<div class="resources">')
+                body = body[:k] + quiz + body[k:]
+            elif '<div class="footer">' in body:
+                k = body.index('<div class="footer">')
+                body = body[:k] + quiz + body[k:]
+            else:
+                body = body.rstrip() + "\n" + quiz
         # give each article card a stable anchor id and index it for search
         counter = {"n": 0}
 
@@ -199,13 +248,22 @@ def main() -> None:
         if slug == "index":
             content = f'<header class="hero">\n{hero}\n</header>\n<section id="map">\n{body}\n</section>'
         else:
+            gentle = ""
+            if group == "disorders":
+                gentle = ('<p class="gentle"><span class="en">A gentle note before you read: symptom lists make '
+                          'almost everyone recognise themselves somewhere. That is a normal effect of reading, '
+                          'not a diagnosis. If something here stays on your mind, a conversation with a '
+                          'professional helps more than re-reading.</span>'
+                          '<span class="ne">पढ्नुअघि एउटा कोमल कुरा: लक्षण-सूची पढ्दा झन्डै सबैलाई कतै न कतै आफ्नै झल्को मिल्छ। '
+                          'त्यो पढाइको सामान्य असर हो, निदान होइन। कुनै कुरा मनमा अडिरह्यो भने फेरि-फेरि पढ्नुभन्दा '
+                          'पेसागत व्यक्तिसँगको कुराकानीले बढी सघाउँछ।</span></p>\n')
             content = (
                 f'<div class="pagehead"><div class="kicker"><span class="en">Section {num}</span>'
-                f'<span class="ne">खण्ड {num}</span></div></div>\n'
+                f'<span class="ne">खण्ड {num}</span></div></div>\n{gentle}'
                 f'<section id="{fname}" style="margin-top:12px">\n{body}\n</section>'
             )
         title = "Mano Atlas" if slug == "index" else f"{en} · Mano Atlas"
-        html = SHELL.format(title=title, nav=nav_html(slug), content=content, pager=pager_html(i))
+        html = SHELL.format(title=title, nav=nav_html(slug), content=content, pager=pager_html(i), **SITE)
         (ROOT / f"{slug}.html").write_text(html)
         print("built", f"{slug}.html")
 

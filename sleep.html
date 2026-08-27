@@ -3,13 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Mano Atlas (मनो एट्लास) — a free, bilingual (English/नेपाली) atlas of mental disorders: DSM-5 criteria, teaching diagrams, and the Nepali context.">
+<meta name="description" content="Mano Atlas (मनो एट्लास): a free, bilingual (English/नेपाली) atlas of mental disorders: DSM-5 criteria, teaching diagrams, and the Nepali context.">
 <title>Sleep-wake disorders · Mano Atlas</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Mukta:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Caveat:wght@600&display=swap">
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
+<a class="skip" href="#main"><span class="en">Skip to content</span><span class="ne">सामग्रीमा जानुहोस्</span></a>
 <div class="layout">
   <aside class="sidebar">
     <div class="top">
@@ -19,6 +20,7 @@
         <button id="btn-en" onclick="setLang('en')">EN</button>
         <button id="btn-ne" onclick="setLang('ne')">ने</button>
       </div>
+      <button id="btn-theme" class="themesw" onclick="cycleTheme()" aria-label="Colour theme">◐ Auto</button>
     </div>
     <div class="search">
       <input id="q" type="search" autocomplete="off" spellcheck="false"
@@ -60,17 +62,17 @@
       <a href="nepal.html"><span class="secnum">28</span><span class="catmark" style="background:transparent"></span><span class="en">Culture & the Nepal panorama</span><span class="ne">संस्कृति र नेपाली परिदृश्य</span></a>
       <a href="crosswalk.html"><span class="secnum">29</span><span class="catmark" style="background:transparent"></span><span class="en">For PSC students</span><span class="ne">पीएससी विद्यार्थीलाई</span></a>
     </nav>
-    <div class="side-foot">DSM-5 (2013) · <span class="en">study resource, not a diagnostic tool</span><span class="ne">अध्ययन सामग्री — निदान-उपकरण होइन</span></div>
   </aside>
-  <main>
+  <main id="main">
     <div class="wrap">
 <div class="pagehead"><div class="kicker"><span class="en">Section 14</span><span class="ne">खण्ड 14</span></div></div>
+<p class="gentle"><span class="en">A gentle note before you read: symptom lists make almost everyone recognise themselves somewhere. That is a normal effect of reading, not a diagnosis. If something here stays on your mind, a conversation with a professional helps more than re-reading.</span><span class="ne">पढ्नुअघि एउटा कोमल कुरा: लक्षण-सूची पढ्दा झन्डै सबैलाई कतै न कतै आफ्नै झल्को मिल्छ। त्यो पढाइको सामान्य असर हो, निदान होइन। कुनै कुरा मनमा अडिरह्यो भने फेरि-फेरि पढ्नुभन्दा पेसागत व्यक्तिसँगको कुराकानीले बढी सघाउँछ।</span></p>
 <section id="sleep" style="margin-top:12px">
 <div class="sechead"><span class="catmark" style="background:var(--c-slp)"></span><span class="secnum">14</span>
     <h2><span class="en">Sleep-wake disorders</span><span class="ne">निद्रा-जागरण विकारहरू</span></h2>
   </div>
   <p class="secsub en">Sleep is the most sensitive indicator of a client's mental state, and the thing you can most reliably improve in the first three sessions. DACUM lists "assess sleep disturbances" and "assess nightmare" as separate tasks.</p>
-  <p class="secsub ne">निद्रा मानसिक अवस्थाको सबैभन्दा संवेदनशील सूचक हो — र पहिला तीन सत्रमा सबैभन्दा भरपर्दो सुधार्न सकिने कुरा। DACUM मा «निद्रा गडबडी मूल्याङ्कन» र «डरलाग्दो सपना मूल्याङ्कन» छुट्टाछुट्टै कार्य छन्।</p>
+  <p class="secsub ne">निद्रा मानसिक अवस्थाको सबैभन्दा संवेदनशील सूचक हो, र पहिला तीन सत्रमा सबैभन्दा भरपर्दो सुधार्न सकिने कुरा। DACUM मा «निद्रा गडबडी मूल्याङ्कन» र «डरलाग्दो सपना मूल्याङ्कन» छुट्टाछुट्टै कार्य छन्।</p>
 
   <figure>
     <svg viewBox="0 0 720 260" role="img" aria-label="A night of sleep: deep non-REM dominates the first third, where sleep terrors and sleepwalking occur; REM dominates the second half, where nightmares and REM sleep behaviour disorder occur.">
@@ -87,8 +89,8 @@
         <text x="52" y="50" text-anchor="end" font-size="11.5" fill="currentColor" font-family="Mukta,sans-serif" class="ne">ब्युँझेको</text>
         <text x="52" y="170" text-anchor="end" font-size="11" fill="currentColor" class="en">deep</text>
         <text x="52" y="170" text-anchor="end" font-size="11.5" fill="currentColor" font-family="Mukta,sans-serif" class="ne">गहिरो</text>
-        <text x="375" y="202" text-anchor="middle" font-size="11" fill="currentColor" opacity=".7" class="en">10 pm ————— a full night ————— 6 am</text>
-        <text x="375" y="204" text-anchor="middle" font-size="12" fill="currentColor" opacity=".7" font-family="Mukta,sans-serif" class="ne">राति १० ————— पूरै रात ————— बिहान ६</text>
+        <text x="375" y="202" text-anchor="middle" font-size="11" fill="currentColor" opacity=".7" class="en">10 pm · · · · · a full night · · · · · 6 am</text>
+        <text x="375" y="204" text-anchor="middle" font-size="12" fill="currentColor" opacity=".7" font-family="Mukta,sans-serif" class="ne">राति १० · · · · · पूरै रात · · · · · बिहान ६</text>
         <!-- hypnogram: stepped line; REM level at y=70 drawn thicker -->
         <polyline points="60,45 85,45 85,165 150,165 150,120 175,120 175,70 205,70 205,150 265,150 265,110 290,110 290,70 335,70 335,140 385,140 385,70 445,70 445,120 480,120 480,70 555,70 555,110 590,110 590,70 665,70 665,45 685,45"
           fill="none" stroke="currentColor" stroke-width="1.8"/>
@@ -104,24 +106,24 @@
         <text x="700" y="74" text-anchor="end" font-size="11" font-weight="bold" fill="#4455A8" class="ne">REM</text>
         <!-- zones -->
         <rect x="60" y="215" width="210" height="30" rx="6" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="4 3"/>
-        <text x="165" y="228" text-anchor="middle" font-size="11" font-weight="bold" fill="currentColor" class="en">First third — deep NREM</text>
-        <text x="165" y="228" text-anchor="middle" font-size="11.5" font-weight="bold" fill="currentColor" font-family="Mukta,sans-serif" class="ne">पहिलो तिहाइ — गहिरो NREM</text>
+        <text x="165" y="228" text-anchor="middle" font-size="11" font-weight="bold" fill="currentColor" class="en">First third: deep NREM</text>
+        <text x="165" y="228" text-anchor="middle" font-size="11.5" font-weight="bold" fill="currentColor" font-family="Mukta,sans-serif" class="ne">पहिलो तिहाइ, गहिरो NREM</text>
         <text x="165" y="241" text-anchor="middle" font-size="10" fill="currentColor" opacity=".7" class="en">sleep terrors · sleepwalking (no recall)</text>
         <text x="165" y="242" text-anchor="middle" font-size="10.5" fill="currentColor" opacity=".7" font-family="Mukta,sans-serif" class="ne">निद्रा-त्रास · निद्रामा हिँड्ने (सम्झना हुँदैन)</text>
         <rect x="420" y="215" width="270" height="30" rx="6" fill="none" stroke="#4455A8" stroke-width="1.5"/>
-        <text x="555" y="228" text-anchor="middle" font-size="11" font-weight="bold" fill="#4455A8" class="en">Second half — REM-rich</text>
-        <text x="555" y="228" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#4455A8" font-family="Mukta,sans-serif" class="ne">दोस्रो आधा — REM-प्रधान</text>
+        <text x="555" y="228" text-anchor="middle" font-size="11" font-weight="bold" fill="#4455A8" class="en">Second half: REM-rich</text>
+        <text x="555" y="228" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#4455A8" font-family="Mukta,sans-serif" class="ne">दोस्रो आधा: REM-प्रधान</text>
         <text x="555" y="241" text-anchor="middle" font-size="10" fill="currentColor" opacity=".7" class="en">nightmares (vivid recall) · REM behaviour disorder</text>
         <text x="555" y="242" text-anchor="middle" font-size="10.5" fill="currentColor" opacity=".7" font-family="Mukta,sans-serif" class="ne">डरलाग्दा सपना (स्पष्ट सम्झना) · RBD</text>
       </g>
     </svg>
-    <figcaption class="en">One night, mapped. Deep non-REM sleep piles up in the first third of the night — that is where sleep terrors and sleepwalking erupt, with no memory after. REM stretches lengthen toward morning — that is where nightmares (remembered vividly) and REM sleep behaviour disorder live. The exam question "terror or nightmare?" is answered by the clock and the memory.</figcaption>
-    <figcaption class="ne">एउटा रातको नक्सा। गहिरो NREM निद्रा रातको पहिलो तिहाइमा थुप्रिन्छ — निद्रा-त्रास र निद्रामा हिँड्ने त्यहीँ हुन्छ, पछि सम्झना हुँदैन। बिहानतिर REM लम्बिँदै जान्छ — डरलाग्दा सपना (स्पष्ट सम्झिने) र RBD त्यहाँ बस्छन्। «त्रास कि सपना?» भन्ने परीक्षा-प्रश्नको उत्तर घडी र सम्झनाले दिन्छ।</figcaption>
+    <figcaption class="en">One night, mapped. Deep non-REM sleep piles up in the first third of the night: that is where sleep terrors and sleepwalking erupt, with no memory after. REM stretches lengthen toward morning: that is where nightmares (remembered vividly) and REM sleep behaviour disorder live. The exam question "terror or nightmare?" is answered by the clock and the memory.</figcaption>
+    <figcaption class="ne">एउटा रातको नक्सा। गहिरो NREM निद्रा रातको पहिलो तिहाइमा थुप्रिन्छ, निद्रा-त्रास र निद्रामा हिँड्ने त्यहीँ हुन्छ, पछि सम्झना हुँदैन। बिहानतिर REM लम्बिँदै जान्छ, डरलाग्दा सपना (स्पष्ट सम्झिने) र RBD त्यहाँ बस्छन्। «त्रास कि सपना?» भन्ने परीक्षा-प्रश्नको उत्तर घडी र सम्झनाले दिन्छ।</figcaption>
   </figure>
 
   <article class="card" id="sleep-c1" style="--cat:var(--c-slp)">
     <div class="card-head">
-      <h3><span class="en">Insomnia Disorder — the one you will meet most</span><span class="ne">अनिद्रा विकार — सबैभन्दा धेरै भेटिने</span></h3>
+      <h3><span class="en">Insomnia Disorder; the one you will meet most</span><span class="ne">अनिद्रा विकार, सबैभन्दा धेरै भेटिने</span></h3>
       <span class="code mono">307.42 · F51.01</span>
       <span class="pill beyond"><span class="dot"></span><span class="en">Beyond curriculum</span><span class="ne">पाठ्यक्रमभन्दा बाहिर</span></span>
     </div>
@@ -156,9 +158,9 @@
           <tr><td>Narcolepsy</td><td class="mono">G47.41x</td><td>Irresistible sleep attacks + cataplexy / hypocretin deficiency / SOREMPs</td></tr>
           <tr><td>Obstructive sleep apnoea</td><td class="mono">G47.33</td><td>≥5 apnoeas-hypopnoeas/hour + snoring or daytime sleepiness</td></tr>
           <tr><td>Circadian rhythm disorders</td><td class="mono">G47.2x</td><td>Body clock misaligned with required schedule (shift work, delayed phase)</td></tr>
-          <tr><td>NREM arousal disorders</td><td class="mono">F51.3/.4</td><td>Sleepwalking · sleep terrors — first third of night, no recall</td></tr>
+          <tr><td>NREM arousal disorders</td><td class="mono">F51.3/.4</td><td>Sleepwalking · sleep terrors: first third of night, no recall</td></tr>
           <tr><td>Nightmare disorder</td><td class="mono">F51.5</td><td>Extended dysphoric dreams, second half of night, vivid recall</td></tr>
-          <tr><td>REM sleep behaviour disorder</td><td class="mono">G47.52</td><td>Dream enactment — REM without muscle paralysis</td></tr>
+          <tr><td>REM sleep behaviour disorder</td><td class="mono">G47.52</td><td>Dream enactment: REM without muscle paralysis</td></tr>
           <tr><td>Restless legs syndrome</td><td class="mono">G25.81</td><td>Urge to move legs, worse at rest and night, relieved by movement</td></tr>
         </table>
         <table class="data ne">
@@ -167,26 +169,51 @@
           <tr><td>नार्कोलेप्सी</td><td class="mono">G47.41x</td><td>रोक्नै नसकिने निद्रा-आक्रमण + हाँस्दा शरीर गल्ने (क्याटाप्लेक्सी)</td></tr>
           <tr><td>अब्सट्रक्टिभ स्लिप एप्निया</td><td class="mono">G47.33</td><td>प्रति घण्टा ≥५ पटक सास रोकिने + घुर्ने वा दिउँसो निद्रा</td></tr>
           <tr><td>सर्केडियन लय विकार</td><td class="mono">G47.2x</td><td>शरीर-घडी र चाहिने तालिकाको बेमेल (रात्रि-पाली, ढिलो-चरण)</td></tr>
-          <tr><td>NREM जागरण विकार</td><td class="mono">F51.3/.4</td><td>निद्रामा हिँड्ने · निद्रा-त्रास — रातको पहिलो तिहाइ, सम्झना हुँदैन</td></tr>
-          <tr><td>डरलाग्दो-सपना विकार</td><td class="mono">F51.5</td><td>लामा, पीडादायी सपना — रातको दोस्रो आधा, स्पष्ट सम्झना</td></tr>
-          <tr><td>REM व्यवहार विकार</td><td class="mono">G47.52</td><td>सपना «अभिनय» गर्ने — REM मा मांसपेशी पक्षाघात नहुने</td></tr>
-          <tr><td>रेस्टलेस लेग्स</td><td class="mono">G25.81</td><td>खुट्टा चलाउनैपर्ने छटपटी — आराममा र राति बढ्ने, चलाउँदा कम</td></tr>
+          <tr><td>NREM जागरण विकार</td><td class="mono">F51.3/.4</td><td>निद्रामा हिँड्ने · निद्रा-त्रास, रातको पहिलो तिहाइ, सम्झना हुँदैन</td></tr>
+          <tr><td>डरलाग्दो-सपना विकार</td><td class="mono">F51.5</td><td>लामा, पीडादायी सपना, रातको दोस्रो आधा, स्पष्ट सम्झना</td></tr>
+          <tr><td>REM व्यवहार विकार</td><td class="mono">G47.52</td><td>सपना «अभिनय» गर्ने: REM मा मांसपेशी पक्षाघात नहुने</td></tr>
+          <tr><td>रेस्टलेस लेग्स</td><td class="mono">G25.81</td><td>खुट्टा चलाउनैपर्ने छटपटी, आराममा र राति बढ्ने, चलाउँदा कम</td></tr>
         </table>
       </div>
       <div class="ctx nepal">
         <div class="ctx-label"><span class="en">Nepal</span><span class="ne">नेपाल</span></div>
-        <p class="en">"Nindra lagdaina" is among the most common presenting complaints in Nepali primary care — and often the socially acceptable doorway to depression, anxiety, or trauma underneath. Ask about tea (strong, late, many cups), load-shedding-era phone habits, shift work in security and transport jobs, and crowded sleeping rooms. Sleep hygiene plus stimulus control is a counselor-deliverable intervention with fast, credibility-building results.</p>
-        <p class="ne">«निद्रा लाग्दैन» नेपाली प्राथमिक सेवामा सबैभन्दा सामान्य गुनासामध्ये हो — र प्रायः भित्रको उदासी, चिन्ता वा आघातसम्म पुग्ने सामाजिक रूपमा स्वीकार्य ढोका। सोध्नुहोस्: कडा/धेरै/अबेरको चिया, राति फोन चलाउने बानी, सुरक्षा-यातायात पेसाको पालो-काम, खचाखच सुत्ने कोठा। निद्रा-स्वच्छता + स्टिमुलस कन्ट्रोल — परामर्शकर्ता आफैंले दिन सक्ने, छिटो नतिजा दिने, विश्वास जित्ने हस्तक्षेप हो।</p>
+        <p class="en">"Nindra lagdaina" is among the most common presenting complaints in Nepali primary care, and often the socially acceptable doorway to depression, anxiety, or trauma underneath. Ask about tea (strong, late, many cups), load-shedding-era phone habits, shift work in security and transport jobs, and crowded sleeping rooms. Sleep hygiene plus stimulus control is a counselor-deliverable intervention with fast, credibility-building results.</p>
+        <p class="ne">«निद्रा लाग्दैन» नेपाली प्राथमिक सेवामा सबैभन्दा सामान्य गुनासामध्ये हो, र प्रायः भित्रको उदासी, चिन्ता वा आघातसम्म पुग्ने सामाजिक रूपमा स्वीकार्य ढोका। सोध्नुहोस्: कडा/धेरै/अबेरको चिया, राति फोन चलाउने बानी, सुरक्षा-यातायात पेसाको पालो-काम, खचाखच सुत्ने कोठा। निद्रा-स्वच्छता + स्टिमुलस कन्ट्रोल, परामर्शकर्ता आफैंले दिन सक्ने, छिटो नतिजा दिने, विश्वास जित्ने हस्तक्षेप हो।</p>
       </div>
     </div>
   </article>
-<div class="resources"><div class="res-head"><span class="en">Learn more</span><span class="ne">थप सिक्नुहोस्</span></div><p class="res-hint"><span class="en">Pick one, not all — these are chosen to be light, not exhaustive.</span><span class="ne">सबै होइन, एउटा रोज्नुहोस् — यी हल्का, सजिला स्रोत हुन्।</span></p><div class="res-item"><span class="res-type">Video · 5 min</span><span><a href="https://www.youtube.com/watch?v=j5Sl8LyI7k8" target="_blank" rel="noopener">What causes insomnia? (TED-Ed)</a> — <span class="res-note"><span class="en">The vicious cycle of trying too hard to sleep.</span><span class="ne">निदाउन बल गर्दाको दुष्चक्र।</span></span></span></div><div class="res-item"><span class="res-type">Video · 19 min</span><span><a href="https://www.ted.com/talks/matt_walker_sleep_is_your_superpower" target="_blank" rel="noopener">Sleep is your superpower (Matt Walker, TED)</a> — <span class="res-note"><span class="en">Motivation for clients who think sleep is wasted time.</span><span class="ne">निद्रालाई समयको बर्बादी ठान्नेका लागि।</span></span></span></div><div class="res-item"><span class="res-type">Book chapter</span><span><strong>Why We Sleep (Matthew Walker) — ch. 1–2</strong> — <span class="res-note"><span class="en">Readable science of the hypnogram above.</span><span class="ne">माथिको चित्रको पठनीय विज्ञान।</span></span></span></div></div>
+
+<div class="quickcheck"><div class="qc-head"><span class="en">Quick check</span><span class="ne">छिटो जाँच</span></div><p class="qc-hint"><span class="en">Three friendly questions to settle what you just read. This is reassurance, not a test: a wrong tap is part of learning, and you can try again.</span><span class="ne">भर्खर पढेको कुरा बसाल्न तीन मैत्री प्रश्न। यो परीक्षा होइन, ढुक्क हुने तरिका हो: गलत छनोट पनि सिकाइकै अंश हो, फेरि प्रयास गर्न पाइन्छ।</span></p><div class="qz" data-a="1"><p class="qz-q"><span class="en">Insomnia disorder's thresholds:</span><span class="ne">अनिद्रा विकारको मापदण्ड:</span></p><div class="qz-opts"><button type="button" class="qz-opt" data-i="1"><span class="en">3 nights a week for 3 months</span><span class="ne">हप्तामा ३ रात, ३ महिना</span></button><button type="button" class="qz-opt" data-i="2"><span class="en">Every night for 2 weeks</span><span class="ne">२ हप्ता हरेक रात</span></button><button type="button" class="qz-opt" data-i="3"><span class="en">1 night a week for a year</span><span class="ne">हप्तामा १ रात, १ वर्ष</span></button></div><p class="qz-fb" hidden>✔ <span class="en">Yes. <span class="why">Three and three, despite adequate opportunity to sleep.</span></span><span class="ne">सही। <span class="why">तीन र तीन, सुत्ने पर्याप्त अवसर हुँदाहुँदै।</span></span></p><p class="qz-hint" hidden><span class="en">Not quite; have another look. The answer is in this section.</span><span class="ne">ठ्याक्कै मिलेन; फेरि हेर्नुहोस्। उत्तर यही खण्डमा छ।</span></p></div><div class="qz" data-a="1"><p class="qz-q"><span class="en">Sleep terrors differ from nightmares because terrors:</span><span class="ne">निद्रा-त्रास डरलाग्दो सपनाभन्दा फरक हुनुको कारण:</span></p><div class="qz-opts"><button type="button" class="qz-opt" data-i="1"><span class="en">Happen in the first third, with no memory</span><span class="ne">रातको पहिलो तिहाइमा, सम्झना हुँदैन</span></button><button type="button" class="qz-opt" data-i="2"><span class="en">Are vividly remembered</span><span class="ne">स्पष्ट सम्झिन्छ</span></button><button type="button" class="qz-opt" data-i="3"><span class="en">Happen at dawn</span><span class="ne">झिसमिसेमा हुन्छ</span></button></div><p class="qz-fb" hidden>✔ <span class="en">Yes. <span class="why">The clock and the memory answer the exam question.</span></span><span class="ne">सही। <span class="why">घडी र सम्झनाले नै परीक्षा-प्रश्नको उत्तर दिन्छन्।</span></span></p><p class="qz-hint" hidden><span class="en">Not quite; have another look. The answer is in this section.</span><span class="ne">ठ्याक्कै मिलेन; फेरि हेर्नुहोस्। उत्तर यही खण्डमा छ।</span></p></div><div class="qz" data-a="2"><p class="qz-q"><span class="en">The counselor's first sleep intervention is:</span><span class="ne">परामर्शकर्ताको पहिलो निद्रा-हस्तक्षेप:</span></p><div class="qz-opts"><button type="button" class="qz-opt" data-i="1"><span class="en">Sleeping pills</span><span class="ne">निद्राको औषधि</span></button><button type="button" class="qz-opt" data-i="2"><span class="en">Sleep hygiene and stimulus control</span><span class="ne">निद्रा-स्वच्छता र स्टिमुलस कन्ट्रोल</span></button><button type="button" class="qz-opt" data-i="3"><span class="en">Waking earlier</span><span class="ne">अझ चाँडो उठ्ने</span></button></div><p class="qz-fb" hidden>✔ <span class="en">Yes. <span class="why">Fast, drug-free, counselor-deliverable, and it builds credibility.</span></span><span class="ne">सही। <span class="why">छिटो, औषधिरहित, आफैंले दिन सकिने; विश्वास पनि जित्छ।</span></span></p><p class="qz-hint" hidden><span class="en">Not quite; have another look. The answer is in this section.</span><span class="ne">ठ्याक्कै मिलेन; फेरि हेर्नुहोस्। उत्तर यही खण्डमा छ।</span></p></div></div>
+<div class="resources"><div class="res-head"><span class="en">Learn more</span><span class="ne">थप सिक्नुहोस्</span></div><p class="res-hint"><span class="en">Pick one, not all: these are chosen to be light, not exhaustive.</span><span class="ne">सबै होइन, एउटा रोज्नुहोस्, यी हल्का, सजिला स्रोत हुन्।</span></p><div class="res-item"><span class="res-type">Video · 5 min</span><span><a href="https://www.youtube.com/watch?v=j5Sl8LyI7k8" target="_blank" rel="noopener">What causes insomnia? (TED-Ed)</a>: <span class="res-note"><span class="en">The vicious cycle of trying too hard to sleep.</span><span class="ne">निदाउन बल गर्दाको दुष्चक्र।</span></span></span></div><div class="res-item"><span class="res-type">Video · 19 min</span><span><a href="https://www.ted.com/talks/matt_walker_sleep_is_your_superpower" target="_blank" rel="noopener">Sleep is your superpower (Matt Walker, TED)</a>: <span class="res-note"><span class="en">Motivation for clients who think sleep is wasted time.</span><span class="ne">निद्रालाई समयको बर्बादी ठान्नेका लागि।</span></span></span></div><div class="res-item"><span class="res-type">Book chapter</span><span><strong>Why We Sleep (Matthew Walker): ch. 1–2</strong>: <span class="res-note"><span class="en">Readable science of the hypnogram above.</span><span class="ne">माथिको चित्रको पठनीय विज्ञान।</span></span></span></div></div>
 
 </section>
     <nav class="pager" aria-label="Chapter">
     <a class="prev" href="eating.html"><span class="lbl"><span class="en">Previous · 13</span><span class="ne">अघिल्लो · 13</span></span><span class="en">Eating disorders</span><span class="ne">खानपान विकार</span></a>
     <a class="next" href="substance.html"><span class="lbl"><span class="en">Next · 15</span><span class="ne">अर्को · 15</span></span><span class="en">Substance use</span><span class="ne">लागुपदार्थ प्रयोग</span></a>
     </nav>
+    <footer class="sitefoot">
+      <div class="cols">
+        <div>
+          <h4><span class="en">Mano Atlas</span><span class="ne">मनो एट्लास</span></h4>
+          <p class="en">A free, open atlas of mental health in English and नेपाली. Educational resource, not a diagnostic tool: criteria are paraphrased from DSM-5 (2013). Diagnosis belongs to qualified clinicians.</p>
+          <p class="ne">अंग्रेजी र नेपालीमा मानसिक स्वास्थ्यको निःशुल्क, खुला एट्लास। शैक्षिक सामग्री हो, निदान-उपकरण होइन: मापदण्ड DSM-5 (2013) बाट सरलीकृत छन्। निदान योग्य चिकित्सकको काम हो।</p>
+          <p><span class="en">Last reviewed: August 2026</span><span class="ne">पछिल्लो समीक्षा: भदौ २०८३</span></p>
+        </div>
+        <div class="crisis-col">
+          <h4><span class="en">If you need help now</span><span class="ne">अहिले नै सहयोग चाहिए</span></h4>
+          <p><strong>1166</strong> <span class="en">National Suicide Prevention Helpline</span><span class="ne">राष्ट्रिय आत्महत्या रोकथाम हेल्पलाइन</span></p>
+          <p><strong>1660 012 1600</strong> <span class="en">TUTH mental-health hotline</span><span class="ne">टिचिङ अस्पताल हटलाइन</span></p>
+          <p><strong>1145</strong> <span class="en">Women's helpline</span><span class="ne">महिला हेल्पलाइन</span> · <strong>112 / 100</strong> <span class="en">emergency</span><span class="ne">आपतकाल</span></p>
+        </div>
+        <div>
+          <h4><span class="en">Open &amp; improvable</span><span class="ne">खुला र सुधारयोग्य</span></h4>
+          <p class="en">Content licensed <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license noopener" target="_blank">CC BY-NC-SA 4.0</a>: share and adapt with credit, non-commercially.</p>
+          <p class="ne">सामग्री <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license noopener" target="_blank">CC BY-NC-SA 4.0</a> अन्तर्गत: श्रेयसहित, गैर-व्यावसायिक रूपमा बाँड्न र मिलाउन पाइन्छ।</p>
+          <p><span class="en">Spotted an error?</span><span class="ne">त्रुटि भेट्नुभयो?</span> <span class="mailrev" data-u="kpravash" data-d="gmail" data-t="com">kpravash [at] gmail [dot] com</span></p>
+        </div>
+      </div>
+      <p class="fine"><span class="en">Built from the CTEVT Psychosocial Counselor curriculum, class notes, and the sources named on each page.</span><span class="ne">सीटीईभीटी मनोसामाजिक परामर्शकर्ता पाठ्यक्रम, कक्षा-नोट र प्रत्येक पृष्ठमा उल्लिखित स्रोतबाट निर्मित।</span></p>
+    </footer>
     </div>
   </main>
 </div>

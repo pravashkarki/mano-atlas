@@ -3,13 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Mano Atlas (मनो एट्लास) — a free, bilingual (English/नेपाली) atlas of mental disorders: DSM-5 criteria, teaching diagrams, and the Nepali context.">
+<meta name="description" content="Mano Atlas (मनो एट्लास): a free, bilingual (English/नेपाली) atlas of mental disorders: DSM-5 criteria, teaching diagrams, and the Nepali context.">
 <title>Conversion & somatic · Mano Atlas</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Mukta:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Caveat:wght@600&display=swap">
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
+<a class="skip" href="#main"><span class="en">Skip to content</span><span class="ne">सामग्रीमा जानुहोस्</span></a>
 <div class="layout">
   <aside class="sidebar">
     <div class="top">
@@ -19,6 +20,7 @@
         <button id="btn-en" onclick="setLang('en')">EN</button>
         <button id="btn-ne" onclick="setLang('ne')">ने</button>
       </div>
+      <button id="btn-theme" class="themesw" onclick="cycleTheme()" aria-label="Colour theme">◐ Auto</button>
     </div>
     <div class="search">
       <input id="q" type="search" autocomplete="off" spellcheck="false"
@@ -60,17 +62,17 @@
       <a href="nepal.html"><span class="secnum">28</span><span class="catmark" style="background:transparent"></span><span class="en">Culture & the Nepal panorama</span><span class="ne">संस्कृति र नेपाली परिदृश्य</span></a>
       <a href="crosswalk.html"><span class="secnum">29</span><span class="catmark" style="background:transparent"></span><span class="en">For PSC students</span><span class="ne">पीएससी विद्यार्थीलाई</span></a>
     </nav>
-    <div class="side-foot">DSM-5 (2013) · <span class="en">study resource, not a diagnostic tool</span><span class="ne">अध्ययन सामग्री — निदान-उपकरण होइन</span></div>
   </aside>
-  <main>
+  <main id="main">
     <div class="wrap">
 <div class="pagehead"><div class="kicker"><span class="en">Section 10</span><span class="ne">खण्ड 10</span></div></div>
+<p class="gentle"><span class="en">A gentle note before you read: symptom lists make almost everyone recognise themselves somewhere. That is a normal effect of reading, not a diagnosis. If something here stays on your mind, a conversation with a professional helps more than re-reading.</span><span class="ne">पढ्नुअघि एउटा कोमल कुरा: लक्षण-सूची पढ्दा झन्डै सबैलाई कतै न कतै आफ्नै झल्को मिल्छ। त्यो पढाइको सामान्य असर हो, निदान होइन। कुनै कुरा मनमा अडिरह्यो भने फेरि-फेरि पढ्नुभन्दा पेसागत व्यक्तिसँगको कुराकानीले बढी सघाउँछ।</span></p>
 <section id="somatic" style="margin-top:12px">
 <div class="sechead"><span class="catmark" style="background:var(--c-som)"></span><span class="secnum">10</span>
     <h2><span class="en">Conversion &amp; somatic symptom disorders</span><span class="ne">कन्भर्सन र शारीरिक-लक्षण विकारहरू</span></h2>
   </div>
-  <p class="secsub en">The curriculum's third named type — and in Nepal, arguably the most important differential a psychosocial counselor ever makes: conversion versus epilepsy.</p>
-  <p class="secsub ne">पाठ्यक्रमको तेस्रो नामित प्रकार — र नेपालमा मनोसामाजिक परामर्शकर्ताले गर्ने सम्भवतः सबैभन्दा महत्त्वपूर्ण भिन्नता: कन्भर्सन कि छारे रोग (मिर्गी)?</p>
+  <p class="secsub en">The curriculum's third named type, and in Nepal, arguably the most important differential a psychosocial counselor ever makes: conversion versus epilepsy.</p>
+  <p class="secsub ne">पाठ्यक्रमको तेस्रो नामित प्रकार, र नेपालमा मनोसामाजिक परामर्शकर्ताले गर्ने सम्भवतः सबैभन्दा महत्त्वपूर्ण भिन्नता: कन्भर्सन कि छारे रोग (मिर्गी)?</p>
 
   <article class="card" id="somatic-c1" style="--cat:var(--c-som)">
     <div class="card-head">
@@ -79,8 +81,8 @@
       <span class="pill todo"><span class="dot"></span><span class="en">CTEVT PSC curriculum</span><span class="ne">सीटीईभीटी पाठ्यक्रम</span></span>
     </div>
     <div class="card-body">
-      <p class="defn en">Real neurological symptoms — paralysis, seizures, blindness, mutism — that are incompatible with any neurological disease. The client is not pretending.</p>
-      <p class="defn ne">वास्तविक स्नायविक लक्षण — पक्षाघात, दौरा, दृष्टि गुम्नु, बोली बन्द — तर कुनै स्नायुरोगसँग मेल नखाने। सेवाग्राहीले नाटक गरेको होइन।</p>
+      <p class="defn en">Real neurological symptoms, paralysis, seizures, blindness, mutism, that are incompatible with any neurological disease. The client is not pretending.</p>
+      <p class="defn ne">वास्तविक स्नायविक लक्षण, पक्षाघात, दौरा, दृष्टि गुम्नु, बोली बन्द, तर कुनै स्नायुरोगसँग मेल नखाने। सेवाग्राहीले नाटक गरेको होइन।</p>
       <div class="crit">
         <div class="crit-label"><span class="en">DSM-5 Criteria</span><span class="ne">DSM-5 मापदण्ड</span></div>
         <ol class="en">
@@ -95,14 +97,14 @@
           <li>अर्को रोग/विकारले राम्रोसँग व्याख्या हुँदैन।</li>
           <li>उल्लेखनीय पीडा, कार्य-बाधा, वा चिकित्सकीय मूल्याङ्कन आवश्यक।</li>
         </ol>
-        <p class="note en">Symptom types: weakness/paralysis · abnormal movement · swallowing · speech · attacks/seizures (PNES) · anaesthesia/sensory loss · special sensory (vision, hearing) · mixed. Note: DSM-5 dropped the old requirement to prove a psychological stressor — and "la belle indifférence" is not diagnostic.</p>
-        <p class="note ne">लक्षण-प्रकार: कमजोरी/पक्षाघात · असामान्य चाल · निल्न कठिनाइ · बोली · दौरा (पीएनईएस) · संवेदना गुम्नु · दृष्टि/श्रवण · मिश्रित। नोट: DSM-5 ले मनोवैज्ञानिक तनाव प्रमाणित गर्नुपर्ने पुरानो सर्त हटायो — र «ला बेल एन्डिफेरेन्स» निदानको आधार होइन।</p>
+        <p class="note en">Symptom types: weakness/paralysis · abnormal movement · swallowing · speech · attacks/seizures (PNES) · anaesthesia/sensory loss · special sensory (vision, hearing) · mixed. Note: DSM-5 dropped the old requirement to prove a psychological stressor, and "la belle indifférence" is not diagnostic.</p>
+        <p class="note ne">लक्षण-प्रकार: कमजोरी/पक्षाघात · असामान्य चाल · निल्न कठिनाइ · बोली · दौरा (पीएनईएस) · संवेदना गुम्नु · दृष्टि/श्रवण · मिश्रित। नोट: DSM-5 ले मनोवैज्ञानिक तनाव प्रमाणित गर्नुपर्ने पुरानो सर्त हटायो, र «ला बेल एन्डिफेरेन्स» निदानको आधार होइन।</p>
       </div>
 
       <div class="tblwrap">
         <table class="data en">
           <tr><th></th><th>Epileptic seizure</th><th>Conversion (psychogenic non-epileptic) attack</th></tr>
-          <tr><td>Onset</td><td>Sudden, any time — including sleep, alone</td><td>Gradual, usually with witnesses present</td></tr>
+          <tr><td>Onset</td><td>Sudden, any time: including sleep, alone</td><td>Gradual, usually with witnesses present</td></tr>
           <tr><td>Movements</td><td>Rhythmic, synchronous jerking; stereotyped</td><td>Asynchronous thrashing, pelvic thrusting, side-to-side head shaking, arc de cercle</td></tr>
           <tr><td>Eyes</td><td>Usually open or deviated</td><td>Usually closed, resist opening</td></tr>
           <tr><td>Injury &amp; incontinence</td><td>Tongue biting (side), falls, incontinence common</td><td>Rare; falls are usually protected</td></tr>
@@ -112,7 +114,7 @@
         </table>
         <table class="data ne">
           <tr><th></th><th>छारे रोग (मिर्गी) को दौरा</th><th>कन्भर्सन (मनोजन्य) दौरा</th></tr>
-          <tr><td>सुरुवात</td><td>अचानक, जुनसुकै बेला — निद्रामा, एक्लै हुँदा पनि</td><td>बिस्तारै, प्रायः मान्छेहरूकै अगाडि</td></tr>
+          <tr><td>सुरुवात</td><td>अचानक, जुनसुकै बेला, निद्रामा, एक्लै हुँदा पनि</td><td>बिस्तारै, प्रायः मान्छेहरूकै अगाडि</td></tr>
           <tr><td>चाल</td><td>लयबद्ध, एकैसाथ हात-खुट्टा बटारिने; उस्तै ढाँचा</td><td>बेमेल हात-खुट्टा चलाउने, कम्मर उचाल्ने, टाउको दायाँबायाँ हल्लाउने</td></tr>
           <tr><td>आँखा</td><td>प्रायः खुला वा एकातिर फर्केका</td><td>प्रायः बन्द, खोल्न खोज्दा प्रतिरोध</td></tr>
           <tr><td>चोट र दिसापिसाब</td><td>जिब्रो टोक्ने (छेउ), लड्ने, पिसाब चुहिने सामान्य</td><td>दुर्लभ; लड्दा पनि जोगिएर लड्ने</td></tr>
@@ -123,22 +125,47 @@
       </div>
 
       <div class="ctx nepal">
-        <div class="ctx-label"><span class="en">Nepal — including mass conversion</span><span class="ne">नेपाल — सामूहिक कन्भर्सनसहित</span></div>
-        <p class="en">This is a signature Nepali presentation: episodes of fainting, jerking, or possession-like states ("chhopne") in adolescent girls, often spreading through a school classroom or hostel within hours — <strong>mass conversion / mass psychogenic illness</strong>, repeatedly reported in Nepali districts. Respond by separating affected students calmly, avoiding dramatic audiences, ruling out real medical causes, and working with — not against — the community's spiritual explanation. Never announce "it is all in her mind": the symptom is real, involuntary, and treatable, and the family's cooperation is your main instrument. Refer first-ever seizures for neurological work-up always.</p>
-        <p class="ne">यो नेपालकै विशिष्ट प्रस्तुति हो: किशोरीहरूमा बेहोस हुने, हात-खुट्टा बटारिने वा «छोप्ने» जस्ता अवस्था — प्रायः केही घण्टाभित्रै कक्षा वा छात्रावासभरि फैलिने — <strong>सामूहिक कन्भर्सन / सामूहिक मनोजन्य रोग</strong>, नेपालका जिल्लाहरूमा बारम्बार देखिएको। प्रतिक्रिया: प्रभावित विद्यार्थीलाई शान्त तरिकाले छुट्याउने, नाटकीय भीड हटाउने, वास्तविक शारीरिक कारण जाँच्ने, र समुदायको आध्यात्मिक व्याख्यासँग जुध्ने होइन — मिलेर काम गर्ने। «सबै मनको भ्रम हो» कहिल्यै नभन्नुहोस्: लक्षण वास्तविक, अनैच्छिक र उपचारयोग्य छ; परिवारको सहयोग नै तपाईंको मुख्य साधन हो। पहिलोपटकको दौरा सधैं स्नायु-जाँचका लागि रेफर गर्नुहोस्।</p>
+        <div class="ctx-label"><span class="en">Nepal: including mass conversion</span><span class="ne">नेपाल, सामूहिक कन्भर्सनसहित</span></div>
+        <p class="en">This is a signature Nepali presentation: episodes of fainting, jerking, or possession-like states ("chhopne") in adolescent girls, often spreading through a school classroom or hostel within hours: <strong>mass conversion / mass psychogenic illness</strong>, repeatedly reported in Nepali districts. Respond by separating affected students calmly, avoiding dramatic audiences, ruling out real medical causes, and working with, not against, the community's spiritual explanation. Never announce "it is all in her mind": the symptom is real, involuntary, and treatable, and the family's cooperation is your main instrument. Refer first-ever seizures for neurological work-up always.</p>
+        <p class="ne">यो नेपालकै विशिष्ट प्रस्तुति हो: किशोरीहरूमा बेहोस हुने, हात-खुट्टा बटारिने वा «छोप्ने» जस्ता अवस्था, प्रायः केही घण्टाभित्रै कक्षा वा छात्रावासभरि फैलिने, <strong>सामूहिक कन्भर्सन / सामूहिक मनोजन्य रोग</strong>, नेपालका जिल्लाहरूमा बारम्बार देखिएको। प्रतिक्रिया: प्रभावित विद्यार्थीलाई शान्त तरिकाले छुट्याउने, नाटकीय भीड हटाउने, वास्तविक शारीरिक कारण जाँच्ने, र समुदायको आध्यात्मिक व्याख्यासँग जुध्ने होइन, मिलेर काम गर्ने। «सबै मनको भ्रम हो» कहिल्यै नभन्नुहोस्: लक्षण वास्तविक, अनैच्छिक र उपचारयोग्य छ; परिवारको सहयोग नै तपाईंको मुख्य साधन हो। पहिलोपटकको दौरा सधैं स्नायु-जाँचका लागि रेफर गर्नुहोस्।</p>
       </div>
 
-      <p class="en" style="font-size:14px;color:var(--muted)"><strong>Also in this chapter:</strong> <strong>Somatic Symptom Disorder</strong> (300.82/F45.1) — one or more distressing bodily symptoms <em>plus</em> excessive thoughts, anxiety, or time devoted to them, persistent (typically &gt;6 months); the symptom may or may not be medically explained — what is disordered is the response to it. <strong>Illness Anxiety Disorder</strong> (300.7/F45.21) — preoccupation with <em>having</em> a serious illness, with minimal or no somatic symptoms; checking or avoidance; ≥6 months.</p>
-      <p class="ne" style="font-size:14.5px;color:var(--muted)"><strong>यसै अध्यायमा:</strong> <strong>शारीरिक लक्षण विकार</strong> (F45.1) — एक वा बढी पीडादायी शारीरिक लक्षण <em>र</em> तिनमा अत्यधिक सोच, चिन्ता वा समय; दीर्घ (प्रायः &gt;६ महिना); लक्षणको चिकित्सकीय व्याख्या भए-नभए जेसुकै होस् — विकार भनेको त्यसप्रतिको प्रतिक्रिया हो। <strong>रोग-चिन्ता विकार</strong> (F45.21) — गम्भीर रोग <em>लागेकै छ</em> भन्ने ग्रस्तता, शारीरिक लक्षण न्यून वा शून्य; बारम्बार जाँच वा अस्पतालै पन्छाउने; ≥६ महिना।</p>
+      <p class="en" style="font-size:14px;color:var(--muted)"><strong>Also in this chapter:</strong> <strong>Somatic Symptom Disorder</strong> (300.82/F45.1): one or more distressing bodily symptoms <em>plus</em> excessive thoughts, anxiety, or time devoted to them, persistent (typically &gt;6 months); the symptom may or may not be medically explained: what is disordered is the response to it. <strong>Illness Anxiety Disorder</strong> (300.7/F45.21): preoccupation with <em>having</em> a serious illness, with minimal or no somatic symptoms; checking or avoidance; ≥6 months.</p>
+      <p class="ne" style="font-size:14.5px;color:var(--muted)"><strong>यसै अध्यायमा:</strong> <strong>शारीरिक लक्षण विकार</strong> (F45.1), एक वा बढी पीडादायी शारीरिक लक्षण <em>र</em> तिनमा अत्यधिक सोच, चिन्ता वा समय; दीर्घ (प्रायः &gt;६ महिना); लक्षणको चिकित्सकीय व्याख्या भए-नभए जेसुकै होस्, विकार भनेको त्यसप्रतिको प्रतिक्रिया हो। <strong>रोग-चिन्ता विकार</strong> (F45.21), गम्भीर रोग <em>लागेकै छ</em> भन्ने ग्रस्तता, शारीरिक लक्षण न्यून वा शून्य; बारम्बार जाँच वा अस्पतालै पन्छाउने; ≥६ महिना।</p>
     </div>
   </article>
-<div class="resources"><div class="res-head"><span class="en">Learn more</span><span class="ne">थप सिक्नुहोस्</span></div><p class="res-hint"><span class="en">Pick one, not all — these are chosen to be light, not exhaustive.</span><span class="ne">सबै होइन, एउटा रोज्नुहोस् — यी हल्का, सजिला स्रोत हुन्।</span></p><div class="res-item"><span class="res-type">Website</span><span><a href="https://neurosymptoms.org" target="_blank" rel="noopener">neurosymptoms.org (Prof. Jon Stone)</a> — <span class="res-note"><span class="en">The best plain-language FND/conversion guide — made for patients; use it for psychoeducation.</span><span class="ne">बिरामीकै लागि बनेको सबैभन्दा राम्रो कन्भर्सन-गाइड; मनोशिक्षामा प्रयोग गर्नुहोस्।</span></span></span></div><div class="res-item"><span class="res-type">Book chapter</span><span><strong>Where There Is No Psychiatrist — "Medically unexplained symptoms"</strong> — <span class="res-note"><span class="en">Step-by-step handling of exactly these presentations.</span><span class="ne">यस्तै प्रस्तुति सम्हाल्ने चरणबद्ध तरिका।</span></span></span></div></div>
+
+<div class="quickcheck"><div class="qc-head"><span class="en">Quick check</span><span class="ne">छिटो जाँच</span></div><p class="qc-hint"><span class="en">Three friendly questions to settle what you just read. This is reassurance, not a test: a wrong tap is part of learning, and you can try again.</span><span class="ne">भर्खर पढेको कुरा बसाल्न तीन मैत्री प्रश्न। यो परीक्षा होइन, ढुक्क हुने तरिका हो: गलत छनोट पनि सिकाइकै अंश हो, फेरि प्रयास गर्न पाइन्छ।</span></p><div class="qz" data-a="2"><p class="qz-q"><span class="en">Conversion symptoms are:</span><span class="ne">कन्भर्सनका लक्षणहरू:</span></p><div class="qz-opts"><button type="button" class="qz-opt" data-i="1"><span class="en">Pretending for attention</span><span class="ne">ध्यान पाउन गरिएको नाटक</span></button><button type="button" class="qz-opt" data-i="2"><span class="en">Real and involuntary</span><span class="ne">वास्तविक र अनैच्छिक</span></button><button type="button" class="qz-opt" data-i="3"><span class="en">Always caused by epilepsy</span><span class="ne">सधैं छारे रोगका कारण</span></button></div><p class="qz-fb" hidden>✔ <span class="en">Yes. <span class="why">The client is not acting; saying "it is all in your mind" breaks the alliance.</span></span><span class="ne">सही। <span class="why">सेवाग्राहीले नाटक गरेको होइन; «मनको भ्रम» भन्दा सम्बन्ध टुट्छ।</span></span></p><p class="qz-hint" hidden><span class="en">Not quite; have another look. The answer is in this section.</span><span class="ne">ठ्याक्कै मिलेन; फेरि हेर्नुहोस्। उत्तर यही खण्डमा छ।</span></p></div><div class="qz" data-a="2"><p class="qz-q"><span class="en">During a psychogenic (conversion) attack the eyes are usually:</span><span class="ne">मनोजन्य दौरामा आँखा प्रायः:</span></p><div class="qz-opts"><button type="button" class="qz-opt" data-i="1"><span class="en">Open</span><span class="ne">खुला</span></button><button type="button" class="qz-opt" data-i="2"><span class="en">Closed, resisting opening</span><span class="ne">बन्द, खोल्दा प्रतिरोध</span></button><button type="button" class="qz-opt" data-i="3"><span class="en">Rolled upward only</span><span class="ne">माथि मात्र फर्केका</span></button></div><p class="qz-fb" hidden>✔ <span class="en">Yes. <span class="why">Epileptic seizures usually show open or deviated eyes; closed eyes point psychogenic.</span></span><span class="ne">सही। <span class="why">छारे दौरामा आँखा प्रायः खुला हुन्छन्; बन्द आँखाले मनोजन्य सङ्केत गर्छ।</span></span></p><p class="qz-hint" hidden><span class="en">Not quite; have another look. The answer is in this section.</span><span class="ne">ठ्याक्कै मिलेन; फेरि हेर्नुहोस्। उत्तर यही खण्डमा छ।</span></p></div><div class="qz" data-a="2"><p class="qz-q"><span class="en">First response to a mass episode in a school:</span><span class="ne">विद्यालयमा सामूहिक दौरा चल्दा पहिलो प्रतिक्रिया:</span></p><div class="qz-opts"><button type="button" class="qz-opt" data-i="1"><span class="en">Announce it is imaginary</span><span class="ne">भ्रम हो भनी घोषणा गर्ने</span></button><button type="button" class="qz-opt" data-i="2"><span class="en">Calm separation, remove the audience, rule out medical causes</span><span class="ne">शान्त छुट्याउने, भीड हटाउने, शारीरिक कारण जाँच्ने</span></button><button type="button" class="qz-opt" data-i="3"><span class="en">Close the school permanently</span><span class="ne">विद्यालय बन्द गर्ने</span></button></div><p class="qz-fb" hidden>✔ <span class="en">Yes. <span class="why">Respect the community's explanation while protecting the students.</span></span><span class="ne">सही। <span class="why">समुदायको व्याख्याको सम्मान गर्दै विद्यार्थी जोगाउने।</span></span></p><p class="qz-hint" hidden><span class="en">Not quite; have another look. The answer is in this section.</span><span class="ne">ठ्याक्कै मिलेन; फेरि हेर्नुहोस्। उत्तर यही खण्डमा छ।</span></p></div></div>
+<div class="resources"><div class="res-head"><span class="en">Learn more</span><span class="ne">थप सिक्नुहोस्</span></div><p class="res-hint"><span class="en">Pick one, not all: these are chosen to be light, not exhaustive.</span><span class="ne">सबै होइन, एउटा रोज्नुहोस्, यी हल्का, सजिला स्रोत हुन्।</span></p><div class="res-item"><span class="res-type">Website</span><span><a href="https://neurosymptoms.org" target="_blank" rel="noopener">neurosymptoms.org (Prof. Jon Stone)</a>: <span class="res-note"><span class="en">The best plain-language FND/conversion guide: made for patients; use it for psychoeducation.</span><span class="ne">बिरामीकै लागि बनेको सबैभन्दा राम्रो कन्भर्सन-गाइड; मनोशिक्षामा प्रयोग गर्नुहोस्।</span></span></span></div><div class="res-item"><span class="res-type">Book chapter</span><span><strong>Where There Is No Psychiatrist: "Medically unexplained symptoms"</strong>: <span class="res-note"><span class="en">Step-by-step handling of exactly these presentations.</span><span class="ne">यस्तै प्रस्तुति सम्हाल्ने चरणबद्ध तरिका।</span></span></span></div></div>
 
 </section>
     <nav class="pager" aria-label="Chapter">
     <a class="prev" href="trauma.html"><span class="lbl"><span class="en">Previous · 09</span><span class="ne">अघिल्लो · 09</span></span><span class="en">Trauma & stressor</span><span class="ne">आघात र तनाव</span></a>
     <a class="next" href="psychosis.html"><span class="lbl"><span class="en">Next · 11</span><span class="ne">अर्को · 11</span></span><span class="en">Psychosis</span><span class="ne">मनोविकृति (साइकोसिस)</span></a>
     </nav>
+    <footer class="sitefoot">
+      <div class="cols">
+        <div>
+          <h4><span class="en">Mano Atlas</span><span class="ne">मनो एट्लास</span></h4>
+          <p class="en">A free, open atlas of mental health in English and नेपाली. Educational resource, not a diagnostic tool: criteria are paraphrased from DSM-5 (2013). Diagnosis belongs to qualified clinicians.</p>
+          <p class="ne">अंग्रेजी र नेपालीमा मानसिक स्वास्थ्यको निःशुल्क, खुला एट्लास। शैक्षिक सामग्री हो, निदान-उपकरण होइन: मापदण्ड DSM-5 (2013) बाट सरलीकृत छन्। निदान योग्य चिकित्सकको काम हो।</p>
+          <p><span class="en">Last reviewed: August 2026</span><span class="ne">पछिल्लो समीक्षा: भदौ २०८३</span></p>
+        </div>
+        <div class="crisis-col">
+          <h4><span class="en">If you need help now</span><span class="ne">अहिले नै सहयोग चाहिए</span></h4>
+          <p><strong>1166</strong> <span class="en">National Suicide Prevention Helpline</span><span class="ne">राष्ट्रिय आत्महत्या रोकथाम हेल्पलाइन</span></p>
+          <p><strong>1660 012 1600</strong> <span class="en">TUTH mental-health hotline</span><span class="ne">टिचिङ अस्पताल हटलाइन</span></p>
+          <p><strong>1145</strong> <span class="en">Women's helpline</span><span class="ne">महिला हेल्पलाइन</span> · <strong>112 / 100</strong> <span class="en">emergency</span><span class="ne">आपतकाल</span></p>
+        </div>
+        <div>
+          <h4><span class="en">Open &amp; improvable</span><span class="ne">खुला र सुधारयोग्य</span></h4>
+          <p class="en">Content licensed <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license noopener" target="_blank">CC BY-NC-SA 4.0</a>: share and adapt with credit, non-commercially.</p>
+          <p class="ne">सामग्री <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license noopener" target="_blank">CC BY-NC-SA 4.0</a> अन्तर्गत: श्रेयसहित, गैर-व्यावसायिक रूपमा बाँड्न र मिलाउन पाइन्छ।</p>
+          <p><span class="en">Spotted an error?</span><span class="ne">त्रुटि भेट्नुभयो?</span> <span class="mailrev" data-u="kpravash" data-d="gmail" data-t="com">kpravash [at] gmail [dot] com</span></p>
+        </div>
+      </div>
+      <p class="fine"><span class="en">Built from the CTEVT Psychosocial Counselor curriculum, class notes, and the sources named on each page.</span><span class="ne">सीटीईभीटी मनोसामाजिक परामर्शकर्ता पाठ्यक्रम, कक्षा-नोट र प्रत्येक पृष्ठमा उल्लिखित स्रोतबाट निर्मित।</span></p>
+    </footer>
     </div>
   </main>
 </div>

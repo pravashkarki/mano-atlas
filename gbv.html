@@ -3,13 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Mano Atlas (मनो एट्लास) — a free, bilingual (English/नेपाली) atlas of mental disorders: DSM-5 criteria, teaching diagrams, and the Nepali context.">
+<meta name="description" content="Mano Atlas (मनो एट्लास): a free, bilingual (English/नेपाली) atlas of mental disorders: DSM-5 criteria, teaching diagrams, and the Nepali context.">
 <title>Gender & GBV · Mano Atlas</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Mukta:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Caveat:wght@600&display=swap">
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
+<a class="skip" href="#main"><span class="en">Skip to content</span><span class="ne">सामग्रीमा जानुहोस्</span></a>
 <div class="layout">
   <aside class="sidebar">
     <div class="top">
@@ -19,6 +20,7 @@
         <button id="btn-en" onclick="setLang('en')">EN</button>
         <button id="btn-ne" onclick="setLang('ne')">ने</button>
       </div>
+      <button id="btn-theme" class="themesw" onclick="cycleTheme()" aria-label="Colour theme">◐ Auto</button>
     </div>
     <div class="search">
       <input id="q" type="search" autocomplete="off" spellcheck="false"
@@ -60,17 +62,16 @@
       <a href="nepal.html"><span class="secnum">28</span><span class="catmark" style="background:transparent"></span><span class="en">Culture & the Nepal panorama</span><span class="ne">संस्कृति र नेपाली परिदृश्य</span></a>
       <a href="crosswalk.html"><span class="secnum">29</span><span class="catmark" style="background:transparent"></span><span class="en">For PSC students</span><span class="ne">पीएससी विद्यार्थीलाई</span></a>
     </nav>
-    <div class="side-foot">DSM-5 (2013) · <span class="en">study resource, not a diagnostic tool</span><span class="ne">अध्ययन सामग्री — निदान-उपकरण होइन</span></div>
   </aside>
-  <main>
+  <main id="main">
     <div class="wrap">
 <div class="pagehead"><div class="kicker"><span class="en">Section 23</span><span class="ne">खण्ड 23</span></div></div>
 <section id="gbv" style="margin-top:12px">
 <div class="sechead"><span class="secnum">23</span>
   <h2><span class="en">Gender &amp; gender-based violence (GBV)</span><span class="ne">लैङ्गिकता र लैङ्गिक हिंसा (जीबीभी)</span></h2>
 </div>
-<p class="secsub en">Sex is biology; gender is the roles, expectations and power a society attaches to it. GBV is violence that flows along those power lines — and in Nepal it is one of the most common wounds a counselor will ever sit across from.</p>
-<p class="secsub ne">लिङ्ग जीवविज्ञान हो; लैङ्गिकता समाजले त्यसमा जोड्ने भूमिका, अपेक्षा र शक्ति हो। जीबीभी त्यही शक्ति-रेखाबाट बग्ने हिंसा हो — र नेपालमा परामर्शकर्ताले सामना गर्ने सबैभन्दा सामान्य घाउमध्ये एक।</p>
+<p class="secsub en">Sex is biology; gender is the roles, expectations and power a society attaches to it. GBV is violence that flows along those power lines, and in Nepal it is one of the most common wounds a counselor will ever sit across from.</p>
+<p class="secsub ne">लिङ्ग जीवविज्ञान हो; लैङ्गिकता समाजले त्यसमा जोड्ने भूमिका, अपेक्षा र शक्ति हो। जीबीभी त्यही शक्ति-रेखाबाट बग्ने हिंसा हो, र नेपालमा परामर्शकर्ताले सामना गर्ने सबैभन्दा सामान्य घाउमध्ये एक।</p>
 
 <article class="card" id="gbv-c1">
   <div class="card-head">
@@ -78,30 +79,30 @@
     <span class="pill todo"><span class="dot"></span><span class="en">CTEVT PSC curriculum</span><span class="ne">सीटीईभीटी पाठ्यक्रम</span></span>
   </div>
   <div class="card-body">
-    <p class="en"><strong>Core distinctions the curriculum tests:</strong> sex vs gender; gender <em>roles</em> (who cooks, who inherits) and gender <em>needs</em> (practical vs strategic); <em>equality</em> (same treatment) vs <em>equity</em> (fair treatment that closes gaps); sexuality as a normal dimension of the person. <strong>Forms of GBV:</strong> physical, sexual, emotional/psychological, economic (denying money, property, work), and harmful traditional practices — in Nepal: child marriage, dowry-related violence, chhaupadi (menstrual exclusion), witchcraft ("boksi") accusations, and trafficking. Causes run through power inequality, norms that excuse violence, impunity, and alcohol as an accelerant — never as an excuse.</p>
-    <p class="ne"><strong>पाठ्यक्रमले सोध्ने मुख्य भिन्नता:</strong> लिङ्ग वि. लैङ्गिकता; लैङ्गिक <em>भूमिका</em> (को पकाउँछ, कसले अंश पाउँछ) र <em>आवश्यकता</em> (व्यावहारिक वि. रणनीतिक); <em>समानता</em> (उही व्यवहार) वि. <em>समता</em> (खाडल पुर्ने न्यायोचित व्यवहार); यौनिकता व्यक्तिको सामान्य आयाम। <strong>जीबीभीका रूप:</strong> शारीरिक, यौनजन्य, भावनात्मक/मानसिक, आर्थिक (पैसा, सम्पत्ति, काम रोक्नु), र हानिकारक परम्परा — नेपालमा: बालविवाह, दाइजो-हिंसा, छाउपडी, बोक्सीको आरोप, बेचबिखन। कारण शक्ति-असमानता, हिंसालाई माफी दिने मान्यता, दण्डहीनता र मदिरा (मत्थर पार्ने तत्त्व — बहाना कहिल्यै होइन) हुँदै बग्छन्।</p>
+    <p class="en"><strong>Core distinctions the curriculum tests:</strong> sex vs gender; gender <em>roles</em> (who cooks, who inherits) and gender <em>needs</em> (practical vs strategic); <em>equality</em> (same treatment) vs <em>equity</em> (fair treatment that closes gaps); sexuality as a normal dimension of the person. <strong>Forms of GBV:</strong> physical, sexual, emotional/psychological, economic (denying money, property, work), and harmful traditional practices: in Nepal: child marriage, dowry-related violence, chhaupadi (menstrual exclusion), witchcraft ("boksi") accusations, and trafficking. Causes run through power inequality, norms that excuse violence, impunity, and alcohol as an accelerant: never as an excuse.</p>
+    <p class="ne"><strong>पाठ्यक्रमले सोध्ने मुख्य भिन्नता:</strong> लिङ्ग वि. लैङ्गिकता; लैङ्गिक <em>भूमिका</em> (को पकाउँछ, कसले अंश पाउँछ) र <em>आवश्यकता</em> (व्यावहारिक वि. रणनीतिक); <em>समानता</em> (उही व्यवहार) वि. <em>समता</em> (खाडल पुर्ने न्यायोचित व्यवहार); यौनिकता व्यक्तिको सामान्य आयाम। <strong>जीबीभीका रूप:</strong> शारीरिक, यौनजन्य, भावनात्मक/मानसिक, आर्थिक (पैसा, सम्पत्ति, काम रोक्नु), र हानिकारक परम्परा, नेपालमा: बालविवाह, दाइजो-हिंसा, छाउपडी, बोक्सीको आरोप, बेचबिखन। कारण शक्ति-असमानता, हिंसालाई माफी दिने मान्यता, दण्डहीनता र मदिरा (मत्थर पार्ने तत्त्व, बहाना कहिल्यै होइन) हुँदै बग्छन्।</p>
     <div class="tblwrap">
       <table class="data en">
         <tr><th>Survivor-centred principle</th><th>In practice</th></tr>
         <tr><td>Safety first</td><td>Is it safe to go home tonight? Safe place, safe timing of sessions, danger assessment before anything else</td></tr>
-        <tr><td>Confidentiality</td><td>Records coded; information shared only with consent — a leak can be lethal</td></tr>
-        <tr><td>Respect &amp; autonomy</td><td>The survivor decides — whether to report, leave, stay; your job is options, not orders</td></tr>
+        <tr><td>Confidentiality</td><td>Records coded; information shared only with consent: a leak can be lethal</td></tr>
+        <tr><td>Respect &amp; autonomy</td><td>The survivor decides: whether to report, leave, stay; your job is options, not orders</td></tr>
         <tr><td>Non-discrimination</td><td>Belief, not blame. Never "why didn't you leave?", never "what were you wearing?"</td></tr>
-        <tr><td>Referral, coordinated</td><td>Health (72-hour window after sexual violence for medical care), police/OCMC one-stop crisis management centres, safe houses, legal aid — with consent at every step</td></tr>
+        <tr><td>Referral, coordinated</td><td>Health (72-hour window after sexual violence for medical care), police/OCMC one-stop crisis management centres, safe houses, legal aid: with consent at every step</td></tr>
       </table>
       <table class="data ne">
         <tr><th>पीडित-केन्द्रित सिद्धान्त</th><th>व्यवहारमा</th></tr>
         <tr><td>पहिले सुरक्षा</td><td>आज राति घर फर्कनु सुरक्षित छ? सुरक्षित ठाउँ-समयको सत्र, सबैभन्दा पहिले जोखिम-मूल्याङ्कन</td></tr>
-        <tr><td>गोपनीयता</td><td>कोड-सहितको अभिलेख; सहमतिविना सूचना कतै जाँदैन — चुहावट ज्यानै जोखिम</td></tr>
-        <tr><td>आदर र स्वायत्तता</td><td>निर्णय पीडितकै — उजुरी गर्ने, छोड्ने, बस्ने; तपाईंको काम विकल्प दिनु, आदेश होइन</td></tr>
-        <tr><td>भेदभावहीनता</td><td>विश्वास गर्ने, दोष नदिने। «किन छोडिनौ?», «के लगाएकी थियौ?» — कहिल्यै होइन</td></tr>
-        <tr><td>समन्वित रेफरल</td><td>स्वास्थ्य (यौन हिंसापछि उपचारको ७२-घण्टे खिड्की), प्रहरी/ओसीएमसी एकद्वार केन्द्र, सुरक्षित आवास, कानुनी सहायता — हरेक चरणमा सहमतिसहित</td></tr>
+        <tr><td>गोपनीयता</td><td>कोड-सहितको अभिलेख; सहमतिविना सूचना कतै जाँदैन, चुहावट ज्यानै जोखिम</td></tr>
+        <tr><td>आदर र स्वायत्तता</td><td>निर्णय पीडितकै, उजुरी गर्ने, छोड्ने, बस्ने; तपाईंको काम विकल्प दिनु, आदेश होइन</td></tr>
+        <tr><td>भेदभावहीनता</td><td>विश्वास गर्ने, दोष नदिने। «किन छोडिनौ?», «के लगाएकी थियौ?», कहिल्यै होइन</td></tr>
+        <tr><td>समन्वित रेफरल</td><td>स्वास्थ्य (यौन हिंसापछि उपचारको ७२-घण्टे खिड्की), प्रहरी/ओसीएमसी एकद्वार केन्द्र, सुरक्षित आवास, कानुनी सहायता, हरेक चरणमा सहमतिसहित</td></tr>
       </table>
     </div>
     <div class="ctx nepal">
       <div class="ctx-label"><span class="en">Nepal</span><span class="ne">नेपाल</span></div>
-      <p class="en">Nepal's NDHS surveys have consistently found that a large share of ever-married women report experiencing spousal violence, most never seeking help. The system pieces you must know by name: <strong>OCMC</strong> (One-stop Crisis Management Centres in hospitals), the <strong>1145</strong> national women's helpline and <strong>104</strong> (National Women Commission "Khabar Garaun"), judicial committees at the local level, and safe houses run by organisations like WOREC and Saathi. Marital rape is a crime in Nepal. Couple counselling is contraindicated while violence is active — see page 17.</p>
-      <p class="ne">एनडीएचएस सर्वेक्षणहरूले विवाहित महिलाको ठूलो हिस्साले श्रीमान्‌बाट हिंसा भोगेको, अधिकांशले कहिल्यै सहयोग नखोजेको देखाउँदै आएका छन्। नामैले जान्नुपर्ने संरचना: अस्पतालका <strong>ओसीएमसी</strong> (एकद्वार सङ्कट व्यवस्थापन केन्द्र), राष्ट्रिय महिला हेल्पलाइन <strong>११४५</strong> र राष्ट्रिय महिला आयोगको <strong>१०४ «खबर गराऔं»</strong>, स्थानीय तहका न्यायिक समिति, र वोरेक-साथीजस्ता संस्थाका सुरक्षित आवास। वैवाहिक बलात्कार नेपालमा अपराध हो। हिंसा जारी रहँदा दम्पती-परामर्श गरिँदैन — पृष्ठ १७।</p>
+      <p class="en">Nepal's NDHS surveys have consistently found that a large share of ever-married women report experiencing spousal violence, most never seeking help. The system pieces you must know by name: <strong>OCMC</strong> (One-stop Crisis Management Centres in hospitals), the <strong>1145</strong> national women's helpline and <strong>104</strong> (National Women Commission "Khabar Garaun"), judicial committees at the local level, and safe houses run by organisations like WOREC and Saathi. Marital rape is a crime in Nepal. Couple counselling is contraindicated while violence is active: see page 17.</p>
+      <p class="ne">एनडीएचएस सर्वेक्षणहरूले विवाहित महिलाको ठूलो हिस्साले श्रीमान्‌बाट हिंसा भोगेको, अधिकांशले कहिल्यै सहयोग नखोजेको देखाउँदै आएका छन्। नामैले जान्नुपर्ने संरचना: अस्पतालका <strong>ओसीएमसी</strong> (एकद्वार सङ्कट व्यवस्थापन केन्द्र), राष्ट्रिय महिला हेल्पलाइन <strong>११४५</strong> र राष्ट्रिय महिला आयोगको <strong>१०४ «खबर गराऔं»</strong>, स्थानीय तहका न्यायिक समिति, र वोरेक-साथीजस्ता संस्थाका सुरक्षित आवास। वैवाहिक बलात्कार नेपालमा अपराध हो। हिंसा जारी रहँदा दम्पती-परामर्श गरिँदैन, पृष्ठ १७।</p>
     </div>
     <details class="quiz">
       <summary><span class="en">Test yourself</span><span class="ne">आफैंलाई जाँच्नुहोस्</span></summary>
@@ -113,11 +114,12 @@
   </div>
 </article>
 
+<div class="quickcheck"><div class="qc-head"><span class="en">Quick check</span><span class="ne">छिटो जाँच</span></div><p class="qc-hint"><span class="en">Three friendly questions to settle what you just read. This is reassurance, not a test: a wrong tap is part of learning, and you can try again.</span><span class="ne">भर्खर पढेको कुरा बसाल्न तीन मैत्री प्रश्न। यो परीक्षा होइन, ढुक्क हुने तरिका हो: गलत छनोट पनि सिकाइकै अंश हो, फेरि प्रयास गर्न पाइन्छ।</span></p><div class="qz" data-a="2"><p class="qz-q"><span class="en">Sex vs gender:</span><span class="ne">लिङ्ग र लैङ्गिकता:</span></p><div class="qz-opts"><button type="button" class="qz-opt" data-i="1"><span class="en">They are the same</span><span class="ne">एउटै हुन्</span></button><button type="button" class="qz-opt" data-i="2"><span class="en">Sex is biology; gender is social roles and power</span><span class="ne">लिङ्ग जीवविज्ञान; लैङ्गिकता सामाजिक भूमिका र शक्ति</span></button><button type="button" class="qz-opt" data-i="3"><span class="en">Gender is biology</span><span class="ne">लैङ्गिकता जीवविज्ञान हो</span></button></div><p class="qz-fb" hidden>✔ <span class="en">Yes. <span class="why">GBV flows along the power lines society attaches to gender.</span></span><span class="ne">सही। <span class="why">जीबीभी समाजले जोडेको शक्ति-रेखाबाटै बग्छ।</span></span></p><p class="qz-hint" hidden><span class="en">Not quite; have another look. The answer is in this section.</span><span class="ne">ठ्याक्कै मिलेन; फेरि हेर्नुहोस्। उत्तर यही खण्डमा छ।</span></p></div><div class="qz" data-a="2"><p class="qz-q"><span class="en">Who decides whether a survivor reports to police?</span><span class="ne">उजुरी गर्ने-नगर्ने निर्णय कसको?</span></p><div class="qz-opts"><button type="button" class="qz-opt" data-i="1"><span class="en">The counselor</span><span class="ne">परामर्शकर्ताको</span></button><button type="button" class="qz-opt" data-i="2"><span class="en">The survivor</span><span class="ne">पीडित स्वयंको</span></button><button type="button" class="qz-opt" data-i="3"><span class="en">The family head</span><span class="ne">घरमूलीको</span></button></div><p class="qz-fb" hidden>✔ <span class="en">Yes. <span class="why">Your job is options and safety, never orders.</span></span><span class="ne">सही। <span class="why">तपाईंको काम विकल्प र सुरक्षा हो, आदेश होइन।</span></span></p><p class="qz-hint" hidden><span class="en">Not quite; have another look. The answer is in this section.</span><span class="ne">ठ्याक्कै मिलेन; फेरि हेर्नुहोस्। उत्तर यही खण्डमा छ।</span></p></div><div class="qz" data-a="2"><p class="qz-q"><span class="en">Taking a wife's wages and blocking her from work is:</span><span class="ne">श्रीमतीको ज्याला खोस्नु, काम रोक्नु भनेको:</span></p><div class="qz-opts"><button type="button" class="qz-opt" data-i="1"><span class="en">Private family matter</span><span class="ne">घरायसी कुरा</span></button><button type="button" class="qz-opt" data-i="2"><span class="en">Economic violence, a form of GBV</span><span class="ne">आर्थिक हिंसा, जीबीभीकै रूप</span></button><button type="button" class="qz-opt" data-i="3"><span class="en">Tradition</span><span class="ne">परम्परा</span></button></div><p class="qz-fb" hidden>✔ <span class="en">Yes. <span class="why">GBV includes physical, sexual, emotional and economic forms.</span></span><span class="ne">सही। <span class="why">जीबीभीमा शारीरिक, यौनजन्य, भावनात्मक र आर्थिक रूप पर्छन्।</span></span></p><p class="qz-hint" hidden><span class="en">Not quite; have another look. The answer is in this section.</span><span class="ne">ठ्याक्कै मिलेन; फेरि हेर्नुहोस्। उत्तर यही खण्डमा छ।</span></p></div></div>
 <div class="resources"><div class="res-head"><span class="en">Learn more</span><span class="ne">थप सिक्नुहोस्</span></div>
 <p class="res-hint"><span class="en">Pick one, not all.</span><span class="ne">सबै होइन, एउटा रोज्नुहोस्।</span></p>
-<div class="res-item"><span class="res-type">Guide</span><span><strong>WHO: "Caring for women subjected to violence" (LIVES: Listen, Inquire, Validate, Enhance safety, Support)</strong> — <span class="res-note"><span class="en">a five-step first-line response made for non-specialists.</span><span class="ne">गैर-विशेषज्ञका लागि पाँच-चरण पहिलो प्रतिक्रिया।</span></span></span></div>
-<div class="res-item"><span class="res-type">Report</span><span><strong>Nepal Demographic and Health Survey — domestic violence chapter</strong> — <span class="res-note"><span class="en">the country's core evidence base on GBV.</span><span class="ne">नेपालको जीबीभी-प्रमाणको मुख्य आधार।</span></span></span></div>
-<div class="res-item"><span class="res-type">Documentary</span><span><strong>India's Daughter (BBC, 2015)</strong> — <span class="res-note"><span class="en">on sexual violence and the attitudes behind it in South Asia; heavy — screen with care and support available.</span><span class="ne">दक्षिण एसियामा यौन हिंसा र त्यसपछाडिका मानसिकताबारे; गह्रौं छ — सतर्कता र सहयोगसहित हेर्नुहोस्।</span></span></span></div>
+<div class="res-item"><span class="res-type">Guide</span><span><strong>WHO: "Caring for women subjected to violence" (LIVES: Listen, Inquire, Validate, Enhance safety, Support)</strong>; <span class="res-note"><span class="en">a five-step first-line response made for non-specialists.</span><span class="ne">गैर-विशेषज्ञका लागि पाँच-चरण पहिलो प्रतिक्रिया।</span></span></span></div>
+<div class="res-item"><span class="res-type">Report</span><span><strong>Nepal Demographic and Health Survey: domestic violence chapter</strong>: <span class="res-note"><span class="en">the country's core evidence base on GBV.</span><span class="ne">नेपालको जीबीभी-प्रमाणको मुख्य आधार।</span></span></span></div>
+<div class="res-item"><span class="res-type">Documentary</span><span><strong>India's Daughter (BBC, 2015)</strong>: <span class="res-note"><span class="en">on sexual violence and the attitudes behind it in South Asia; heavy: screen with care and support available.</span><span class="ne">दक्षिण एसियामा यौन हिंसा र त्यसपछाडिका मानसिकताबारे; गह्रौं छ, सतर्कता र सहयोगसहित हेर्नुहोस्।</span></span></span></div>
 </div>
 
 </section>
@@ -125,6 +127,29 @@
     <a class="prev" href="pfa.html"><span class="lbl"><span class="en">Previous · 22</span><span class="ne">अघिल्लो · 22</span></span><span class="en">PFA & emergencies</span><span class="ne">पीएफए र आपतकाल</span></a>
     <a class="next" href="hiv.html"><span class="lbl"><span class="en">Next · 24</span><span class="ne">अर्को · 24</span></span><span class="en">HIV & AIDS counselling</span><span class="ne">एचआईभी परामर्श</span></a>
     </nav>
+    <footer class="sitefoot">
+      <div class="cols">
+        <div>
+          <h4><span class="en">Mano Atlas</span><span class="ne">मनो एट्लास</span></h4>
+          <p class="en">A free, open atlas of mental health in English and नेपाली. Educational resource, not a diagnostic tool: criteria are paraphrased from DSM-5 (2013). Diagnosis belongs to qualified clinicians.</p>
+          <p class="ne">अंग्रेजी र नेपालीमा मानसिक स्वास्थ्यको निःशुल्क, खुला एट्लास। शैक्षिक सामग्री हो, निदान-उपकरण होइन: मापदण्ड DSM-5 (2013) बाट सरलीकृत छन्। निदान योग्य चिकित्सकको काम हो।</p>
+          <p><span class="en">Last reviewed: August 2026</span><span class="ne">पछिल्लो समीक्षा: भदौ २०८३</span></p>
+        </div>
+        <div class="crisis-col">
+          <h4><span class="en">If you need help now</span><span class="ne">अहिले नै सहयोग चाहिए</span></h4>
+          <p><strong>1166</strong> <span class="en">National Suicide Prevention Helpline</span><span class="ne">राष्ट्रिय आत्महत्या रोकथाम हेल्पलाइन</span></p>
+          <p><strong>1660 012 1600</strong> <span class="en">TUTH mental-health hotline</span><span class="ne">टिचिङ अस्पताल हटलाइन</span></p>
+          <p><strong>1145</strong> <span class="en">Women's helpline</span><span class="ne">महिला हेल्पलाइन</span> · <strong>112 / 100</strong> <span class="en">emergency</span><span class="ne">आपतकाल</span></p>
+        </div>
+        <div>
+          <h4><span class="en">Open &amp; improvable</span><span class="ne">खुला र सुधारयोग्य</span></h4>
+          <p class="en">Content licensed <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license noopener" target="_blank">CC BY-NC-SA 4.0</a>: share and adapt with credit, non-commercially.</p>
+          <p class="ne">सामग्री <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license noopener" target="_blank">CC BY-NC-SA 4.0</a> अन्तर्गत: श्रेयसहित, गैर-व्यावसायिक रूपमा बाँड्न र मिलाउन पाइन्छ।</p>
+          <p><span class="en">Spotted an error?</span><span class="ne">त्रुटि भेट्नुभयो?</span> <span class="mailrev" data-u="kpravash" data-d="gmail" data-t="com">kpravash [at] gmail [dot] com</span></p>
+        </div>
+      </div>
+      <p class="fine"><span class="en">Built from the CTEVT Psychosocial Counselor curriculum, class notes, and the sources named on each page.</span><span class="ne">सीटीईभीटी मनोसामाजिक परामर्शकर्ता पाठ्यक्रम, कक्षा-नोट र प्रत्येक पृष्ठमा उल्लिखित स्रोतबाट निर्मित।</span></p>
+    </footer>
     </div>
   </main>
 </div>

@@ -3,13 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Mano Atlas (मनो एट्लास) — a free, bilingual (English/नेपाली) atlas of mental disorders: DSM-5 criteria, teaching diagrams, and the Nepali context.">
+<meta name="description" content="Mano Atlas (मनो एट्लास): a free, bilingual (English/नेपाली) atlas of mental disorders: DSM-5 criteria, teaching diagrams, and the Nepali context.">
 <title>Fear: the foundation · Mano Atlas</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Mukta:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Caveat:wght@600&display=swap">
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
+<a class="skip" href="#main"><span class="en">Skip to content</span><span class="ne">सामग्रीमा जानुहोस्</span></a>
 <div class="layout">
   <aside class="sidebar">
     <div class="top">
@@ -19,6 +20,7 @@
         <button id="btn-en" onclick="setLang('en')">EN</button>
         <button id="btn-ne" onclick="setLang('ne')">ने</button>
       </div>
+      <button id="btn-theme" class="themesw" onclick="cycleTheme()" aria-label="Colour theme">◐ Auto</button>
     </div>
     <div class="search">
       <input id="q" type="search" autocomplete="off" spellcheck="false"
@@ -60,20 +62,19 @@
       <a href="nepal.html"><span class="secnum">28</span><span class="catmark" style="background:transparent"></span><span class="en">Culture & the Nepal panorama</span><span class="ne">संस्कृति र नेपाली परिदृश्य</span></a>
       <a href="crosswalk.html"><span class="secnum">29</span><span class="catmark" style="background:transparent"></span><span class="en">For PSC students</span><span class="ne">पीएससी विद्यार्थीलाई</span></a>
     </nav>
-    <div class="side-foot">DSM-5 (2013) · <span class="en">study resource, not a diagnostic tool</span><span class="ne">अध्ययन सामग्री — निदान-उपकरण होइन</span></div>
   </aside>
-  <main>
+  <main id="main">
     <div class="wrap">
 <div class="pagehead"><div class="kicker"><span class="en">Section 03</span><span class="ne">खण्ड 03</span></div></div>
 <section id="foundation" style="margin-top:12px">
 <div class="sechead"><span class="secnum">03</span>
     <h2><span class="en">Fear: the foundation under all of it</span><span class="ne">डर: सबैको आधारशिला</span></h2>
   </div>
-  <p class="secsub en">Fear is adaptive — the amygdala's alarm keeps you alive. Anxiety disorders are fear that has become untethered from real danger; the OCD spectrum is what happens when a person finds a behaviour that switches the fear off, and the relief reinforces the behaviour. Learn these two diagrams once and you can explain eight disorders with them.</p>
-  <p class="secsub ne">डर आफैंमा उपयोगी छ — एमिग्डालाको चेतावनीले हामीलाई बचाउँछ। चिन्ता विकार भनेको वास्तविक खतरासँग सम्बन्ध टुटेको डर हो; ओसीडी-वर्ग भनेको डर बन्द गर्ने कुनै व्यवहार भेटिएपछि त्यही राहतले व्यवहारलाई झन् बलियो बनाउने चक्र हो। यी दुई चित्र एकपटक बुझ्नुहोस् — आठ विकार यिनैले व्याख्या हुन्छन्।</p>
+  <p class="secsub en">Fear is adaptive; the amygdala's alarm keeps you alive. Anxiety disorders are fear that has become untethered from real danger; the OCD spectrum is what happens when a person finds a behaviour that switches the fear off, and the relief reinforces the behaviour. Learn these two diagrams once and you can explain eight disorders with them.</p>
+  <p class="secsub ne">डर आफैंमा उपयोगी छ, एमिग्डालाको चेतावनीले हामीलाई बचाउँछ। चिन्ता विकार भनेको वास्तविक खतरासँग सम्बन्ध टुटेको डर हो; ओसीडी-वर्ग भनेको डर बन्द गर्ने कुनै व्यवहार भेटिएपछि त्यही राहतले व्यवहारलाई झन् बलियो बनाउने चक्र हो। यी दुई चित्र एकपटक बुझ्नुहोस्, आठ विकार यिनैले व्याख्या हुन्छन्।</p>
 
   <figure>
-    <svg viewBox="0 0 720 340" role="img" aria-label="Fight-or-flight: the amygdala triggers sympathetic arousal — pupils dilate, heart rate rises, breathing quickens, muscles tense, sweating starts, digestion pauses.">
+    <svg viewBox="0 0 720 340" role="img" aria-label="Fight-or-flight: the amygdala triggers sympathetic arousal; pupils dilate, heart rate rises, breathing quickens, muscles tense, sweating starts, digestion pauses.">
       <defs>
         <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
           <path d="M0,0 L10,5 L0,10 z" fill="currentColor"/>
@@ -89,10 +90,10 @@
         <line x1="360" y1="200" x2="395" y2="290"/>
       </g>
       <!-- amygdala dot -->
-      <circle cx="368" cy="66" r="5" fill="#B01E3C"/>
-      <line x1="373" y1="66" x2="470" y2="40" stroke="#B01E3C" stroke-width="1.5"/>
-      <text x="476" y="38" font-size="13" font-weight="bold" fill="#B01E3C" font-family="Archivo,sans-serif" class="en">Amygdala: the alarm</text>
-      <text x="476" y="38" font-size="14" font-weight="bold" fill="#B01E3C" font-family="Mukta,sans-serif" class="ne">एमिग्डाला: खतराको घण्टी</text>
+      <circle cx="368" cy="66" r="5" style="fill:var(--accent)"/>
+      <line x1="373" y1="66" x2="470" y2="40" style="stroke:var(--accent)" stroke-width="1.5"/>
+      <text x="476" y="38" font-size="13" font-weight="bold" style="fill:var(--accent)" font-family="Archivo,sans-serif" class="en">Amygdala: the alarm</text>
+      <text x="476" y="38" font-size="14" font-weight="bold" style="fill:var(--accent)" font-family="Mukta,sans-serif" class="ne">एमिग्डाला: खतराको घण्टी</text>
       <text x="476" y="54" font-size="11" fill="currentColor" opacity=".65" class="en">fires before thinking</text>
       <text x="476" y="56" font-size="12" fill="currentColor" opacity=".65" font-family="Mukta,sans-serif" class="ne">सोच्नुअघि नै सक्रिय</text>
       <!-- left callouts -->
@@ -101,14 +102,14 @@
         <text x="228" y="56" text-anchor="end" class="en">Pupils dilate</text>
         <text x="228" y="56" text-anchor="end" font-family="Mukta,sans-serif" class="ne">आँखाको नानी फैलिन्छ</text>
         <line x1="352" y1="130" x2="235" y2="115" stroke="currentColor" stroke-width="1"/>
-        <text x="228" y="119" text-anchor="end" class="en">Heart races — palpitations</text>
+        <text x="228" y="119" text-anchor="end" class="en">Heart races: palpitations</text>
         <text x="228" y="119" text-anchor="end" font-family="Mukta,sans-serif" class="ne">मुटुको धड्कन बढ्छ</text>
         <line x1="355" y1="165" x2="235" y2="175" stroke="currentColor" stroke-width="1"/>
-        <text x="228" y="179" text-anchor="end" class="en">Digestion pauses — "butterflies"</text>
-        <text x="228" y="179" text-anchor="end" font-family="Mukta,sans-serif" class="ne">पाचन रोकिन्छ — पेट हल्लिएको महसुस</text>
+        <text x="228" y="179" text-anchor="end" class="en">Digestion pauses: "butterflies"</text>
+        <text x="228" y="179" text-anchor="end" font-family="Mukta,sans-serif" class="ne">पाचन रोकिन्छ, पेट हल्लिएको महसुस</text>
         <line x1="340" y1="250" x2="235" y2="245" stroke="currentColor" stroke-width="1"/>
-        <text x="228" y="249" text-anchor="end" class="en">Legs ready to run — trembling</text>
-        <text x="228" y="249" text-anchor="end" font-family="Mukta,sans-serif" class="ne">खुट्टा भाग्न तयार — काम्ने</text>
+        <text x="228" y="249" text-anchor="end" class="en">Legs ready to run: trembling</text>
+        <text x="228" y="249" text-anchor="end" font-family="Mukta,sans-serif" class="ne">खुट्टा भाग्न तयार, काम्ने</text>
       </g>
       <!-- right callouts -->
       <g font-size="12" fill="currentColor" font-family="Archivo,sans-serif">
@@ -119,14 +120,14 @@
         <text x="486" y="154" class="en">Sweating; cold hands</text>
         <text x="486" y="154" font-family="Mukta,sans-serif" class="ne">पसिना; चिसा हात</text>
         <line x1="380" y1="195" x2="480" y2="195" stroke="currentColor" stroke-width="1"/>
-        <text x="486" y="199" class="en">Muscles tense — jham-jham tingling</text>
-        <text x="486" y="199" font-family="Mukta,sans-serif" class="ne">मांसपेशी कसिन्छ — झमझम, लाटोपन</text>
+        <text x="486" y="199" class="en">Muscles tense: jham-jham tingling</text>
+        <text x="486" y="199" font-family="Mukta,sans-serif" class="ne">मांसपेशी कसिन्छ, झमझम, लाटोपन</text>
       </g>
       <text x="360" y="325" text-anchor="middle" font-size="12" fill="currentColor" opacity=".7" font-family="Archivo,sans-serif" class="en">Every arrow here is a panic-attack symptom when it fires without danger</text>
-      <text x="360" y="325" text-anchor="middle" font-size="13" fill="currentColor" opacity=".7" font-family="Mukta,sans-serif" class="ne">खतरा नभई यी सबै सक्रिय हुँदा — त्यही नै प्यानिक एट्याकका लक्षण हुन्</text>
+      <text x="360" y="325" text-anchor="middle" font-size="13" fill="currentColor" opacity=".7" font-family="Mukta,sans-serif" class="ne">खतरा नभई यी सबै सक्रिय हुँदा, त्यही नै प्यानिक एट्याकका लक्षण हुन्</text>
     </svg>
-    <figcaption class="en">Fight-or-flight. The same body responses that save you from a real threat become the "symptoms" a client brings to you — palpitations, tingling, breathlessness — when the alarm fires without danger.</figcaption>
-    <figcaption class="ne">लड-या-भाग प्रतिक्रिया। वास्तविक खतराबाट बचाउने यही शारीरिक प्रतिक्रिया, खतरा नहुँदा सक्रिय भयो भने — मुटु ढुकढुक, झमझम, सास फेर्न गाह्रो — सेवाग्राहीले ल्याउने «लक्षण» बन्छ।</figcaption>
+    <figcaption class="en">Fight-or-flight. The same body responses that save you from a real threat become the "symptoms" a client brings to you, palpitations, tingling, breathlessness, when the alarm fires without danger.</figcaption>
+    <figcaption class="ne">लड-या-भाग प्रतिक्रिया। वास्तविक खतराबाट बचाउने यही शारीरिक प्रतिक्रिया, खतरा नहुँदा सक्रिय भयो भने, मुटु ढुकढुक, झमझम, सास फेर्न गाह्रो, सेवाग्राहीले ल्याउने «लक्षण» बन्छ।</figcaption>
   </figure>
 
   <figure>
@@ -143,9 +144,9 @@
         <text x="90" y="138" text-anchor="middle" font-size="10.5" fill="currentColor" opacity=".65" class="en">dog · crowd · dirt · thought</text>
         <text x="90" y="140" text-anchor="middle" font-size="11.5" fill="currentColor" opacity=".65" font-family="Mukta,sans-serif" class="ne">कुकुर · भीड · फोहोर · विचार</text>
 
-        <rect x="210" y="95" width="140" height="60" rx="8" fill="none" stroke="#B01E3C" stroke-width="2"/>
-        <text x="280" y="120" text-anchor="middle" font-size="13" font-weight="bold" fill="#B01E3C" class="en">FEAR / ANXIETY</text>
-        <text x="280" y="118" text-anchor="middle" font-size="14" font-weight="bold" fill="#B01E3C" font-family="Mukta,sans-serif" class="ne">डर / चिन्ता</text>
+        <rect x="210" y="95" width="140" height="60" rx="8" fill="none" style="stroke:var(--accent)" stroke-width="2"/>
+        <text x="280" y="120" text-anchor="middle" font-size="13" font-weight="bold" style="fill:var(--accent)" class="en">FEAR / ANXIETY</text>
+        <text x="280" y="118" text-anchor="middle" font-size="14" font-weight="bold" style="fill:var(--accent)" font-family="Mukta,sans-serif" class="ne">डर / चिन्ता</text>
         <text x="280" y="138" text-anchor="middle" font-size="10.5" fill="currentColor" opacity=".65" class="en">amygdala alarm</text>
         <text x="280" y="140" text-anchor="middle" font-size="11.5" fill="currentColor" opacity=".65" font-family="Mukta,sans-serif" class="ne">एमिग्डालाको घण्टी</text>
 
@@ -165,23 +166,48 @@
         <line x1="350" y1="125" x2="393" y2="125" stroke="currentColor" stroke-width="1.5" marker-end="url(#arr2)"/>
         <line x1="550" y1="125" x2="593" y2="125" stroke="currentColor" stroke-width="1.5" marker-end="url(#arr2)"/>
         <!-- feedback arrow -->
-        <path d="M 650 155 L 650 205 L 475 205 L 300 205 L 280 205 L 280 162" fill="none" stroke="#B01E3C" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#arr2)"/>
-        <text x="465" y="196" text-anchor="middle" font-size="12" font-weight="bold" fill="#B01E3C" class="en">relief reinforces the behaviour — the loop tightens</text>
-        <text x="465" y="196" text-anchor="middle" font-size="13" font-weight="bold" fill="#B01E3C" font-family="Mukta,sans-serif" class="ne">राहतले व्यवहारलाई बलियो बनाउँछ — चक्र कसिँदै जान्छ</text>
-        <text x="465" y="232" text-anchor="middle" font-size="11" fill="currentColor" opacity=".7" class="en">Negative reinforcement — the most examinable principle in this whole atlas</text>
-        <text x="465" y="232" text-anchor="middle" font-size="12" fill="currentColor" opacity=".7" font-family="Mukta,sans-serif" class="ne">नकारात्मक पुनर्बलन — यस एट्लासभरि सबैभन्दा धेरै सोधिने सिद्धान्त</text>
+        <path d="M 650 155 L 650 205 L 475 205 L 300 205 L 280 205 L 280 162" fill="none" style="stroke:var(--accent)" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#arr2)"/>
+        <text x="465" y="196" text-anchor="middle" font-size="12" font-weight="bold" style="fill:var(--accent)" class="en">relief reinforces the behaviour; the loop tightens</text>
+        <text x="465" y="196" text-anchor="middle" font-size="13" font-weight="bold" style="fill:var(--accent)" font-family="Mukta,sans-serif" class="ne">राहतले व्यवहारलाई बलियो बनाउँछ, चक्र कसिँदै जान्छ</text>
+        <text x="465" y="232" text-anchor="middle" font-size="11" fill="currentColor" opacity=".7" class="en">Negative reinforcement: the most examinable principle in this whole atlas</text>
+        <text x="465" y="232" text-anchor="middle" font-size="12" fill="currentColor" opacity=".7" font-family="Mukta,sans-serif" class="ne">नकारात्मक पुनर्बलन, यस एट्लासभरि सबैभन्दा धेरै सोधिने सिद्धान्त</text>
       </g>
     </svg>
-    <figcaption class="en">The negative reinforcement loop. Phobic avoidance, compulsive washing, reassurance-seeking, mirror-checking in BDD, even bingeing after restriction — the mechanism is one and the same. Treatment (exposure) works by breaking the loop at the safety-behaviour link.</figcaption>
-    <figcaption class="ne">नकारात्मक पुनर्बलनको चक्र। फोबियामा पन्छिने, ओसीडीमा धुने, बीडीडीमा ऐना हेर्ने, आश्वासन खोज्ने — संयन्त्र एउटै हो। उपचार (एक्सपोजर) ले यही चक्रलाई सुरक्षा-व्यवहारकै कडीमा तोड्छ।</figcaption>
+    <figcaption class="en">The negative reinforcement loop. Phobic avoidance, compulsive washing, reassurance-seeking, mirror-checking in BDD, even bingeing after restriction: the mechanism is one and the same. Treatment (exposure) works by breaking the loop at the safety-behaviour link.</figcaption>
+    <figcaption class="ne">नकारात्मक पुनर्बलनको चक्र। फोबियामा पन्छिने, ओसीडीमा धुने, बीडीडीमा ऐना हेर्ने, आश्वासन खोज्ने, संयन्त्र एउटै हो। उपचार (एक्सपोजर) ले यही चक्रलाई सुरक्षा-व्यवहारकै कडीमा तोड्छ।</figcaption>
   </figure>
-<div class="resources"><div class="res-head"><span class="en">Learn more</span><span class="ne">थप सिक्नुहोस्</span></div><p class="res-hint"><span class="en">Pick one, not all — these are chosen to be light, not exhaustive.</span><span class="ne">सबै होइन, एउटा रोज्नुहोस् — यी हल्का, सजिला स्रोत हुन्।</span></p><div class="res-item"><span class="res-type">Book chapter</span><span><strong>Introduction to Psychology — "Emotion &amp; Stress" chapter</strong> — <span class="res-note"><span class="en">The fight-or-flight physiology behind every diagram on this page.</span><span class="ne">यस पृष्ठका चित्रपछाडिको शरीरक्रिया।</span></span></span></div><div class="res-item"><span class="res-type">Video · 19 min</span><span><a href="https://www.ted.com/talks/matt_walker_sleep_is_your_superpower" target="_blank" rel="noopener">Sleep is your superpower (Matt Walker, TED)</a> — <span class="res-note"><span class="en">Why the fear system needs sleep — bridges this page to the Sleep page.</span><span class="ne">डर-प्रणालीलाई निद्रा किन चाहिन्छ — निद्रा-पृष्ठसँग जोड्छ।</span></span></span></div></div>
+
+<div class="quickcheck"><div class="qc-head"><span class="en">Quick check</span><span class="ne">छिटो जाँच</span></div><p class="qc-hint"><span class="en">Three friendly questions to settle what you just read. This is reassurance, not a test: a wrong tap is part of learning, and you can try again.</span><span class="ne">भर्खर पढेको कुरा बसाल्न तीन मैत्री प्रश्न। यो परीक्षा होइन, ढुक्क हुने तरिका हो: गलत छनोट पनि सिकाइकै अंश हो, फेरि प्रयास गर्न पाइन्छ।</span></p><div class="qz" data-a="2"><p class="qz-q"><span class="en">Palpitations, tingling and breathlessness in panic are:</span><span class="ne">प्यानिकमा मुटु ढुकढुक, झमझम र सास फेर्न गाह्रो हुनु भनेको:</span></p><div class="qz-opts"><button type="button" class="qz-opt" data-i="1"><span class="en">Signs of heart disease</span><span class="ne">मुटुरोगका लक्षण</span></button><button type="button" class="qz-opt" data-i="2"><span class="en">Fight-or-flight firing without danger</span><span class="ne">खतरा नभई चलेको लड-या-भाग प्रतिक्रिया</span></button><button type="button" class="qz-opt" data-i="3"><span class="en">Weak willpower</span><span class="ne">कमजोर इच्छाशक्ति</span></button></div><p class="qz-fb" hidden>✔ <span class="en">Yes. <span class="why">The alarm is real and harmless; that one sentence is the core psychoeducation.</span></span><span class="ne">सही। <span class="why">घण्टी वास्तविक तर हानिरहित छ; यही एक वाक्य मुख्य मनोशिक्षा हो।</span></span></p><p class="qz-hint" hidden><span class="en">Not quite; have another look. The answer is in this section.</span><span class="ne">ठ्याक्कै मिलेन; फेरि हेर्नुहोस्। उत्तर यही खण्डमा छ।</span></p></div><div class="qz" data-a="1"><p class="qz-q"><span class="en">A compulsion grows stronger because:</span><span class="ne">कम्पल्सन झन् बलियो हुँदै जान्छ, किनभने:</span></p><div class="qz-opts"><button type="button" class="qz-opt" data-i="1"><span class="en">Relief after it reinforces it</span><span class="ne">पछिको राहतले त्यसलाई पुरस्कृत गर्छ</span></button><button type="button" class="qz-opt" data-i="2"><span class="en">It is genetic</span><span class="ne">वंशाणुगत हुन्छ</span></button><button type="button" class="qz-opt" data-i="3"><span class="en">Clients enjoy it</span><span class="ne">सेवाग्राहीलाई रमाइलो लाग्छ</span></button></div><p class="qz-fb" hidden>✔ <span class="en">Yes. <span class="why">Negative reinforcement: relief teaches the brain to repeat the behaviour.</span></span><span class="ne">सही। <span class="why">नकारात्मक पुनर्बलन: राहतले मस्तिष्कलाई व्यवहार दोहोर्‍याउन सिकाउँछ।</span></span></p><p class="qz-hint" hidden><span class="en">Not quite; have another look. The answer is in this section.</span><span class="ne">ठ्याक्कै मिलेन; फेरि हेर्नुहोस्। उत्तर यही खण्डमा छ।</span></p></div><div class="qz" data-a="2"><p class="qz-q"><span class="en">Exposure therapy works by breaking the loop at:</span><span class="ne">एक्सपोजर थेरापीले चक्रलाई कहाँ तोड्छ?</span></p><div class="qz-opts"><button type="button" class="qz-opt" data-i="1"><span class="en">The trigger</span><span class="ne">उत्तेजकमा</span></button><button type="button" class="qz-opt" data-i="2"><span class="en">The safety behaviour</span><span class="ne">सुरक्षा-व्यवहारमा</span></button><button type="button" class="qz-opt" data-i="3"><span class="en">The memory</span><span class="ne">स्मृतिमा</span></button></div><p class="qz-fb" hidden>✔ <span class="en">Yes. <span class="why">Stay with the fear without escaping and the alarm relearns.</span></span><span class="ne">सही। <span class="why">नभागी डरसँग बस्दा घण्टीले फेरि सिक्छ।</span></span></p><p class="qz-hint" hidden><span class="en">Not quite; have another look. The answer is in this section.</span><span class="ne">ठ्याक्कै मिलेन; फेरि हेर्नुहोस्। उत्तर यही खण्डमा छ।</span></p></div></div>
+<div class="resources"><div class="res-head"><span class="en">Learn more</span><span class="ne">थप सिक्नुहोस्</span></div><p class="res-hint"><span class="en">Pick one, not all: these are chosen to be light, not exhaustive.</span><span class="ne">सबै होइन, एउटा रोज्नुहोस्, यी हल्का, सजिला स्रोत हुन्।</span></p><div class="res-item"><span class="res-type">Book chapter</span><span><strong>Introduction to Psychology: "Emotion &amp; Stress" chapter</strong>: <span class="res-note"><span class="en">The fight-or-flight physiology behind every diagram on this page.</span><span class="ne">यस पृष्ठका चित्रपछाडिको शरीरक्रिया।</span></span></span></div><div class="res-item"><span class="res-type">Video · 19 min</span><span><a href="https://www.ted.com/talks/matt_walker_sleep_is_your_superpower" target="_blank" rel="noopener">Sleep is your superpower (Matt Walker, TED)</a>: <span class="res-note"><span class="en">Why the fear system needs sleep: bridges this page to the Sleep page.</span><span class="ne">डर-प्रणालीलाई निद्रा किन चाहिन्छ, निद्रा-पृष्ठसँग जोड्छ।</span></span></span></div></div>
 
 </section>
     <nav class="pager" aria-label="Chapter">
     <a class="prev" href="roots.html"><span class="lbl"><span class="en">Previous · 02</span><span class="ne">अघिल्लो · 02</span></span><span class="en">Roots: philosophy to psychology</span><span class="ne">जरा: दर्शनदेखि मनोविज्ञान</span></a>
     <a class="next" href="basics.html"><span class="lbl"><span class="en">Next · 04</span><span class="ne">अर्को · 04</span></span><span class="en">Mental health basics</span><span class="ne">मानसिक स्वास्थ्यका आधार</span></a>
     </nav>
+    <footer class="sitefoot">
+      <div class="cols">
+        <div>
+          <h4><span class="en">Mano Atlas</span><span class="ne">मनो एट्लास</span></h4>
+          <p class="en">A free, open atlas of mental health in English and नेपाली. Educational resource, not a diagnostic tool: criteria are paraphrased from DSM-5 (2013). Diagnosis belongs to qualified clinicians.</p>
+          <p class="ne">अंग्रेजी र नेपालीमा मानसिक स्वास्थ्यको निःशुल्क, खुला एट्लास। शैक्षिक सामग्री हो, निदान-उपकरण होइन: मापदण्ड DSM-5 (2013) बाट सरलीकृत छन्। निदान योग्य चिकित्सकको काम हो।</p>
+          <p><span class="en">Last reviewed: August 2026</span><span class="ne">पछिल्लो समीक्षा: भदौ २०८३</span></p>
+        </div>
+        <div class="crisis-col">
+          <h4><span class="en">If you need help now</span><span class="ne">अहिले नै सहयोग चाहिए</span></h4>
+          <p><strong>1166</strong> <span class="en">National Suicide Prevention Helpline</span><span class="ne">राष्ट्रिय आत्महत्या रोकथाम हेल्पलाइन</span></p>
+          <p><strong>1660 012 1600</strong> <span class="en">TUTH mental-health hotline</span><span class="ne">टिचिङ अस्पताल हटलाइन</span></p>
+          <p><strong>1145</strong> <span class="en">Women's helpline</span><span class="ne">महिला हेल्पलाइन</span> · <strong>112 / 100</strong> <span class="en">emergency</span><span class="ne">आपतकाल</span></p>
+        </div>
+        <div>
+          <h4><span class="en">Open &amp; improvable</span><span class="ne">खुला र सुधारयोग्य</span></h4>
+          <p class="en">Content licensed <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license noopener" target="_blank">CC BY-NC-SA 4.0</a>: share and adapt with credit, non-commercially.</p>
+          <p class="ne">सामग्री <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license noopener" target="_blank">CC BY-NC-SA 4.0</a> अन्तर्गत: श्रेयसहित, गैर-व्यावसायिक रूपमा बाँड्न र मिलाउन पाइन्छ।</p>
+          <p><span class="en">Spotted an error?</span><span class="ne">त्रुटि भेट्नुभयो?</span> <span class="mailrev" data-u="kpravash" data-d="gmail" data-t="com">kpravash [at] gmail [dot] com</span></p>
+        </div>
+      </div>
+      <p class="fine"><span class="en">Built from the CTEVT Psychosocial Counselor curriculum, class notes, and the sources named on each page.</span><span class="ne">सीटीईभीटी मनोसामाजिक परामर्शकर्ता पाठ्यक्रम, कक्षा-नोट र प्रत्येक पृष्ठमा उल्लिखित स्रोतबाट निर्मित।</span></p>
+    </footer>
     </div>
   </main>
 </div>

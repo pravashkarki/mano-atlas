@@ -3,13 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Mano Atlas (मनो एट्लास) — a free, bilingual (English/नेपाली) atlas of mental disorders: DSM-5 criteria, teaching diagrams, and the Nepali context.">
+<meta name="description" content="Mano Atlas (मनो एट्लास): a free, bilingual (English/नेपाली) atlas of mental disorders: DSM-5 criteria, teaching diagrams, and the Nepali context.">
 <title>Eating disorders · Mano Atlas</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Mukta:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Caveat:wght@600&display=swap">
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
+<a class="skip" href="#main"><span class="en">Skip to content</span><span class="ne">सामग्रीमा जानुहोस्</span></a>
 <div class="layout">
   <aside class="sidebar">
     <div class="top">
@@ -19,6 +20,7 @@
         <button id="btn-en" onclick="setLang('en')">EN</button>
         <button id="btn-ne" onclick="setLang('ne')">ने</button>
       </div>
+      <button id="btn-theme" class="themesw" onclick="cycleTheme()" aria-label="Colour theme">◐ Auto</button>
     </div>
     <div class="search">
       <input id="q" type="search" autocomplete="off" spellcheck="false"
@@ -60,17 +62,17 @@
       <a href="nepal.html"><span class="secnum">28</span><span class="catmark" style="background:transparent"></span><span class="en">Culture & the Nepal panorama</span><span class="ne">संस्कृति र नेपाली परिदृश्य</span></a>
       <a href="crosswalk.html"><span class="secnum">29</span><span class="catmark" style="background:transparent"></span><span class="en">For PSC students</span><span class="ne">पीएससी विद्यार्थीलाई</span></a>
     </nav>
-    <div class="side-foot">DSM-5 (2013) · <span class="en">study resource, not a diagnostic tool</span><span class="ne">अध्ययन सामग्री — निदान-उपकरण होइन</span></div>
   </aside>
-  <main>
+  <main id="main">
     <div class="wrap">
 <div class="pagehead"><div class="kicker"><span class="en">Section 13</span><span class="ne">खण्ड 13</span></div></div>
+<p class="gentle"><span class="en">A gentle note before you read: symptom lists make almost everyone recognise themselves somewhere. That is a normal effect of reading, not a diagnosis. If something here stays on your mind, a conversation with a professional helps more than re-reading.</span><span class="ne">पढ्नुअघि एउटा कोमल कुरा: लक्षण-सूची पढ्दा झन्डै सबैलाई कतै न कतै आफ्नै झल्को मिल्छ। त्यो पढाइको सामान्य असर हो, निदान होइन। कुनै कुरा मनमा अडिरह्यो भने फेरि-फेरि पढ्नुभन्दा पेसागत व्यक्तिसँगको कुराकानीले बढी सघाउँछ।</span></p>
 <section id="eating" style="margin-top:12px">
 <div class="sechead"><span class="catmark" style="background:var(--c-eat)"></span><span class="secnum">13</span>
     <h2><span class="en">Feeding &amp; eating disorders</span><span class="ne">खानपान विकारहरू</span></h2>
   </div>
-  <p class="secsub en">Anorexia nervosa has the highest mortality of any mental disorder — around 5% per decade. Never manage it alone; refer medically early.</p>
-  <p class="secsub ne">एनोरेक्सिया नर्भोसाको मृत्युदर सबै मानसिक विकारमध्ये उच्च छ — प्रति दशक करिब ५%। कहिल्यै एक्लै व्यवस्थापन नगर्नुहोस्; चाँडै चिकित्सकीय रेफर गर्नुहोस्।</p>
+  <p class="secsub en">Anorexia nervosa has the highest mortality of any mental disorder: around 5% per decade. Never manage it alone; refer medically early.</p>
+  <p class="secsub ne">एनोरेक्सिया नर्भोसाको मृत्युदर सबै मानसिक विकारमध्ये उच्च छ, प्रति दशक करिब ५%। कहिल्यै एक्लै व्यवस्थापन नगर्नुहोस्; चाँडै चिकित्सकीय रेफर गर्नुहोस्।</p>
 
   <figure>
     <svg viewBox="0 0 720 300" role="img" aria-label="Decision tree separating anorexia, bulimia, and binge-eating disorder by low weight, bingeing, and compensation.">
@@ -87,8 +89,8 @@
         <text x="360" y="51" text-anchor="middle" font-size="11" fill="currentColor" opacity=".65" font-family="Mukta,sans-serif" class="ne">खान रोक्ने · तौल बढ्ने डर · शरीर-छविमा विकृति</text>
 
         <line x1="290" y1="60" x2="160" y2="108" stroke="currentColor" stroke-width="1.5" marker-end="url(#arr3)"/>
-        <text x="200" y="80" font-size="11" font-weight="bold" fill="#B01E3C" class="en">YES</text>
-        <text x="200" y="80" font-size="12" font-weight="bold" fill="#B01E3C" font-family="Mukta,sans-serif" class="ne">छ</text>
+        <text x="200" y="80" font-size="11" font-weight="bold" style="fill:var(--accent)" class="en">YES</text>
+        <text x="200" y="80" font-size="12" font-weight="bold" style="fill:var(--accent)" font-family="Mukta,sans-serif" class="ne">छ</text>
         <line x1="430" y1="60" x2="540" y2="108" stroke="currentColor" stroke-width="1.5" marker-end="url(#arr3)"/>
         <text x="502" y="80" font-size="11" font-weight="bold" fill="currentColor" opacity=".8" class="en">NO</text>
         <text x="502" y="80" font-size="12" font-weight="bold" fill="currentColor" opacity=".8" font-family="Mukta,sans-serif" class="ne">छैन</text>
@@ -96,9 +98,9 @@
         <rect x="60" y="112" width="200" height="62" rx="8" fill="none" stroke="#C24560" stroke-width="2"/>
         <text x="160" y="134" text-anchor="middle" font-size="13" font-weight="bold" fill="#C24560" class="en">ANOREXIA NERVOSA</text>
         <text x="160" y="134" text-anchor="middle" font-size="13.5" font-weight="bold" fill="#C24560" font-family="Mukta,sans-serif" class="ne">एनोरेक्सिया नर्भोसा</text>
-        <text x="160" y="151" text-anchor="middle" font-size="10.5" fill="currentColor" opacity=".7" class="en">even if she binges or purges —</text>
+        <text x="160" y="151" text-anchor="middle" font-size="10.5" fill="currentColor" opacity=".7" class="en">even if she binges or purges:</text>
         <text x="160" y="165" text-anchor="middle" font-size="10.5" fill="currentColor" opacity=".7" class="en">low weight wins (binge/purge subtype)</text>
-        <text x="160" y="153" text-anchor="middle" font-size="11" fill="currentColor" opacity=".7" font-family="Mukta,sans-serif" class="ne">बिन्ज/पर्ज गरे पनि —</text>
+        <text x="160" y="153" text-anchor="middle" font-size="11" fill="currentColor" opacity=".7" font-family="Mukta,sans-serif" class="ne">बिन्ज/पर्ज गरे पनि:</text>
         <text x="160" y="167" text-anchor="middle" font-size="11" fill="currentColor" opacity=".7" font-family="Mukta,sans-serif" class="ne">कम तौलले जित्छ (उप-प्रकार)</text>
 
         <rect x="440" y="112" width="210" height="52" rx="8" fill="none" stroke="currentColor" stroke-width="1.5"/>
@@ -108,8 +110,8 @@
         <text x="545" y="152" text-anchor="middle" font-size="11" fill="currentColor" opacity=".65" font-family="Mukta,sans-serif" class="ne">धेरै मात्रा + नियन्त्रण गुम्ने</text>
 
         <line x1="500" y1="164" x2="420" y2="215" stroke="currentColor" stroke-width="1.5" marker-end="url(#arr3)"/>
-        <text x="435" y="186" font-size="11" font-weight="bold" fill="#B01E3C" class="en">+ compensation</text>
-        <text x="435" y="186" font-size="12" font-weight="bold" fill="#B01E3C" font-family="Mukta,sans-serif" class="ne">+ क्षतिपूर्ति</text>
+        <text x="435" y="186" font-size="11" font-weight="bold" style="fill:var(--accent)" class="en">+ compensation</text>
+        <text x="435" y="186" font-size="12" font-weight="bold" style="fill:var(--accent)" font-family="Mukta,sans-serif" class="ne">+ क्षतिपूर्ति</text>
         <line x1="600" y1="164" x2="640" y2="215" stroke="currentColor" stroke-width="1.5" marker-end="url(#arr3)"/>
         <text x="648" y="192" font-size="11" font-weight="bold" fill="currentColor" opacity=".8" text-anchor="end" class="en">no compensation</text>
         <text x="656" y="192" font-size="12" font-weight="bold" fill="currentColor" opacity=".8" text-anchor="end" font-family="Mukta,sans-serif" class="ne">क्षतिपूर्ति छैन</text>
@@ -135,7 +137,7 @@
 
   <article class="card" id="eating-c1" style="--cat:var(--c-eat)">
     <div class="card-head">
-      <h3><span class="en">The criteria in brief — AN · BN · BED</span><span class="ne">मापदण्ड सङ्क्षेपमा — एएन · बीएन · बीईडी</span></h3>
+      <h3><span class="en">The criteria in brief; AN · BN · BED</span><span class="ne">मापदण्ड सङ्क्षेपमा, एएन · बीएन · बीईडी</span></h3>
       <span class="code mono">F50.0x · F50.2 · F50.81</span>
       <span class="pill beyond"><span class="dot"></span><span class="en">Beyond curriculum</span><span class="ne">पाठ्यक्रमभन्दा बाहिर</span></span>
     </div>
@@ -144,11 +146,11 @@
         <div class="crit-label"><span class="en">Anorexia Nervosa</span><span class="ne">एनोरेक्सिया नर्भोसा</span></div>
         <ol class="en">
           <li>Restriction of energy intake leading to significantly low body weight for age, sex, development, and health.</li>
-          <li>Intense fear of gaining weight or becoming fat, <em>or</em> persistent behaviour that interferes with weight gain — even at low weight.</li>
+          <li>Intense fear of gaining weight or becoming fat, <em>or</em> persistent behaviour that interferes with weight gain, even at low weight.</li>
           <li>Disturbance in how weight or shape is experienced, undue influence of weight/shape on self-evaluation, or persistent lack of recognition of the seriousness of the low weight.</li>
         </ol>
         <ol class="ne">
-          <li>ऊर्जा-सेवनमा कडाइ — उमेर, लिङ्ग, विकास र स्वास्थ्यका तुलनामा उल्लेखनीय कम तौल।</li>
+          <li>ऊर्जा-सेवनमा कडाइ, उमेर, लिङ्ग, विकास र स्वास्थ्यका तुलनामा उल्लेखनीय कम तौल।</li>
           <li>तौल बढ्ने वा मोटो हुने तीव्र डर, <em>वा</em> कम तौलमै पनि तौल बढ्न नदिने निरन्तर व्यवहार।</li>
           <li>तौल/आकारको अनुभवमा विकृति, आत्म-मूल्याङ्कनमा तिनको अनुचित प्रभाव, वा कम तौलको गम्भीरता नचिन्ने अवस्था।</li>
         </ol>
@@ -159,14 +161,14 @@
         <div class="crit-label"><span class="en">Bulimia Nervosa</span><span class="ne">बुलिमिया नर्भोसा</span></div>
         <ol class="en">
           <li>Recurrent binge episodes: eating, in a discrete period, an amount definitely larger than most people would, with a sense of loss of control.</li>
-          <li>Recurrent inappropriate compensatory behaviour — self-induced vomiting, laxatives/diuretics, fasting, excessive exercise.</li>
+          <li>Recurrent inappropriate compensatory behaviour: self-induced vomiting, laxatives/diuretics, fasting, excessive exercise.</li>
           <li>Both at least <strong>once a week for 3 months</strong>.</li>
           <li>Self-evaluation unduly influenced by shape and weight.</li>
           <li>Not exclusively during episodes of anorexia nervosa.</li>
         </ol>
         <ol class="ne">
           <li>दोहोरिने बिन्ज: छोटो अवधिमा, अरूले खानेभन्दा निश्चित धेरै मात्रा, नियन्त्रण गुमेको अनुभवसहित।</li>
-          <li>दोहोरिने अनुचित क्षतिपूर्ति — आफैं बान्ता गराउने, जुलाब/मूत्रवर्धक, उपवास, अत्यधिक व्यायाम।</li>
+          <li>दोहोरिने अनुचित क्षतिपूर्ति, आफैं बान्ता गराउने, जुलाब/मूत्रवर्धक, उपवास, अत्यधिक व्यायाम।</li>
           <li>दुवै <strong>हप्तामा १ पटक, ३ महिना</strong>सम्म।</li>
           <li>आत्म-मूल्याङ्कनमा आकार-तौलको अनुचित प्रभाव।</li>
           <li>एनोरेक्सियाकै एपिसोडमा मात्र होइन।</li>
@@ -195,23 +197,48 @@
       <p class="ne" style="font-size:14.5px;color:var(--muted)"><strong>यसै अध्यायमा:</strong> अर्फिड (शरीर-छवि विकृतिविना खान पन्छाउने) · पाइका (≥१ महिना खान नहुने वस्तु खाने, <em>संस्कृतिले मान्यता नदिएको</em>) · रुमिनेसन (खाना फर्काएर चपाउने)।</p>
       <div class="ctx world">
         <div class="ctx-label"><span class="en">International</span><span class="ne">अन्तर्राष्ट्रिय</span></div>
-        <p class="en">Long framed as a Western thin-ideal illness, but Hong Kong research (Sing Lee) described <strong>non-fat-phobic anorexia</strong> — restriction explained as stomach bloating or loss of appetite, no expressed fat fear — which DSM-5's Criterion B accommodates via "persistent behaviour that interferes with weight gain". Eating disorders are rising fastest in Asia's urbanising economies.</p>
-        <p class="ne">लामो समय पश्चिमा «दुब्लो-आदर्श» रोग भनियो, तर हङकङ अनुसन्धान (सिङ ली) ले <strong>मोटोपन-डरविनाको एनोरेक्सिया</strong> देखायो — पेट फुल्यो, भोक छैन भन्दै खान रोक्ने, मोटो हुने डर नभन्ने — DSM-5 को मापदण्ड B ले «तौल बढ्न नदिने निरन्तर व्यवहार» भनेर यसलाई समेट्छ। एसियाका सहरीकरण हुँदै गरेका देशमा यी विकार सबैभन्दा छिटो बढ्दै छन्।</p>
+        <p class="en">Long framed as a Western thin-ideal illness, but Hong Kong research (Sing Lee) described <strong>non-fat-phobic anorexia</strong>: restriction explained as stomach bloating or loss of appetite, no expressed fat fear, which DSM-5's Criterion B accommodates via "persistent behaviour that interferes with weight gain". Eating disorders are rising fastest in Asia's urbanising economies.</p>
+        <p class="ne">लामो समय पश्चिमा «दुब्लो-आदर्श» रोग भनियो, तर हङकङ अनुसन्धान (सिङ ली) ले <strong>मोटोपन-डरविनाको एनोरेक्सिया</strong> देखायो, पेट फुल्यो, भोक छैन भन्दै खान रोक्ने, मोटो हुने डर नभन्ने, DSM-5 को मापदण्ड B ले «तौल बढ्न नदिने निरन्तर व्यवहार» भनेर यसलाई समेट्छ। एसियाका सहरीकरण हुँदै गरेका देशमा यी विकार सबैभन्दा छिटो बढ्दै छन्।</p>
       </div>
       <div class="ctx nepal">
         <div class="ctx-label"><span class="en">Nepal</span><span class="ne">नेपाल</span></div>
-        <p class="en">No national prevalence figure exists. Expect the non-fat-phobic presentation; distinguish disorder from poverty-driven undernutrition and from religious fasting (bartha) — DSM-5 excludes culturally sanctioned practice. Urban private-school girls and gym-going young men (muscle-focused restriction, supplements) are the visible emerging groups. Weight loss + amenorrhoea in a young woman deserves an eating-disorder question before a TB work-up ends the conversation.</p>
-        <p class="ne">राष्ट्रिय तथ्याङ्क छैन। मोटोपन-डरविनाको रूप बढी अपेक्षा गर्नुहोस्; विकारलाई गरिबीजन्य कुपोषण र धार्मिक व्रत (बर्त) बाट छुट्याउनुहोस् — संस्कृतिले मान्यता दिएको अभ्यास DSM-5 ले गन्दैन। सहरका निजी विद्यालयका किशोरी र जिम जाने युवा (मांसपेशी-केन्द्रित) — देखिँदै गरेका समूह हुन्। युवतीमा तौल घट्नु + महिनावारी रोकिनु भए क्षयरोग-जाँचले मात्र कुरा नटुङ्ग्याई खानपान-प्रश्न पनि सोध्नुहोस्।</p>
+        <p class="en">No national prevalence figure exists. Expect the non-fat-phobic presentation; distinguish disorder from poverty-driven undernutrition and from religious fasting (bartha): DSM-5 excludes culturally sanctioned practice. Urban private-school girls and gym-going young men (muscle-focused restriction, supplements) are the visible emerging groups. Weight loss + amenorrhoea in a young woman deserves an eating-disorder question before a TB work-up ends the conversation.</p>
+        <p class="ne">राष्ट्रिय तथ्याङ्क छैन। मोटोपन-डरविनाको रूप बढी अपेक्षा गर्नुहोस्; विकारलाई गरिबीजन्य कुपोषण र धार्मिक व्रत (बर्त) बाट छुट्याउनुहोस्, संस्कृतिले मान्यता दिएको अभ्यास DSM-5 ले गन्दैन। सहरका निजी विद्यालयका किशोरी र जिम जाने युवा (मांसपेशी-केन्द्रित), देखिँदै गरेका समूह हुन्। युवतीमा तौल घट्नु + महिनावारी रोकिनु भए क्षयरोग-जाँचले मात्र कुरा नटुङ्ग्याई खानपान-प्रश्न पनि सोध्नुहोस्।</p>
       </div>
     </div>
   </article>
-<div class="resources"><div class="res-head"><span class="en">Learn more</span><span class="ne">थप सिक्नुहोस्</span></div><p class="res-hint"><span class="en">Pick one, not all — these are chosen to be light, not exhaustive.</span><span class="ne">सबै होइन, एउटा रोज्नुहोस् — यी हल्का, सजिला स्रोत हुन्।</span></p><div class="res-item"><span class="res-type">Video · 10 min</span><span><a href="https://www.youtube.com/watch?v=eMVyZ6Ax-74" target="_blank" rel="noopener">Eating &amp; Body Dysmorphic Disorders (Crash Course #33)</a> — <span class="res-note"><span class="en">AN, BN, BED and BDD in one animated pass.</span><span class="ne">चारै विकार एउटै एनिमेटेड भिडियोमा।</span></span></span></div><div class="res-item"><span class="res-type">Article</span><span><strong>Sing Lee's Hong Kong studies (non-fat-phobic anorexia)</strong> — <span class="res-note"><span class="en">Search "Sing Lee non-fat-phobic anorexia" — the Asian presentation you will actually see.</span><span class="ne">एसियाली प्रस्तुति बुझ्न «Sing Lee non-fat-phobic anorexia» खोज्नुहोस्।</span></span></span></div></div>
+
+<div class="quickcheck"><div class="qc-head"><span class="en">Quick check</span><span class="ne">छिटो जाँच</span></div><p class="qc-hint"><span class="en">Three friendly questions to settle what you just read. This is reassurance, not a test: a wrong tap is part of learning, and you can try again.</span><span class="ne">भर्खर पढेको कुरा बसाल्न तीन मैत्री प्रश्न। यो परीक्षा होइन, ढुक्क हुने तरिका हो: गलत छनोट पनि सिकाइकै अंश हो, फेरि प्रयास गर्न पाइन्छ।</span></p><div class="qz" data-a="2"><p class="qz-q"><span class="en">Significantly low weight + bingeing and purging =</span><span class="ne">उल्लेखनीय कम तौल + बिन्ज र पर्ज =</span></p><div class="qz-opts"><button type="button" class="qz-opt" data-i="1"><span class="en">Bulimia nervosa</span><span class="ne">बुलिमिया नर्भोसा</span></button><button type="button" class="qz-opt" data-i="2"><span class="en">Anorexia nervosa, binge-purge type</span><span class="ne">एनोरेक्सिया, बिन्ज-पर्ज प्रकार</span></button><button type="button" class="qz-opt" data-i="3"><span class="en">Binge-eating disorder</span><span class="ne">बिन्ज-इटिङ विकार</span></button></div><p class="qz-fb" hidden>✔ <span class="en">Yes. <span class="why">Low weight always wins the diagnosis; that is the decision tree's first question.</span></span><span class="ne">सही। <span class="why">कम तौलले सधैं निदान जित्छ; निर्णय-वृक्षको पहिलो प्रश्न त्यही हो।</span></span></p><p class="qz-hint" hidden><span class="en">Not quite; have another look. The answer is in this section.</span><span class="ne">ठ्याक्कै मिलेन; फेरि हेर्नुहोस्। उत्तर यही खण्डमा छ।</span></p></div><div class="qz" data-a="1"><p class="qz-q"><span class="en">Frequency criterion for bulimia and BED:</span><span class="ne">बुलिमिया र बीईडीको आवृत्ति-मापदण्ड:</span></p><div class="qz-opts"><button type="button" class="qz-opt" data-i="1"><span class="en">Once a week for 3 months</span><span class="ne">हप्तामा एकपटक, ३ महिना</span></button><button type="button" class="qz-opt" data-i="2"><span class="en">Daily for a month</span><span class="ne">महिनाभर दिनहुँ</span></button><button type="button" class="qz-opt" data-i="3"><span class="en">Twice a year</span><span class="ne">वर्षमा दुईपटक</span></button></div><p class="qz-fb" hidden>✔ <span class="en">Yes. <span class="why">Weekly for three months, for both disorders.</span></span><span class="ne">सही। <span class="why">दुवैमा: हप्तैपिच्छे, तीन महिना।</span></span></p><p class="qz-hint" hidden><span class="en">Not quite; have another look. The answer is in this section.</span><span class="ne">ठ्याक्कै मिलेन; फेरि हेर्नुहोस्। उत्तर यही खण्डमा छ।</span></p></div><div class="qz" data-a="2"><p class="qz-q"><span class="en">In Nepal and much of Asia, anorexia often presents:</span><span class="ne">नेपाल र एसियामा एनोरेक्सिया प्रायः कसरी देखिन्छ?</span></p><div class="qz-opts"><button type="button" class="qz-opt" data-i="1"><span class="en">With loud fat-phobia</span><span class="ne">चर्को मोटोपन-डरसहित</span></button><button type="button" class="qz-opt" data-i="2"><span class="en">Without expressed fear of fatness</span><span class="ne">मोटो हुने डर नभनिकनै</span></button><button type="button" class="qz-opt" data-i="3"><span class="en">Only in men</span><span class="ne">पुरुषमा मात्र</span></button></div><p class="qz-fb" hidden>✔ <span class="en">Yes. <span class="why">The non-fat-phobic presentation: stomach complaints and appetite loss instead.</span></span><span class="ne">सही। <span class="why">मोटोपन-डरविनाको रूप: पेटको गुनासो र भोक नलाग्ने भनेर आउँछ।</span></span></p><p class="qz-hint" hidden><span class="en">Not quite; have another look. The answer is in this section.</span><span class="ne">ठ्याक्कै मिलेन; फेरि हेर्नुहोस्। उत्तर यही खण्डमा छ।</span></p></div></div>
+<div class="resources"><div class="res-head"><span class="en">Learn more</span><span class="ne">थप सिक्नुहोस्</span></div><p class="res-hint"><span class="en">Pick one, not all: these are chosen to be light, not exhaustive.</span><span class="ne">सबै होइन, एउटा रोज्नुहोस्, यी हल्का, सजिला स्रोत हुन्।</span></p><div class="res-item"><span class="res-type">Video · 10 min</span><span><a href="https://www.youtube.com/watch?v=eMVyZ6Ax-74" target="_blank" rel="noopener">Eating &amp; Body Dysmorphic Disorders (Crash Course #33)</a>: <span class="res-note"><span class="en">AN, BN, BED and BDD in one animated pass.</span><span class="ne">चारै विकार एउटै एनिमेटेड भिडियोमा।</span></span></span></div><div class="res-item"><span class="res-type">Article</span><span><strong>Sing Lee's Hong Kong studies (non-fat-phobic anorexia)</strong>: <span class="res-note"><span class="en">Search "Sing Lee non-fat-phobic anorexia": the Asian presentation you will actually see.</span><span class="ne">एसियाली प्रस्तुति बुझ्न «Sing Lee non-fat-phobic anorexia» खोज्नुहोस्।</span></span></span></div></div>
 
 </section>
     <nav class="pager" aria-label="Chapter">
     <a class="prev" href="child.html"><span class="lbl"><span class="en">Previous · 12</span><span class="ne">अघिल्लो · 12</span></span><span class="en">Child mental illness</span><span class="ne">बाल मानसिक समस्या</span></a>
     <a class="next" href="sleep.html"><span class="lbl"><span class="en">Next · 14</span><span class="ne">अर्को · 14</span></span><span class="en">Sleep-wake disorders</span><span class="ne">निद्रा विकार</span></a>
     </nav>
+    <footer class="sitefoot">
+      <div class="cols">
+        <div>
+          <h4><span class="en">Mano Atlas</span><span class="ne">मनो एट्लास</span></h4>
+          <p class="en">A free, open atlas of mental health in English and नेपाली. Educational resource, not a diagnostic tool: criteria are paraphrased from DSM-5 (2013). Diagnosis belongs to qualified clinicians.</p>
+          <p class="ne">अंग्रेजी र नेपालीमा मानसिक स्वास्थ्यको निःशुल्क, खुला एट्लास। शैक्षिक सामग्री हो, निदान-उपकरण होइन: मापदण्ड DSM-5 (2013) बाट सरलीकृत छन्। निदान योग्य चिकित्सकको काम हो।</p>
+          <p><span class="en">Last reviewed: August 2026</span><span class="ne">पछिल्लो समीक्षा: भदौ २०८३</span></p>
+        </div>
+        <div class="crisis-col">
+          <h4><span class="en">If you need help now</span><span class="ne">अहिले नै सहयोग चाहिए</span></h4>
+          <p><strong>1166</strong> <span class="en">National Suicide Prevention Helpline</span><span class="ne">राष्ट्रिय आत्महत्या रोकथाम हेल्पलाइन</span></p>
+          <p><strong>1660 012 1600</strong> <span class="en">TUTH mental-health hotline</span><span class="ne">टिचिङ अस्पताल हटलाइन</span></p>
+          <p><strong>1145</strong> <span class="en">Women's helpline</span><span class="ne">महिला हेल्पलाइन</span> · <strong>112 / 100</strong> <span class="en">emergency</span><span class="ne">आपतकाल</span></p>
+        </div>
+        <div>
+          <h4><span class="en">Open &amp; improvable</span><span class="ne">खुला र सुधारयोग्य</span></h4>
+          <p class="en">Content licensed <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license noopener" target="_blank">CC BY-NC-SA 4.0</a>: share and adapt with credit, non-commercially.</p>
+          <p class="ne">सामग्री <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license noopener" target="_blank">CC BY-NC-SA 4.0</a> अन्तर्गत: श्रेयसहित, गैर-व्यावसायिक रूपमा बाँड्न र मिलाउन पाइन्छ।</p>
+          <p><span class="en">Spotted an error?</span><span class="ne">त्रुटि भेट्नुभयो?</span> <span class="mailrev" data-u="kpravash" data-d="gmail" data-t="com">kpravash [at] gmail [dot] com</span></p>
+        </div>
+      </div>
+      <p class="fine"><span class="en">Built from the CTEVT Psychosocial Counselor curriculum, class notes, and the sources named on each page.</span><span class="ne">सीटीईभीटी मनोसामाजिक परामर्शकर्ता पाठ्यक्रम, कक्षा-नोट र प्रत्येक पृष्ठमा उल्लिखित स्रोतबाट निर्मित।</span></p>
+    </footer>
     </div>
   </main>
 </div>
