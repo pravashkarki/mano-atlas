@@ -6,7 +6,7 @@
 <meta name="description" content="Mano Atlas (मनो एट्लास): a free, bilingual (English/नेपाली) atlas of mental disorders: DSM-5 criteria, teaching diagrams, and the Nepali context.">
 <title>Mental health basics · Mano Atlas</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Mukta:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Caveat:wght@600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,500;0,7..72,600;1,7..72,400&family=Mukta:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Caveat:wght@600&display=swap">
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
@@ -16,56 +16,78 @@
     <div class="top">
       <a class="brand" href="index.html"><span class="en">Mano Atlas</span><span class="ne">मनो एट्लास</span>
         <span class="sub"><span class="en">Mental health · two languages</span><span class="ne">मानसिक स्वास्थ्य · दुई भाषा</span></span></a>
-      <div class="langsw" role="group" aria-label="Language">
-        <button id="btn-en" onclick="setLang('en')">EN</button>
-        <button id="btn-ne" onclick="setLang('ne')">ने</button>
+      <div class="ctrls">
+        <div class="langsw" role="group" aria-label="Language">
+          <button id="btn-en" onclick="setLang('en')">EN</button>
+          <button id="btn-ne" onclick="setLang('ne')">ने</button>
+        </div>
+        <button id="btn-theme" class="themesw" onclick="cycleTheme()" aria-label="Colour theme">◐ Auto</button>
       </div>
-      <button id="btn-theme" class="themesw" onclick="cycleTheme()" aria-label="Colour theme">◐ Auto</button>
     </div>
-    <div class="search">
+    <div class="search"><span class="s-ico"><svg class="lucide" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></span>
       <input id="q" type="search" autocomplete="off" spellcheck="false"
         placeholder="Search · खोज्नुहोस्" aria-label="Search the atlas">
       <div id="qres" class="qres" hidden></div>
     </div>
     <nav class="snav" aria-label="Site">
-      <div class="snav-group"><span class="en">Overview</span><span class="ne">सिंहावलोकन</span></div>
-      <a href="index.html"><span class="secnum">01</span><span class="catmark" style="background:transparent"></span><span class="en">Home & the DSM-5 map</span><span class="ne">गृहपृष्ठ र DSM-5 नक्सा</span></a>
-      <a href="roots.html"><span class="secnum">02</span><span class="catmark" style="background:transparent"></span><span class="en">Roots: philosophy to psychology</span><span class="ne">जरा: दर्शनदेखि मनोविज्ञान</span></a>
-      <a href="foundation.html"><span class="secnum">03</span><span class="catmark" style="background:transparent"></span><span class="en">Fear: the foundation</span><span class="ne">डर: आधारशिला</span></a>
-      <a href="basics.html" class="active" aria-current="page"><span class="secnum">04</span><span class="catmark" style="background:transparent"></span><span class="en">Mental health basics</span><span class="ne">मानसिक स्वास्थ्यका आधार</span></a>
-      <a href="development.html"><span class="secnum">05</span><span class="catmark" style="background:transparent"></span><span class="en">Human development</span><span class="ne">मानव विकास</span></a>
-      <div class="snav-group"><span class="en">Disorder categories</span><span class="ne">विकार वर्गहरू</span></div>
-      <a href="anxiety.html"><span class="secnum">06</span><span class="catmark" style="background:var(--c-anx)"></span><span class="en">Anxiety disorders</span><span class="ne">चिन्ता विकारहरू</span></a>
-      <a href="ocd.html"><span class="secnum">07</span><span class="catmark" style="background:var(--c-ocd)"></span><span class="en">OCD & related</span><span class="ne">ओसीडी र सम्बन्धित</span></a>
-      <a href="depression.html"><span class="secnum">08</span><span class="catmark" style="background:var(--c-dep)"></span><span class="en">Depressive disorders</span><span class="ne">उदासी (डिप्रेसन)</span></a>
-      <a href="trauma.html"><span class="secnum">09</span><span class="catmark" style="background:var(--c-tra)"></span><span class="en">Trauma & stressor</span><span class="ne">आघात र तनाव</span></a>
-      <a href="somatic.html"><span class="secnum">10</span><span class="catmark" style="background:var(--c-som)"></span><span class="en">Conversion & somatic</span><span class="ne">कन्भर्सन र शारीरिक</span></a>
-      <a href="psychosis.html"><span class="secnum">11</span><span class="catmark" style="background:var(--c-psy)"></span><span class="en">Psychosis</span><span class="ne">मनोविकृति (साइकोसिस)</span></a>
-      <a href="child.html"><span class="secnum">12</span><span class="catmark" style="background:var(--c-chi)"></span><span class="en">Child mental illness</span><span class="ne">बाल मानसिक समस्या</span></a>
-      <a href="eating.html"><span class="secnum">13</span><span class="catmark" style="background:var(--c-eat)"></span><span class="en">Eating disorders</span><span class="ne">खानपान विकार</span></a>
-      <a href="sleep.html"><span class="secnum">14</span><span class="catmark" style="background:var(--c-slp)"></span><span class="en">Sleep-wake disorders</span><span class="ne">निद्रा विकार</span></a>
-      <a href="substance.html"><span class="secnum">15</span><span class="catmark" style="background:var(--c-sub)"></span><span class="en">Substance use</span><span class="ne">लागुपदार्थ प्रयोग</span></a>
-      <div class="snav-group"><span class="en">Counselling practice</span><span class="ne">परामर्श अभ्यास</span></div>
-      <a href="wellbeing.html"><span class="secnum">16</span><span class="catmark" style="background:transparent"></span><span class="en">Wellbeing & intervention</span><span class="ne">तन्दुरुस्ती र हस्तक्षेप</span></a>
-      <a href="approaches.html"><span class="secnum">17</span><span class="catmark" style="background:transparent"></span><span class="en">Approaches & forms</span><span class="ne">विधि र रूपहरू</span></a>
-      <a href="skills.html"><span class="secnum">18</span><span class="catmark" style="background:transparent"></span><span class="en">Communication skills</span><span class="ne">संवाद-सीप</span></a>
-      <a href="process.html"><span class="secnum">19</span><span class="catmark" style="background:transparent"></span><span class="en">The counselling process</span><span class="ne">परामर्श-प्रक्रिया</span></a>
-      <a href="tools.html"><span class="secnum">20</span><span class="catmark" style="background:transparent"></span><span class="en">Tools & techniques</span><span class="ne">औजार र प्रविधि</span></a>
-      <a href="suicide.html"><span class="secnum">21</span><span class="catmark" style="background:transparent"></span><span class="en">Suicide: assessment</span><span class="ne">आत्महत्या: मूल्याङ्कन</span></a>
-      <a href="pfa.html"><span class="secnum">22</span><span class="catmark" style="background:transparent"></span><span class="en">PFA & emergencies</span><span class="ne">पीएफए र आपतकाल</span></a>
-      <a href="gbv.html"><span class="secnum">23</span><span class="catmark" style="background:transparent"></span><span class="en">Gender & GBV</span><span class="ne">लैङ्गिकता र जीबीभी</span></a>
-      <a href="hiv.html"><span class="secnum">24</span><span class="catmark" style="background:transparent"></span><span class="en">HIV & AIDS counselling</span><span class="ne">एचआईभी परामर्श</span></a>
-      <a href="casemgmt.html"><span class="secnum">25</span><span class="catmark" style="background:transparent"></span><span class="en">Case management</span><span class="ne">केस व्यवस्थापन</span></a>
-      <a href="ethics.html"><span class="secnum">26</span><span class="catmark" style="background:transparent"></span><span class="en">Ethics & self-care</span><span class="ne">नैतिकता र आत्म-हेरचाह</span></a>
-      <div class="snav-group"><span class="en">Reference</span><span class="ne">सन्दर्भ</span></div>
-      <a href="more.html"><span class="secnum">27</span><span class="catmark" style="background:transparent"></span><span class="en">The rest of the map</span><span class="ne">बाँकी नक्सा</span></a>
-      <a href="nepal.html"><span class="secnum">28</span><span class="catmark" style="background:transparent"></span><span class="en">Culture & the Nepal panorama</span><span class="ne">संस्कृति र नेपाली परिदृश्य</span></a>
-      <a href="crosswalk.html"><span class="secnum">29</span><span class="catmark" style="background:transparent"></span><span class="en">For PSC students</span><span class="ne">पीएससी विद्यार्थीलाई</span></a>
+      <details class="snav-sec" data-g="overview" open>
+      <summary><span class="en">Overview</span><span class="ne">सिंहावलोकन</span><span class="count">5</span><svg class="lucide" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
+      <div class="snav-links">
+        <a href="index.html"><span class="secnum">01</span><span class="catmark" style="background:transparent"></span><span class="en">Home & the DSM-5 map</span><span class="ne">गृहपृष्ठ र DSM-5 नक्सा</span></a>
+        <a href="roots.html"><span class="secnum">02</span><span class="catmark" style="background:transparent"></span><span class="en">Roots: philosophy to psychology</span><span class="ne">जरा: दर्शनदेखि मनोविज्ञान</span></a>
+        <a href="foundation.html"><span class="secnum">03</span><span class="catmark" style="background:transparent"></span><span class="en">Fear: the foundation</span><span class="ne">डर: आधारशिला</span></a>
+        <a href="basics.html" class="active" aria-current="page"><span class="secnum">04</span><span class="catmark" style="background:transparent"></span><span class="en">Mental health basics</span><span class="ne">मानसिक स्वास्थ्यका आधार</span></a>
+        <a href="development.html"><span class="secnum">05</span><span class="catmark" style="background:transparent"></span><span class="en">Human development</span><span class="ne">मानव विकास</span></a>
+      </div>
+    </details>
+    <details class="snav-sec" data-g="disorders">
+      <summary><span class="en">Disorder categories</span><span class="ne">विकार वर्गहरू</span><span class="count">10</span><svg class="lucide" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
+      <div class="snav-links">
+        <a href="anxiety.html"><span class="secnum">06</span><span class="catmark" style="background:var(--c-anx)"></span><span class="en">Anxiety disorders</span><span class="ne">चिन्ता विकारहरू</span></a>
+        <a href="ocd.html"><span class="secnum">07</span><span class="catmark" style="background:var(--c-ocd)"></span><span class="en">OCD & related</span><span class="ne">ओसीडी र सम्बन्धित</span></a>
+        <a href="depression.html"><span class="secnum">08</span><span class="catmark" style="background:var(--c-dep)"></span><span class="en">Depressive disorders</span><span class="ne">उदासी (डिप्रेसन)</span></a>
+        <a href="trauma.html"><span class="secnum">09</span><span class="catmark" style="background:var(--c-tra)"></span><span class="en">Trauma & stressor</span><span class="ne">आघात र तनाव</span></a>
+        <a href="somatic.html"><span class="secnum">10</span><span class="catmark" style="background:var(--c-som)"></span><span class="en">Conversion & somatic</span><span class="ne">कन्भर्सन र शारीरिक</span></a>
+        <a href="psychosis.html"><span class="secnum">11</span><span class="catmark" style="background:var(--c-psy)"></span><span class="en">Psychosis</span><span class="ne">मनोविकृति (साइकोसिस)</span></a>
+        <a href="child.html"><span class="secnum">12</span><span class="catmark" style="background:var(--c-chi)"></span><span class="en">Child mental illness</span><span class="ne">बाल मानसिक समस्या</span></a>
+        <a href="eating.html"><span class="secnum">13</span><span class="catmark" style="background:var(--c-eat)"></span><span class="en">Eating disorders</span><span class="ne">खानपान विकार</span></a>
+        <a href="sleep.html"><span class="secnum">14</span><span class="catmark" style="background:var(--c-slp)"></span><span class="en">Sleep-wake disorders</span><span class="ne">निद्रा विकार</span></a>
+        <a href="substance.html"><span class="secnum">15</span><span class="catmark" style="background:var(--c-sub)"></span><span class="en">Substance use</span><span class="ne">लागुपदार्थ प्रयोग</span></a>
+      </div>
+    </details>
+    <details class="snav-sec" data-g="practice">
+      <summary><span class="en">Counselling practice</span><span class="ne">परामर्श अभ्यास</span><span class="count">11</span><svg class="lucide" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
+      <div class="snav-links">
+        <a href="wellbeing.html"><span class="secnum">16</span><span class="catmark" style="background:transparent"></span><span class="en">Wellbeing & intervention</span><span class="ne">तन्दुरुस्ती र हस्तक्षेप</span></a>
+        <a href="approaches.html"><span class="secnum">17</span><span class="catmark" style="background:transparent"></span><span class="en">Approaches & forms</span><span class="ne">विधि र रूपहरू</span></a>
+        <a href="skills.html"><span class="secnum">18</span><span class="catmark" style="background:transparent"></span><span class="en">Communication skills</span><span class="ne">संवाद-सीप</span></a>
+        <a href="process.html"><span class="secnum">19</span><span class="catmark" style="background:transparent"></span><span class="en">The counselling process</span><span class="ne">परामर्श-प्रक्रिया</span></a>
+        <a href="tools.html"><span class="secnum">20</span><span class="catmark" style="background:transparent"></span><span class="en">Tools & techniques</span><span class="ne">औजार र प्रविधि</span></a>
+        <a href="suicide.html"><span class="secnum">21</span><span class="catmark" style="background:transparent"></span><span class="en">Suicide: assessment</span><span class="ne">आत्महत्या: मूल्याङ्कन</span></a>
+        <a href="pfa.html"><span class="secnum">22</span><span class="catmark" style="background:transparent"></span><span class="en">PFA & emergencies</span><span class="ne">पीएफए र आपतकाल</span></a>
+        <a href="gbv.html"><span class="secnum">23</span><span class="catmark" style="background:transparent"></span><span class="en">Gender & GBV</span><span class="ne">लैङ्गिकता र जीबीभी</span></a>
+        <a href="hiv.html"><span class="secnum">24</span><span class="catmark" style="background:transparent"></span><span class="en">HIV & AIDS counselling</span><span class="ne">एचआईभी परामर्श</span></a>
+        <a href="casemgmt.html"><span class="secnum">25</span><span class="catmark" style="background:transparent"></span><span class="en">Case management</span><span class="ne">केस व्यवस्थापन</span></a>
+        <a href="ethics.html"><span class="secnum">26</span><span class="catmark" style="background:transparent"></span><span class="en">Ethics & self-care</span><span class="ne">नैतिकता र आत्म-हेरचाह</span></a>
+      </div>
+    </details>
+    <details class="snav-sec" data-g="reference">
+      <summary><span class="en">Reference</span><span class="ne">सन्दर्भ</span><span class="count">3</span><svg class="lucide" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
+      <div class="snav-links">
+        <a href="more.html"><span class="secnum">27</span><span class="catmark" style="background:transparent"></span><span class="en">The rest of the map</span><span class="ne">बाँकी नक्सा</span></a>
+        <a href="nepal.html"><span class="secnum">28</span><span class="catmark" style="background:transparent"></span><span class="en">Culture & the Nepal panorama</span><span class="ne">संस्कृति र नेपाली परिदृश्य</span></a>
+        <a href="crosswalk.html"><span class="secnum">29</span><span class="catmark" style="background:transparent"></span><span class="en">For PSC students</span><span class="ne">पीएससी विद्यार्थीलाई</span></a>
+      </div>
+    </details>
     </nav>
   </aside>
   <main id="main">
     <div class="wrap">
-<div class="pagehead"><div class="kicker"><span class="en">Section 04</span><span class="ne">खण्ड 04</span></div></div>
+<div class="pagehead"><div class="kicker"><span class="en">Section 04</span><span class="ne">खण्ड 04</span><span class="readtime"><svg class="lucide" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span class="en">about 4 min · no rush</span><span class="ne">करिब ४ मिनेट · हतार छैन</span></span></div></div>
+<nav class="pager pager-top" aria-label="Chapter (top)">
+<a class="prev" href="foundation.html"><span class="lbl"><svg class="lucide" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg><span class="en">Previous · 03</span><span class="ne">अघिल्लो · 03</span></span><span class="en">Fear: the foundation</span><span class="ne">डर: आधारशिला</span></a>
+    <a class="next" href="development.html"><span class="lbl"><span class="en">Next · 05</span><span class="ne">अर्को · 05</span><svg class="lucide" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span><span class="en">Human development</span><span class="ne">मानव विकास</span></a>
+</nav>
 <section id="basics" style="margin-top:12px">
 <div class="sechead"><span class="secnum">04</span>
   <h2><span class="en">Mental health &amp; mental illness: the basics</span><span class="ne">मानसिक स्वास्थ्य र मानसिक रोग: आधारभूत कुरा</span></h2>
@@ -138,18 +160,58 @@
   </div>
 </article>
 
+<figure>
+  <svg viewBox="0 0 720 260" role="img" aria-label="The stress-performance curve, an inverted U: too little stress gives low performance through boredom, moderate stress gives peak performance, too much stress collapses performance into anxiety and exhaustion.">
+    <defs><marker id="yarr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="currentColor"/></marker></defs>
+    <g stroke="currentColor" stroke-width="1.5" fill="none" opacity=".55">
+      <line x1="60" y1="210" x2="690" y2="210" marker-end="url(#yarr)"/>
+      <line x1="60" y1="210" x2="60" y2="30" marker-end="url(#yarr)"/>
+    </g>
+    <text x="675" y="230" text-anchor="end" font-size="12" fill="currentColor" opacity=".7" font-family="Archivo,sans-serif" class="en">stress / arousal</text>
+    <text x="675" y="232" text-anchor="end" font-size="13" fill="currentColor" opacity=".7" font-family="Mukta,sans-serif" class="ne">तनाव / उत्तेजना</text>
+    <text x="40" y="120" text-anchor="middle" font-size="12" fill="currentColor" opacity=".7" font-family="Archivo,sans-serif" transform="rotate(-90 40 120)" class="en">performance</text>
+    <text x="40" y="120" text-anchor="middle" font-size="13" fill="currentColor" opacity=".7" font-family="Mukta,sans-serif" transform="rotate(-90 40 120)" class="ne">कार्यक्षमता</text>
+    <path d="M75,200 C170,190 250,60 375,55 C500,60 580,190 675,202" stroke="var(--accent)" stroke-width="3" fill="none"/>
+    <line x1="240" y1="35" x2="240" y2="210" stroke="currentColor" stroke-width="1" stroke-dasharray="3 4" opacity=".4"/>
+    <line x1="510" y1="35" x2="510" y2="210" stroke="currentColor" stroke-width="1" stroke-dasharray="3 4" opacity=".4"/>
+    <g font-family="Archivo,sans-serif" font-size="12.5" font-weight="bold" fill="currentColor" text-anchor="middle">
+      <text x="150" y="52" opacity=".8" class="en">too little</text>
+      <text x="150" y="54" font-family="Mukta,sans-serif" opacity=".8" class="ne">अति थोरै</text>
+      <text x="150" y="68" font-size="10.5" font-weight="normal" opacity=".65" class="en">bored, careless,</text>
+      <text x="150" y="80" font-size="10.5" font-weight="normal" opacity=".65" class="en">"why bother"</text>
+      <text x="150" y="70" font-size="11" font-weight="normal" opacity=".65" font-family="Mukta,sans-serif" class="ne">दिक्क, लापरवाह,</text>
+      <text x="150" y="83" font-size="11" font-weight="normal" opacity=".65" font-family="Mukta,sans-serif" class="ne">«के को झन्झट»</text>
+      <text x="375" y="42" style="fill:var(--accent)" class="en">the useful zone</text>
+      <text x="375" y="44" font-family="Mukta,sans-serif" style="fill:var(--accent)" class="ne">उपयोगी क्षेत्र</text>
+      <text x="375" y="120" font-size="10.5" font-weight="normal" opacity=".65" class="en">alert, focused: exam-ready stress</text>
+      <text x="375" y="122" font-size="11" font-weight="normal" opacity=".65" font-family="Mukta,sans-serif" class="ne">सतर्क, एकाग्र: परीक्षा-तयारीको तनाव</text>
+      <text x="600" y="52" style="fill:var(--c-anx)" class="en">too much</text>
+      <text x="600" y="54" font-family="Mukta,sans-serif" style="fill:var(--c-anx)" class="ne">अति धेरै</text>
+      <text x="600" y="68" font-size="10.5" font-weight="normal" opacity=".65" class="en">anxious, scattered,</text>
+      <text x="600" y="80" font-size="10.5" font-weight="normal" opacity=".65" class="en">exhausted, burnout</text>
+      <text x="600" y="70" font-size="11" font-weight="normal" opacity=".65" font-family="Mukta,sans-serif" class="ne">चिन्तित, छरिएको,</text>
+      <text x="600" y="83" font-size="11" font-weight="normal" opacity=".65" font-family="Mukta,sans-serif" class="ne">थकित, जलन (बर्नआउट)</text>
+    </g>
+    <text x="375" y="248" text-anchor="middle" font-size="12" fill="currentColor" opacity=".7" font-family="Archivo,sans-serif" class="en">Stress itself is not the illness; the dose and the duration are</text>
+    <text x="375" y="250" text-anchor="middle" font-size="13" fill="currentColor" opacity=".7" font-family="Mukta,sans-serif" class="ne">तनाव आफैं रोग होइन; मात्रा र अवधि हो</text>
+  </svg>
+  <figcaption class="en">The stress-performance curve (Yerkes-Dodson, 1908). Some arousal helps: a student with zero exam stress does not study. Mental-health work is not removing stress but keeping people near the middle, and catching them when life pins them to the right edge for months.</figcaption>
+  <figcaption class="ne">तनाव-कार्यक्षमता वक्र (यर्कीज-डड्सन, १९०८)। केही उत्तेजना सहयोगी हुन्छ: परीक्षाको शून्य तनाव भएको विद्यार्थीले पढ्दैन। मानसिक-स्वास्थ्य काम तनाव हटाउनु होइन, मानिसलाई बीचतिर राख्नु हो, र जीवनले महिनौं दायाँ किनारमा थिचेकालाई समात्नु हो।</figcaption>
+</figure>
+
 <div class="quickcheck"><div class="qc-head"><span class="en">Quick check</span><span class="ne">छिटो जाँच</span></div><p class="qc-hint"><span class="en">Three friendly questions to settle what you just read. This is reassurance, not a test: a wrong tap is part of learning, and you can try again.</span><span class="ne">भर्खर पढेको कुरा बसाल्न तीन मैत्री प्रश्न। यो परीक्षा होइन, ढुक्क हुने तरिका हो: गलत छनोट पनि सिकाइकै अंश हो, फेरि प्रयास गर्न पाइन्छ।</span></p><div class="qz" data-a="2"><p class="qz-q"><span class="en">Which is NOT one of the 4 D's?</span><span class="ne">कुनचाहिँ चार «डी» मध्ये होइन?</span></p><div class="qz-opts"><button type="button" class="qz-opt" data-i="1"><span class="en">Distress</span><span class="ne">पीडा (Distress)</span></button><button type="button" class="qz-opt" data-i="2"><span class="en">Diagnosis</span><span class="ne">निदान (Diagnosis)</span></button><button type="button" class="qz-opt" data-i="3"><span class="en">Dysfunction</span><span class="ne">कार्य-बाधा (Dysfunction)</span></button></div><p class="qz-fb" hidden>✔ <span class="en">Yes. <span class="why">The four are Deviance, Distress, Dysfunction, Danger.</span></span><span class="ne">सही। <span class="why">चार वटा हुन्: विचलन, पीडा, कार्य-बाधा, खतरा।</span></span></p><p class="qz-hint" hidden><span class="en">Not quite; have another look. The answer is in this section.</span><span class="ne">ठ्याक्कै मिलेन; फेरि हेर्नुहोस्। उत्तर यही खण्डमा छ।</span></p></div><div class="qz" data-a="2"><p class="qz-q"><span class="en">Diathesis-stress says a disorder appears when:</span><span class="ne">डायाथेसिस-स्ट्रेस मोडेलअनुसार विकार कहिले देखिन्छ?</span></p><div class="qz-opts"><button type="button" class="qz-opt" data-i="1"><span class="en">Stress alone is enough</span><span class="ne">तनाव मात्रै पुग्छ</span></button><button type="button" class="qz-opt" data-i="2"><span class="en">Vulnerability meets enough stress</span><span class="ne">जोखिम-प्रवृत्ति र पर्याप्त तनाव भेट हुँदा</span></button><button type="button" class="qz-opt" data-i="3"><span class="en">Genes alone decide</span><span class="ne">वंशाणुले मात्रै</span></button></div><p class="qz-fb" hidden>✔ <span class="en">Yes. <span class="why">That is why the same landslide breaks one person and not another.</span></span><span class="ne">सही। <span class="why">त्यसैले एउटै पहिरोले एउटालाई बिरामी पार्छ, अर्कालाई पार्दैन।</span></span></p><p class="qz-hint" hidden><span class="en">Not quite; have another look. The answer is in this section.</span><span class="ne">ठ्याक्कै मिलेन; फेरि हेर्नुहोस्। उत्तर यही खण्डमा छ।</span></p></div><div class="qz" data-a="2"><p class="qz-q"><span class="en">Hearing a dead relative's voice during the mourning period in Nepal is:</span><span class="ne">नेपालमा किरिया-अवधिमा दिवंगतको आवाज सुन्नु:</span></p><div class="qz-opts"><button type="button" class="qz-opt" data-i="1"><span class="en">Psychosis</span><span class="ne">मनोविकृति</span></button><button type="button" class="qz-opt" data-i="2"><span class="en">Usually culturally normal grief</span><span class="ne">प्रायः सांस्कृतिक रूपमा सामान्य शोक</span></button><button type="button" class="qz-opt" data-i="3"><span class="en">Always an emergency</span><span class="ne">सधैं आपतकाल</span></button></div><p class="qz-fb" hidden>✔ <span class="en">Yes. <span class="why">Culture sits inside every D; context decides what is deviant.</span></span><span class="ne">सही। <span class="why">हरेक «डी» भित्र संस्कृति बस्छ; सन्दर्भले नै विचलन छुट्याउँछ।</span></span></p><p class="qz-hint" hidden><span class="en">Not quite; have another look. The answer is in this section.</span><span class="ne">ठ्याक्कै मिलेन; फेरि हेर्नुहोस्। उत्तर यही खण्डमा छ।</span></p></div></div>
 <div class="resources"><div class="res-head"><span class="en">Learn more</span><span class="ne">थप सिक्नुहोस्</span></div>
 <p class="res-hint"><span class="en">Pick one, not all: these are chosen to be light, not exhaustive.</span><span class="ne">सबै होइन, एउटा रोज्नुहोस्, यी हल्का, सजिला स्रोत हुन्।</span></p>
-<div class="res-item"><span class="res-type">Video series</span><span><a href="https://thecrashcourse.com/topic/psychology/" target="_blank" rel="noopener">Crash Course Psychology #1–2</a>: <span class="res-note"><span class="en">what psychology is and how it became a science.</span><span class="ne">मनोविज्ञान के हो र कसरी विज्ञान बन्यो।</span></span></span></div>
-<div class="res-item"><span class="res-type">Paper</span><span><strong>Engel (1977), "The need for a new medical model", Science</strong>: <span class="res-note"><span class="en">the original biopsychosocial paper; short and readable.</span><span class="ne">जैव-मनो-सामाजिक मोडेलको मूल लेख; छोटो र पठनीय।</span></span></span></div>
-<div class="res-item"><span class="res-type">Book chapter</span><span><strong>Introduction to Psychology: opening chapters</strong>: <span class="res-note"><span class="en">your course text's history and methods chapters pair with the Roots page.</span><span class="ne">पाठ्यपुस्तकका सुरुका अध्याय «जरा» पृष्ठसँग मिल्छन्।</span></span></span></div>
+<div class="res-item"><span class="res-type"><svg class="lucide" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="6 3 20 12 6 21 6 3"/></svg>Video series</span><span><a href="https://thecrashcourse.com/topic/psychology/" target="_blank" rel="noopener">Crash Course Psychology #1–2</a>: <span class="res-note"><span class="en">what psychology is and how it became a science.</span><span class="ne">मनोविज्ञान के हो र कसरी विज्ञान बन्यो।</span></span></span></div>
+<div class="res-item"><span class="res-type"><svg class="lucide" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>Paper</span><span><strong>Engel (1977), "The need for a new medical model", Science</strong>: <span class="res-note"><span class="en">the original biopsychosocial paper; short and readable.</span><span class="ne">जैव-मनो-सामाजिक मोडेलको मूल लेख; छोटो र पठनीय।</span></span></span></div>
+<div class="res-item"><span class="res-type"><svg class="lucide" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>Book chapter</span><span><strong>Introduction to Psychology: opening chapters</strong>: <span class="res-note"><span class="en">your course text's history and methods chapters pair with the Roots page.</span><span class="ne">पाठ्यपुस्तकका सुरुका अध्याय «जरा» पृष्ठसँग मिल्छन्।</span></span></span></div>
 </div>
 
 </section>
+<p class="careline"><svg class="lucide" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg><span class="care-tx"><span class="en">That is plenty for one sitting. Whatever brought you to this page, reading about the mind with care, for yourself or for someone else, is itself an act of care. Rest; the ideas settle on their own.</span><span class="ne">एक बसाइका लागि यति नै प्रशस्त छ। जुनसुकै कारणले यो पृष्ठसम्म आइपुग्नुभयो, आफ्ना वा अरूका लागि मनका कुरा ध्यानले पढ्नु आफैंमा हेरचाहको काम हो। आराम गर्नुहोस्; बुझेका कुरा आफैं बस्दै जान्छन्।</span></span></p>
     <nav class="pager" aria-label="Chapter">
-    <a class="prev" href="foundation.html"><span class="lbl"><span class="en">Previous · 03</span><span class="ne">अघिल्लो · 03</span></span><span class="en">Fear: the foundation</span><span class="ne">डर: आधारशिला</span></a>
-    <a class="next" href="development.html"><span class="lbl"><span class="en">Next · 05</span><span class="ne">अर्को · 05</span></span><span class="en">Human development</span><span class="ne">मानव विकास</span></a>
+    <a class="prev" href="foundation.html"><span class="lbl"><svg class="lucide" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg><span class="en">Previous · 03</span><span class="ne">अघिल्लो · 03</span></span><span class="en">Fear: the foundation</span><span class="ne">डर: आधारशिला</span></a>
+    <a class="next" href="development.html"><span class="lbl"><span class="en">Next · 05</span><span class="ne">अर्को · 05</span><svg class="lucide" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span><span class="en">Human development</span><span class="ne">मानव विकास</span></a>
     </nav>
     <footer class="sitefoot">
       <div class="cols">
@@ -157,19 +219,22 @@
           <h4><span class="en">Mano Atlas</span><span class="ne">मनो एट्लास</span></h4>
           <p class="en">A free, open atlas of mental health in English and नेपाली. Educational resource, not a diagnostic tool: criteria are paraphrased from DSM-5 (2013). Diagnosis belongs to qualified clinicians.</p>
           <p class="ne">अंग्रेजी र नेपालीमा मानसिक स्वास्थ्यको निःशुल्क, खुला एट्लास। शैक्षिक सामग्री हो, निदान-उपकरण होइन: मापदण्ड DSM-5 (2013) बाट सरलीकृत छन्। निदान योग्य चिकित्सकको काम हो।</p>
+          <p class="en">Learning sticks best in small sittings. It is fine to close this tab and come back another day.</p>
+          <p class="ne">सिकाइ साना-साना बसाइमा राम्रो टिक्छ। ट्याब बन्द गरेर अर्को दिन फर्किए हुन्छ।</p>
           <p><span class="en">Last reviewed: August 2026</span><span class="ne">पछिल्लो समीक्षा: भदौ २०८३</span></p>
         </div>
         <div class="crisis-col">
-          <h4><span class="en">If you need help now</span><span class="ne">अहिले नै सहयोग चाहिए</span></h4>
+          <h4><svg class="lucide" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg> <span class="en">If you need help now · Nepal</span><span class="ne">अहिले नै सहयोग चाहिए · नेपाल</span></h4>
           <p><strong>1166</strong> <span class="en">National Suicide Prevention Helpline</span><span class="ne">राष्ट्रिय आत्महत्या रोकथाम हेल्पलाइन</span></p>
           <p><strong>1660 012 1600</strong> <span class="en">TUTH mental-health hotline</span><span class="ne">टिचिङ अस्पताल हटलाइन</span></p>
           <p><strong>1145</strong> <span class="en">Women's helpline</span><span class="ne">महिला हेल्पलाइन</span> · <strong>112 / 100</strong> <span class="en">emergency</span><span class="ne">आपतकाल</span></p>
+          <p class="outside"><span class="en">These numbers work inside Nepal. Elsewhere, <a href="https://findahelpline.com" target="_blank" rel="noopener">findahelpline.com</a> lists your country's lines.</span><span class="ne">यी नम्बर नेपालभित्र चल्छन्। अन्यत्र हुनुहुन्छ भने <a href="https://findahelpline.com" target="_blank" rel="noopener">findahelpline.com</a> मा आफ्नो देशका नम्बर भेटिन्छन्।</span></p>
         </div>
         <div>
           <h4><span class="en">Open &amp; improvable</span><span class="ne">खुला र सुधारयोग्य</span></h4>
           <p class="en">Content licensed <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license noopener" target="_blank">CC BY-NC-SA 4.0</a>: share and adapt with credit, non-commercially.</p>
           <p class="ne">सामग्री <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license noopener" target="_blank">CC BY-NC-SA 4.0</a> अन्तर्गत: श्रेयसहित, गैर-व्यावसायिक रूपमा बाँड्न र मिलाउन पाइन्छ।</p>
-          <p><span class="en">Spotted an error?</span><span class="ne">त्रुटि भेट्नुभयो?</span> <span class="mailrev" data-u="kpravash" data-d="gmail" data-t="com">kpravash [at] gmail [dot] com</span></p>
+          <p><svg class="lucide" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg> <span class="en">Spotted an error?</span><span class="ne">त्रुटि भेट्नुभयो?</span> <span class="mailrev" data-u="kpravash" data-d="gmail" data-t="com">kpravash [at] gmail [dot] com</span></p>
         </div>
       </div>
       <p class="fine"><span class="en">Built from the CTEVT Psychosocial Counselor curriculum, class notes, and the sources named on each page.</span><span class="ne">सीटीईभीटी मनोसामाजिक परामर्शकर्ता पाठ्यक्रम, कक्षा-नोट र प्रत्येक पृष्ठमा उल्लिखित स्रोतबाट निर्मित।</span></p>

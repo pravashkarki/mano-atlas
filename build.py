@@ -63,23 +63,76 @@ GROUPS = {
     "reference": ("Reference", "सन्दर्भ"),
 }
 
+# ---- inline Lucide icons (lucide.dev, ISC licence). stroke = currentColor ----
+def _lucide(paths: str) -> str:
+    return ('<svg class="lucide" viewBox="0 0 24 24" fill="none" stroke="currentColor" '
+            'stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'
+            f'{paths}</svg>')
+
+ICON = {
+    "search":  _lucide('<circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>'),
+    "clock":   _lucide('<circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>'),
+    "heart":   _lucide('<path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>'),
+    "phone":   _lucide('<path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>'),
+    "mail":    _lucide('<rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>'),
+    "left":    _lucide('<path d="m12 19-7-7 7-7"/><path d="M19 12H5"/>'),
+    "right":   _lucide('<path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>'),
+    "chev":    _lucide('<path d="m6 9 6 6 6-6"/>'),
+    "book":    _lucide('<path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>'),
+    "play":    _lucide('<polygon points="6 3 20 12 6 21 6 3"/>'),
+    "film":    _lucide('<rect width="18" height="18" x="3" y="3" rx="2"/><path d="M7 3v18"/><path d="M3 7.5h4"/><path d="M3 12h18"/><path d="M3 16.5h4"/><path d="M17 3v18"/><path d="M17 7.5h4"/><path d="M17 16.5h4"/>'),
+    "file":    _lucide('<path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/>'),
+    "audio":   _lucide('<path d="M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7a9 9 0 0 1 18 0v7a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3"/>'),
+    "pencil":  _lucide('<path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/><path d="m15 5 4 4"/>'),
+    "sprout":  _lucide('<path d="M7 20h10"/><path d="M10 20c5.5-2.5.8-6.4 3-10"/><path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z"/><path d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4 1-4.9 2z"/>'),
+}
+
+RES_ICON_RULES = [
+    (("video", "talk", "ted"), "play"),
+    (("film", "documentary", "movie"), "film"),
+    (("podcast", "audio"), "audio"),
+    (("book", "guide", "manual"), "book"),
+    (("practice", "drill", "exercise", "role-play"), "pencil"),
+]
+
+
+def res_type_icon(label: str) -> str:
+    l = label.lower()
+    for keys, name in RES_ICON_RULES:
+        if any(k in l for k in keys):
+            return ICON[name]
+    return ICON["file"]
+
+
+NE_DIGITS = str.maketrans("0123456789", "०१२३४५६७८९")
+
 
 def nav_html(active_slug: str) -> str:
-    out = []
-    current_group = None
+    active_group = next((g for s, _f, _n, _e, _ne, _c, g in PAGES if s == active_slug), None)
+    by_group = {}
     for slug, _f, num, en, ne, cat, group in PAGES:
-        if group != current_group:
-            g_en, g_ne = GROUPS[group]
-            out.append(f'<div class="snav-group"><span class="en">{g_en}</span><span class="ne">{g_ne}</span></div>')
-            current_group = group
-        href = f"{slug}.html" if slug != "index" else "index.html"
-        cls = ' class="active" aria-current="page"' if slug == active_slug else ""
-        mark = f'<span class="catmark" style="background:var({cat})"></span>' if cat else '<span class="catmark" style="background:transparent"></span>'
+        by_group.setdefault(group, []).append((slug, num, en, ne, cat))
+    out = []
+    for group, items in by_group.items():
+        g_en, g_ne = GROUPS[group]
+        is_open = " open" if group == active_group else ""
+        links = []
+        for slug, num, en, ne, cat in items:
+            href = f"{slug}.html" if slug != "index" else "index.html"
+            cls = ' class="active" aria-current="page"' if slug == active_slug else ""
+            mark = f'<span class="catmark" style="background:var({cat})"></span>' if cat else '<span class="catmark" style="background:transparent"></span>'
+            links.append(
+                f'<a href="{href}"{cls}><span class="secnum">{num}</span>{mark}'
+                f'<span class="en">{en}</span><span class="ne">{ne}</span></a>'
+            )
+        links_html = "\n        ".join(links)
         out.append(
-            f'<a href="{href}"{cls}><span class="secnum">{num}</span>{mark}'
-            f'<span class="en">{en}</span><span class="ne">{ne}</span></a>'
+            f'<details class="snav-sec" data-g="{group}"{is_open}>\n'
+            f'      <summary><span class="en">{g_en}</span><span class="ne">{g_ne}</span>'
+            f'<span class="count">{len(items)}</span>{ICON["chev"]}</summary>\n'
+            f'      <div class="snav-links">\n        {links_html}\n      </div>\n    </details>'
         )
-    return "\n      ".join(out)
+    return "\n    ".join(out)
 
 
 def pager_html(i: int) -> str:
@@ -88,14 +141,14 @@ def pager_html(i: int) -> str:
         s, _f, num, en, ne, *_ = PAGES[i - 1]
         href = "index.html" if s == "index" else f"{s}.html"
         parts.append(
-            f'<a class="prev" href="{href}"><span class="lbl"><span class="en">Previous · {num}</span>'
+            f'<a class="prev" href="{href}"><span class="lbl">{ICON["left"]}<span class="en">Previous · {num}</span>'
             f'<span class="ne">अघिल्लो · {num}</span></span><span class="en">{en}</span><span class="ne">{ne}</span></a>'
         )
     if i < len(PAGES) - 1:
         s, _f, num, en, ne, *_ = PAGES[i + 1]
         parts.append(
             f'<a class="next" href="{s}.html"><span class="lbl"><span class="en">Next · {num}</span>'
-            f'<span class="ne">अर्को · {num}</span></span><span class="en">{en}</span><span class="ne">{ne}</span></a>'
+            f'<span class="ne">अर्को · {num}</span>{ICON["right"]}</span><span class="en">{en}</span><span class="ne">{ne}</span></a>'
         )
     return "\n    ".join(parts)
 
@@ -141,7 +194,7 @@ SHELL = """<!DOCTYPE html>
 <meta name="description" content="Mano Atlas (मनो एट्लास): a free, bilingual (English/नेपाली) atlas of mental disorders: DSM-5 criteria, teaching diagrams, and the Nepali context.">
 <title>{title}</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Mukta:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Caveat:wght@600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,500;0,7..72,600;1,7..72,400&family=Mukta:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Caveat:wght@600&display=swap">
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
@@ -151,13 +204,15 @@ SHELL = """<!DOCTYPE html>
     <div class="top">
       <a class="brand" href="index.html"><span class="en">Mano Atlas</span><span class="ne">मनो एट्लास</span>
         <span class="sub"><span class="en">Mental health · two languages</span><span class="ne">मानसिक स्वास्थ्य · दुई भाषा</span></span></a>
-      <div class="langsw" role="group" aria-label="Language">
-        <button id="btn-en" onclick="setLang('en')">EN</button>
-        <button id="btn-ne" onclick="setLang('ne')">ने</button>
+      <div class="ctrls">
+        <div class="langsw" role="group" aria-label="Language">
+          <button id="btn-en" onclick="setLang('en')">EN</button>
+          <button id="btn-ne" onclick="setLang('ne')">ने</button>
+        </div>
+        <button id="btn-theme" class="themesw" onclick="cycleTheme()" aria-label="Colour theme">◐ Auto</button>
       </div>
-      <button id="btn-theme" class="themesw" onclick="cycleTheme()" aria-label="Colour theme">◐ Auto</button>
     </div>
-    <div class="search">
+    <div class="search"><span class="s-ico">{icon_search}</span>
       <input id="q" type="search" autocomplete="off" spellcheck="false"
         placeholder="Search · खोज्नुहोस्" aria-label="Search the atlas">
       <div id="qres" class="qres" hidden></div>
@@ -178,19 +233,20 @@ SHELL = """<!DOCTYPE html>
           <h4><span class="en">Mano Atlas</span><span class="ne">मनो एट्लास</span></h4>
           <p class="en">A free, open atlas of mental health in English and नेपाली. Educational resource, not a diagnostic tool: criteria are paraphrased from DSM-5 (2013). Diagnosis belongs to qualified clinicians.</p>
           <p class="ne">अंग्रेजी र नेपालीमा मानसिक स्वास्थ्यको निःशुल्क, खुला एट्लास। शैक्षिक सामग्री हो, निदान-उपकरण होइन: मापदण्ड DSM-5 (2013) बाट सरलीकृत छन्। निदान योग्य चिकित्सकको काम हो।</p>
-          <p><span class="en">Last reviewed: {reviewed_en}</span><span class="ne">पछिल्लो समीक्षा: {reviewed_ne}</span></p>
+          <p class="en">Learning sticks best in small sittings. It is fine to close this tab and come back another day.</p>\n          <p class="ne">सिकाइ साना-साना बसाइमा राम्रो टिक्छ। ट्याब बन्द गरेर अर्को दिन फर्किए हुन्छ।</p>\n          <p><span class="en">Last reviewed: {reviewed_en}</span><span class="ne">पछिल्लो समीक्षा: {reviewed_ne}</span></p>
         </div>
         <div class="crisis-col">
-          <h4><span class="en">If you need help now</span><span class="ne">अहिले नै सहयोग चाहिए</span></h4>
+          <h4>{icon_phone} <span class="en">If you need help now · Nepal</span><span class="ne">अहिले नै सहयोग चाहिए · नेपाल</span></h4>
           <p><strong>{helpline_suicide}</strong> <span class="en">National Suicide Prevention Helpline</span><span class="ne">राष्ट्रिय आत्महत्या रोकथाम हेल्पलाइन</span></p>
           <p><strong>{helpline_tuth}</strong> <span class="en">TUTH mental-health hotline</span><span class="ne">टिचिङ अस्पताल हटलाइन</span></p>
           <p><strong>{helpline_women}</strong> <span class="en">Women's helpline</span><span class="ne">महिला हेल्पलाइन</span> · <strong>{helpline_emergency}</strong> <span class="en">emergency</span><span class="ne">आपतकाल</span></p>
+          <p class="outside"><span class="en">These numbers work inside Nepal. Elsewhere, <a href="https://findahelpline.com" target="_blank" rel="noopener">findahelpline.com</a> lists your country's lines.</span><span class="ne">यी नम्बर नेपालभित्र चल्छन्। अन्यत्र हुनुहुन्छ भने <a href="https://findahelpline.com" target="_blank" rel="noopener">findahelpline.com</a> मा आफ्नो देशका नम्बर भेटिन्छन्।</span></p>
         </div>
         <div>
           <h4><span class="en">Open &amp; improvable</span><span class="ne">खुला र सुधारयोग्य</span></h4>
           <p class="en">Content licensed <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license noopener" target="_blank">CC BY-NC-SA 4.0</a>: share and adapt with credit, non-commercially.</p>
           <p class="ne">सामग्री <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license noopener" target="_blank">CC BY-NC-SA 4.0</a> अन्तर्गत: श्रेयसहित, गैर-व्यावसायिक रूपमा बाँड्न र मिलाउन पाइन्छ।</p>
-          <p><span class="en">Spotted an error?</span><span class="ne">त्रुटि भेट्नुभयो?</span> <span class="mailrev" data-u="{email_user}" data-d="{email_domain}" data-t="{email_tld}">{email_user} [at] {email_domain} [dot] {email_tld}</span></p>
+          <p>{icon_mail} <span class="en">Spotted an error?</span><span class="ne">त्रुटि भेट्नुभयो?</span> <span class="mailrev" data-u="{email_user}" data-d="{email_domain}" data-t="{email_tld}">{email_user} [at] {email_domain} [dot] {email_tld}</span></p>
         </div>
       </div>
       <p class="fine"><span class="en">Built from the CTEVT Psychosocial Counselor curriculum, class notes, and the sources named on each page.</span><span class="ne">सीटीईभीटी मनोसामाजिक परामर्शकर्ता पाठ्यक्रम, कक्षा-नोट र प्रत्येक पृष्ठमा उल्लिखित स्रोतबाट निर्मित।</span></p>
@@ -245,25 +301,46 @@ def main() -> None:
                 "x": plain_text(part)[:3000],
             })
 
+        # resource-type icons (Lucide), picked from the label text
+        body = re.sub(
+            r'<span class="res-type">(?!<svg)(.*?)</span>',
+            lambda m: f'<span class="res-type">{res_type_icon(m.group(1))}{m.group(1)}</span>',
+            body,
+        )
+
         if slug == "index":
             content = f'<header class="hero">\n{hero}\n</header>\n<section id="map">\n{body}\n</section>'
         else:
             gentle = ""
             if group == "disorders":
-                gentle = ('<p class="gentle"><span class="en">A gentle note before you read: symptom lists make '
+                gentle = (f'<p class="gentle">{ICON["sprout"]}<span class="gentle-tx"><span class="en">A gentle note before you read: symptom lists make '
                           'almost everyone recognise themselves somewhere. That is a normal effect of reading, '
                           'not a diagnosis. If something here stays on your mind, a conversation with a '
                           'professional helps more than re-reading.</span>'
                           '<span class="ne">पढ्नुअघि एउटा कोमल कुरा: लक्षण-सूची पढ्दा झन्डै सबैलाई कतै न कतै आफ्नै झल्को मिल्छ। '
                           'त्यो पढाइको सामान्य असर हो, निदान होइन। कुनै कुरा मनमा अडिरह्यो भने फेरि-फेरि पढ्नुभन्दा '
-                          'पेसागत व्यक्तिसँगको कुराकानीले बढी सघाउँछ।</span></p>\n')
+                          'पेसागत व्यक्तिसँगको कुराकानीले बढी सघाउँछ।</span></span></p>\n')
+            # gentle reading-time estimate: English words only (Devanagari mirrors them)
+            words = len(re.findall(r"[A-Za-z][A-Za-z'-]+", plain_text(body)))
+            mins = max(2, round(words / 170))
+            readtime = (f'<span class="readtime">{ICON["clock"]}<span class="en">about {mins} min · no rush</span>'
+                        f'<span class="ne">करिब {str(mins).translate(NE_DIGITS)} मिनेट · हतार छैन</span></span>')
+            careline = (f'<p class="careline">{ICON["heart"]}<span class="care-tx">'
+                        '<span class="en">That is plenty for one sitting. Whatever brought you to this page, '
+                        'reading about the mind with care, for yourself or for someone else, is itself an act of care. '
+                        'Rest; the ideas settle on their own.</span>'
+                        '<span class="ne">एक बसाइका लागि यति नै प्रशस्त छ। जुनसुकै कारणले यो पृष्ठसम्म आइपुग्नुभयो, '
+                        'आफ्ना वा अरूका लागि मनका कुरा ध्यानले पढ्नु आफैंमा हेरचाहको काम हो। '
+                        'आराम गर्नुहोस्; बुझेका कुरा आफैं बस्दै जान्छन्।</span></span></p>')
             content = (
                 f'<div class="pagehead"><div class="kicker"><span class="en">Section {num}</span>'
-                f'<span class="ne">खण्ड {num}</span></div></div>\n{gentle}'
-                f'<section id="{fname}" style="margin-top:12px">\n{body}\n</section>'
+                f'<span class="ne">खण्ड {num}</span>{readtime}</div></div>\n'
+                f'<nav class="pager pager-top" aria-label="Chapter (top)">\n{pager_html(i)}\n</nav>\n{gentle}'
+                f'<section id="{fname}" style="margin-top:12px">\n{body}\n</section>\n{careline}'
             )
         title = "Mano Atlas" if slug == "index" else f"{en} · Mano Atlas"
-        html = SHELL.format(title=title, nav=nav_html(slug), content=content, pager=pager_html(i), **SITE)
+        html = SHELL.format(title=title, nav=nav_html(slug), content=content, pager=pager_html(i),
+                            icon_search=ICON["search"], icon_phone=ICON["phone"], icon_mail=ICON["mail"], **SITE)
         (ROOT / f"{slug}.html").write_text(html)
         print("built", f"{slug}.html")
 
