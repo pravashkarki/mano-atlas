@@ -218,7 +218,7 @@ SHELL = """<!DOCTYPE html>
 <div class="layout">
   <aside class="sidebar">
     <div class="top">
-      <a class="brand" href="index.html"><span class="en">Mano Atlas</span><span class="ne">मनो एट्लास</span>
+      <a class="brand" href="index.html">Mano Atlas<span class="brand-ne">मनो एट्लास</span>
         <span class="sub"><span class="en">Mental health · two languages</span><span class="ne">मानसिक स्वास्थ्य · दुई भाषा</span></span></a>
       <div class="ctrls">
         <div class="langsw" role="group" aria-label="Language">
@@ -349,7 +349,8 @@ def main() -> None:
                         f'<span class="en">{ce}</span><span class="ne">{cn}</span></span>'
                         '<button class="care-x" aria-label="Hide these notes for this visit" title="Hide">&times;</button></p>')
             content = (
-                f'<div class="pagehead"><div class="kicker"><span class="en">Section {num}</span>'
+                f'<div class="pagehead"><span class="bignum" aria-hidden="true">{num}</span>'
+                f'<div class="kicker"><span class="en">Section {num}</span>'
                 f'<span class="ne">खण्ड {num}</span>{readtime}</div></div>\n'
                 f'<nav class="pager pager-top" aria-label="Chapter (top)">\n{pager_html(i)}\n</nav>\n{gentle}'
                 f'<section id="{fname}" style="margin-top:12px">\n{body}\n</section>\n{careline}'

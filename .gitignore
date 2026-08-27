@@ -1,0 +1,16 @@
+# local working files: never pushed to the repo
+review/
+_notes/
+*.local.*
+
+# OS / editor junk
+.DS_Store
+Thumbs.db
+*.swp
+
+# python
+__pycache__/
+*.pyc
+
+# node (if ever added)
+node_modules/
