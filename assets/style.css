@@ -581,7 +581,11 @@ html[data-lang="ne"] .qz-opt{font-size:1.0625rem}
   .collapse-btn{display:inline-flex; position:absolute; right:-4px; top:-6px; border:0; background:transparent; color:var(--muted); padding:6px; border-radius:6px; cursor:pointer}
   .collapse-btn:hover{color:var(--ink); background:var(--surface2)}
   .collapse-btn svg.lucide{width:16px; height:16px}
-  .layout.nav-collapsed .sidebar{display:none}
+  .sidebar{transition:width .28s cubic-bezier(.4,0,.2,1), padding .28s cubic-bezier(.4,0,.2,1), opacity .2s ease}
+  .layout.nav-collapsed .sidebar{width:0; padding-left:0; padding-right:0; opacity:0; overflow:hidden; border-right:0; pointer-events:none}
+  .layout.nav-collapsed .expand-btn{animation:pillin .28s ease}
+  @keyframes pillin{from{opacity:0; transform:translateX(-8px)} to{opacity:1; transform:none}}
+  @media (prefers-reduced-motion:reduce){ .sidebar{transition:none} .layout.nav-collapsed .expand-btn{animation:none} }
   .layout.nav-collapsed .expand-btn{display:inline-flex; pointer-events:auto; align-items:center; gap:6px; background:var(--surface); border:1px solid var(--line); border-radius:999px;
     padding:6px 12px 6px 9px; color:var(--ink); font:600 0.8125rem 'Archivo',sans-serif; box-shadow:var(--shadow); cursor:pointer; transition:opacity .18s ease, transform .18s ease}
   html[data-lang="ne"] .layout.nav-collapsed .expand-btn{font-family:'Mukta',sans-serif; font-size:0.9375rem}
