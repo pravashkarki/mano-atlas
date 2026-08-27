@@ -108,7 +108,8 @@
     text-transform:uppercase; color:var(--accent); margin-bottom:14px}
   .hero h1{font-family:'Literata',Georgia,serif; font-size:clamp(2.375rem,6vw,3.625rem); font-weight:600; letter-spacing:-.01em}
   html[data-lang="ne"] .hero h1{font-family:'Mukta','Noto Sans Devanagari',sans-serif; font-weight:700}
-  .hero .sub{font-size:1.25rem; color:var(--muted); max-width:62ch; margin-top:16px}
+  .hero .sub{font-size:1.25rem; color:var(--muted); max-width:min(62ch, calc(100% - 220px)); margin-top:16px}
+  @media(max-width:1080px){ .hero .sub{max-width:62ch} }
   .hero .meta{margin-top:22px; display:flex; flex-wrap:wrap; gap:8px}
   .chip{font-family:'IBM Plex Mono',monospace; font-size:0.75rem; letter-spacing:.05em;
     border:1px solid var(--line); border-radius:4px; padding:3px 9px; color:var(--muted); background:var(--surface)}
