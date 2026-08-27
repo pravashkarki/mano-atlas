@@ -617,10 +617,39 @@ html[data-lang="ne"] .info-pop{font-family:'Mukta','Noto Sans Devanagari',sans-s
 html[data-lang="ne"] .progress{font-family:'Mukta',sans-serif; font-size:0.8125rem; letter-spacing:0; text-transform:none}
 .progress:empty{display:none}
 
+/* ===== sidebar v2: wordmark, ribbon, chapters; search in the pill on desktop ===== */
+@media(min-width:901px){
+  .sidebar{gap:22px; padding-top:28px}
+  .sidebar .top{padding-bottom:0}
+  .sidebar .top::after{margin-top:16px}
+  .sidebar .brand{font-size:1.5rem; letter-spacing:-.015em}
+  html[data-lang="ne"] .sidebar .brand{font-family:'Mukta','Noto Sans Devanagari',sans-serif; font-weight:700; font-size:1.625rem}
+  .sidebar .ctrls{display:none}
+  .topctrl-pill{padding:4px 6px 4px 4px}
+  .pill-search{display:inline-flex}
+  .pill-search .search{width:230px; transition:width .18s ease}
+  .pill-search .search:focus-within{width:340px}
+  .pill-search .search input{padding:7px 12px 7px 32px; border-radius:999px; font-size:0.875rem; background:var(--bg)}
+  .pill-search .search input:focus{outline:0; border-color:var(--accent); box-shadow:0 0 0 2px color-mix(in srgb, var(--accent) 35%, transparent)}
+  .pill-search .search .s-ico{left:12px}
+  .pill-search .navbtn{display:none}
+  .pill-search .qres{min-width:360px; left:auto; right:0; text-align:left}
+  .topctrl{pointer-events:none} .topctrl-pill,.expand-btn{pointer-events:auto}
+  @media (prefers-reduced-motion:reduce){ .pill-search .search{transition:none} }
+}
 /* card head: right-hand group (code chip + info) */
 .card-head .head-right{margin-left:auto; display:inline-flex; align-items:center; gap:6px}
 .card-head .head-right .info{margin-left:0}
 .card-head .head-right .info-pop{left:auto; right:0}
+/* pill: equal padding, equal control heights */
+@media(min-width:901px){
+  .topctrl-pill{padding:5px; gap:6px}
+  .topctrl-pill .langsw,.topctrl-pill .themesw,.pill-search .search input{height:32px; box-sizing:border-box}
+  .topctrl-pill .langsw button{height:30px; padding:0 12px; line-height:30px}
+  .topctrl-pill .themesw{padding:0 12px; display:inline-flex; align-items:center; line-height:1}
+  .pill-search .search input{padding-top:0; padding-bottom:0; line-height:30px}
+}
+@media(min-width:901px){ .pill-search .search{height:32px; display:flex; align-items:center} .pill-search .search .qres{top:calc(100% + 10px)} }
 .care-x{opacity:.45; color:var(--muted); transition:opacity .15s}
 .care-x:hover,.care-x:focus-visible{opacity:1}
 .topctrl{padding:0 34px}
