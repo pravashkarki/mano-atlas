@@ -530,7 +530,7 @@ def main() -> None:
     idx_js = "window.MANO_INDEX=" + json.dumps(search_index, ensure_ascii=False, separators=(",", ":")) + ";"
     (ROOT / "assets" / "search-index.js").write_text(idx_js)
     # sitemap, robots, 404
-    urls = "".join(f'  <url><loc>{SITE["site_url"]}/{"" if s == "index" else s}</loc></url>\n' for s, *_ in PAGES) + f'  <url><loc>{SITE["site_url"]}/app</loc></url>\n'
+    urls = "".join(f'  <url><loc>{SITE["site_url"]}/{"" if s == "index" else s}</loc></url>\n' for s, *_ in PAGES)
     (ROOT / "sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + urls + "</urlset>\n")
     (ROOT / "robots.txt").write_text(f'User-agent: *\nAllow: /\nSitemap: {SITE["site_url"]}/sitemap.xml\n')
     nf = ('<div class="pagehead"><span class="bignum" aria-hidden="true">404</span><div class="kicker"><span class="en">Page not found</span><span class="ne">पृष्ठ भेटिएन</span></div></div>\n'
@@ -553,13 +553,6 @@ def main() -> None:
     html404 = SHELL.format(title="Page not found · Mano Atlas", nav=nav_html("index"), content=nf, pager="", page_desc=SITE_DESC, page_url=SITE["site_url"] + "/404", jsonld="{}",
                            icon_search=ICON["search"], icon_menu=ICON["menu"], icon_panel=ICON["panel"], icon_phone=ICON["phone"], icon_mail=ICON["mail"], **SITE)
     (ROOT / "404.html").write_text(html404)
-    # app.html: privacy policy + support for the Mano app (store listings link here); not a chapter, so not in PAGES
-    app_frag = (ROOT / "content" / "app.html").read_text()
-    html_app = SHELL.format(title="Mano app · privacy and support · Mano Atlas", nav=nav_html("index"), content=app_frag, pager="",
-                            page_desc="Privacy policy and support for Mano, the free offline feelings-log app for Nepal. Nothing is collected; everything stays on your phone.",
-                            page_url=SITE["site_url"] + "/app", jsonld="{}",
-                            icon_search=ICON["search"], icon_menu=ICON["menu"], icon_panel=ICON["panel"], icon_phone=ICON["phone"], icon_mail=ICON["mail"], **SITE)
-    (ROOT / "app.html").write_text(html_app)
     print(f"search index: {len(search_index)} entries, {len(idx_js)//1024} KB")
 
 
