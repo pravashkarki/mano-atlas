@@ -38,7 +38,10 @@
       { k: ['earthquake', 'flood', 'accident', 'nightmares', 'flashback', 'trauma', 'sato', 'भूकम्प', 'बाढी', 'दुर्घटना', 'सातो', 'आघात'], u: 'trauma.html', te: 'After a terrible event: trauma, PTSD, "sato gayo"', tn: 'भयानक घटनापछि: आघात, पीटीएसडी, «सातो गयो»' },
       { k: ['washing', 'checking', 'repeat', 'doubt', 'हात धुन', 'बारम्बार', 'जाँच्न', 'शङ्का'], u: 'ocd.html', te: 'OCD: washing, checking, repeating', tn: 'ओसीडी: धुनु, जाँच्नु, दोहोर्‍याउनु' },
       { k: ['help now', 'helpline', 'hotline', 'emergency', 'number', 'हेल्पलाइन', 'नम्बर', 'आपतकाल', 'सहयोग'], u: 'suicide.html', te: 'Help now: helplines inside Nepal', tn: 'अहिले नै सहयोग: नेपालभित्रका हेल्पलाइन' },
-      { k: ['start', 'where to begin', 'new here', 'basics', 'सुरु', 'कहाँबाट'], u: 'basics.html', te: 'Start here: mental health basics', tn: 'यहाँबाट सुरु: मानसिक स्वास्थ्यका आधार' }
+      { k: ['start', 'where to begin', 'new here', 'basics', 'सुरु', 'कहाँबाट'], u: 'basics.html', te: 'Start here: mental health basics', tn: 'यहाँबाट सुरु: मानसिक स्वास्थ्यका आधार' },
+      { k: ['what to say', 'paraphras', 'reflect', 'summaris', 'summariz', 'phrases', 'role-play', 'role play', 'confront', 'brainstorm', 'के भन्ने', 'पुनर्कथन', 'प्रतिबिम्ब', 'सारांश', 'मन्थन', 'चुनौती'], u: 'skills-practice.html', te: 'Verbal skills in practice: what to say, what goes wrong', tn: 'शाब्दिक सीप अभ्यासमा: के भन्ने, के बिग्रन्छ' },
+      { k: ['first session', 'introduce', 'confidential', 'consent', 'expectation', 'assessment', 'intake', 'what to ask', 'पहिलो सत्र', 'परिचय', 'गोपनीयता', 'सहमति', 'मूल्याङ्कन', 'के सोध्ने'], u: 'first-sessions.html', te: 'The first sessions: scripts and the assessment questions', tn: 'पहिला सत्रहरू: स्क्रिप्ट र मूल्याङ्कनका प्रश्न' },
+      { k: ['act ', 'acceptance', 'activation', 'activity chart', 'erp', 'exposure', 'hierarchy', 'fear ladder', 'defusion', 'life skills', 'एक्सपोजर', 'गतिविधि', 'तालिका', 'भर्‍याङ', 'जीवन सीप'], u: 'techniques.html', te: 'Techniques step by step: ACT, behavioural activation, ERP', tn: 'प्रविधि चरणैपिच्छे: ACT, behavioural activation, ERP' }
     ];
     function norm(s) {
       s = s.toLowerCase();
