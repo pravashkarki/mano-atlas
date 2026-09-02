@@ -375,7 +375,12 @@ SHELL = """<!DOCTYPE html>
 <meta property="og:url" content="{page_url}">
 <meta property="og:locale" content="en_GB">
 <meta property="og:locale:alternate" content="ne_NP">
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content="{site_url}/assets/og/{og_slug}.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="{og_alt}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="{site_url}/assets/og/{og_slug}.png">
 <link rel="alternate" type="text/plain" href="{site_url}/llms.txt" title="llms.txt">
 <script type="application/ld+json">{jsonld}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -463,6 +468,72 @@ SHELL = """<!DOCTYPE html>
 """
 
 
+
+OG_MARK = ('<svg viewBox="0 0 48 48" width="44" height="44" aria-hidden="true"><circle cx="24" cy="24" r="20" fill="none" stroke="#24272C" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>'
+           '<path d="M24 35 C24 29 23.5 24 24 19" fill="none" stroke="#24272C" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>'
+           '<path d="M24 26 C18.5 26 15 22 14.5 17 C20 17.5 23.5 21 24 26 Z" fill="#1D6A73" stroke="#24272C" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>'
+           '<path d="M24 22 C29.5 22 33 18 33.5 13 C28 13.5 24.5 17 24 22 Z" fill="#1D6A73" stroke="#24272C" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>'
+           '<circle cx="24" cy="36.5" r="2.4" fill="#24272C"/></svg>')
+
+OG_TEMPLATE = """<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Mukta:wght@400;600;700&family=Literata:ital,opsz,wght@0,7..72,400&display=block">
+<style>
+html,body{{margin:0;padding:0}}
+body{{width:1200px;height:630px;overflow:hidden;background:#F5F4F0;color:#24272C;font-family:'Archivo','Mukta',system-ui,sans-serif;position:relative}}
+.dhaka{{position:absolute;left:0;top:0;width:1200px;height:12px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='12'%3E%3Cpath d='M0 12L14 0l14 12z' fill='%231D6A73'/%3E%3Cpath d='M28 12l14-12 14 12z' fill='%23C98A1B' fill-opacity='.75'/%3E%3C/svg%3E");background-repeat:repeat-x}}
+.brand{{position:absolute;left:64px;top:52px;display:flex;align-items:center;gap:14px;font-weight:700;font-size:26px;letter-spacing:.01em}}
+.brand .ne{{font-family:'Mukta',sans-serif;font-weight:600;font-size:29px;color:#6C6F76}}
+.brand .dot{{color:#6C6F76;font-weight:400}}
+.kicker{{position:absolute;left:64px;top:146px;font-size:19px;letter-spacing:.14em;text-transform:uppercase;color:#155A62;font-weight:700}}
+.kicker .ne{{font-family:'Mukta',sans-serif;text-transform:none;letter-spacing:0;font-size:22px;font-weight:600;color:#6C6F76;margin-left:14px}}
+.rule{{position:absolute;left:64px;top:186px;width:72px;height:4px;background:#1D6A73;border-radius:2px}}
+.title{{position:absolute;left:64px;top:214px;width:880px}}
+.title .en{{display:block;font-weight:800;font-size:{en_size}px;line-height:1.08;letter-spacing:-.015em;text-wrap:balance}}
+.title .ne{{display:block;font-family:'Mukta',sans-serif;font-weight:600;font-size:{ne_size}px;line-height:1.3;margin-top:14px;color:#3A3E45;text-wrap:balance}}
+.tag{{position:absolute;left:64px;top:{tag_top}px;width:880px;font-family:'Literata',Georgia,serif;font-size:24px;line-height:1.45;color:#6C6F76}}
+.num{{position:absolute;right:56px;bottom:22px;font-weight:800;font-size:300px;line-height:1;letter-spacing:-.04em;color:#1D6A73;opacity:.13}}
+.foot{{position:absolute;left:64px;bottom:44px;font-size:19px;color:#6C6F76;letter-spacing:.02em}}
+.foot .ne{{font-family:'Mukta',sans-serif;font-size:21px}}
+</style></head><body>
+<div class="dhaka"></div>
+<div class="brand">{mark}<span>Mano Atlas</span><span class="dot">·</span><span class="ne">मनो एट्लास</span></div>
+{kicker}
+<div class="rule"></div>
+<div class="title"><span class="en">{en}</span><span class="ne">{ne}</span></div>
+{tag}
+{num}
+<div class="foot">pcs.pravashkarki.com &nbsp;·&nbsp; free &nbsp;·&nbsp; English / <span class="ne">नेपाली</span></div>
+</body></html>
+"""
+
+
+def write_og_sources() -> None:
+    """One self-contained HTML per page under assets/og/src/; tools/og-render.sh turns them into PNGs."""
+    out = ROOT / "assets" / "og" / "src"
+    out.mkdir(parents=True, exist_ok=True)
+    for slug, _f, en, ne, _cat, group in PAGES:
+        g_en, g_ne = GROUPS[group]
+        if slug == "index":
+            en_t, ne_t = "Mano Atlas", "मनो एट्लास"
+            kicker = '<div class="kicker">An open atlas of mental health<span class="ne">मानसिक स्वास्थ्यको खुला एट्लास</span></div>'
+            tag = ('<div class="tag">A free, bilingual atlas of mental disorders: DSM-5 criteria, teaching diagrams, and the Nepali context.<br>'
+                   '<span style="font-family:Mukta,sans-serif;font-size:26px">मानसिक विकारहरूको निःशुल्क, द्विभाषी एट्लास: DSM-5 मापदण्ड, चित्र र नेपाली सन्दर्भ।</span></div>')
+            num = ""
+            en_size, ne_size, tag_top = 92, 60, 400
+        else:
+            en_t, ne_t = html_mod.escape(en), html_mod.escape(ne)
+            kicker = f'<div class="kicker">Chapter {NUM[slug]} · {g_en}<span class="ne">{g_ne}</span></div>'
+            tag = ""
+            num = f'<div class="num" aria-hidden="true">{NUM[slug]}</div>'
+            longest = max(len(en), len(ne) * 1.15)
+            en_size = 72 if longest <= 26 else 62 if longest <= 34 else 54
+            ne_size = round(en_size * 0.78)
+            tag_top = 0
+        (out / f"{slug}.html").write_text(OG_TEMPLATE.format(mark=OG_MARK, kicker=kicker, en=en_t, ne=ne_t, tag=tag, num=num,
+                                                              en_size=en_size, ne_size=ne_size, tag_top=tag_top))
+
+
 def gate_sources() -> None:
     """House rules that must hold before anything is generated."""
     for d in ("content", "quizzes", "keypoints"):
@@ -496,6 +567,7 @@ def main() -> None:
     content_dir = ROOT / "content"
     hero = (content_dir / "hero.html").read_text().replace('<!--TOC-->', recent_html() + toc_html())
     gate_sources()
+    write_og_sources()
     search_index = []
     page_descs = []
     quiz_dir = ROOT / "quizzes"
@@ -621,7 +693,7 @@ def main() -> None:
             ]}, ensure_ascii=False)
         page_descs.append((slug, en, ne, html_mod.unescape(page_desc), group_en))
         html = SHELL.format(title=title, nav=nav_html(slug), content=content, pager=pager_html(i), page_desc=page_desc, page_url=page_url, jsonld=jsonld,
-                            updated_en=updated, updated_ne=updated.translate(NE_DIGITS), icon_search=ICON["search"], icon_menu=ICON["menu"], icon_panel=ICON["panel"], icon_phone=ICON["phone"], icon_mail=ICON["mail"], **SITE)
+                            updated_en=updated, updated_ne=updated.translate(NE_DIGITS), og_slug=slug, og_alt=html_mod.escape(f"{en} · {ne}" if slug != "index" else "Mano Atlas · मनो एट्लास"), icon_search=ICON["search"], icon_menu=ICON["menu"], icon_panel=ICON["panel"], icon_phone=ICON["phone"], icon_mail=ICON["mail"], **SITE)
         (ROOT / f"{slug}.html").write_text(html)
         print("built", f"{slug}.html")
 
@@ -649,7 +721,7 @@ def main() -> None:
     llms += "## Optional\n\n- [Sitemap](" + SITE["site_url"] + "/sitemap.xml)\n- [Source repository](https://github.com/pravashkarki/mano-atlas)\n"
     (ROOT / "llms.txt").write_text(llms)
     html404 = SHELL.format(title="Page not found · Mano Atlas", nav=nav_html("index"), content=nf, pager="", page_desc=SITE_DESC, page_url=SITE["site_url"] + "/404", jsonld="{}",
-                           updated_en=SITE["reviewed_en"], updated_ne=SITE["reviewed_ne"], icon_search=ICON["search"], icon_menu=ICON["menu"], icon_panel=ICON["panel"], icon_phone=ICON["phone"], icon_mail=ICON["mail"], **SITE)
+                           updated_en=SITE["reviewed_en"], updated_ne=SITE["reviewed_ne"], og_slug="index", og_alt="Mano Atlas · मनो एट्लास", icon_search=ICON["search"], icon_menu=ICON["menu"], icon_panel=ICON["panel"], icon_phone=ICON["phone"], icon_mail=ICON["mail"], **SITE)
     (ROOT / "404.html").write_text(html404)
     print(f"search index: {len(search_index)} entries, {len(idx_js)//1024} KB")
 
