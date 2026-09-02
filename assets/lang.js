@@ -219,3 +219,13 @@ document.addEventListener('keydown', function (e) { if (e.key === 'Escape') docu
   function go() { place(); if (mq.addEventListener) mq.addEventListener('change', place); else mq.addListener(place); }
   if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', go); } else { go(); }
 })();
+
+/* ---- print: open every "Go deeper" expander so nothing is lost on paper, then restore ---- */
+(function () {
+  var opened = [];
+  window.addEventListener('beforeprint', function () {
+    opened = [];
+    document.querySelectorAll('details.deeper:not([open])').forEach(function (d) { d.open = true; opened.push(d); });
+  });
+  window.addEventListener('afterprint', function () { opened.forEach(function (d) { d.open = false; }); opened = []; });
+})();

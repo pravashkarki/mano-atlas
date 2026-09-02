@@ -23,41 +23,50 @@ SITE = {
     "helpline_women": "1145",
     "helpline_emergency": "112 / 100",
     "site_url": "https://pcs.pravashkarki.com",
+    "recent_since": "2026-08-31",   # home "Recently added" lists chapters added after this date (and within 90 days)
 }
 
-# slug, content file, num, en title, ne title, catvar (sidebar colour mark), group
+# slug, content file, en title, ne title, catvar (sidebar colour mark), group.
+# Chapter numbers are NOT stored here: the build numbers pages by position, so inserting
+# a row anywhere renumbers everything (badges, sidebar, pagers, cross-references).
 PAGES = [
-    ("index",      "map",        "01", "Home & the DSM-5 map",      "गृहपृष्ठ र DSM-5 नक्सा",        None,       "overview"),
-    ("roots",      "roots",      "02", "Roots: philosophy to psychology", "जरा: दर्शनदेखि मनोविज्ञान", None,     "overview"),
-    ("foundation", "foundation", "03", "Fear: the foundation",      "डर: आधारशिला",                  None,       "overview"),
-    ("basics",     "basics",     "04", "Mental health basics",      "मानसिक स्वास्थ्यका आधार",       None,       "overview"),
-    ("development","development","05", "Human development",         "मानव विकास",                    None,       "overview"),
-    ("anxiety",    "anxiety",    "06", "Anxiety disorders",         "चिन्ता विकारहरू",               "--c-anx",  "disorders"),
-    ("ocd",        "ocd",        "07", "OCD & related",             "ओसीडी र सम्बन्धित",             "--c-ocd",  "disorders"),
-    ("depression", "depression", "08", "Depressive disorders",      "उदासी (डिप्रेसन)",              "--c-dep",  "disorders"),
-    ("trauma",     "trauma",     "09", "Trauma & stressor",         "आघात र तनाव",                   "--c-tra",  "disorders"),
-    ("somatic",    "somatic",    "10", "Conversion & somatic",      "कन्भर्सन र शारीरिक",            "--c-som",  "disorders"),
-    ("psychosis",  "psychosis",  "11", "Psychosis",                 "मनोविकृति (साइकोसिस)",          "--c-psy",  "disorders"),
-    ("child",      "child",      "12", "Child mental illness",      "बाल मानसिक समस्या",             "--c-chi",  "disorders"),
-    ("eating",     "eating",     "13", "Eating disorders",          "खानपान विकार",                  "--c-eat",  "disorders"),
-    ("sleep",      "sleep",      "14", "Sleep-wake disorders",      "निद्रा विकार",                  "--c-slp",  "disorders"),
-    ("substance",  "substance",  "15", "Substance use",             "लागुपदार्थ प्रयोग",             "--c-sub",  "disorders"),
-    ("wellbeing",  "wellbeing",  "16", "Wellbeing & intervention",  "तन्दुरुस्ती र हस्तक्षेप",       None,       "practice"),
-    ("approaches", "approaches", "17", "Approaches & forms",        "विधि र रूपहरू",                 None,       "practice"),
-    ("skills",     "skills",     "18", "Communication skills",      "संवाद-सीप",                     None,       "practice"),
-    ("process",    "process",    "19", "The counselling process",   "परामर्श-प्रक्रिया",             None,       "practice"),
-    ("tools",      "tools",      "20", "Tools & techniques",        "औजार र प्रविधि",                None,       "practice"),
-    ("suicide",    "suicide",    "21", "Suicide: assessment",       "आत्महत्या: मूल्याङ्कन",         None,       "practice"),
-    ("pfa",        "pfa",        "22", "PFA & emergencies",         "पीएफए र आपतकाल",                None,       "practice"),
-    ("gbv",        "gbv",        "23", "Gender & GBV",              "लैङ्गिकता र जीबीभी",            None,       "practice"),
-    ("hiv",        "hiv",        "24", "HIV & AIDS counselling",    "एचआईभी परामर्श",                None,       "practice"),
-    ("casemgmt",   "casemgmt",   "25", "Case management",           "केस व्यवस्थापन",                None,       "practice"),
-    ("ethics",     "ethics",     "26", "Ethics & self-care",        "नैतिकता र आत्म-हेरचाह",         None,       "practice"),
-    ("more",       "rest",       "27", "The rest of the map",       "बाँकी नक्सा",                   None,       "reference"),
-    ("nepal",      "nepal",      "28", "Culture & the Nepal panorama", "संस्कृति र नेपाली परिदृश्य", None,       "reference"),
-    ("crosswalk",  "crosswalk",  "29", "For PSC students",          "पीएससी विद्यार्थीलाई",          None,       "reference"),
-    ("glossary",   "glossary",   "30", "Glossary",                  "शब्दावली",                       None,       "reference"),
+    ("index",      "map",        "Home & the DSM-5 map",      "गृहपृष्ठ र DSM-5 नक्सा",        None,       "overview"),
+    ("roots",      "roots",      "Roots: philosophy to psychology", "जरा: दर्शनदेखि मनोविज्ञान", None,     "overview"),
+    ("foundation", "foundation", "Fear: the foundation",      "डर: आधारशिला",                  None,       "overview"),
+    ("basics",     "basics",     "Mental health basics",      "मानसिक स्वास्थ्यका आधार",       None,       "overview"),
+    ("development","development","Human development",         "मानव विकास",                    None,       "overview"),
+    ("anxiety",    "anxiety",    "Anxiety disorders",         "चिन्ता विकारहरू",               "--c-anx",  "disorders"),
+    ("ocd",        "ocd",        "OCD & related",             "ओसीडी र सम्बन्धित",             "--c-ocd",  "disorders"),
+    ("depression", "depression", "Depressive disorders",      "उदासी (डिप्रेसन)",              "--c-dep",  "disorders"),
+    ("trauma",     "trauma",     "Trauma & stressor",         "आघात र तनाव",                   "--c-tra",  "disorders"),
+    ("somatic",    "somatic",    "Conversion & somatic",      "कन्भर्सन र शारीरिक",            "--c-som",  "disorders"),
+    ("psychosis",  "psychosis",  "Psychosis",                 "मनोविकृति (साइकोसिस)",          "--c-psy",  "disorders"),
+    ("child",      "child",      "Child mental illness",      "बाल मानसिक समस्या",             "--c-chi",  "disorders"),
+    ("eating",     "eating",     "Eating disorders",          "खानपान विकार",                  "--c-eat",  "disorders"),
+    ("sleep",      "sleep",      "Sleep-wake disorders",      "निद्रा विकार",                  "--c-slp",  "disorders"),
+    ("substance",  "substance",  "Substance use",             "लागुपदार्थ प्रयोग",             "--c-sub",  "disorders"),
+    ("wellbeing",  "wellbeing",  "Wellbeing & intervention",  "तन्दुरुस्ती र हस्तक्षेप",       None,       "practice"),
+    ("approaches", "approaches", "Approaches & forms",        "विधि र रूपहरू",                 None,       "practice"),
+    ("skills",     "skills",     "Communication skills",      "संवाद-सीप",                     None,       "practice"),
+    ("process",    "process",    "The counselling process",   "परामर्श-प्रक्रिया",             None,       "practice"),
+    ("tools",      "tools",      "Tools & techniques",        "औजार र प्रविधि",                None,       "practice"),
+    ("suicide",    "suicide",    "Suicide: assessment",       "आत्महत्या: मूल्याङ्कन",         None,       "practice"),
+    ("pfa",        "pfa",        "PFA & emergencies",         "पीएफए र आपतकाल",                None,       "practice"),
+    ("gbv",        "gbv",        "Gender & GBV",              "लैङ्गिकता र जीबीभी",            None,       "practice"),
+    ("hiv",        "hiv",        "HIV & AIDS counselling",    "एचआईभी परामर्श",                None,       "practice"),
+    ("casemgmt",   "casemgmt",   "Case management",           "केस व्यवस्थापन",                None,       "practice"),
+    ("ethics",     "ethics",     "Ethics & self-care",        "नैतिकता र आत्म-हेरचाह",         None,       "practice"),
+    ("more",       "rest",       "The rest of the map",       "बाँकी नक्सा",                   None,       "reference"),
+    ("nepal",      "nepal",      "Culture & the Nepal panorama", "संस्कृति र नेपाली परिदृश्य", None,       "reference"),
+    ("crosswalk",  "crosswalk",  "For PSC students",          "पीएससी विद्यार्थीलाई",          None,       "reference"),
+    ("glossary",   "glossary",   "Glossary",                  "शब्दावली",                       None,       "reference"),
 ]
+
+NUM = {slug: f"{i + 1:02d}" for i, (slug, *_rest) in enumerate(PAGES)}
+if len(NUM) != len(PAGES):
+    raise SystemExit("build: duplicate slug in PAGES")
+NO_QUIZ = {"glossary"}          # reference pages that deliberately have no Quick check
+NO_KEYPOINTS = {"map"}          # the home page has no Key points box
 
 GROUPS = {
     "overview":  ("Overview", "सिंहावलोकन"),
@@ -175,20 +184,66 @@ def info_popovers(body: str) -> str:
     return pat.sub(one, body)
 
 
-def link_page_refs(body: str) -> str:
-    """Turn plain "page 03" / "पृष्ठ ०३" cross-references in text nodes into links."""
-    num_to_slug = {num: ("index" if slug == "index" else slug) for slug, _f, num, *_ in PAGES}
-    def repl_en(m):
-        slug = num_to_slug.get(m.group(1))
-        return f'<a href="{slug}.html">{m.group(0)}</a>' if slug else m.group(0)
-    def repl_ne(m):
-        slug = num_to_slug.get(m.group(1).translate(str.maketrans("०१२३४५६७८९", "0123456789")))
-        return f'<a href="{slug}.html">{m.group(0)}</a>' if slug else m.group(0)
+REF_RE = re.compile(r"\{\{(page|section|n|पृष्ठ|खण्ड|न):(?:last:([a-z]+)|([a-z-]+))\}\}")
+STALE_RE = re.compile(r"\b(?:page|section) \d{2}\b|पृष्ठ [०-९]{2}|खण्ड [०-९]{2}")
+
+
+def resolve_refs(body: str, fname: str) -> str:
+    """Cross-references are written by slug, never by number: {{page:tools}}, {{section:foundation}},
+    {{पृष्ठ:tools}}, {{खण्ड:foundation}}; {{n:slug}} / {{न:slug}} give the bare number; {{n:last:practice}}
+    the number of a group's last chapter. The build emits the current number, so inserting a chapter
+    never leaves a stale reference behind."""
+    def one(m):
+        word, group, slug = m.group(1), m.group(2), m.group(3)
+        if group:
+            slug = [p[0] for p in PAGES if p[5] == group][-1]
+        if slug not in NUM:
+            raise SystemExit(f"build: {fname}: unknown page in cross-reference {m.group(0)}")
+        num = NUM[slug]
+        if word in ("पृष्ठ", "खण्ड", "न"):
+            num = num.translate(NE_DIGITS)
+        if word in ("n", "न"):
+            return num
+        return f'<a href="{slug}.html">{word} {num}</a>'
     parts = re.split(r"(<[^>]+>)", body)
     for k in range(0, len(parts), 2):
-        parts[k] = re.sub(r"\bpage (\d{2})\b", repl_en, parts[k])
-        parts[k] = re.sub(r"पृष्ठ ([०-९]{2})", repl_ne, parts[k])
-    return "".join(parts)
+        m = STALE_RE.search(parts[k])
+        if m:
+            raise SystemExit(f"build: {fname}: hard-coded chapter number '{m.group(0)}'; write {{{{page:slug}}}} instead")
+    body = REF_RE.sub(one, body)
+    if REF_RE.search(body) or re.search(r"\{\{[a-zA-Zपृष्ठखण्डन]+:", body):
+        raise SystemExit(f"build: {fname}: unresolved reference token remains")
+    return body
+
+
+def stamp_badge(body: str, num: str, fname: str) -> str:
+    """The chapter badge in each fragment is left empty by authors; the build fills it."""
+    if re.search(r'<span class="secbadge[^>]*>\s*[0-9०-९]', body):
+        raise SystemExit(f"build: {fname}: chapter number written by hand in the secbadge; leave it empty")
+    return re.sub(r'(<span class="secbadge[^>]*>)\s*(</span>)', lambda m: m.group(1) + num + m.group(2), body, count=1)
+
+
+def git_date(*paths: pathlib.Path, added: bool = False) -> str:
+    """Last commit date (YYYY-MM-DD) touching any of the paths; the date the first was added if added=True.
+    Untracked or uncommitted files count as changed today."""
+    import datetime
+    import subprocess
+    today = datetime.date.today().isoformat()
+    existing = [str(p) for p in paths if p.exists()]
+    if not existing:
+        return today
+    try:
+        if added:
+            out = subprocess.run(["git", "log", "--diff-filter=A", "--format=%cs", "--", *existing], capture_output=True, text=True, cwd=ROOT).stdout.split()
+            return out[-1] if out else today
+        dirty = subprocess.run(["git", "status", "--porcelain", "--", *existing], capture_output=True, text=True, cwd=ROOT).stdout.strip()
+        if dirty:
+            return today
+        out = subprocess.run(["git", "log", "-1", "--format=%cs", "--", *existing], capture_output=True, text=True, cwd=ROOT).stdout.strip()
+        return out or today
+    except OSError:
+        return today
+
 
 # closing care notes: varied per page (picked by page index), dismissible for the session
 CARELINES = [
@@ -208,10 +263,10 @@ CARELINES = [
 
 
 def nav_html(active_slug: str) -> str:
-    active_group = next((g for s, _f, _n, _e, _ne, _c, g in PAGES if s == active_slug), None)
+    active_group = next((g for s, _f, _e, _ne, _c, g in PAGES if s == active_slug), None)
     by_group = {}
-    for slug, _f, num, en, ne, cat, group in PAGES:
-        by_group.setdefault(group, []).append((slug, num, en, ne, cat))
+    for slug, _f, en, ne, cat, group in PAGES:
+        by_group.setdefault(group, []).append((slug, NUM[slug], en, ne, cat))
     out = []
     for group, items in by_group.items():
         g_en, g_ne = GROUPS[group]
@@ -238,14 +293,16 @@ def nav_html(active_slug: str) -> str:
 def pager_html(i: int) -> str:
     parts = []
     if i > 0:
-        s, _f, num, en, ne, *_ = PAGES[i - 1]
+        s, _f, en, ne, *_ = PAGES[i - 1]
+        num = NUM[s]
         href = "index.html" if s == "index" else f"{s}.html"
         parts.append(
             f'<a class="prev" href="{href}"><span class="lbl">{ICON["left"]}<span class="en">Previous · {num}</span>'
             f'<span class="ne">अघिल्लो · {num.translate(NE_DIGITS)}</span></span><span class="en">{en}</span><span class="ne">{ne}</span></a>'
         )
     if i < len(PAGES) - 1:
-        s, _f, num, en, ne, *_ = PAGES[i + 1]
+        s, _f, en, ne, *_ = PAGES[i + 1]
+        num = NUM[s]
         parts.append(
             f'<a class="next" href="{s}.html"><span class="lbl"><span class="en">Next · {num}</span>'
             f'<span class="ne">अर्को · {num.translate(NE_DIGITS)}</span>{ICON["right"]}</span><span class="en">{en}</span><span class="ne">{ne}</span></a>'
@@ -281,13 +338,14 @@ SPOT = {'overview': '<svg class="spot" viewBox="0 0 170 120" role="img" aria-lab
 def toc_html() -> str:
     out = []
     last_group = None
-    for slug, _f, num, en, ne, cat, group in PAGES:
+    for slug, _f, en, ne, cat, group in PAGES:
+        num = NUM[slug]
         if slug == "index":
             continue
         if group != last_group:
             g_en, g_ne = GROUPS[group]
             art = SPOT.get(group, "")
-            n = sum(1 for p in PAGES if p[6] == group)
+            n = sum(1 for p in PAGES if p[5] == group)
             out.append(f'<div class="toc-grp{" has-art" if art else ""}">{art}<div><h2><span class="en">{g_en}</span><span class="ne">{g_ne}</span></h2>'
                        f'<span class="toc-count"><span class="en">{n} chapters</span><span class="ne">{str(n).translate(NE_DIGITS)} अध्याय</span></span></div></div>')
             last_group = group
@@ -373,7 +431,7 @@ SHELL = """<!DOCTYPE html>
           <h3 class="foot-h"><span class="en">Mano Atlas</span><span class="ne">मनो एट्लास</span></h3>
           <p class="en">A free, open atlas of mental health in English and नेपाली. Educational resource, not a diagnostic tool: criteria are paraphrased from DSM-5 (2013). Diagnosis belongs to qualified clinicians.</p>
           <p class="ne">अंग्रेजी र नेपालीमा मानसिक स्वास्थ्यको निःशुल्क, खुला एट्लास। शैक्षिक सामग्री हो, निदान-उपकरण होइन: मापदण्ड DSM-5 (2013) बाट सरलीकृत छन्। निदान योग्य चिकित्सकको काम हो।</p>
-          <p class="en">Learning sticks best in small sittings. It is fine to close this tab and come back another day.</p>\n          <p class="ne">सिकाइ साना-साना बसाइमा राम्रो टिक्छ। ट्याब बन्द गरेर अर्को दिन फर्किए हुन्छ।</p>\n          <p><span class="en">Last reviewed: {reviewed_en}</span><span class="ne">पछिल्लो समीक्षा: {reviewed_ne}</span></p>
+          <p class="en">Learning sticks best in small sittings. It is fine to close this tab and come back another day.</p>\n          <p class="ne">सिकाइ साना-साना बसाइमा राम्रो टिक्छ। ट्याब बन्द गरेर अर्को दिन फर्किए हुन्छ।</p>\n          <p><span class="en">Last reviewed: {reviewed_en} · This page updated {updated_en}</span><span class="ne">पछिल्लो समीक्षा: {reviewed_ne} · यो पृष्ठ अद्यावधिक {updated_ne}</span></p>
         </div>
         <div class="crisis-col">
           <h3 class="foot-h">{icon_phone} <span class="en">If you need help now · Nepal</span><span class="ne">अहिले नै सहयोग चाहिए · नेपाल</span></h3>
@@ -401,16 +459,52 @@ SHELL = """<!DOCTYPE html>
 """
 
 
+def gate_sources() -> None:
+    """House rules that must hold before anything is generated."""
+    for d in ("content", "quizzes", "keypoints"):
+        for f in sorted((ROOT / d).glob("*.html")):
+            txt = f.read_text()
+            if "\u2014" in txt:
+                raise SystemExit(f"build: {d}/{f.name}: em-dash found; use a colon, comma, semicolon or parentheses")
+
+
+def recent_html() -> str:
+    """Home page strip: chapters added in the last 90 days (from git), newest first, at most four."""
+    import datetime
+    today = datetime.date.today()
+    rows = []
+    for slug, fname, en, ne, _cat, _group in PAGES:
+        if slug == "index":
+            continue
+        d = git_date(ROOT / "content" / f"{fname}.html", added=True)
+        age = (today - datetime.date.fromisoformat(d)).days
+        if age <= 90 and d > SITE["recent_since"]:
+            rows.append((d, slug, en, ne))
+    if not rows:
+        return ""
+    rows.sort(reverse=True)
+    links = "".join(f'<a href="{s}.html"><span class="secnum">{NUM[s]}</span><span class="en">{e}</span><span class="ne">{n}</span></a>' for _d, s, e, n in rows[:4])
+    return ('<div class="recent"><span class="recent-h">' + ICON["sprout"] + '<span class="en">Recently added</span><span class="ne">भर्खरै थपिएका</span></span>'
+            + links + '</div>\n')
+
+
 def main() -> None:
     content_dir = ROOT / "content"
-    hero = (content_dir / "hero.html").read_text().replace('<!--TOC-->', toc_html())
+    hero = (content_dir / "hero.html").read_text().replace('<!--TOC-->', recent_html() + toc_html())
+    gate_sources()
     search_index = []
     page_descs = []
     quiz_dir = ROOT / "quizzes"
-    for i, (slug, fname, num, en, ne, cat, group) in enumerate(PAGES):
+    for i, (slug, fname, en, ne, cat, group) in enumerate(PAGES):
+        num = NUM[slug]
         body = (content_dir / f"{fname}.html").read_text()
         quiz_file = quiz_dir / f"{fname}.html"
         kp_file = ROOT / "keypoints" / f"{fname}.html"
+        if slug != "index" and fname not in NO_QUIZ and not quiz_file.exists():
+            raise SystemExit(f"build: {slug}: quizzes/{fname}.html is missing")
+        if fname not in NO_KEYPOINTS and not kp_file.exists():
+            raise SystemExit(f"build: {slug}: keypoints/{fname}.html is missing")
+        updated = git_date(content_dir / f"{fname}.html", quiz_file, kp_file)
         keypoints = kp_file.read_text() if kp_file.exists() else ""
         if quiz_file.exists():
             quiz = keypoints + quiz_file.read_text().rstrip() + "\n"
@@ -457,7 +551,7 @@ def main() -> None:
             body,
         )
 
-        body = info_popovers(card_tables(link_page_refs(body)))
+        body = info_popovers(card_tables(resolve_refs(stamp_badge(body, num, fname), fname)))
         if slug == "index":
             content = f'<header class="hero">\n{hero}\n</header>\n<section id="map">\n{body}\n</section>'
         else:
@@ -514,7 +608,7 @@ def main() -> None:
                  "alternativeHeadline": ne, "description": html_mod.unescape(page_desc), "inLanguage": ["en", "ne"], "isPartOf": {"@id": SITE["site_url"] + "/#site"},
                  "about": "Mental health education; DSM-5; psychosocial counselling; Nepal", "educationalLevel": "Diploma (CTEVT Psychosocial Counselor)",
                  "learningResourceType": "reading", "audience": {"@type": "EducationalAudience", "educationalRole": "student"},
-                 "dateModified": "2026-08", "license": "https://creativecommons.org/licenses/by-nc-sa/4.0/", "isAccessibleForFree": True,
+                 "dateModified": updated, "license": "https://creativecommons.org/licenses/by-nc-sa/4.0/", "isAccessibleForFree": True,
                  "author": {"@type": "Person", "name": "Pravash Karki"}},
                 {"@type": "BreadcrumbList", "itemListElement": [
                     {"@type": "ListItem", "position": 1, "name": "Mano Atlas", "item": SITE["site_url"] + "/"},
@@ -523,7 +617,7 @@ def main() -> None:
             ]}, ensure_ascii=False)
         page_descs.append((slug, en, ne, html_mod.unescape(page_desc), group_en))
         html = SHELL.format(title=title, nav=nav_html(slug), content=content, pager=pager_html(i), page_desc=page_desc, page_url=page_url, jsonld=jsonld,
-                            icon_search=ICON["search"], icon_menu=ICON["menu"], icon_panel=ICON["panel"], icon_phone=ICON["phone"], icon_mail=ICON["mail"], **SITE)
+                            updated_en=updated, updated_ne=updated.translate(NE_DIGITS), icon_search=ICON["search"], icon_menu=ICON["menu"], icon_panel=ICON["panel"], icon_phone=ICON["phone"], icon_mail=ICON["mail"], **SITE)
         (ROOT / f"{slug}.html").write_text(html)
         print("built", f"{slug}.html")
 
@@ -551,7 +645,7 @@ def main() -> None:
     llms += "## Optional\n\n- [Sitemap](" + SITE["site_url"] + "/sitemap.xml)\n- [Source repository](https://github.com/pravashkarki/mano-atlas)\n"
     (ROOT / "llms.txt").write_text(llms)
     html404 = SHELL.format(title="Page not found · Mano Atlas", nav=nav_html("index"), content=nf, pager="", page_desc=SITE_DESC, page_url=SITE["site_url"] + "/404", jsonld="{}",
-                           icon_search=ICON["search"], icon_menu=ICON["menu"], icon_panel=ICON["panel"], icon_phone=ICON["phone"], icon_mail=ICON["mail"], **SITE)
+                           updated_en=SITE["reviewed_en"], updated_ne=SITE["reviewed_ne"], icon_search=ICON["search"], icon_menu=ICON["menu"], icon_panel=ICON["panel"], icon_phone=ICON["phone"], icon_mail=ICON["mail"], **SITE)
     (ROOT / "404.html").write_text(html404)
     print(f"search index: {len(search_index)} entries, {len(idx_js)//1024} KB")
 

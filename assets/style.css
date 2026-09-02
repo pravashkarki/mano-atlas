@@ -320,6 +320,24 @@ main .wrap{padding-top:8px}
 .care-x:focus-visible{outline:2px solid var(--accent)}
 html.careline-off .careline{display:none}
 .navbtn{display:none}
+/* "Go deeper" expander: closed by default (complexity is opt-in); the summary carries the curriculum tag */
+details.deeper{margin:14px 0 4px; border:1px solid var(--line); border-radius:12px; background:var(--surface2)}
+details.deeper summary{cursor:pointer; list-style:none; display:flex; align-items:center; gap:10px; flex-wrap:wrap; padding:11px 14px; font-weight:600; color:var(--ink)}
+details.deeper summary::-webkit-details-marker{display:none}
+details.deeper summary svg.lucide{width:15px; height:15px; color:var(--muted); transition:transform .18s; flex:none}
+details.deeper[open] summary svg.lucide{transform:rotate(180deg)}
+details.deeper summary:hover{color:var(--accent-ink)}
+details.deeper summary:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
+details.deeper summary .pill{margin-left:auto}
+details.deeper .deeper-body{padding:2px 14px 14px}
+details.deeper .deeper-body>:first-child{margin-top:0}
+/* home: chapters added recently */
+.recent{display:flex; flex-wrap:wrap; align-items:center; gap:8px 14px; margin:22px 0 6px; padding:10px 14px; border:1px solid var(--line); border-radius:12px; font-size:0.9375rem}
+.recent .recent-h{display:inline-flex; align-items:center; gap:6px; font-family:'Archivo','Mukta',sans-serif; font-size:0.75rem; letter-spacing:.08em; text-transform:uppercase; color:var(--muted)}
+.recent .recent-h svg.lucide{width:14px; height:14px; color:var(--accent-ink)}
+.recent a{display:inline-flex; align-items:center; gap:6px; color:var(--accent-ink); text-decoration:none; border-bottom:1px solid transparent}
+.recent a:hover{border-bottom-color:currentColor}
+.recent a .secnum{font-family:'IBM Plex Mono',monospace; font-size:0.75rem; color:var(--muted)}
 .labels-help{margin:10px 0 4px; font-size:0.875rem; color:var(--muted)}
 .labels-help summary{cursor:pointer; list-style:none; display:inline-flex; align-items:center; gap:6px; color:var(--muted);
   font-family:'IBM Plex Mono',monospace; font-size:0.75rem; letter-spacing:.06em}
@@ -497,6 +515,7 @@ html[data-lang="ne"] .onpage{font-size:0.9375rem}
 .qz-again{font-size:0.875rem; color:var(--accent); margin:-2px 0 8px}
 html[data-lang="ne"] .qz-again{font-size:0.9375rem}
 /* ===== print: a clean study sheet ===== */
+@media print{ details.deeper{border:0; background:none} details.deeper summary svg.lucide{display:none} .recent{display:none} }
 @media print{
   .sidebar,.pager,.quickcheck,.careline,.gentle,.labels-help,.onpage,.routes,.hero-art,.bignum,.res-type,.care-x{display:none !important}
   .layout{display:block; max-width:none; border:0} #main{padding:0; max-width:none}
