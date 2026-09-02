@@ -50,7 +50,7 @@ Sources: DSM-5 (APA, 2013), CTEVT PSC Curriculum (2010), Sub-module 1 & 2 and Me
 - [The rest of the map · बाँकी नक्सा](https://pcs.pravashkarki.com/more): So the map has no blank spaces: the remaining DSM-5 categories, one honest sentence each. Any of these can become a full chapter later.
 - [Culture & the Nepal panorama · संस्कृति र नेपाली परिदृश्य](https://pcs.pravashkarki.com/nepal): The cross-cutting Nepali material every chapter leaned on, gathered in one place: the ethnopsychology, the idioms of distress, and the history of mental health care.
 - [For PSC students · पीएससी विद्यार्थीलाई](https://pcs.pravashkarki.com/crosswalk): This page is for CTEVT Psychosocial Counselor trainees: how the atlas maps to the 780-hour curriculum, the PSC study handbook, and a six-month study roadmap. Everyone else can safely skip it.
-- [Glossary · शब्दावली](https://pcs.pravashkarki.com/glossary): Thirty terms that appear again and again across the atlas, each in one plain sentence. The English term is kept because it is what you will hear in hospitals, referral letters and exams; the Nepali co
+- [Glossary · शब्दावली](https://pcs.pravashkarki.com/glossary): Terms that appear again and again across the atlas, each in one plain sentence. The English term is kept because it is what you will hear in hospitals, referral letters and exams; the Nepali column gi
 
 ## Optional
 
