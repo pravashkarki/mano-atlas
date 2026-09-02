@@ -1,0 +1,19 @@
+Review complete. I read all 30 `content/*.html` sources and sampled the quizzes. The material is unusually accurate on DSM-5 counts/durations, so the findings below concentrate on epidemiology figures, a couple of history dates, codes, one safety-critical phone number, and minor parity drift.
+
+suicide.html | "TUTH mental-health hotline 1660 012 1600" (also hero.html) | QUESTIONABLE (safety-critical) | Could not confirm this number is still live; 1166 (MoHP/TPO Nepal, Mental Hospital Lagankhel) is the verified national line. Settle it against a current MoHP or TPO Nepal source before publishing; a dead number on a crisis page is real harm.
+depression.html | "over 300 million people affected" | WRONG (superseded) | WHO now reports ~332 million (2021 GBD, fact sheet updated Aug 2025); "300 million" is the pre-2021 figure.
+depression.html | "postpartum depression affects roughly 1 in 8 mothers globally" | QUESTIONABLE | WHO says >10% of pregnant/postpartum women globally (about 1 in 10); 1 in 8 is the US CDC figure, not global.
+depression.html | "Women are affected about 1.5 to 2 times as often as men" | QUESTIONABLE | WHO's current figure is ~1.5x (4.6% men vs 6.9% women); the "2 times" upper bound is the older estimate.
+depression.html | "globally the largest single contributor to disability" | QUESTIONABLE | WHO phrases it "a leading cause of disability"; GBD ranks low back pain (and others) above depression for years lived with disability. Soften to "a leading contributor."
+psychosis.html | "Lifetime prevalence ~0.3–0.7%" | QUESTIONABLE | Most-cited lifetime prevalence is ~0.7% (some sources ~1%); the 0.3% lower bound is atypical. Settle against WHO fact sheet / DSM-5.
+roots.html | "Ayurveda & Greek humoral medicine (Charaka; Hippocrates, ~400 BCE)" | QUESTIONABLE | Charaka Samhita is usually dated ~2nd c. BCE–2nd c. CE, not 400 BCE; and the systematised four-humours scheme is Galenic (2nd c. CE), not Hippocratic.
+roots.html | "Hindu & Buddhist psychology (Upanishads, Abhidhamma, ~800 BCE onward)" | QUESTIONABLE | Upanishads are ~800–500 BCE but Abhidhamma is a later stratum (~3rd c. BCE); the "800 BCE onward" bracket misdates it.
+ocd.html | "OCD code 300.3 · F42.3" | QUESTIONABLE | F42.3 is the ICD-10 subtype "mixed obsessional thoughts and acts"; the umbrella OCD code is F42 (F42.x for subtypes).
+ocd.html | hoarding row "300.3 · F42.3" | QUESTIONABLE | Hoarding disorder has no dedicated ICD-10 code; DSM-5 assigns 300.3 (F42). Listing both OCD and hoarding as "F42.3" invites confusion; confirm against DSM-5 coding.
+substance.html | Johann Hari, "Everything you think you know about addiction is wrong" (also ethics.html) | QUESTIONABLE | Hari's central claim ("the opposite of addiction is connection") is scientifically contested; if kept, add a caveat rather than presenting it as an unhedged learning resource.
+suicide.html | "Most people who die communicated intent beforehand" | QUESTIONABLE | Psychological-autopsy evidence is mixed on "most"; "many" is the defensible wording.
+ocd.html | Nepali codes for hoarding/trichotillomania/excoriation show only "F42"/"F63.3"/"L98.1" while English shows ICD-9-CM + ICD-10-CM pairs | PARITY | Nepali column drops the DSM-5 (ICD-9-CM) codes; align both columns.
+child.html | ID-vs-illness onset: EN "During the developmental period" vs NE "जन्म / प्रारम्भिक बाल्यकाल (१८ अघि)" | PARITY | Nepali adds "(before 18)" absent from English; harmonise.
+anxiety.html | specific-phobia note: EN "blood-injection-injury (the only one with fainting; vasovagal)" vs NE drops "vasovagal" | PARITY | Minor omission; add "भासोभेगल" or equivalent if intended.
+
+CLEAN: approaches.html, basics.html, casemgmt.html, crosswalk.html, development.html, eating.html, foundation.html, gbv.html, hiv.html, map.html, nepal.html, pfa.html, process.html, rest.html, skills.html, sleep.html, somatic.html, tools.html, trauma.html, wellbeing.html

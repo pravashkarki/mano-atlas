@@ -1,7 +1,14 @@
-# local working files: never pushed to the repo
-review/
+# Planning files, reviews and the intake ledger are tracked (decided 2026-09-02) but kept off the
+# Vercel deployment by .vercelignore. Only these stay out of git.
+# verbatim text extracted from instructor decks: not ours to publish
+review/sources/
+# opencode run logs
+review/*.err
 _notes/
 *.local.*
+
+# CLAUDE.md is ignored globally on this machine; this repo tracks it on purpose
+!CLAUDE.md
 
 # OS / editor junk
 .DS_Store
@@ -14,7 +21,3 @@ __pycache__/
 
 # node (if ever added)
 node_modules/
-
-# local planning files, never pushed
-docs/
-TASKS.md
