@@ -194,6 +194,7 @@ Reader question: "How do I teach, train, measure and keep going?" (Module 4)
 ## Decided at the navigation build, not here
 
 - Sidebar: 12 parts as separate collapsed groups with a part selector (GPT) or merged into about 9 groups (DeepSeek).
+- Third option, drafted 2026-09-05 and still awaiting approval: a sticky top bar with one flyout per group and a sidebar that shows only the current group's chapters (`docs/plans/2026-09-05-topnav-flyout.md`). It was written for 4 groups; it needs re-checking against 12 parts.
 - Home: routes for learners, helpers and families, a contents grid collapsible by part, and the DSM-5 map as a filtered view rather than the opening frame.
 
 ## Out of the table on purpose
