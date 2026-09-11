@@ -25,7 +25,7 @@ build.py     SITE config + PAGES list; assembles everything → the *.html pages
 | Colours, fonts, layout | `assets/style.css` |
 | Language/theme/search/quiz behaviour | `assets/lang.js`, `assets/search.js` |
 
-After any edit: `python3 build.py`, then commit and push. The pages, sidebar, home contents grid, pagers, gentle notes and the search index all regenerate themselves.
+After any edit: `python3 build.py`, then commit and push to `dev` (never to `main`; see Deployment). The pages, sidebar, home contents grid, pagers, gentle notes and the search index all regenerate themselves.
 
 To add a chapter: create `content/<name>.html`, add one line to `PAGES` in `build.py`, run `python3 build.py` (this also regenerates the search index), commit.
 
@@ -53,3 +53,8 @@ Open `index.html` in a browser. To add content, edit the section markers (`<!-- 
 ## Deployment
 
 Hosted on Vercel (static). `vercel.json` sets clean URLs; the site is served from the repository root.
+
+Two branches (since 2026-09-11):
+
+- `dev` is where all work is pushed. Vercel builds each push as a preview deployment only; https://pcs.pravashkarki.com does not change.
+- `main` is the live site. Vercel publishes every push to `main`, so `main` moves only on an explicit go-live from the site owner: `git checkout main && git merge --ff-only dev && git push`, then back to `dev`.

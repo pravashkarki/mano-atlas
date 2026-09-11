@@ -11,7 +11,7 @@ keypoints/   one file per page: the three "Key points" bullets shown before the 
 assets/      style.css, lang.js, search.js, search-index.js (generated)
 build.py     SITE config + PAGES list + SHELL template → generates the root *.html
 *.html       GENERATED — never edit by hand, always edit content/ and rebuild
-review/      local working files, git-ignored, never pushed
+review/      plans, reviews, ledgers: tracked in git, kept off the site by .vercelignore (review/sources/ stays untracked)
 ```
 
 After ANY edit: `python3 build.py` then commit. The build regenerates all pages, the sidebar accordion, home contents grid, pagers, reading times, care notes, res-type icons, the search index, the per-page "updated" stamp (from git) and the home "Recently added" strip.
@@ -57,7 +57,13 @@ All 29 pages fact-checked (Aug 2026) against DSM-5, WHO, and Nepali sources by f
 - Action work: todolist "pcs.pravashkarki.com" in project pravashkarki.com, https://app.basecamp.com/5746833/buckets/48856570/todolists/10293958977 (bucket 48856570, todolist 10293958977). Canonical; TASKS.md is the local mirror.
 - Knowledge (findings, decisions, inventories): Docs & Files folder "PCS", https://app.basecamp.com/5746833/buckets/48856570/vaults/10293962918. Holds "Mano Atlas: goal and working rules", "Source inventory", "Curriculum coverage".
 - Access through `node ~/Work/lastdoor-tools/lds-bcpravo/launcher.js` (Pravo's identity), per the global rule.
-- Publishing rule (Pravo, 2026-09-11): a push must not update the live site. Until the deploy-control todo is done, commit locally and do not push to main.
+- Todos here carry no due date (Pravo, 2026-09-11; overrides the global "due_on today" rule for this project). A todo defines scope; we build as we go.
+
+## Branches and publishing (Pravo, 2026-09-11)
+
+- Work on `dev` and push `dev`. Vercel builds it as a preview only; the live site does not change.
+- `main` = the live site (Vercel publishes every push to it). Never push, merge or rebase onto `main` without an explicit "go live" from Pravo in the current session. Go-live: `git checkout main && git merge --ff-only dev && git push && git checkout dev`.
+- Check `git branch --show-current` before every push.
 
 ## Pending / next work
 
