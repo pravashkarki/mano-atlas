@@ -1,5 +1,7 @@
 # Mano Atlas — task list
 
+Basecamp is canonical since 2026-09-11: todolist https://app.basecamp.com/5746833/buckets/48856570/todolists/10293958977 (action work) and the PCS folder https://app.basecamp.com/5746833/buckets/48856570/vaults/10293962918 (findings and decisions). This file is the local mirror.
+
 Working list for development sessions. Check items off (`[x]`) as they land; add new ones at the bottom of the right section. House rules for any task: see CLAUDE.md.
 
 ## Starter prompt (paste this to resume with new decks)
@@ -14,6 +16,11 @@ Working list for development sessions. Check items off (`[x]`) as they land; add
 - Open: native Nepali proofread (chapters 19, 20, 22, 24 and the first-session scripts first); next decks from Pravo.
 
 ## Now
+
+- [ ] Goal set 2026-09-11 (Pravo): the site follows the six-month PSC course; every new PDF is added to the source inventory in `review/intake.md`. Beyond the curriculum, the site also covers what a psychologist needs to know, found by our own research. First step: the full table of contents, start to finish (live chapters, curriculum gaps, beyond-curriculum topics), approved before any new chapter is written.
+- [ ] Research: what a psychologist needs beyond the CTEVT PSC curriculum (started 2026-09-11, background research session). Output feeds the table of contents.
+- [ ] Full table of contents, start to finish: draft from live chapters + `review/curriculum-coverage.md` + the research; pair review; Pravo approves.
+- [ ] Pushes must not update the live site (Pravo, 2026-09-11). Vercel auto-deploys `main` on every push today; the 2026-09-11 push c1a413b deployed with no visible change (review/ and TASKS.md are in .vercelignore). Needs a deploy-control change before the next push.
 
 - [x] PDF batch 2 (2026-09-02): five Module 3 decks landed. Build refactor c2cf486 (numbers by position, slug cross-refs, gates, update stamp, Recently added); skills.html non-verbal; NEW skills-listening (19) and skills-moving (20), split from one 2042-word chapter; approaches expanders + exposure row fix; process stages 3 to 6; NEW first-sessions (22); NEW techniques (24); crosswalk, glossary, search aliases. Plan `review/pdf-batch-2-plan.md` (v2 after GPT-5.6 + DeepSeek pair review, `review/plan-triage.md`); ledger `review/intake.md` (mirrored to the vault). Checked light and dark in the browser. Content pair review done (DeepSeek 6 findings, GPT-5.6 30; ledger `review/content-triage.md`; 35 accepted, 1 rejected; Section 68 of the Act Relating to Children verified from the Law Commission text). Open from this batch: native Nepali pass on the new scripts and phrase banks; approaches (1837 words, inside closed expanders) recorded as the one ceiling exception.
 - [x] Source inventory (2026-09-11): check every file in the Drive folder against the live site and record in `review/intake.md` which are included, partly included, reference only, or not yet taken in. Trigger: the ledger had rows for 8 decks while Drive holds 16 files, incl. Sub module 5 uploaded 2026-09-11. Done: 16-row inventory at the top of `review/intake.md` (8 decks landed, 5 included and 3 mostly; Sub module 5 waiting; 7 reference files); curriculum cross-check unit by unit in `review/curriculum-coverage.md` (159 task units: 64 covered, 62 partly, 33 missing; Module 4 Capacity Building nearly absent, Case Management thin). Seven fixes found along the way are logged below.
