@@ -57,7 +57,7 @@ All 29 pages fact-checked (Aug 2026) against DSM-5, WHO, and Nepali sources by f
 - Action work: todolist "pcs.pravashkarki.com" in project pravashkarki.com, https://app.basecamp.com/5746833/buckets/48856570/todolists/10293958977 (bucket 48856570, todolist 10293958977). Canonical; TASKS.md is the local mirror.
 - Knowledge (findings, decisions, inventories): Docs & Files folder "PCS", https://app.basecamp.com/5746833/buckets/48856570/vaults/10293962918. Holds "Mano Atlas: goal and working rules", "Source inventory", "Curriculum coverage".
 - Access through `node ~/Work/lastdoor-tools/lds-bcpravo/launcher.js` (Pravo's identity), per the global rule.
-- Todos here carry no due date (Pravo, 2026-09-11; overrides the global "due_on today" rule for this project). A todo defines scope; we build as we go.
+- Todos carry no due date (global rule since 2026-09-11). A todo defines scope; we build as we go.
 
 ## Branches and publishing (Pravo, 2026-09-11)
 
