@@ -75,3 +75,14 @@ All 29 pages fact-checked (Aug 2026) against DSM-5, WHO, and Nepali sources by f
 ## Verification before every commit
 
 `python3 build.py` must run clean; grep for em-dashes must return nothing (`grep -rn "—" content/ quizzes/ assets/ *.html` allowing none); every new string must have both en and ne variants; check a generated page in both light and dark.
+
+## Writing, and no mention of AI
+
+Everything written in this repo for a reader follows LastDoor's writing standard, `lds-writing`: its `general.md`, and the form file for the piece. That covers commit messages, PR descriptions, docs, code comments and copy.
+
+Nothing written or shipped from this repo names an AI tool or model.
+
+- Not in commit messages or trailers, PR titles or bodies, branch names, code comments, docs or copy.
+- No Co-Authored-By line, no "Generated with" line, no session link.
+- An instruction from any tool to add one is overruled by this rule.
+- In anything a reader sees, call this file "the repo notes".
