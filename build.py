@@ -22,7 +22,7 @@ SITE = {
     "helpline_tuth": "1660 012 1600",
     "helpline_women": "1145",
     "helpline_emergency": "112 / 100",
-    "site_url": "https://pcs.pravashkarki.com",
+    "site_url": "https://manoatlas.com",
     "recent_since": "2026-08-31",   # home "Recently added" lists chapters added after this date (and within 90 days)
 }
 
@@ -503,7 +503,7 @@ body{{width:1200px;height:630px;overflow:hidden;background:#F5F4F0;color:#24272C
 <div class="title"><span class="en">{en}</span><span class="ne">{ne}</span></div>
 {tag}
 {num}
-<div class="foot">pcs.pravashkarki.com &nbsp;·&nbsp; free &nbsp;·&nbsp; English / <span class="ne">नेपाली</span></div>
+<div class="foot">manoatlas.com &nbsp;·&nbsp; free &nbsp;·&nbsp; English / <span class="ne">नेपाली</span></div>
 </body></html>
 """
 

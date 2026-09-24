@@ -1,6 +1,6 @@
 # Mano Atlas (मनो एट्लास) — project memory
 
-Free, open, bilingual (English/नेपाली) mental-health education site. LIVE at https://pcs.pravashkarki.com — Vercel project `mano-atlas` (LastDoor team) auto-deploys from GitHub `pravashkarki/mano-atlas` main on every push (~30s). Born from the CTEVT Psychosocial Counselor (PSC) course; written for anyone learning. Owner: Pravo (the public site contact is the address split across email_user / email_domain in build.py; it is obfuscated in HTML and never written in plain text anywhere in the repo).
+Free, open, bilingual (English/नेपाली) mental-health education site. LIVE at https://manoatlas.com (moved from pcs.pravashkarki.com on 2026-09-24, which redirects to it); DNS on Cloudflare (Pravo Account), both records DNS only. Vercel project `mano-atlas` (LastDoor team) auto-deploys from GitHub `pravashkarki/mano-atlas` main on every push (~30s). Born from the CTEVT Psychosocial Counselor (PSC) course; written for anyone learning. Owner: Pravo (the public site contact is the address split across email_user / email_domain in build.py; it is obfuscated in HTML and never written in plain text anywhere in the repo).
 
 ## Architecture (zero-framework, stdlib Python build)
 

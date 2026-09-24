@@ -56,5 +56,5 @@ Hosted on Vercel (static). `vercel.json` sets clean URLs; the site is served fro
 
 Two branches (since 2026-09-11):
 
-- `dev` is where all work is pushed. Vercel builds each push as a preview deployment only; https://pcs.pravashkarki.com does not change.
+- `dev` is where all work is pushed. Vercel builds each push as a preview deployment only; https://manoatlas.com does not change.
 - `main` is the live site. Vercel publishes every push to `main`, so `main` moves only on an explicit go-live from the site owner: `git checkout main && git merge --ff-only dev && git push`, then back to `dev`.
