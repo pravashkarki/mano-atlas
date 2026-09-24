@@ -17,6 +17,7 @@ Working list for development sessions. Check items off (`[x]`) as they land; add
 
 ## Now
 
+- [x] Domain move (2026-09-24): the site lives at https://manoatlas.com; pcs.pravashkarki.com and www redirect (308). DNS on Cloudflare, Pravo Account. Live commit 43c7ced (cherry-pick of de743ae, nothing else from dev). Basecamp todo 10335404086.
 - [ ] Goal set 2026-09-11 (Pravo): the site follows the six-month PSC course; every new PDF is added to the source inventory in `review/intake.md`. Beyond the curriculum, the site also covers what a psychologist needs to know, found by our own research. First step: the full table of contents, start to finish (live chapters, curriculum gaps, beyond-curriculum topics), approved before any new chapter is written.
 - [x] Research: what a psychologist needs beyond the CTEVT PSC curriculum (2026-09-11). 65 topics (17 core, 35 important, 13 optional), 21 rejected or caveat; `review/beyond-curriculum.md`, summary in the Basecamp PCS folder.
 - [ ] Full table of contents, start to finish: draft from live chapters + `review/curriculum-coverage.md` + the research; pair review; Pravo approves.
