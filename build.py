@@ -738,6 +738,17 @@ def main() -> None:
         )
 
         body = info_popovers(card_tables(resolve_refs(stamp_badge(body, num, fname), fname)))
+        # give each h2/h3 content heading a stable anchor id for the onpage nav
+        _hcount = {"n": 0}
+        def _add_hid(m):
+            tag = m.group(1)
+            attrs = m.group(2)
+            inner = m.group(3)
+            if "foot-h" in attrs:
+                return m.group(0)
+            _hcount["n"] += 1
+            return f'<{tag}{attrs} id="{slug}-h{_hcount["n"]}">{inner}</{tag}>'
+        body = re.sub(r'<(h[23])((?:[^>]|\n)*?)>(.*?)</\1>', _add_hid, body, flags=re.S)
         if slug == "index":
             content = f'<header class="hero">\n{hero}\n</header>\n<section id="map">\n{body}\n</section>'
         else:
@@ -750,7 +761,7 @@ def main() -> None:
             if group == "disorders":
                 gentle = (f'<p class="gentle">{ICON["sprout"]}<span class="gentle-tx"><span class="en">A gentle note before you read: symptom lists make '
                           'almost everyone recognise themselves somewhere. That is a normal effect of reading, '
-                          'not a diagnosis. If something here stays on your mind, a conversation with a '
+                          'not a diagnosis. If something here sits on your mind, a conversation with a '
                           'professional helps more than re-reading.</span>'
                           '<span class="ne">पढ्नुअघि एउटा कोमल कुरा: लक्षण-सूची पढ्दा झन्डै सबैलाई कतै न कतै आफ्नै झल्को मिल्छ। '
                           'त्यो पढाइको सामान्य असर हो, निदान होइन। कुनै कुरा मनमा अडिरह्यो भने फेरि-फेरि पढ्नुभन्दा '
@@ -773,10 +784,10 @@ def main() -> None:
                 f'<section id="{fname}" style="margin-top:12px">\n{body}\n</section>\n{careline}'
             )
         title = "Mano Atlas" if slug == "index" else f"{en} · Mano Atlas"
-        # on-page contents for chapters with three or more cards
-        cards = re.findall(r'<article class="card" id="([^"]+)"[^>]*>\s*<div class="card-head">\s*<h3><span class="en">(.*?)</span><span class="ne">(.*?)</span>', body, re.S)
-        if slug != "index" and len(cards) >= 3:
-            items = "".join(f'<li><a href="#{cid}"><span class="en">{te}</span><span class="ne">{tn}</span></a></li>' for cid, te, tn in cards)
+        # on-page contents for chapters with three or more headings
+        headings = re.findall(r'<(h[23]) id="([^"]+)"[^>]*>\s*<span class="en">(.*?)</span>', body, re.S)
+        if slug != "index" and len(headings) >= 3:
+            items = "".join(f'<li><a href="#{hid}"><span class="en">{htext}</span></a></li>' for _tag, hid, htext in headings)
             onpage = (f'<nav class="onpage" aria-label="On this page"><span class="onpage-h"><span class="en">On this page</span>'
                       f'<span class="ne">यस पृष्ठमा</span></span><ol>{items}</ol></nav>\n')
             content = content.replace('<div class="pagetools"></div>', '<div class="pagetools">' + onpage + '</div>', 1)
