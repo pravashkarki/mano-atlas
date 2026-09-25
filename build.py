@@ -203,12 +203,14 @@ def resolve_refs(body: str, fname: str) -> str:
             slug = [p[0] for p in PAGES if p[5] == group][-1]
         if slug not in NUM:
             raise SystemExit(f"build: {fname}: unknown page in cross-reference {m.group(0)}")
-        num = NUM[slug]
-        if word in ("पृष्ठ", "खण्ड", "न"):
-            num = num.translate(NE_DIGITS)
         if word in ("n", "न"):
+            num = NUM[slug]
+            if word == "न":
+                num = num.translate(NE_DIGITS)
             return num
-        return f'<a href="{slug}.html">{word} {num}</a>'
+        row = next(p for p in PAGES if p[0] == slug)
+        title = row[2] if word in ("page", "section") else row[3]
+        return f'<a href="{slug}.html">{title}</a>'
     parts = re.split(r"(<[^>]+>)", body)
     for k in range(0, len(parts), 2):
         m = STALE_RE.search(parts[k])

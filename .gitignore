@@ -2,6 +2,8 @@
 # Vercel deployment by .vercelignore. Only these stay out of git.
 # verbatim text extracted from instructor decks: not ours to publish
 review/sources/
+# teacher-provided course PDFs are for PCS students only; the repo is public
+drive-source/
 # opencode run logs
 review/*.err
 _notes/
