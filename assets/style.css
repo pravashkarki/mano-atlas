@@ -134,6 +134,9 @@
   .pill.todo{background:var(--gap-wash); color:var(--gap)}
   .pill.beyond{background:var(--beyond-wash); color:var(--beyond)}
   .pill .dot{width:7px; height:7px; border-radius:50%; background:currentColor; flex:none}
+  .st-part{color:var(--gap); font-weight:600}
+  .st-ok{color:var(--ok); font-weight:600}
+  .st-no{color:var(--muted); font-weight:400}
 
   section{margin-top:64px; scroll-margin-top:70px}
   .sechead{display:flex; align-items:center; gap:14px; border-bottom:2px solid var(--ink); padding-bottom:10px; margin-bottom:6px}
