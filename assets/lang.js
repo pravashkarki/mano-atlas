@@ -8,6 +8,7 @@ function setLang(l){
   (function(){
     var l='en';
     try{ l = localStorage.getItem('psc-lang') || 'en'; }catch(e){}
+    if (!document.querySelector('.btn-ne')) l = 'en';  /* English-only build: no switch, no Nepali */
     setLang(l==='ne'?'ne':'en');
   })();
 

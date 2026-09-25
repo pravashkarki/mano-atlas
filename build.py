@@ -8,8 +8,15 @@ import html as html_mod
 import json
 import pathlib
 import re
+from html.parser import HTMLParser
 
 ROOT = pathlib.Path(__file__).parent
+
+# English-first phase: site ships English only until the Nepali text of a page is
+# reviewed (plan docs/plans/content-contract-english-first.md). The toggle is removed
+# at build, class="ne" output is dropped, and the search index excludes Nepali strings.
+# Existing Nepali in content/ stays untouched and returns when the flag flips back.
+PHASE1_ENGLISH_ONLY = True
 
 # ---- site-wide values: edit HERE, then run python3 build.py ----
 SITE = {
@@ -123,7 +130,9 @@ def res_type_icon(label: str) -> str:
     return ICON["file"]
 
 
-SITE_DESC = "Mano Atlas (मनो एट्लास): a free, bilingual (English/नेपाली) atlas of mental disorders: DSM-5 criteria, teaching diagrams, and the Nepali context."
+SITE_DESC_BI = "Mano Atlas (मनो एट्लास): a free, bilingual (English/नेपाली) atlas of mental disorders: DSM-5 criteria, teaching diagrams, and the Nepali context."
+SITE_DESC_EN = "Mano Atlas: a free, open atlas of mental disorders: DSM-5 criteria, teaching diagrams, and the Nepali context. English-first while the Nepali text is under review."
+SITE_DESC = SITE_DESC_EN if PHASE1_ENGLISH_ONLY else SITE_DESC_BI
 NE_DIGITS = str.maketrans("0123456789", "०१२३४५६७८९")
 HEAVY_PAGES = {"suicide", "gbv", "pfa", "trauma", "psychosis", "ethics"}
 
@@ -323,6 +332,94 @@ BLOCK_RE = re.compile(r"<(script|style|svg)[\s\S]*?</\1>")
 DUAL_RE = re.compile(r'<span class="en">(.*?)</span>\s*<span class="ne">(.*?)</span>', re.S)
 
 
+VOID_TAGS = {"area", "base", "br", "col", "embed", "hr", "img", "input", "link", "meta", "param", "source", "track", "wbr"}
+
+
+class _NeStripper(HTMLParser):
+    """Rebuild HTML without any element whose class token list contains 'ne'."""
+
+    def __init__(self):
+        super().__init__(convert_charrefs=False)
+        self.parts = []
+        self.skip = 0  # open-tag depth inside a dropped '.ne' subtree
+
+    def _cls(self, attrs):
+        return dict(attrs).get("class", "").split() if attrs else []
+
+    def handle_starttag(self, tag, attrs):
+        if self.skip:
+            if tag not in VOID_TAGS:
+                self.skip += 1
+            return
+        if "ne" in self._cls(attrs):
+            if tag not in VOID_TAGS:
+                self.skip = 1
+            return
+        self.parts.append(self.get_starttag_text())
+
+    def handle_startendtag(self, tag, attrs):
+        if not self.skip and "ne" not in self._cls(attrs):
+            self.parts.append(self.get_starttag_text())
+
+    def handle_endtag(self, tag):
+        if self.skip:
+            if tag not in VOID_TAGS:
+                self.skip -= 1
+            return
+        self.parts.append(f"</{tag}>")
+
+    def handle_data(self, data):
+        if not self.skip:
+            self.parts.append(data)
+
+    def handle_entityref(self, name):
+        if not self.skip:
+            self.parts.append(f"&{name};")
+
+    def handle_charref(self, name):
+        if not self.skip:
+            self.parts.append(f"&#{name};")
+
+    def handle_comment(self, data):
+        if not self.skip:
+            self.parts.append(f"<!--{data}-->")
+
+    def handle_decl(self, decl):
+        if not self.skip:
+            self.parts.append(f"<!{decl}>")
+
+    def handle_pi(self, data):
+        if not self.skip:
+            self.parts.append(f"<?{data}>")
+
+
+def strip_ne(html: str) -> str:
+    """Drop every element with a 'ne' class token (and its whole subtree)."""
+    p = _NeStripper()
+    p.feed(html)
+    p.close()
+    return "".join(p.parts)
+
+
+# ---- SHELL fragments that swap with the language phase (build.py PHASE1_ENGLISH_ONLY) ----
+LANG_BOOT_FULL = "(function(){var d=document.documentElement;try{if(localStorage.getItem('psc-lang')==='ne'){d.setAttribute('data-lang','ne');d.lang='ne';}else{d.setAttribute('data-lang','en');}var t=localStorage.getItem('psc-theme');if(t==='light'||t==='dark')d.setAttribute('data-theme',t);if(localStorage.getItem('psc-nav-collapsed'))d.classList.add('nav-collapsed-init');}catch(e){d.setAttribute('data-lang','en');}})();"
+LANG_BOOT_PHASE1 = "(function(){var d=document.documentElement;d.setAttribute('data-lang','en');d.lang='en';try{var t=localStorage.getItem('psc-theme');if(t==='light'||t==='dark')d.setAttribute('data-theme',t);if(localStorage.getItem('psc-nav-collapsed'))d.classList.add('nav-collapsed-init');}catch(e){}})();"
+LANGSW_SIDE = ('<div class="langsw" role="group" aria-label="Language">\n'
+               '          <button class="btn-en" data-lang-btn="en" onclick="setLang(\'en\')">EN</button>\n'
+               '          <button class="btn-ne" data-lang-btn="ne" onclick="setLang(\'ne\')">ने</button>\n'
+               '        </div>\n        ')
+LANGSW_PILL = ('<div class="langsw" role="group" aria-label="Language">\n'
+               '          <button class="btn-en" data-lang-btn="en" onclick="setLang(\'en\')">EN</button>\n'
+               '          <button class="btn-ne" data-lang-btn="ne" onclick="setLang(\'ne\')">ने</button>\n'
+               '        </div>\n        ')
+OG_LOCALE_BILINGUAL = '<meta property="og:locale:alternate" content="ne_NP">'
+OG_LOCALE_ENGLISH_ONLY = ''
+SEARCH_PH_BI = "Search · खोज्नुहोस्"
+SEARCH_PH_EN = "Search the atlas"
+FOOT_BLURB_BI = "A free, open atlas of mental health in English and नेपाली. Educational resource, not a diagnostic tool: criteria are paraphrased from DSM-5 (2013). Diagnosis belongs to qualified clinicians."
+FOOT_BLURB_EN = "A free, open atlas of mental health in English, built for the Nepali context. Educational resource, not a diagnostic tool: criteria are paraphrased from DSM-5 (2013). Diagnosis belongs to qualified clinicians."
+
+
 def plain_text(html: str) -> str:
     html = BLOCK_RE.sub(" ", html)
     txt = TAG_RE.sub(" ", html)
@@ -365,9 +462,10 @@ SHELL = """<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<script>(function(){{var d=document.documentElement;try{{var l=localStorage.getItem('psc-lang');d.setAttribute('data-lang',l==='ne'?'ne':'en');d.lang=l==='ne'?'ne':'en';var t=localStorage.getItem('psc-theme');if(t==='light'||t==='dark')d.setAttribute('data-theme',t);if(localStorage.getItem('psc-nav-collapsed'))d.classList.add('nav-collapsed-init');}}catch(e){{d.setAttribute('data-lang','en');}}}})();</script>
+<script>{lang_boot}</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Mano Atlas (मनो एट्लास): a free, bilingual (English/नेपाली) atlas of mental disorders: DSM-5 criteria, teaching diagrams, and the Nepali context.">
+<meta name="description" content="{page_desc}">
+{og_locale}
 <title>{title}</title>
 <link rel="canonical" href="{page_url}">
 <meta property="og:type" content="article">
@@ -401,16 +499,13 @@ SHELL = """<!DOCTYPE html>
       <button class="collapse-btn" id="btn-collapse" type="button" aria-label="Hide chapters" title="Hide chapters">{icon_panel}</button>
       <a class="brand" href="index.html"><svg class="mark" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="20" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 35 C24 29 23.5 24 24 19" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 26 C18.5 26 15 22 14.5 17 C20 17.5 23.5 21 24 26 Z" style="fill:var(--accent)" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 22 C29.5 22 33 18 33.5 13 C28 13.5 24.5 17 24 22 Z" style="fill:var(--accent)" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="24" cy="36.5" r="2.4" fill="currentColor"/></svg><span class="en">Mano Atlas</span><span class="ne">मनो एट्लास</span></a>
       <div class="ctrls">
-        <div class="langsw" role="group" aria-label="Language">
-          <button id="btn-en" class="btn-en" onclick="setLang('en')">EN</button>
-          <button id="btn-ne" class="btn-ne" onclick="setLang('ne')">ने</button>
-        </div>
+        {langsw_side}
         <button id="btn-theme" class="themesw btn-theme" onclick="cycleTheme()" title="Colour theme">◐ Auto</button>
       </div>
     </div>
     <div class="search" id="searchbox"><span class="s-ico">{icon_search}</span>
       <input id="q" type="search" autocomplete="off" spellcheck="false"
-        placeholder="Search · खोज्नुहोस्" aria-label="Search the atlas">
+        placeholder="{search_ph}" aria-label="Search the atlas">
       <div id="qres" class="qres" hidden></div>
       <button id="btn-nav" class="navbtn" type="button" aria-expanded="false" aria-controls="snav">{icon_menu}<span class="en">Chapters</span><span class="ne">अध्याय</span></button>
     </div>
@@ -423,10 +518,7 @@ SHELL = """<!DOCTYPE html>
       <button class="expand-btn" id="btn-expand" type="button" aria-label="Show chapters">{icon_panel}<span class="en">Chapters</span><span class="ne">अध्याय</span></button>
       <div class="topctrl-pill" id="pill">
         <span class="pill-search" id="pill-search"></span>
-        <div class="langsw" role="group" aria-label="Language">
-          <button class="btn-en" onclick="setLang('en')">EN</button>
-          <button class="btn-ne" onclick="setLang('ne')">ने</button>
-        </div>
+        {langsw_pill}
         <button class="themesw btn-theme" onclick="cycleTheme()" title="Colour theme">◐ Auto</button>
       </div>
     </div>
@@ -440,7 +532,7 @@ SHELL = """<!DOCTYPE html>
       <div class="cols">
         <div>
           <h3 class="foot-h"><span class="en">Mano Atlas</span><span class="ne">मनो एट्लास</span></h3>
-          <p class="en">A free, open atlas of mental health in English and नेपाली. Educational resource, not a diagnostic tool: criteria are paraphrased from DSM-5 (2013). Diagnosis belongs to qualified clinicians.</p>
+          <p class="en">{foot_blurb}</p>
           <p class="ne">अंग्रेजी र नेपालीमा मानसिक स्वास्थ्यको निःशुल्क, खुला एट्लास। शैक्षिक सामग्री हो, निदान-उपकरण होइन: मापदण्ड DSM-5 (2013) बाट सरलीकृत छन्। निदान योग्य चिकित्सकको काम हो।</p>
           <p class="en">Learning sticks best in small sittings. It is fine to close this tab and come back another day.</p>\n          <p class="ne">सिकाइ साना-साना बसाइमा राम्रो टिक्छ। ट्याब बन्द गरेर अर्को दिन फर्किए हुन्छ।</p>\n          <p><span class="en">Last reviewed: {reviewed_en} · This page updated {updated_en}</span><span class="ne">पछिल्लो समीक्षा: {reviewed_ne} · यो पृष्ठ अद्यावधिक {updated_ne}</span></p>
         </div>
@@ -568,8 +660,18 @@ def recent_html() -> str:
 def main() -> None:
     content_dir = ROOT / "content"
     hero = (content_dir / "hero.html").read_text().replace('<!--TOC-->', recent_html() + toc_html())
+    if PHASE1_ENGLISH_ONLY:
+        hero = hero.replace('<span class="en">English / नेपाली</span>', '<span class="en">English</span>')
     gate_sources()
     write_og_sources()
+    # phase fragments: full bilingual shell vs English-first (no switch, no alternate locale)
+    lang_boot = LANG_BOOT_PHASE1 if PHASE1_ENGLISH_ONLY else LANG_BOOT_FULL
+    langsw_side = "" if PHASE1_ENGLISH_ONLY else LANGSW_SIDE
+    langsw_pill = "" if PHASE1_ENGLISH_ONLY else LANGSW_PILL
+    og_locale = OG_LOCALE_ENGLISH_ONLY if PHASE1_ENGLISH_ONLY else OG_LOCALE_BILINGUAL
+    search_ph = SEARCH_PH_EN if PHASE1_ENGLISH_ONLY else SEARCH_PH_BI
+    foot_blurb = FOOT_BLURB_EN if PHASE1_ENGLISH_ONLY else FOOT_BLURB_BI
+    idx_langs = ["en"] if PHASE1_ENGLISH_ONLY else ["en", "ne"]
     search_index = []
     page_descs = []
     quiz_dir = ROOT / "quizzes"
@@ -604,14 +706,20 @@ def main() -> None:
         body = re.sub(r'<article class="card"', _add_id, body)
 
         parts = re.split(r'(?=<article class="card")', body)
-        head_text = plain_text(parts[0] if slug != "index" else hero + "\n" + parts[0])
-        search_index.append({"u": f"{slug}.html", "te": en, "tn": ne, "x": head_text[:3000]})
+        if PHASE1_ENGLISH_ONLY:
+            # English-only pages: Nepali text stays out of the search index
+            parts = [strip_ne(p) for p in parts]
+            head_html = (strip_ne(hero) if slug == "index" else "") + "\n" + parts[0]
+            head_text = plain_text(head_html)
+        else:
+            head_text = plain_text(parts[0] if slug != "index" else hero + "\n" + parts[0])
+        search_index.append({"u": f"{slug}.html", "te": en, "tn": "" if PHASE1_ENGLISH_ONLY else ne, "x": head_text[:3000]})
         for pi, part in enumerate(parts[1:], 1):
             h3 = re.search(r"<h3>([\s\S]*?)</h3>", part)
             te, tn = dual_title(h3.group(1) if h3 else "", (en, ne))
             search_index.append({
                 "u": f"{slug}.html#{slug}-c{pi}",
-                "te": te, "tn": tn,
+                "te": te, "tn": "" if PHASE1_ENGLISH_ONLY else tn,
                 "x": plain_text(part)[:3000],
             })
 
@@ -676,18 +784,24 @@ def main() -> None:
         page_desc = html_mod.escape(plain_text(secsub.group(1))[:200] if secsub else SITE_DESC)
         page_url = f'{SITE["site_url"]}/' if slug == "index" else f'{SITE["site_url"]}/{slug}'
         group_en, group_ne = GROUPS[group]
+        article = {
+            "@type": ["Article", "LearningResource"], "@id": page_url + "#article", "url": page_url,
+            "headline": title.replace(" · Mano Atlas", ""),
+            "description": html_mod.unescape(page_desc), "inLanguage": idx_langs, "isPartOf": {"@id": SITE["site_url"] + "/#site"},
+            "about": "Mental health education; DSM-5; psychosocial counselling; Nepal", "educationalLevel": "Diploma (CTEVT Psychosocial Counselor)",
+            "learningResourceType": "reading", "audience": {"@type": "EducationalAudience", "educationalRole": "student"},
+            "dateModified": updated, "license": "https://creativecommons.org/licenses/by-nc-sa/4.0/", "isAccessibleForFree": True,
+            "author": {"@type": "Person", "name": "Pravash Karki"},
+        }
+        if not PHASE1_ENGLISH_ONLY:
+            article["alternativeHeadline"] = ne
         jsonld = json.dumps({
             "@context": "https://schema.org",
             "@graph": [
                 {"@type": "WebSite", "@id": SITE["site_url"] + "/#site", "url": SITE["site_url"] + "/", "name": "Mano Atlas", "alternateName": "मनो एट्लास",
-                 "description": SITE_DESC, "inLanguage": ["en", "ne"], "license": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+                 "description": SITE_DESC, "inLanguage": idx_langs, "license": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
                  "publisher": {"@type": "Person", "name": "Pravash Karki"}},
-                {"@type": ["Article", "LearningResource"], "@id": page_url + "#article", "url": page_url, "headline": title.replace(" · Mano Atlas", ""),
-                 "alternativeHeadline": ne, "description": html_mod.unescape(page_desc), "inLanguage": ["en", "ne"], "isPartOf": {"@id": SITE["site_url"] + "/#site"},
-                 "about": "Mental health education; DSM-5; psychosocial counselling; Nepal", "educationalLevel": "Diploma (CTEVT Psychosocial Counselor)",
-                 "learningResourceType": "reading", "audience": {"@type": "EducationalAudience", "educationalRole": "student"},
-                 "dateModified": updated, "license": "https://creativecommons.org/licenses/by-nc-sa/4.0/", "isAccessibleForFree": True,
-                 "author": {"@type": "Person", "name": "Pravash Karki"}},
+                article,
                 {"@type": "BreadcrumbList", "itemListElement": [
                     {"@type": "ListItem", "position": 1, "name": "Mano Atlas", "item": SITE["site_url"] + "/"},
                     {"@type": "ListItem", "position": 2, "name": group_en},
@@ -695,7 +809,10 @@ def main() -> None:
             ]}, ensure_ascii=False)
         page_descs.append((slug, en, ne, html_mod.unescape(page_desc), group_en))
         html = SHELL.format(title=title, nav=nav_html(slug), content=content, pager=pager_html(i), page_desc=page_desc, page_url=page_url, jsonld=jsonld,
-                            updated_en=updated, updated_ne=updated.translate(NE_DIGITS), og_slug=slug, og_alt=html_mod.escape(f"{en} · {ne}" if slug != "index" else "Mano Atlas · मनो एट्लास"), icon_search=ICON["search"], icon_menu=ICON["menu"], icon_panel=ICON["panel"], icon_phone=ICON["phone"], icon_mail=ICON["mail"], **SITE)
+                            updated_en=updated, updated_ne=updated.translate(NE_DIGITS), og_slug=slug, og_alt=html_mod.escape(f"{en}" if PHASE1_ENGLISH_ONLY else (f"{en} · {ne}" if slug != "index" else "Mano Atlas · मनो एट्लास")), icon_search=ICON["search"], icon_menu=ICON["menu"], icon_panel=ICON["panel"], icon_phone=ICON["phone"], icon_mail=ICON["mail"],
+                            lang_boot=lang_boot, og_locale=og_locale, langsw_side=langsw_side, langsw_pill=langsw_pill, search_ph=search_ph, foot_blurb=foot_blurb, **SITE)
+        if PHASE1_ENGLISH_ONLY:
+            html = strip_ne(html)
         (ROOT / f"{slug}.html").write_text(html)
         print("built", f"{slug}.html")
 
@@ -713,9 +830,12 @@ def main() -> None:
     # llms.txt: a plain-text map for language models and other crawlers that read it
     by_grp = {}
     for s, e, n_, d, g in page_descs:
-        by_grp.setdefault(g, []).append(f"- [{e} · {n_}]({SITE['site_url']}/{'' if s == 'index' else s}): {d}")
+        title = e if PHASE1_ENGLISH_ONLY else f"{e} · {n_}"
+        by_grp.setdefault(g, []).append(f"- [{title}]({SITE['site_url']}/{'' if s == 'index' else s}): {d}")
+    lang_line = ("The site is currently English-only while the Nepali text is under review." if PHASE1_ENGLISH_ONLY
+                 else "Every page carries the same text in English and Nepali.")
     llms = ("# Mano Atlas (मनो एट्लास)\n\n> " + SITE_DESC + " Written for CTEVT Psychosocial Counselor students, community health workers and families in Nepal. "
-            "Every page carries the same text in English and Nepali. Content is licensed CC BY-NC-SA 4.0. It is an educational resource, not a diagnostic tool; diagnosis belongs to qualified clinicians.\n\n"
+            + lang_line + " Content is licensed CC BY-NC-SA 4.0. It is an educational resource, not a diagnostic tool; diagnosis belongs to qualified clinicians.\n\n"
             "Helplines inside Nepal: National Suicide Prevention Helpline 1166 (Mental Hospital, Lagankhel); TUTH mental-health hotline 1660 012 1600; women's helpline 1145 (NWC Khabar Garaun); emergency 112 / 100.\n\n"
             "Sources: DSM-5 (APA, 2013), CTEVT PSC Curriculum (2010), Sub-module 1 & 2 and Mental Health-3 class notes, WHO fact sheets and mhGAP, IASC MHPSS guidelines, Nepal MoHP policy documents.\n\n")
     for g, lines in by_grp.items():
@@ -723,7 +843,10 @@ def main() -> None:
     llms += "## Optional\n\n- [Sitemap](" + SITE["site_url"] + "/sitemap.xml)\n- [Source repository](https://github.com/pravashkarki/mano-atlas)\n"
     (ROOT / "llms.txt").write_text(llms)
     html404 = SHELL.format(title="Page not found · Mano Atlas", nav=nav_html("index"), content=nf, pager="", page_desc=SITE_DESC, page_url=SITE["site_url"] + "/404", jsonld="{}",
-                           updated_en=SITE["reviewed_en"], updated_ne=SITE["reviewed_ne"], og_slug="index", og_alt="Mano Atlas · मनो एट्लास", icon_search=ICON["search"], icon_menu=ICON["menu"], icon_panel=ICON["panel"], icon_phone=ICON["phone"], icon_mail=ICON["mail"], **SITE)
+                           updated_en=SITE["reviewed_en"], updated_ne=SITE["reviewed_ne"], og_slug="index", og_alt="Mano Atlas" if PHASE1_ENGLISH_ONLY else "Mano Atlas · मनो एट्लास", icon_search=ICON["search"], icon_menu=ICON["menu"], icon_panel=ICON["panel"], icon_phone=ICON["phone"], icon_mail=ICON["mail"],
+                           lang_boot=lang_boot, og_locale=og_locale, langsw_side=langsw_side, langsw_pill=langsw_pill, search_ph=search_ph, foot_blurb=foot_blurb, **SITE)
+    if PHASE1_ENGLISH_ONLY:
+        html404 = strip_ne(html404)
     (ROOT / "404.html").write_text(html404)
     print(f"search index: {len(search_index)} entries, {len(idx_js)//1024} KB")
 
