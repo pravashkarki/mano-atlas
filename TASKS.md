@@ -1,6 +1,6 @@
 # Mano Atlas — task list
 
-Basecamp is canonical since 2026-09-11: todolist https://app.basecamp.com/5746833/buckets/48856570/todolists/10293958977 (action work) and the PCS folder https://app.basecamp.com/5746833/buckets/48856570/vaults/10293962918 (findings and decisions). This file is the local mirror.
+Basecamp is canonical since 2026-09-11. Action work moved to the PCS board https://app.basecamp.com/5746833/buckets/48856570/boards/10293958734 on 2026-09-25 (board run by the LastDoor process: Triage / Shaping / Pitch / Building / Done; ideas in the PCS board doc 10340814635). The old todolist https://app.basecamp.com/5746833/buckets/48856570/todolists/10293958977 holds the history; its open todos became cards and are completed there. Knowledge stays in the PCS folder https://app.basecamp.com/5746833/buckets/48856570/vaults/10293962918. This file is the local mirror.
 
 Working list for development sessions. Check items off (`[x]`) as they land; add new ones at the bottom of the right section. House rules for any task: see CLAUDE.md.
 
@@ -17,7 +17,8 @@ Working list for development sessions. Check items off (`[x]`) as they land; add
 
 ## Now
 
-- [x] Domain move (2026-09-24): the site lives at https://manoatlas.com; pcs.pravashkarki.com and www redirect (308). DNS on Cloudflare, Pravo Account. Live commit 43c7ced (cherry-pick of de743ae, nothing else from dev). Basecamp todo 10335404086.
+- [ ] Markdown content contract, English-first, app bundle (card 10340816878, Pitch-track pending Founder): new chapters authored as Markdown + frontmatter; build.py pre-renders into the existing gate shape; build constant hides the EN/NE toggle at build and keeps ne strings out of the search index; versioned content-bundle.json for the app (reading only). Plan `docs/plans/content-contract-english-first.md` v2, pair-reviewed 2026-09-25 (review/plan-review-content-contract.md); credited free reviewer. Open for Pravo: site-wide English-first for the existing 29 pages (recommended) vs exempting them.
+- [ ] Domain move (2026-09-24): the site lives at https://manoatlas.com; pcs.pravashkarki.com and www redirect (308). DNS on Cloudflare, Pravo Account. Live commit 43c7ced (cherry-pick of de743ae, nothing else from dev). Basecamp todo 10335404086.
 - [ ] Goal set 2026-09-11 (Pravo): the site follows the six-month PSC course; every new PDF is added to the source inventory in `review/intake.md`. Beyond the curriculum, the site also covers what a psychologist needs to know, found by our own research. First step: the full table of contents, start to finish (live chapters, curriculum gaps, beyond-curriculum topics), approved before any new chapter is written.
 - [x] Research: what a psychologist needs beyond the CTEVT PSC curriculum (2026-09-11). 65 topics (17 core, 35 important, 13 optional), 21 rejected or caveat; `review/beyond-curriculum.md`, summary in the Basecamp PCS folder.
 - [ ] Full table of contents, start to finish: draft from live chapters + `review/curriculum-coverage.md` + the research; pair review; Pravo approves.
