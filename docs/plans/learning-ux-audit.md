@@ -10,10 +10,10 @@ An audit, not a rebuild. It decides the ship-now fixes and flags the broader int
 
 ## Manifest: the audited pages
 
-Twenty-nine teaching pages, frozen by slug so each is included exactly once and reference pages are excluded consistently:
+Thirty teaching pages, frozen by slug so each is included exactly once and reference pages are excluded consistently (excluded: index, map, crosswalk, glossary, more/rest, hero):
 
 - Foundation: foundation, basics, roots, development
-- Disorder pages (ten): anxiety, ocd, depression, trauma, somatic, psychosis, child, eating, sleep, substance
+- Disorder pages: anxiety, ocd, depression, trauma, somatic, psychosis, child, eating, sleep, substance
 - Practice: wellbeing, approaches, skills, skills-listening, skills-moving, process, first-sessions, tools, techniques, casemgmt
 - Cross-cutting: nepal, suicide, pfa, gbv, hiv, ethics
 
@@ -75,7 +75,7 @@ Source is bilingual (en/ne class pattern, gate-held). The current phase renders 
 ## Validation
 
 - Grep for em-dashes across content/keypoints/quizzes returns nothing (gate).
-- The ledger's page rows cover all 29 manifest slugs exactly once; dispositions resolve every finding.
+- The ledger's page rows cover all 30 manifest slugs exactly once; dispositions resolve every finding.
 - Pilot pass on the six-page calibration sample lands before the full run; its disagreements and rubric fixes are recorded.
 - Interactivity options carry evidence and a keep/skip decision; external references verified to resolve.
 - Verdicts posted on the card; every New finding is a board card or todo with a plan, per the founder's later choice of order.
