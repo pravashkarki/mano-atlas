@@ -1,0 +1,334 @@
+{
+  "_note": "Drive folder 13wT9HZxAF4a8McSyR30mZxavghwzz3uu, read 2026-09-26. Add a deck: drop the file in the folder, add a row here, run python3 build.py. Chapter slugs come from the intake ledger in review/intake.md; a file with no chapter has no matching chapter on the site, and that is worth saying plainly rather than faking a link.",
+  "password_sha256": "4a19dd0c012a14800cb8807613ad5457c510cae7c5d4e4ee4bb7c502b656a761",
+  "groups": [
+    {
+      "key": "curriculum",
+      "title": { "en": "Curriculum decks", "ne": "पाठ्यक्रमका डेक" },
+      "note": {
+        "en": "The class decks, in module order. If you are new to the course, start at the top.",
+        "ne": "कक्षाका डेक, मोड्युल क्रमअनुसार। तपाईं यस पाठ्यक्रममा नयाँ हुनुहुन्छ भने माथिबाट सुरु गर्नुहोस्।"
+      }
+    },
+    {
+      "key": "practice",
+      "title": { "en": "Practice sheets", "ne": "अभ्यासका पत्रक" },
+      "note": {
+        "en": "Print these. They are for filling in while you practise or in placement.",
+        "ne": "छाप्नुहोस्। यी अभ्यास वा प्लेसमेन्टका बेला भर्न पत्रक हुन्।"
+      }
+    },
+    {
+      "key": "reference",
+      "title": { "en": "Reference", "ne": "सन्दर्भ" },
+      "note": {
+        "en": "Look things up here. None of this has to be read from the first page to the last.",
+        "ne": "यहाँ केही खोज्नुहोस्। यी सबै पहिल्याएर पढ्नुपर्दैन।"
+      }
+    },
+    {
+      "key": "extra",
+      "title": { "en": "Extra, not part of the course", "ne": "थप, पाठ्यक्रमको भाग होइन" },
+      "note": {
+        "en": "Kept here because they sit in the same folder. Read them if you are curious.",
+        "ne": "उही फोल्डरमा भएकाले यहाँ राखिएका छन्। जिज्ञासु भए पढ्नुहोस्।"
+      }
+    }
+  ],
+  "files": [
+    {
+      "id": "11oIfP8G_MtdtLLt_aXf9ALbipGrzl-Qb",
+      "group": "curriculum",
+      "file": "Sub module 1 ( Sunil Parajuli).pdf",
+      "title": { "en": "Sub module 1: foundations of the field", "ne": "सबमोड्युल १: क्षेत्रको आधार" },
+      "author": "Sunil Parajuli",
+      "type": "PDF",
+      "size": "614 KB",
+      "pages": "12",
+      "about": {
+        "en": "The opening module: the history of psychology and counselling, the aims of psychosocial work, and the models that shaped the field.",
+        "ne": "पहिलो मोड्युल: मनोविज्ञान र परामर्शको इतिहास, मनोसामाजिक कामका उद्देश्य र यस क्षेत्रलाई बनाउने मोडेलहरू।"
+      },
+      "chapters": ["roots", "approaches", "wellbeing", "basics", "ethics"]
+    },
+    {
+      "id": "1LUj2T52vEh1olTOJDXhpYbTOq8ObpZ3c",
+      "group": "curriculum",
+      "file": "SUB module 2 New.pdf",
+      "title": { "en": "Sub module 2: psychosocial intervention", "ne": "सबमोड्युल २: मनोसामाजिक हस्तक्षेप" },
+      "author": "Sunil Parajuli",
+      "type": "PDF",
+      "size": "731 KB",
+      "pages": "about 10",
+      "about": {
+        "en": "Working with communities rather than one client at a time: the model, its principles, and the road map for a district programme.",
+        "ne": "एकैजना क्लाइन्ट होइन, समुदायमा काम: मोडल, यसका सिद्धान्त र जिल्ला कार्यक्रमको कार्ययोजना।"
+      },
+      "chapters": ["wellbeing"]
+    },
+    {
+      "id": "17IGyMqSOQzjvqojBGTKM7XHCBlV8gTmU",
+      "group": "curriculum",
+      "file": "Mental Health - 3.pdf",
+      "title": { "en": "Mental Health 3: the disorders and the services", "ne": "मानसिक स्वास्थ्य ३: विकार र सेवा" },
+      "author": "class notes",
+      "type": "PDF",
+      "size": "732 KB",
+      "pages": "about 18",
+      "about": {
+        "en": "What mental health is, the main disorder groups, how severity and support levels are graded, and who does this work in Nepal.",
+        "ne": "मानसिक स्वास्थ्य के हो, मुख्य विकार समूह, गम्भीरता र सहयोगका स्तर कसरी निर्धारण हुन्छन्, र नेपालमा यो काम कसले गर्छ।"
+      },
+      "chapters": ["basics", "nepal", "depression", "anxiety", "trauma", "psychosis", "child", "somatic", "sleep", "eating", "more"]
+    },
+    {
+      "id": "179qiOScNdbmeONQg6BPvE2wLfuwrPsDd",
+      "group": "curriculum",
+      "file": "NON-Verbal Communication Skills.pdf",
+      "title": { "en": "Non-verbal communication skills", "ne": "अशाब्दिक संवाद सीप" },
+      "author": "Sunil Parajuli",
+      "type": "PDF",
+      "size": "536 KB",
+      "pages": "6",
+      "about": {
+        "en": "The three jobs your body does in a session, and what to check in yourself before the first session: posture, face, voice, gesture, distance.",
+        "ne": "सत्रमा तपाईंको शरीरले गर्ने तीन काम, र पहिलो सत्रअघि आफैमा हेर्नुपर्ने कुरा: शारीरिक भङ्गिमा, चेहरा, स्वर, हातको इशारा, दूरी।"
+      },
+      "chapters": ["skills"]
+    },
+    {
+      "id": "1hjAM-pS3OjH2PB4bMKqj_VscI0x2eVh-",
+      "group": "curriculum",
+      "file": "Applying Verbal Communication Skill - Sunil Parajuli.pdf",
+      "title": { "en": "Applying verbal communication: the listening skills", "ne": "शाब्दिक संवाद: सुनेको फर्काउने सीप" },
+      "author": "Sunil Parajuli",
+      "type": "PDF",
+      "size": "1.3 MB",
+      "pages": "21",
+      "about": {
+        "en": "Nine skills in all, split across two chapters on the site: five for listening back (paraphrase, feeling, meaning, summary, key words) and four for moving forward (brainstorming, challenge, information, teaching).",
+        "ne": "जम्मा नौ सीप, साइटमा दुई खण्डमा बाँडिएका: सुनेको फर्काउने पाँच (पैराफ्रेज, भावना, अर्थ, सारांश, मुख्य शब्द) र अगाडि बढाउने चार (ब्रेनस्टर्म, चुनौती, जानकारी, शिक्षण)।"
+      },
+      "chapters": ["skills-listening", "skills-moving"]
+    },
+    {
+      "id": "1XueQZb0jJ6kQSugn7hIozWcF599rJ1_P",
+      "group": "curriculum",
+      "file": "Applying_Verbal_Communication_Skill_English_Translation.pdf",
+      "title": { "en": "The same deck in English", "ne": "उही डेकको अङ्ग्रेजी अनुवाद" },
+      "type": "PDF",
+      "size": "48 KB",
+      "about": {
+        "en": "An English version of the verbal skills deck, for anyone who reads faster in English than the deck allows. Small file, worth downloading before the class one.",
+        "ne": "शाब्दिक सीपको डेकको अङ्ग्रेजी रूप, जसले अङ्ग्रेजीमा बढी पढ्न सक्नुहुन्छ त्यसका लागि। सानो फाइल हो, कक्षाको डेकभन्दा अघि डाउनलोड गर्नु उपयोगी छ।"
+      },
+      "chapters": ["skills-listening", "skills-moving"]
+    },
+    {
+      "id": "1SiNytZ0GCNuB0foYDajnJq_rnIs3iHAo",
+      "group": "curriculum",
+      "file": "Counseling Approaches ( SUNIL PARAJULI).pdf",
+      "title": { "en": "Counselling approaches and forms", "ne": "परामर्शका विधि र रूपहरू" },
+      "author": "Sunil Parajuli",
+      "type": "PDF",
+      "size": "1 MB",
+      "pages": "27",
+      "about": {
+        "en": "The main approaches and where each one came from: psychodynamic, behavioural, humanistic, CBT, and the terms you must be able to define in an exam.",
+        "ne": "मुख्य विधिहरू र तिनको उत्पत्ति: साइकोडायनामिक, व्यवहारिक, मानववादी, CBT, र परीक्षामा परिभाषित गर्नुपर्ने शब्दहरू।"
+      },
+      "chapters": ["approaches", "basics"]
+    },
+    {
+      "id": "19xHB_hqh4Y59PfrhWSqStKR0Ecrc-SUM",
+      "group": "curriculum",
+      "file": "Basic Therapy Techniques.pdf",
+      "title": { "en": "Basic therapy techniques", "ne": "आधारभूत थेरापी प्रविधि" },
+      "type": "PDF",
+      "size": "1.3 MB",
+      "pages": "28",
+      "about": {
+        "en": "Techniques you will use in placement: behavioural activation, exposure and ERP, ACT, and emotion-focused work, with worked sequences.",
+        "ne": "प्लेसमेन्टमा प्रयोग गर्ने प्रविधि: व्यवहारिक सक्रियता, एक्सपोजर र ERP, ACT र भावनामा केन्द्रित काम, काम गरिएका उदाहरणसहित।"
+      },
+      "chapters": ["techniques", "ocd", "depression", "anxiety", "tools", "approaches"]
+    },
+    {
+      "id": "1IAoIsUISRkIia2PHx9bQuxIEfLLdwcQ6",
+      "group": "curriculum",
+      "file": "Counselling Process - Submodule 6 sunil parajuli.pdf",
+      "title": { "en": "The counselling process, sub module 6", "ne": "परामर्श-प्रक्रिया, सबमोड्युल ६" },
+      "author": "Sunil Parajuli",
+      "type": "PDF",
+      "size": "4.3 MB",
+      "pages": "117",
+      "about": {
+        "en": "The long one, and the one to keep. Session by session from the first meeting through formulation, goals, review and closing. The site splits it across three chapters.",
+        "ne": "लामो डेक हो, र यही नै सँगै राख्ने डेक हो। पहिलो भेटदेखि समस्या-ढाँचा, लक्ष्य, समीक्षा र समापनसम्म सत्र-सत्र। साइटले यसलाई तीन खण्डमा बाँडेको छ।"
+      },
+      "chapters": ["process", "first-sessions", "suicide", "psychosis", "tools", "ethics"]
+    },
+    {
+      "id": "1YNeeh2Jlzz8PwrQE6dGwsBsLOvddNDAe",
+      "group": "curriculum",
+      "file": "Sub module 5- Applying Communication Skills .pdf",
+      "title": { "en": "Sub module 5: applying communication skills", "ne": "सबमोड्युल ५: संवाद सीप लागू गर्ने" },
+      "author": "Ojashwee Uprety",
+      "type": "PDF",
+      "size": "837 KB",
+      "pages": "41 slides",
+      "about": {
+        "en": "Questioning, self-disclosure and its risks, silence, observation, and two-way feedback. Two thirds of this is already on the site; the rest has not been written up yet, so read the deck for the parts the chapters do not cover.",
+        "ne": "प्रश्न सोध्ने, आफ्नो कुरा खोल्ने र त्यसका जोखिम, मौन, अवलोकन र दुबैतर्फको प्रतिक्रिया। यसको दुई तिहाइ साइटमा छ; बाँकी अझै लेखिएको छैन, त्यसैले जुन भाग खण्डमा छैन त्यही डेकबाट पढ्नुहोस्।"
+      },
+      "chapters": ["skills", "skills-listening", "skills-moving"]
+    },
+    {
+      "id": "1W3mlY8GRAoV1OLI23JuF0DW_-A732_pZ",
+      "group": "practice",
+      "file": "Basic Counseling Format For Practice-Sunil.pdf",
+      "title": { "en": "Basic counselling format for practice", "ne": "अभ्यासका लागि आधारभूत परामर्श ढाँचा" },
+      "author": "Sunil Parajuli",
+      "type": "PDF",
+      "size": "783 KB",
+      "about": {
+        "en": "A session format to fill in while you practise: what the client brought, what you noticed in yourself, what you said, and what you would do differently. No chapter covers this one, because it is a worksheet rather than reading.",
+        "ne": "अभ्यास गर्दा भर्ने सत्रको ढाँचा: ग्राहकले के ल्याए, आफैंमा के केले, के भन्नुभयो, अर्को पटक के फरक गर्नुहुन्थ्यो। यसको कुनै खण्ड छैन, किनभने यो पठाउने सामग्री हो, पढाउने होइन।"
+      },
+      "chapters": []
+    },
+    {
+      "id": "1AhCcuLfEx69HTQ4BTZm_oTbM6dS3oCO2",
+      "group": "practice",
+      "file": "thought_record_sheet_0.pdf",
+      "title": { "en": "Thought record sheet", "ne": "विचार अभिलेख फाराम" },
+      "type": "PDF",
+      "size": "171 KB",
+      "about": {
+        "en": "A one-page CBT worksheet: the situation, the thoughts that came up, the feelings, the evidence for and against, a more balanced thought, and what you will do next. Print one per session.",
+        "ne": "एक पानाको CBT कार्यपत्रक: परिस्थिति, आएका विचार, भाव, तर्फ र विपरीतका प्रमाण, बढी सन्तुलित विचार, अनि अर्को पटक के गर्ने। सत्र-सत्रमा एउटा छाप्नुहोस्।"
+      },
+      "chapters": []
+    },
+    {
+      "id": "1slFpxmnlmG1e8vr30al3W9vQbqLKsQIF",
+      "group": "practice",
+      "file": "Nepali-GAD7 (5).docx",
+      "title": { "en": "Nepali GAD-7 anxiety questionnaire", "ne": "नेपाली GAD-7 चिन्ता प्रश्नावली" },
+      "type": "DOCX",
+      "size": "21 KB",
+      "about": {
+        "en": "The Nepali GAD-7, a screening questionnaire for generalised anxiety. A screen is not a diagnosis: a high score is a reason to ask more, not a conclusion. The site explains the scale in English.",
+        "ne": "नेपाली GAD-7, सामान्यीकृत चिन्ताको जाँच प्रश्नावली। जाँच निदान होइन: धेरै अङ्क आएमा थप प्रश्न सोध्ने कारण बन्छ, निष्कर्ष होइन। साइटले स्केल अङ्ग्रेजीमा व्याख्या गर्छ।"
+      },
+      "chapters": ["anxiety", "tools"]
+    },
+    {
+      "id": "1jF_ZYxDHZBceANasWq6KNMdwXb6TGhHq",
+      "group": "practice",
+      "file": "Nepali_Psychosocial_Informed_Consent_Form.pdf",
+      "title": { "en": "Nepali informed consent form", "ne": "नेपाली सूचित स्वीकृतिको फाराम" },
+      "type": "PDF",
+      "size": "64 KB",
+      "about": {
+        "en": "The consent form to hand a client before a first session, in Nepali, with the limits of confidentiality already written in. The site walks through what each part is for.",
+        "ne": "पहिलो सत्रअघि ग्राहकलाई दिने स्वीकृतिको फाराम, नेपालीमा, गोपनीयताका सीमाहरू पहिले नै लेखिएका। साइटले हरेक भाग किनका लागि हो भनी व्याख्या गर्छ।"
+      },
+      "chapters": ["ethics", "first-sessions", "casemgmt"]
+    },
+    {
+      "id": "1YOqL9ltjx5QhaxpASoNfJx79IH7ms04l",
+      "group": "reference",
+      "file": "curriculum.pdf",
+      "title": { "en": "CTEVT psychosocial counselor curriculum", "ne": "सीटीईभीटी मनोसामाजिक परामर्शकर्ता पाठ्यक्रम" },
+      "type": "PDF",
+      "size": "1.2 MB",
+      "pages": "159 task units",
+      "about": {
+        "en": "The official course document the whole atlas is built from. Use it to check what a task expects of you before you start it.",
+        "ne": "पूरै एटलास यही आधिकारिक पाठ्यक्रम-कागजातबाट बनेको हो। कुनै कामले तपाईंबाट के अपेक्षा गरिएको छ भन्ने यसमा हेरेर सुरु गर्नुहोस्।"
+      },
+      "chapters": ["crosswalk"]
+    },
+    {
+      "id": "1yE9bcC-5HeBhJibbAj38sbr3jIiMPsfy",
+      "group": "reference",
+      "file": "Diagnostic and statistical manual of mental disorders _ DSM-5 ( PDFDrive.com ).pdf",
+      "title": { "en": "DSM-5, the diagnostic manual", "ne": "DSM-5, निदान पुस्तिका" },
+      "type": "PDF",
+      "size": "7.2 MB",
+      "pages": "over 800",
+      "about": {
+        "en": "The manual the disorder criteria come from. The atlas paraphrases those criteria in plain language chapter by chapter, so read the chapter here and keep this as the reference behind the wording, not a book to read cover to cover.",
+        "ne": "विकारका मापदण्ड जुन पुस्तिकाबाट आएका हुन्। एटलासले ती मापदण्डहरू सरल भाषामा खण्डअनुसार सारांश गर्छ, त्यसैले यही खण्ड पढ्नुहोस् र यो पुस्तिकालाई शब्दहरूको सन्दर्भ राख्नुहोस्, सम्पूर्ण पुस्ताको क्रम पढ्ने होइन।"
+      },
+      "chapters": ["index", "anxiety", "depression", "ocd", "trauma", "psychosis", "child", "somatic", "eating", "sleep", "substance", "more", "nepal"]
+    },
+    {
+      "id": "1vFbgDr865EskgIenYX28aplwHFOhie9D",
+      "group": "reference",
+      "file": "Introduction to Psychology.pdf",
+      "title": { "en": "Introduction to Psychology (open textbook)", "ne": "मनोविज्ञानको परिचय (खुला पाठ्यपुस्तक)" },
+      "type": "PDF",
+      "size": "5.8 MB",
+      "about": {
+        "en": "Lally and Valentine-French, sixth edition, 2021. Licensed CC BY-NC-SA 3.0, so you are free to pass it on. Useful background for the first chapters if some of it has faded.",
+        "ne": "Lally र Valentine-French, छैठो संस्करण, २०२१। CC BY-NC-SA 3.0 अनुसार इजाजतपूर्वक, त्यसैले बाँड्न स्वतन्त्र छ। कतै अल्मलिएका भए पहिलो खण्डका पृष्ठभूमिका लागि राम्रो।"
+      },
+      "chapters": ["basics", "foundation", "crosswalk"]
+    },
+    {
+      "id": "12N8dlWLnUdV7mT8XF1GW7A_7jN9_rsFW",
+      "group": "reference",
+      "file": "codeethics05.pdf",
+      "title": { "en": "ACA code of ethics 2005", "ne": "ACA नैतिकता सङ्केत २००५" },
+      "type": "PDF",
+      "size": "129 KB",
+      "pages": "about 10",
+      "about": {
+        "en": "The American Counselling Association code of ethics, in full, with its 2005 revisions. The ethics chapter quotes and explains the seven principles you will be examined on.",
+        "ne": "अमेरिकन काउन्सिलिङ एसोसिएसनको नैतिकता सङ्केत, पूरा, २००५ का संशोधनसहित। नैतिकताको खण्डले तपाईंलाई परीक्षामा सोधिने सात सिद्धान्त उद्धृत गरी व्याख्या गर्छ।"
+      },
+      "chapters": ["ethics", "hiv", "process"]
+    },
+    {
+      "id": "1MYyEvOvb3IoXQC7_jgCodKIIaNELbLag",
+      "group": "reference",
+      "file": "PFA-WHO.pdf",
+      "title": { "en": "WHO guide to Psychological First Aid", "ne": "PFA बारे WHO को निर्देशिका" },
+      "type": "PDF",
+      "size": "1.4 MB",
+      "about": {
+        "en": "The WHO field guide to Psychological First Aid: what to do, and what not to do, in the first hours after someone has been shaken by an event. The site has a shorter chapter on the same.",
+        "ne": "PFA बारे WHO को क्षेत्रीय निर्देशिका: कसैलाई कुनै घटनाले मानसिक चोट पुगेपछि पहिलो केही घण्टामा के गर्ने र के नगर्ने। साइटमा यसैको छोटो खण्ड छ।"
+      },
+      "chapters": ["pfa"]
+    },
+    {
+      "id": "1fEX8pHlHpUS3teyMk-i3QCOiWoPzOjXZ",
+      "group": "reference",
+      "file": "JOJNHC.MS.ID.555726.pdf",
+      "title": { "en": "A journal article kept with the course files", "ne": "पाठ्यक्रमका फाइलसँग राखिएको जर्नल लेख" },
+      "type": "PDF",
+      "size": "289 KB",
+      "about": {
+        "en": "Not curriculum material, and the folder gives no title for it, only an article id. If a task points you to it, ask your instructor what it is before you spend time on it.",
+        "ne": "पाठ्यक्रमको सामग्री होइन, र फोल्डरले यसको शीर्षक दिएको छैन, लेखको पहिचान मात्र छ। कुनै कामले यसतर्फ पठाएको भए यसलाई समय नदिनुहोस्, आफ्ना शिक्षकलाई यसको बारेमा सोध्नुहोस्।"
+      },
+      "chapters": []
+    },
+    {
+      "id": "1oxLfIeBao64BT4XRc6zMq6w2gaEKual1",
+      "group": "extra",
+      "file": "the-5-love-languages-gary-chapman.pdf",
+      "title": { "en": "The 5 Love Languages", "ne": "द ५ लभ ल्याङ्वेज" },
+      "type": "PDF",
+      "size": "1 MB",
+      "about": {
+        "en": "A relationship book, not a clinical text and not part of the course. It is a way of thinking about how people feel cared for, and the counseling chapter on how you relate to others is the closest place it touches the syllabus.",
+        "ne": "सम्बन्धसम्बन्धी पुस्तक, नैदानिक पाठ्यपुस्तक होइन र पाठ्यक्रमको भाग पनि होइन। मानिसले कसरी मायो देखिन्छ भन्ने सोच्ने एउटा तरिका हो, र अरूसँग आफ्नो सम्बन्ध कसरी हुन्छ भन्ने परामर्शका खण्ड यसले पाठ्यक्रमलाई सबैभन्दा नजिक छुँट्छ।"
+      },
+      "chapters": []
+    }
+  ]
+}

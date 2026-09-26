@@ -24,6 +24,18 @@ Opt-in depth: `<details class="deeper"><summary><!--ICON:chev--><span class="en"
 
 Source intake: every instructor deck gets a row in `review/intake.md` (landing, dropped claims, conflicts) mirrored to `~/Obsidian/Mano/sources/intake.md`. A claim rejected once is not re-imported from a later deck. Growth rules: about 1800 English words and one reader question per chapter, then split; new chapters go where a first-time reader needs them; re-file shipped pages when a new intake changes where something belongs; when the practice group needs splitting, split by reader question (the curriculum view is the crosswalk page).
 
+## Student vault (/vault)
+
+`/vault` is a standalone page like `404.html`, built from `vault.json`, and deliberately NOT a chapter: it is not in `PAGES`, so it has no number, no sidebar row, no sitemap entry and no search-index row, and adding it never renumbers anything. `robots.txt` disallows `/vault`.
+
+- **Add or change a file:** put the PDF in the public course Drive folder, take the id out of its share URL, add a row to `vault.json` (id, group, filename, bilingual `title` and `about`, optional `type` / `size` / `pages`, and the `chapters` it maps to as slugs), rebuild. The build fails on a malformed Drive id or an unknown chapter slug.
+- **`chapters` is not a guess.** A row links to a chapter only when `review/intake.md` records that the deck's content landed in that chapter. An empty list is a valid answer, and four rows have one.
+- **Downloads are forced** by the `uc?export=download&id=` query parameter, not by a `download` attribute: the attribute is ignored on cross-origin links, the parameter is what makes Drive answer with `Content-Disposition: attachment`.
+- **The gate is a marker, not a security boundary.** It hashes the typed password with `crypto.subtle` in the page and compares it to `password_sha256` in `vault.json`. The Drive folder is public, so anyone who can reach the page can read the links in its source, and `vault.json` itself is served at `/vault.json` (Vercel deploys the committed files, there is no build step). Real protection means private Drive files plus a server function with a service account, which is a different build. Keep that honest in any copy about the page.
+- **The gate is not a `<form>`.** A form with JS off falls back to a native GET submit and drops the password into the URL, where browser history and request logs keep it. It is a `div[role=group]` with a `button type=button`; Enter is handled by hand.
+- **To change the password:** `python3 -c "import hashlib;print(hashlib.sha256(b'...').hexdigest())"`, then put the hex in `vault.json`. It needs a secure context, so it works on the https site and on the Vercel preview, and not from `file://`; the page says so rather than falling back to something weaker.
+- **Bilingual is not optional here.** `bi()` raises and stops the build if a string has no Nepali, including the strings written inside `build.py` itself.
+
 ## Bilingual pattern (never break this)
 
 Every user-visible string exists twice: `class="en"` and `class="ne"` (Nepali). CSS on `html[data-lang]` shows one. This includes text INSIDE SVG diagrams (`<text class="en">`/`<text class="ne">`). Nothing ships in one language. Nepali gets slightly larger sizes / taller line-height (Mukta renders smaller than Latin at equal nominal size).
@@ -76,6 +88,8 @@ All 29 pages fact-checked (Aug 2026) against DSM-5, WHO, and Nepali sources by f
 ## Verification before every commit
 
 `python3 build.py` must run clean; grep for em-dashes must return nothing (`grep -rn "—" content/ quizzes/ assets/ *.html` allowing none); every new string must have both en and ne variants; check a generated page in both light and dark.
+
+**Shooting both themes in headless Chrome:** hard-coding `data-theme="dark"` on `<html>` does NOT work for a screenshot. `applyTheme('auto')` in `assets/lang.js` runs on `DOMContentLoaded` and calls `removeAttribute('data-theme')`, so a fresh profile throws the attribute away and both renders come out identical. Either set `localStorage['psc-theme']` on the same origin first, or append a script that re-applies the attribute on a `setTimeout(0)` after `DOMContentLoaded` in a throwaway copy of the page. For contrast, compute the ratio from the theme tokens rather than eyeballing a PNG: relative luminance plus `(L1+0.05)/(L2+0.05)`, 4.5:1 for text, 3:1 for anything a control needs in order to be seen.
 
 ## Writing, and no mention of AI
 

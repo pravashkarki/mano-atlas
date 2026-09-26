@@ -657,6 +657,142 @@ def recent_html() -> str:
             + links + '</div>\n')
 
 
+# ---- student vault (/vault): the Drive folder, tagged, behind a password ----
+# A standalone page like 404.html, not a chapter: no number, no sidebar row, no
+# sitemap entry, no search index row, and nothing in PAGES changes, so inserting
+# it never renumbers a chapter.
+#
+# The gate is a browser-side password check against a stored SHA-256. It is a
+# convenience marker, not a security boundary: the Drive folder is public and the
+# links are in this page's source either way. Real protection means private Drive
+# files plus a server function with a service account, which is a different build.
+# export=download makes Drive answer with Content-Disposition: attachment, which is
+# what forces a download rather than opening its viewer. The download attribute is
+# ignored cross-origin, so the query parameter is what does the work here.
+DRIVE_DL = "https://drive.google.com/uc?export=download&id={id}"
+DRIVE_ID_RE = re.compile(r"^[A-Za-z0-9_-]{25,60}$")   # a pasted web link or a filename here means a broken row
+
+
+def bi(obj: dict) -> str:
+    """Every user-visible string ships twice, en and ne (repo rule, never break it). The
+    English-only phase is a display switch, not a source policy: strip_ne drops the ne
+    span at build and PHASE1_ENGLISH_ONLY hides the switch, so the Nepali is still here
+    and returns with the flag."""
+    if not obj.get("ne"):
+        raise SystemExit("build: vault: string has no Nepali; the bilingual pattern is not optional")
+    return f'<span class="en">{obj["en"]}</span><span class="ne">{obj["ne"]}</span>'
+
+
+def chapter_pill(slug: str) -> str:
+    row = next(p for p in PAGES if p[0] == slug)
+    return (f'<a class="vpill" href="{slug}.html"><span class="vnum">{NUM[slug]}</span>'
+            f'<span class="en">{row[2]}</span><span class="ne">{row[3]}</span></a>')
+
+
+def vault_html() -> str:
+    data = json.loads((ROOT / "vault.json").read_text())
+    groups = {g["key"]: g for g in data["groups"]}
+    order = [g["key"] for g in data["groups"]]
+    files = data["files"]
+    known = set(NUM)
+    sections = []
+    for key in order:
+        g = groups[key]
+        rows = []
+        for f in [x for x in files if x["group"] == key]:
+            if not DRIVE_ID_RE.match(f["id"]):
+                raise SystemExit(f"build: vault: {f['file']}: Drive id looks wrong ({f['id']})")
+            for slug in f.get("chapters", []):
+                if slug not in known:
+                    raise SystemExit(f"build: vault: {f['file']}: unknown chapter slug {slug}")
+            meta = " · ".join(x for x in (f.get("type"), f.get("size"), f.get("pages")) if x)
+            chaps = f.get("chapters") or []
+            if chaps:
+                pills = "".join(chapter_pill(s) for s in chaps)
+                chapline = ('<p class="vchap"><span class="vchap-h">'
+                            + bi({"en": "Easier on the site:", "ne": "साइटमा सजिलो:"}) + "</span>" + pills + "</p>\n")
+            else:
+                chapline = ('<p class="vchap vchap-none">'
+                            + bi({"en": "No chapter covers this one. It stands on its own, away from the atlas chapters.",
+                                  "ne": "यसको कुनै खण्ड छैन। यो एटलासका खण्डबाट छुट्टै आफ्नै स्थानमा छ।"})
+                            + "</p>\n")
+            about = '<p class="vabout">' + bi(f["about"]) + "</p>"
+            title = bi(f["title"])
+            orig = f'<span class="vorig mono">{f["file"]}</span>\n' if f.get("file") else ""
+            author = f'<span class="vauthor">{f["author"]}</span>' if f.get("author") else ""
+            rows.append(
+                f'<li class="vfile">\n<div class="vhead">'
+                f'<a class="vname" href="{DRIVE_DL.format(id=f["id"])}">{title}</a>'
+                f'<span class="vtag">{bi(g["title"])}</span></div>\n'
+                f'<p class="vmeta mono">{meta}{author}</p>\n{orig}{about}{chapline}</li>\n')
+        sections.append(
+            f'<section class="vgroup" id="v-{key}">\n'
+            f'<h2>{bi(g["title"])}</h2>\n'
+            f'<p class="secsub">{bi(g["note"])}</p>\n'
+            f'<ul class="vfiles">\n' + "".join(rows) + '</ul>\n</section>\n')
+
+    n = len(files)
+    gate = (
+        f'<section class="vaultgate" id="vgate" data-pw="{data["password_sha256"]}">\n'
+        f'<h2>{bi({"en": "The class files, in one place", "ne": "कक्षाका फाइल, एउटै ठाउँमा"})}</h2>\n'
+        f'<p class="secsub">{bi({
+            "en": f"{n} files from the course folder, each one tagged so you know what to read first. Enter the password your instructor gave you.",
+            "ne": f"पाठ्यक्रमको फोल्डरका {str(n).translate(NE_DIGITS)} फाइल, हरेकलाई ट्याग लगाइएको छ जसले अघि के पढ्ने भन्ने थाहा पाउनुहोस्। शिक्षकले दिनुभएको पासवर्ड लेख्नुहोस्।"})}</p>\n'
+        # Not a <form>: a form with JS off falls back to a native GET submit and puts
+        # the password in the URL, where browser history and request logs keep it.
+        # There is no server to post to anyway, so it is a group with a button, and
+        # Enter is handled by hand.
+        f'<div class="vform" id="vform" role="group" autocomplete="off">\n'
+        f'<label for="vpw">{bi({"en": "Course password", "ne": "पाठ्यक्रमको पासवर्ड"})}</label>\n'
+        f'<input id="vpw" type="password" name="pw" spellcheck="false" autocapitalize="off">\n'
+        f'<button type="button" id="vbtn" class="vbtn">{bi({"en": "Unlock", "ne": "खोल्नुहोस्"})}</button>\n'
+        f'</div>\n'
+        f'<p class="verr" id="verr" hidden>{bi({
+            "en": "That password did not match. Try again, or ask your instructor.",
+            "ne": "पासवर्ड मिलेन। फेरि प्रयास गर्नुहोस्, वा शिक्षकलाई सोध्नुहोस्।"})}</p>\n'
+        f'<p class="verr" id="verrtech" hidden>{bi({
+            "en": "The password check needs a secure connection. Open this page at manoatlas.com rather than from a file on disk.",
+            "ne": "पासवर्ड जाँच्न सुरक्षित जडान चाहिन्छ। यो पृष्ठ डिस्कको फाइलबाट होइन, manoatlas.com मा खोल्नुहोस्।"})}</p>\n'
+        f'<p class="vhint">{bi({
+            "en": "No password? Ask your instructor. Do not share this page publicly: anyone with the link can reach the files.",
+            "ne": "पासवर्ड छैन? शिक्षकलाई सोध्नुहोस्। यो पृष्ठ सार्वजनिक नगर्नुहोस्: लिंक भएकाले जो कोही फाइलमा पुग्न सक्छन्।"})}</p>\n'
+        f'</section>\n')
+
+    head = ('<div class="pagehead vault-head"><div class="kicker">'
+            + bi({"en": "Student vault", "ne": "विद्यार्थी ताला"}) + '</div></div>\n')
+    # The gate runs in the page: SHA-256 of what was typed against the stored hash.
+    # crypto.subtle needs a secure context, so the live https site and the Vercel
+    # preview both work; opening the file straight off disk does not, and we say so
+    # rather than falling back to something weaker.
+    script = (
+        '<script>\n(function(){\n'
+        '  var gate=document.getElementById("vgate"),list=document.getElementById("vlist"),\n'
+        '      btn=document.getElementById("vbtn"),input=document.getElementById("vpw"),\n'
+        '      err=document.getElementById("verr"),tech=document.getElementById("verrtech");\n'
+        '  if(!gate||!list||!btn||!input)return;\n'
+        '  function show(ok){\n'
+        '    gate.hidden=ok; list.hidden=!ok;\n'
+        '    if(ok){try{sessionStorage.setItem("psc-vault","1");}catch(e){}}\n'
+        '    else{err.hidden=false; input.select();}\n'
+        '  }\n'
+        '  try{if(sessionStorage.getItem("psc-vault")==="1")show(true);}catch(e){}\n'
+        '  function check(){\n'
+        '    err.hidden=true; tech.hidden=true;\n'
+        '    if(!window.crypto||!crypto.subtle){tech.hidden=false;return;}\n'
+        '    crypto.subtle.digest("SHA-256",new TextEncoder().encode(input.value))\n'
+        '      .then(function(buf){\n'
+        '        var hex=Array.prototype.map.call(new Uint8Array(buf),function(b){\n'
+        '          return ("0"+b.toString(16)).slice(-2);}).join("");\n'
+        '        show(hex===gate.getAttribute("data-pw"));\n'
+        '      })\n'
+        '      .catch(function(){err.hidden=false;});\n'
+        '  }\n'
+        '  btn.addEventListener("click",check);\n'
+        '  input.addEventListener("keydown",function(e){if(e.key==="Enter"){e.preventDefault();check();}});\n'
+        '})();\n</script>\n')
+    return head + gate + '<div id="vlist" hidden>\n' + "".join(sections) + '</div>\n' + script
+
+
 def main() -> None:
     content_dir = ROOT / "content"
     hero = (content_dir / "hero.html").read_text().replace('<!--TOC-->', recent_html() + toc_html())
@@ -832,7 +968,7 @@ def main() -> None:
     # sitemap, robots, 404
     urls = "".join(f'  <url><loc>{SITE["site_url"]}/{"" if s == "index" else s}</loc></url>\n' for s, *_ in PAGES)
     (ROOT / "sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + urls + "</urlset>\n")
-    (ROOT / "robots.txt").write_text(f'User-agent: *\nAllow: /\nSitemap: {SITE["site_url"]}/sitemap.xml\n')
+    (ROOT / "robots.txt").write_text(f'User-agent: *\nAllow: /\nDisallow: /vault\nSitemap: {SITE["site_url"]}/sitemap.xml\n')
     nf = ('<div class="pagehead"><span class="bignum" aria-hidden="true">404</span><div class="kicker"><span class="en">Page not found</span><span class="ne">पृष्ठ भेटिएन</span></div></div>\n'
           '<h2><span class="en">That page is not here</span><span class="ne">त्यो पृष्ठ यहाँ छैन</span></h2>\n'
           '<p class="secsub en">The address may be old or mistyped. Use the search, pick a chapter from the list, or start from the home page.</p>\n'
@@ -859,6 +995,31 @@ def main() -> None:
     if PHASE1_ENGLISH_ONLY:
         html404 = strip_ne(html404)
     (ROOT / "404.html").write_text(html404)
+
+    # student vault: student-only, so it stays out of the sitemap (built above) and
+    # out of robots indexing, and it is not in PAGES so it has no number or nav row
+    vtitle = "Student vault" if PHASE1_ENGLISH_ONLY else "Student vault · विद्यार्थी ताला"
+    vdesc = ("Class files for PCS students, each one tagged: curriculum decks, practice sheets, reference, extra. "
+             "Enter the course password to open the list.")
+    vjsonld = json.dumps({
+        "@context": "https://schema.org",
+        "@graph": [
+            {"@type": "WebPage", "@id": SITE["site_url"] + "/vault#webpage", "url": SITE["site_url"] + "/vault",
+             "name": vtitle, "description": vdesc, "inLanguage": idx_langs,
+             "isPartOf": {"@id": SITE["site_url"] + "/#site"},
+             "audience": {"@type": "EducationalAudience", "educationalRole": "student"},
+             "author": {"@type": "Person", "name": "Pravash Karki"}},
+        ]}, ensure_ascii=False)
+    # no active chapter: the vault is not in the sidebar, so nothing should read as "you are here"
+    htmlv = SHELL.format(title=f"{vtitle} · Mano Atlas", nav=nav_html(""), content=vault_html(), pager="",
+                         page_desc=vdesc, page_url=SITE["site_url"] + "/vault", jsonld=vjsonld,
+                         updated_en=SITE["reviewed_en"], updated_ne=SITE["reviewed_ne"], og_slug="index",
+                         og_alt="Mano Atlas", icon_search=ICON["search"], icon_menu=ICON["menu"], icon_panel=ICON["panel"], icon_phone=ICON["phone"], icon_mail=ICON["mail"],
+                         lang_boot=lang_boot, og_locale=og_locale, langsw_side=langsw_side, langsw_pill=langsw_pill, search_ph=search_ph, foot_blurb=foot_blurb, **SITE)
+    if PHASE1_ENGLISH_ONLY:
+        htmlv = strip_ne(htmlv)
+    (ROOT / "vault.html").write_text(htmlv)
+    print("built vault.html")
     print(f"search index: {len(search_index)} entries, {len(idx_js)//1024} KB")
 
 
