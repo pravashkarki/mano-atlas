@@ -160,7 +160,9 @@
   .card-head .pill{margin-left:0}
   .card-body{padding:6px 20px 18px}
   .card-body p{margin:13px 0; max-width:70ch}   /* measure capped for readability */
-  .card-body ul,.card-body ol{max-width:68ch}
+  .card-body ul,.card-body ol,.quiz-body ul,.quiz-body ol{max-width:68ch; margin:10px 0 14px; padding-left:1.25em}
+  .card-body li,.quiz-body li{margin:6px 0; line-height:1.5}
+  .card-body ul ul,.quiz-body ul ul{margin:4px 0 8px}
   .card-body strong{color:var(--ink)}           /* bold lead-ins anchor scanning */
   .defn{font-size:var(--fs-17); color:var(--muted); font-style:italic; margin-top:12px}
   html[data-lang="ne"] .defn{font-style:normal}
