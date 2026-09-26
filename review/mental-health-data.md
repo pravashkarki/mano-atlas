@@ -9,7 +9,7 @@ This is a research reference for shaping a possible future data layer. It is not
 - The repo already has 29 pages fact-checked against DSM-5, WHO, and Nepali sources (see the repo notes, "Content truth status"). That work checked the claims inside chapters. It did not build one source-audited data reference.
 - `review/intake.md` and `review/curriculum-coverage.md` already record which claims landed where and which were rejected. This document is the source-side counterpart and does not reopen those decisions.
 - No public data page exists in the repo, and none is authorized. This document is the input to shaping one, not the page.
-- Every figure below was either opened by the main session from a primary source, or is explicitly marked as reported by a research subagent and not yet opened. The two tiers are never mixed.
+- Every figure below was opened from a named source, and anything not opened is named as open rather than carried. Section 7 is where the previously unverified items were worked through; four items remain open and are listed there.
 
 ## What ships
 
@@ -19,8 +19,8 @@ This is a research reference for shaping a possible future data layer. It is not
 4. Suicide block, measured (Nepal Police, FY 2080/81 factsheet).
 5. Financing and workforce block, measured (Rai et al. 2021, Table 1).
 6. Global and service-coverage block (WHO Mental Health Atlas 2024, with modelled sub-indicators labelled).
-7. Pending-verification list (subagent-reported, not yet opened).
-8. Open-decision list (global anchor, whether lifetime-only conditions ship, suicide trend, public use).
+7. The pending list, worked through: each item confirmed, corrected, or dropped, with what is still open named at the end.
+8. Cases and decisions (the reasoning behind the calls, including the suicide-trend and global-anchor calls).
 
 ## 1. The source layer
 
@@ -147,7 +147,9 @@ Source: Annual Factsheet on Suicide and Cyber Crime, fiscal year 2080/81, Police
 
 By category in FY 2080/81: men 4,011, women 2,364, girls 574, boys 272.
 
-Two things to record honestly. The source's own year table says 7,223 for FY 2080/81 while its own category table sums to 7,221, so the two figures differ by two cases inside one factsheet. And this four-year series shows a dip then a recovery, not a steep rise, so it does not support a claim of an 82% increase. Any trend claim needs a longer police series, cited as such.
+Two things to record honestly. The source's own year table says 7,223 for FY 2080/81 while its own category table sums to 7,221 (4,011 + 2,364 + 574 + 272), so the two figures differ by two cases inside one factsheet. The category table is the one to cite when the four categories are shown, and the year table when the year is.
+
+The series is closed. The police dataset publishes exactly four fiscal years, 2077/78 to 2080/81, and nothing longer is available from it. So the 82% claim cannot be rescued by finding a longer run: there is no longer run in this source. It shows a dip then a recovery, ending two cases below where it started, which is the opposite of an 82% rise. Drop the claim rather than soften it.
 
 ## 5. Nepal financing and workforce (measured, 2020)
 
@@ -178,15 +180,64 @@ Workforce composition: mental health nurses 43%, psychologists 22%, psychiatrist
 
 The 9.1% depression figure is a modelled estimate of minimally adequate treatment coverage for major depressive disorder from a 2021 global analysis, carried into the Atlas. The report states it could not be computed from Atlas data. Label it modelled wherever it is used.
 
-## 7. Reported by subagents, not yet opened by the main session
+## 7. The pending list, worked through
 
-- Legal: no separate Mental Health Act. Supreme Court order 11433, case 077-WO-0035, 2 December 2024, full text 31 May 2025 at `https://nkp.gov.np/full_detail/10528`, states a separate specialised law remains a precondition and a 2006 writ went unimplemented for 18 years.
-- First National Mental Health Policy 1996.
-- Treatment caseload 281,570 on treatment in FY 2081/82. People on treatment, not annual unique cases.
-- Community care: a four-municipality model exists.
-- Stigma prevalence figures, source not confirmed.
-- The longer police suicide series behind the 82% claim.
-- Global anchors: GBD 2019 gives 654.8 million (2019); GBD 2023 gives 1.17 billion (2023, published 2026); WHO 2025 gives 1.095 billion (2021, 13.6%). None opened by the main session.
+Every item here was reported by a subagent and had not been opened. Each is now resolved: confirmed, corrected, or dropped. What is left open is named at the end.
+
+### Global anchors, three releases
+
+The old entry was wrong about the year, by a wide margin, so the corrected set matters.
+
+| Release | Figure | Year | Source |
+|---|---|---|---|
+| GBD 2019 | **970.1 million** (95% UI 900.9 to 1044.4), 12,262.0 per 100,000 age-standardised | 2019 | GBD 2019 Mental Disorders Collaborators, Lancet Psychiatry 2022, doi 10.1016/S2215-0366(21)00395-3 |
+| WHO 2025 | **over one billion**, 14% of the global population, "nearly one in seven" | 2021 | World mental health today, 2 September 2025, ISBN 9789240113817 |
+| GBD 2023 | **1.17 billion** (95% UI 1.06 to 1.31), 14,210.7 per 100,000 age-standardised | 2023 | GBD 2023 Mental Disorder Collaborators, Lancet 2026;407(10543):2040 to 2064, doi 10.1016/S0140-6736(26)00519-2 |
+
+Two corrections to what this document previously said.
+
+**654.8 million is 1990, not 2019.** The GBD 2019 paper reports 654.8 million (603.6 to 708.1) for 1990 and 970.1 million for 2019, a 48.1% rise between them. The old entry attributed the smaller 1990 figure to 2019, which would have understated the count by 315 million and misdated it by three decades.
+
+**WHO's published form is "over one billion" and 14%, not 1.095 billion at 13.6%.** Those two figures do not reconcile, and the precise pair is not what WHO prints. Cite WHO as over one billion, 14%, 2021.
+
+Read together the three releases are a coherent progression, 970.1 million in 2019, over a billion at 14% in 2021, 1.17 billion in 2023, so the apparent conflict between them is mostly release vintage, not disagreement about direction. GBD 2023 also makes mental disorders the fifth leading cause of DALYs in 2023, up from twelfth in 1990, and the leading cause of YLDs.
+
+The standing rule is unchanged. Do not use any of these inside a chapter, and never two in one sentence. The survey's own India comparison at 13.7% lifetime uses the same MINI instrument and is the honest context.
+
+### Legal: confirmed, with two corrections
+
+There is no separate Mental Health Act. The obligation is unmet, and the court has now said so in an operative order.
+
+- **Case**: Matrika Devkota and others v Prime Minister and Office of Cabinet of Ministers and others, mandamus, writ no. 077-WO-0035, decided 2 December 2024 by a joint bench of Justices Hari Prasad Phuyal and Nripa Dhwaj Niraula. Full text published in नेपाल कानून पत्रिका at `https://nkp.gov.np/full_detail/10528` and released in the first week of May 2025.
+- **A separate specialised law is a precondition.** The court's own words make the legislature's enactment of a separate mental-health law a पूर्वसर्त, a prior condition, without which the state cannot bring the sector to parity with physical health under Article 35.
+- **The earlier unimplemented order is writ no. 0129 of 2063 BS**, issued by a special bench directing enactment of a special Act, and not implemented by the respondent. The old entry called it only "a 2006 writ". The number and the year both matter, and 2063 BS is 2006/07 AD.
+
+Two cautions. The order number 11433 in the old entry is not confirmed by anything opened here, so do not cite it. And secondary coverage disagrees on the petitioner: Kathmandu Post calls the filing a public interest litigation by Koshish, while the court's own text names Matrika Devkota as the applicant. Cite the primary.
+
+The order is a 12-point directive covering annual budget increases, a new law with a binding budget provision, separate mental health branches at federal, provincial and local level, multidisciplinary teams in all federal and provincial hospitals, outpatient and inpatient services, integration with community programmes and health insurance and disability certification, community-based rehabilitation of institutionalised people, and anti-stigma awareness with penalties for discrimination.
+
+### National Mental Health Policy 1996: confirmed
+
+The National Mental Health Policy 2053 BS, which is 1996 AD, is the policy the Supreme Court ordered revised and replaced. It is named in the court's text, not only in press coverage. Separately, the Public Health Service Act 2075 already provides for mental health services as a basic service, which is a useful corrective to the impression that nothing exists on the statute book.
+
+### Treatment caseload 281,570: figure real, label corrected
+
+The series is 129,954 in 2079/80, 215,811 in 2080/81 and 281,570 in 2081/82, and the source labels it **"Total number of Mental Health Cases"**. The old entry's reading, "people on treatment", is an interpretation and should go. Whether the series is annual unique patients or a cumulative register is not stated by the source, and a 130k to 216k to 282k climb within three years is more consistent with a register than with annual uniques. Do not characterise it either way without the primary.
+
+The primary is section 8.2.3 of the Department of Health Services Annual Health Report 2081/82, which exists and is located. It has not been opened, so the figure is currently second-hand via an NHRC e-library paper on the National Mental Health Program.
+
+### Stigma and community care: still open
+
+- Stigma prevalence figures, source still not confirmed. Do not use a number until a source is in hand.
+- A four-municipality community care model is reported to exist. No document opened yet, so it is not citable.
+
+### New asset found while checking
+
+A peer-reviewed service-coverage figure, better sourced than anything held for readiness. From a secondary analysis of the 2021 Nepal Health Facility Survey: of 1,576 facilities assessed, **394, or 25%, provided mental health services for diagnosis or treatment; only 15% provided both; overall service readiness was 22.2%; 16% had trained staff and 12% had guidelines in place.** PLOS Mental Health, 2025, doi 10.1371/journal.pmen.0000155.
+
+### Still open
+
+Stigma prevalence, the four-municipality model, the 11433 order number, and the direct "current means past 12 months" sentence from the full NMHS report.
 
 ## Cases and decisions
 
