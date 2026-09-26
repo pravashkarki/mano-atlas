@@ -75,15 +75,20 @@ and are used here with attribution rather than re-licensed:
 
   - Diagnostic criteria and codes, summarised from DSM-5, published by the
     American Psychiatric Association. The manual's wording belongs to the APA.
-  - Teaching material contributed by the instructors named in review/intake.md,
-    reproduced with their separate permission. That permission, not this file,
-    is what covers those sections.
+  - Teaching material written by the instructors named in CREDITS.md. It belongs
+    to its authors, and their terms are the ones that apply to it, not ours. No
+    permission request has been sent yet. Until the authors answer, those
+    sections carry no open licence from us, and nothing here grants one.
+    CREDITS.md records every contributor, what they gave us, and the state of
+    each permission. Four decks carry no author name, so those writers cannot
+    be thanked or asked yet.
   - Books, films and clinical guidelines, which are named by title in the
     reading lists and are not reproduced.
   - Statistics and datasets from the National Mental Health Survey, Nepal
     Police, the Ministry of Health, the World Health Organization, and the
     Institute for Health Metrics and Evaluation. Reproduced as numbers with
-    attribution.
+    attribution. Each figure's verification state is recorded in
+    review/data-ledger.md.
   - Government emblems and the National Mental Health Survey logo. Used for
     identification only, under the respective guidelines.
 

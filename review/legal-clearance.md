@@ -45,7 +45,7 @@ A single footer statement of "CC BY-NC-SA" is legally imprecise here, because th
 - **Content:** CC BY-NC-SA 4.0. The existing intent was NC-SA, and NC is the right instinct for teaching material: it keeps paid course material built from it from undercutting a free resource. Say 4.0, never an unversioned reference.
 - **Code:** MIT, separately stated. Creative licences on code create real friction for other people and buy nothing here.
 - **Name and logo:** all rights reserved, stated explicitly. Without that, an open content licence would arguably let someone rebrand the site and call it the atlas.
-- **Mixed collection:** a source register naming each third-party input and its terms, plus a statement that the collection is mixed and per-item terms apply. This is what makes a single site-wide licence claim honest.
+- **Mixed collection:** one credits file naming each third-party input, who made it, and what terms apply, plus a statement that the collection is mixed and per-item terms apply. This is what makes a single site-wide licence claim honest. **Done 2026-09-26:** `CREDITS.md` at the repo root, linked from `/terms`.
 
 **One tension to decide, not to paper over.** NC stops a private college charging for a course built from this material, and stops a translation being sold. That may be the intent, or it may cost more reach than it protects. SA is also hard to enforce in Nepal, so it is the part of the licence most likely to be ignored. If maximum spread matters more than preventing commercial reuse, CC BY 4.0 without NC is the alternative, and it is a one-word change with real consequences either way. **This is a mission decision and it is the Founder's, not mine.**
 
@@ -113,7 +113,7 @@ This is the item most likely to put the Founder somewhere he did not intend to b
 1. **Deck authors.** Ask each what they will license. Blocks any open licence on teaching text. Nothing else on this list matters as much.
 2. **The four crisis numbers.** Verify each twice, from two independent routes. The highest-liability content on the site.
 3. **Safeguarding notice and inbox ownership**, before the error-report address goes out. Cheap to do now, awkward later.
-4. **The licence decision itself**: NC-SA as the existing intent, or plain BY for reach, plus MIT for code and reserved name and logo, plus a per-source register.
+4. **The licence decision itself**: NC-SA as the existing intent, or plain BY for reach, plus MIT for code and reserved name and logo, plus a per-source register. **Closed 2026-09-26:** NC-SA decided, MIT, reserved name and logo, and `CREDITS.md` written.
 5. **Fix the README**, which currently claims a licence that does not exist, and add the real licence files and the terms page.
 6. **Confirm dataset terms** for the two we use, and the Mental Health Act point before the site says anything about legal framework.
 7. **Work the data ledger's unsourced figures**, which is the misrepresentation exposure.

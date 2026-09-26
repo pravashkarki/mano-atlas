@@ -886,11 +886,18 @@ def terms_html() -> str:
                            "अर्को भाषामा अनुवादका लागि पनि। तपाईंले यसलाई बेच्न, यसको शुल्क लिन, वा बिक्ने कुनै कुराको हिस्सा बनाउन सक्नुहुन्छन्, "
                            "र रूपान्तरण गर्दा यही इजाजतपत्र पनि अगाडि बढाउनुपर्छ। "
                            "श्रेय दिनुपर्छ: मानो एट्लासको नाम लिनुहोस्, manoatlas.com मा लिंक गर्नुहोस्, र केही परिवर्तन गरेको हो कि होइन भनी जनाउनुहोस्।"}) + '</p>',
-         '<p class="fine">' + bi({"en": "Some sections adapt teaching material contributed by other people, who have given permission "
-                                        "separately. Those sections are listed in the source register, and the licence above applies "
-                                        "to our own material.",
-                                        "ne": "केही खण्डले अरू मानिसले दिएको सिकाउने सामग्रीको रूपान्तरण गर्दै छन्, जसले छुट्टै अनुमति दिएका छन्। "
-                                              "ती खण्डहरू स्रोत सूचीमा उल्लेख छन्, र माथिको इजाजतपत्र हाम्रो आफ्नै सामग्रीमा लागू हुन्छ।"}) + '</p>']))
+         '<p class="fine">' + bi({"en": "Some sections adapt teaching material written by other people. That material belongs to "
+                                        "its authors, and their terms are the ones that apply to it, not ours. Every contributor, "
+                                        "what they gave us, and what terms apply are listed in the credits file, which is linked "
+                                        "below and kept with the site source. We have not yet asked the authors what licence they "
+                                        "will grant, and until we do, those sections carry no open licence from us. "
+                                        "The licence above covers our own writing only.",
+                                        "ne": "केही खण्डले अरू मानिसले लेखेको सिकाउने सामग्रीको रूपान्तरण गर्दै छन्। त्यो सामग्री तिनीहरूकै हो, "
+                                              "र त्यसमा तिनीहरूकै सर्त लागू हुन्छ, हाम्रो होइन। कसले के दिए र कुन सर्त लागू हुन्छ, "
+                                              "यो सबै तलको क्रेडिट फाइलमा उल्लेख छ, र त्यही फाइल साइटको स्रोतसँगै राखिएको छ। "
+                                              "लेखकहरूलाई कस्तो इजाजत दिन्छन् भनी हामीले अझै सोधेका छैनौं, र सोधिएसम्म ती खण्डहरूमा "
+                                              "हाम्रोतर्फबाट खुला इजाजत छैन। माथिको इजाजतपत्र हाम्रो आफ्नै लेखमा मात्र लागू हुन्छ।"}) + '</p>']))
+
     cards.append(_tcard(
         "The build code",
         "बिल्ड कोड",
@@ -930,6 +937,22 @@ def terms_html() -> str:
                      "ne": "हामी पहिले प्रकाशित सामग्रीमा यो नियम लागू गर्ने काम भइरहेको छ, त्यसैले यो पूरा भइसकेको दाबी गर्दैनौं। "
                            "जहाँ पृष्ठ एउटै स्रोतमा आधारित छ, त्यहाँ दोस्रो स्रोत छ जस्तो देखाउनुका साथै पृष्ठले त्यही भन्छ। "
                            "कुन अङ्क कहाँसम्म पुगेको छ भनी टाइ गरिएको कार्यपुस्तिका साइटको स्रोतभित्र, review/data-ledger.md मा छ।"}) + '</p>']))
+    cards.append(_tcard(
+        "The full credits",
+        "पूरा क्रेडिट",
+        ['<p>' + bi({"en": "Every contributor, what each of them gave us, and what terms apply to their material is written "
+                            "down in one file, with thanks. It travels with the site source, so it can be read and checked "
+                            "rather than taken on trust.",
+                     "ne": "हरेक योगदानकर्ता, उनले हामीलाई के दिए, र तिनीहरूको सामग्रीमा कुन सर्त लागू हुन्छ, "
+                           "यो सबै एउटै फाइलमा लेखिएको छ, धन्यवादसहित। त्यो फाइल साइटको स्रोतसँगै छ, "
+                           "त्यसैले यसलाई पढेर जाँच्न सकिन्छ।"}) + '</p>',
+         '<p><a href="https://github.com/pravashkarki/mano-atlas/blob/main/CREDITS.md" target="_blank" rel="noopener noreferrer">'
+         + bi({"en": "Read the credits and sources", "ne": "क्रेडिट र स्रोतहरू पढ्नुहोस्"})
+         + '</a></p>',
+         '<p class="fine">' + bi({"en": "Four of the teaching decks carry no author name, so we cannot yet thank those writers by "
+                                        "name or ask them what licence they want. We would like to fix that.",
+                                        "ne": "चार सिकाउने डेकमा लेखकको नाम छैन, त्यसैले हामीले ती लेखकहरूलाई नामले धन्यवाद दिन अथवा "
+                                              "कस्तो इजाजत चाहन्छन् भनी सोध्न असमर्थ छौं। त्यो ठीक गर्न हामी चाहन्छौं।"}) + '</p>']))
     return ('<div class="pagehead"><div class="kicker">'
             + bi({"en": "Terms, licence and sources", "ne": "सर्त, इजाजतपत्र र स्रोतहरू"}) + '</div></div>\n'
             + "".join(cards))
