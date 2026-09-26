@@ -764,8 +764,8 @@ def vault_html() -> str:
             "ne": "पासवर्ड छैन? शिक्षकलाई सोध्नुहोस्। यो पृष्ठ सार्वजनिक नगर्नुहोस्: लिंक भएकाले जो कोही फाइलमा पुग्न सक्छन्।"})}</p>\n'
         f'</section>\n')
 
-    head = ('<div class="pagehead vault-head"><div class="kicker">'
-            + bi({"en": "Student vault", "ne": "विद्यार्थी ताला"}) + '</div></div>\n')
+    head = ('<div class="pagehead vault-head"><h1 class="kicker">'
+            + bi({"en": "Student vault", "ne": "विद्यार्थी ताला"}) + '</h1></div>\n')
     # The gate runs in the page: SHA-256 of what was typed against the stored hash.
     # crypto.subtle needs a secure context, so the live https site and the Vercel
     # preview both work; opening the file straight off disk does not, and we say so
@@ -800,8 +800,11 @@ def vault_html() -> str:
 
 
 def _tcard(head_en: str, head_ne: str, body: list) -> str:
-    return ('<div class="card"><div class="card-body">\n'
-            '        <h3><span class="en">' + head_en + '</span><span class="ne">' + head_ne + '</span></h3>\n'
+    # h2, not h3: these pages' title is the pagehead h1, so the card heads sit
+    # directly beneath it. The size is pinned in style.css (.termscard h2) because
+    # the browser default for h2 is larger than the h3 this replaced.
+    return ('<div class="card termscard"><div class="card-body">\n'
+            '        <h2><span class="en">' + head_en + '</span><span class="ne">' + head_ne + '</span></h2>\n'
             '        ' + "\n        ".join(body) + '\n      </div></div>\n')
 
 
@@ -953,8 +956,8 @@ def terms_html() -> str:
                                         "name or ask them what licence they want. We would like to fix that.",
                                         "ne": "चार सिकाउने डेकमा लेखकको नाम छैन, त्यसैले हामीले ती लेखकहरूलाई नामले धन्यवाद दिन अथवा "
                                               "कस्तो इजाजत चाहन्छन् भनी सोध्न असमर्थ छौं। त्यो ठीक गर्न हामी चाहन्छौं।"}) + '</p>']))
-    return ('<div class="pagehead"><div class="kicker">'
-            + bi({"en": "Terms, licence and sources", "ne": "सर्त, इजाजतपत्र र स्रोतहरू"}) + '</div></div>\n'
+    return ('<div class="pagehead"><h1 class="kicker">'
+            + bi({"en": "Terms, licence and sources", "ne": "सर्त, इजाजतपत्र र स्रोतहरू"}) + '</h1></div>\n'
             + "".join(cards))
 
 
@@ -1041,6 +1044,25 @@ def main() -> None:
         body = info_popovers(card_tables(resolve_refs(stamp_badge(body, num, fname), fname)))
         # give each h2/h3 content heading a stable anchor id for the onpage nav
         _hcount = {"n": 0}
+        # Each page ships exactly one h1, and the outline is never skipped.
+        #
+        # The content sources are written as title h2, card heads h3, sub-heads h4,
+        # which nests correctly but leaves the whole site without a top-level
+        # heading: only the homepage had an h1 (its hero). Rather than edit 33
+        # content files and orphan every CSS rule keyed to those tags, shift the
+        # whole body up one level at build time: h2->h1, h3->h2, h4->h3. The
+        # result is h1 -> h2 -> h3 everywhere, with the relative nesting the
+        # sources already had.
+        #
+        # This runs before _add_hid, so the anchors keep their existing
+        # slug-h1, slug-h2, ... numbering and the on-page nav is unchanged.
+        # The site's own index is excluded: its hero h1 is injected below, and
+        # promoting its toc-group h2s would give the homepage two h1s.
+        if slug not in ("index", "hero"):
+            def _shift(m):
+                return f"<h{int(m.group(1)) - 1}{m.group(2)}>{m.group(3)}</h{int(m.group(1)) - 1}>"
+            body = re.sub(r"<h([234])((?:[^>]|\n)*?)>(.*?)</h\1>", _shift, body, flags=re.S)
+
         def _add_hid(m):
             tag = m.group(1)
             attrs = m.group(2)
@@ -1049,7 +1071,7 @@ def main() -> None:
                 return m.group(0)
             _hcount["n"] += 1
             return f'<{tag}{attrs} id="{slug}-h{_hcount["n"]}">{inner}</{tag}>'
-        body = re.sub(r'<(h[23])((?:[^>]|\n)*?)>(.*?)</\1>', _add_hid, body, flags=re.S)
+        body = re.sub(r'<(h[123])((?:[^>]|\n)*?)>(.*?)</\1>', _add_hid, body, flags=re.S)
         if slug == "index":
             content = f'<header class="hero">\n{hero}\n</header>\n<section id="map">\n{body}\n</section>'
         else:
@@ -1086,7 +1108,7 @@ def main() -> None:
             )
         title = "Mano Atlas" if slug == "index" else f"{en} · Mano Atlas"
         # on-page contents for chapters with three or more headings
-        headings = re.findall(r'<(h[23]) id="([^"]+)"[^>]*>\s*<span class="en">(.*?)</span>', body, re.S)
+        headings = re.findall(r'<(h[123]) id="([^"]+)"[^>]*>\s*<span class="en">(.*?)</span>', body, re.S)
         if slug != "index" and len(headings) >= 3:
             items = "".join(f'<li><a href="#{hid}"><span class="en">{htext}</span></a></li>' for _tag, hid, htext in headings)
             onpage = (f'<nav class="onpage" aria-label="On this page"><span class="onpage-h"><span class="en">On this page</span>'
@@ -1135,7 +1157,7 @@ def main() -> None:
     (ROOT / "sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + urls + "</urlset>\n")
     (ROOT / "robots.txt").write_text(f'User-agent: *\nAllow: /\nDisallow: /vault\nSitemap: {SITE["site_url"]}/sitemap.xml\n')
     nf = ('<div class="pagehead"><span class="bignum" aria-hidden="true">404</span><div class="kicker"><span class="en">Page not found</span><span class="ne">पृष्ठ भेटिएन</span></div></div>\n'
-          '<h2><span class="en">That page is not here</span><span class="ne">त्यो पृष्ठ यहाँ छैन</span></h2>\n'
+          '<h1><span class="en">That page is not here</span><span class="ne">त्यो पृष्ठ यहाँ छैन</span></h1>\n'
           '<p class="secsub en">The address may be old or mistyped. Use the search, pick a chapter from the list, or start from the home page.</p>\n'
           '<p class="secsub ne">ठेगाना पुरानो वा गलत टाइप भएको हुन सक्छ। खोज प्रयोग गर्नुहोस्, सूचीबाट अध्याय रोज्नुहोस्, वा गृहपृष्ठबाट सुरु गर्नुहोस्।</p>\n'
           '<p><a href="index.html"><span class="en">Go to the home page</span><span class="ne">गृहपृष्ठमा जानुहोस्</span></a></p>\n')
