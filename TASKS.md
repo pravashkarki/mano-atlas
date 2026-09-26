@@ -1,6 +1,6 @@
 # Mano Atlas — task list
 
-Basecamp is canonical since 2026-09-11. Action work moved to the PCS board https://app.basecamp.com/5746833/buckets/48856570/boards/10293958734 on 2026-09-25 (board run by the LastDoor process: Triage / Shaping / Pitch / Building / Done; ideas in the PCS board doc 10340814635). The old todolist https://app.basecamp.com/5746833/buckets/48856570/todolists/10293958977 holds the history; its open todos became cards and are completed there. Knowledge stays in the PCS folder https://app.basecamp.com/5746833/buckets/48856570/vaults/10293962918. This file is the local mirror.
+Basecamp is canonical. As of 2026-09-26 action work lives on the Mano Atlas board in project manoatlas.com: https://app.basecamp.com/5746833/buckets/49041895/card_tables/10343556207. The pravashkarki.com list and board hold history only. Knowledge still sits in the old PCS folder https://app.basecamp.com/5746833/buckets/48856570/vaults/10293962918 until Docs & Files is on in the new project. This file is the local mirror.
 
 Working list for development sessions. Check items off (`[x]`) as they land; add new ones at the bottom of the right section. House rules for any task: see CLAUDE.md.
 

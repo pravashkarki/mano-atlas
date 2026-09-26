@@ -52,10 +52,11 @@ Every user-visible string exists twice: `class="en"` and `class="ne"` (Nepali). 
 
 All 29 pages fact-checked (Aug 2026) against DSM-5, WHO, and Nepali sources by four independent review agents; confirmed errors fixed. Key facts that were verified and must not regress: NWC "Khabar Garaun" helpline = 1145 (there is no NWC 104); suicide helpline 1166 (Mental Hospital Lagankhel); TUTH 1660 012 1600; women's 1145; emergency 112/100; first National Mental Health Policy 1996; official CTEVT module numbering = 1 Psychosocial Intervention (contains Mental Health sub-module) · 2 Case Management · 3 Counseling Skill and Process · 4 Capacity Building; GBV medical care: 72h window is HIV PEP only, 120h emergency contraception, care helps at any time; child-abuse reporting: Act Relating to Children 2075 (2018) Section 68(1), anyone who learns of violence or sexual abuse against a child must inform the nearest police office, informant protected under 68(3) and (4) (verified from the Law Commission text, 2026-09-02). Batch 2 chapters (Sep 2026) were pair-reviewed as content by DeepSeek and GPT-5.6; ledger in `review/content-triage.md`.
 
-## Basecamp (since 2026-09-11)
+## Basecamp (since 2026-09-26)
 
-- Action work: todolist "pcs.pravashkarki.com" in project pravashkarki.com, https://app.basecamp.com/5746833/buckets/48856570/todolists/10293958977 (bucket 48856570, todolist 10293958977). Canonical; TASKS.md is the local mirror.
-- Knowledge (findings, decisions, inventories): Docs & Files folder "PCS", https://app.basecamp.com/5746833/buckets/48856570/vaults/10293962918. Holds "Mano Atlas: goal and working rules", "Source inventory", "Curriculum coverage".
+- Project: manoatlas.com, https://app.basecamp.com/5746833/projects/49041895 (bucket 49041895).
+- Action work: the Mano Atlas board, https://app.basecamp.com/5746833/buckets/49041895/card_tables/10343556207. Columns: Triage, Not now, Shaping, Pitch, Building, Done. Run by the LastDoor process. The old pravashkarki.com list and board hold history only. Do not add work there.
+- Knowledge still sits in the old PCS folder until Docs & Files is on in the new project: https://app.basecamp.com/5746833/buckets/48856570/vaults/10293962918.
 - Access through `node ~/Work/lastdoor-tools/lds-bcpravo/launcher.js` (Pravo's identity), per the global rule.
 - Todos carry no due date (global rule since 2026-09-11). A todo defines scope; we build as we go.
 
