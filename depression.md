@@ -43,7 +43,7 @@ WHO ranks depression among the leading causes of disability worldwide: over 330 
 
 Nepal
 
-The Nepali client says "man dukhcha", "man bhari bhayo", "jiu galyo": the heart-mind hurts, the body has wilted, not "I am depressed". Suicide is the sharpest edge: studies since the 2008/09 maternal mortality review have repeatedly flagged suicide as a leading cause of death among Nepali women of reproductive age.
+The Nepali client says "man dukhcha", "man bhari bhayo", "jiu galyo": the heart-mind hurts, the body has wilted, not "I am depressed". Suicide is the sharpest edge: studies since the 2008/09 maternal mortality review have repeatedly flagged suicide as a leading cause of death among Nepali women of reproductive age. The National Mental Health Survey 2020 found major depressive disorder in 2.9% of adults at some point (95% CI 2.3 to 3.7) and in 1.0% currently; most are never counted. See [Nepal in numbers](https://manoatlas.com/data.md) for the full figures.
 
 Every depression assessment includes a direct, calm suicide question: asking does not plant the idea. Watch new mothers especially: family attention goes to the baby, and the mother's withdrawal is read as tiredness.
 

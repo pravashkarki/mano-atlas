@@ -94,6 +94,18 @@ The curriculum is the authority for its own structure, so a second source here m
 |---|---|---|
 | A large share of ever-married women report spousal violence, most never seeking help | gbv.html:40 | DHS 2022 reports a specific figure. The site currently states no number, which is safe. If a number is ever added it needs two sources. |
 
+## 8. The /data page (live since 2026-09-26)
+
+Every figure on `data.html` ("Nepal in numbers") is measured in Nepal and sourced in `review/mental-health-data.md`, which is the two-source record for this block. The framing that makes the survey figures compliant: Nepal has one national mental health survey, so for any NMHS figure the second source is the peer-reviewed analysis of the same survey (Dhimal et al., DOI 10.33314/jnhrc.v19i04.4017), and the page states the survey is the only national measurement and is at least six years old. The one modelled figure is the global 9.1% depression coverage from the WHO Mental Health Atlas, and it is labelled modelled.
+
+| Figure block | Where | Source 1 | Source 2 | Status |
+|---|---|---|---|---|
+| Per-disorder and any-disorder prevalence | data.html | NMHS 2020 CSVs (opendatanepal.com) | Dhimal et al., JNHRC | two-source (one survey, peer-reviewed second) |
+| Treatment gap and care pathways | data.html | NMHS 2020 CSVs (opendatanepal.com) | Dhimal et al., JNHRC | two-source |
+| Suicide deaths, FY 2080/81 | data.html | Nepal Police Annual Factsheet (opendatanepal.com) | needs an independent second | one-source |
+| Financing and workforce, 2020 | data.html | Rai et al., BJPsych International | needs an independent second | one-source |
+| Global median spend and workforce | data.html | WHO Mental Health Atlas 2024 | needs an independent second | one-source |
+
 ---
 
 ## What this ledger is for

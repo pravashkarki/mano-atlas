@@ -30,7 +30,7 @@ One of the most common mental disorders worldwide (US 12-month prevalence â‰ˆ 7â
 
 Nepal
 
-The National Mental Health Survey found a current rate of 0.2% for phobic anxiety disorders (95% CI 0.1 to 0.4), so most people living with a phobia here are never counted, and many are never named as having one. Presentations often arrive as body complaints ("mutu dhukdhuk", dizziness) rather than "fear". Distinguish a phobia from realistic caution: fearing a landslide path in monsoon is adaptive; refusing all travel year-round is not. Fear following a spirit-related interpretation (e.g., fear of a place after "saato gaeko": soul loss/fright) needs the cultural meaning explored before any label. Never invent a Nepali figure for a condition the survey did not measure.
+The National Mental Health Survey found a current rate of 0.2% for phobic anxiety disorders (95% CI 0.1 to 0.4), so most people living with a phobia here are never counted, and many are never named as having one. Presentations often arrive as body complaints ("mutu dhukdhuk", dizziness) rather than "fear". Distinguish a phobia from realistic caution: fearing a landslide path in monsoon is adaptive; refusing all travel year-round is not. Fear following a spirit-related interpretation (e.g., fear of a place after "saato gaeko": soul loss/fright) needs the cultural meaning explored before any label. Never invent a Nepali figure for a condition the survey did not measure. See [Nepal in numbers](https://manoatlas.com/data.md) for the full survey figures.
 
 **A worked example:** A 19-year-old named Arun avoids every bus ride because he fears losing control and screaming. His counselor distinguishes this from a phobia of travel itself, notes that the avoidance has spread from buses to leaving home, and explains that the panic curve figure shows what actually happens: the body cannot hold the alarm forever.
 
@@ -109,7 +109,7 @@ Twice as common in women; in primary care worldwide it usually presents as tired
 
 Nepal
 
-The classic Nepali GAD presentation is somatic: "jiu dukhcha, nindra lagdaina, man aattincha" (body aches, no sleep, the heart-mind panics). Common worry themes: debt and loans, a son abroad, land disputes, daughters' marriages, crop failure. Screen for thyroid disease and anaemia before concluding GAD: both are common and mimic it.
+The classic Nepali GAD presentation is somatic: "jiu dukhcha, nindra lagdaina, man aattincha" (body aches, no sleep, the heart-mind panics). Common worry themes: debt and loans, a son abroad, land disputes, daughters' marriages, crop failure. Screen for thyroid disease and anaemia before concluding GAD: both are common and mimic it. The National Mental Health Survey 2020 found generalized anxiety in 0.8% of adults currently (95% CI 0.6 to 1.1).
 
 Screening tool: GAD-7 (a validated Nepali version exists)
 

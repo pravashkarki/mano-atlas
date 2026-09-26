@@ -470,7 +470,7 @@ _MD_SKIP_TAGS = {
 }
 _MD_SKIP_CLASS = {
     "pill", "info", "secbadge", "dot", "head-right", "pagetools", "readtime",
-    "bignum", "kicker", "careline", "gentle", "onpage", "langsw", "code", "quickcheck",
+    "bignum", "careline", "gentle", "onpage", "langsw", "code", "quickcheck",
 }
 _MD_HEADING = {"h1": "#", "h2": "##", "h3": "###", "h4": "####", "h5": "#####", "h6": "######"}
 
@@ -810,8 +810,8 @@ SHELL = """<!DOCTYPE html>
         </div>
         <div>
           <h3 class="foot-h"><span class="en">Open &amp; improvable</span><span class="ne">खुला र सुधारयोग्य</span></h3>
-          <p class="en">Our own content is <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license noopener noreferrer" target="_blank">CC BY-NC-SA 4.0</a>: share and adapt with credit, never for charge. <a href="terms.html">Terms, licence and sources</a></p>
-          <p class="ne">हाम्रो आफ्नै सामग्री <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license noopener noreferrer" target="_blank">CC BY-NC-SA 4.0</a> अन्तर्गत: श्रेयसहित बाँड्न र मिलाउन पाइन्छ, तर कुनै शुल्क लिन पाइँदैन। <a href="terms.html">सर्त, इजाजतपत्र र स्रोतहरू</a></p>
+          <p class="en">Our own content is <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license noopener noreferrer" target="_blank">CC BY-NC-SA 4.0</a>: share and adapt with credit, never for charge. <a href="terms.html">Terms, licence and sources</a> · <a href="data.html">Nepal in numbers</a></p>
+          <p class="ne">हाम्रो आफ्नै सामग्री <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license noopener noreferrer" target="_blank">CC BY-NC-SA 4.0</a> अन्तर्गत: श्रेयसहित बाँड्न र मिलाउन पाइन्छ, तर कुनै शुल्क लिन पाइँदैन। <a href="terms.html">सर्त, इजाजतपत्र र स्रोतहरू</a> · <a href="data.html">[Nepali pending]</a></p>
           <p>{icon_mail} <span class="en">Spotted an error?</span><span class="ne">त्रुटि भेट्नुभयो?</span> <span class="mailrev" data-u="{email_user}" data-d="{email_domain}" data-t="{email_tld}">{email_user} [at] {email_domain} [dot] {email_tld}</span></p>
           <p class="fine"><span class="en">If a message says a child is being harmed, we have to tell the police.</span><span class="ne">सन्देशमा बालबालिकामाथि कुटुने कुरा भनिएको छ भने, हामीले प्रहरीलाई खबर गर्नुपर्छ।</span></p>
         </div>
@@ -1227,6 +1227,152 @@ def terms_html() -> str:
             + "".join(cards))
 
 
+# Nepali is on hold: new English-only material keeps a clearly-marked placeholder in
+# the ne slot so the bilingual pattern (and the bi() gate) holds without authoring
+# unreviewed Nepali. A native proofread fills these when the hold lifts.
+NE_TBD = "[Nepali pending]"
+
+
+def _en(s: str) -> str:
+    """English-only user-visible string under the Nepali hold: keep the ne slot filled."""
+    return bi({"en": s, "ne": NE_TBD})
+
+
+# Every figure below is taken from review/mental-health-data.md, which records the
+# source, year, sample and method for each. Values are the survey's own CSVs unless
+# the line is labelled modelled. Nothing here is invented; a figure that has no second
+# source or is still open in that document does not appear on the page.
+_NEPAL_PREVALENCE = [
+    ("Any mental disorder", "Lifetime", "10.0", "8.5 to 11.8"),
+    ("Any mental disorder", "Current (past 12 months)", "4.3", "3.5 to 5.2"),
+    ("Major depressive disorder", "Lifetime", "2.9", "2.3 to 3.7"),
+    ("Major depressive disorder", "Current", "1.0", "0.8 to 1.4"),
+    ("Generalized anxiety disorder", "Current", "0.8", "0.6 to 1.1"),
+    ("Panic disorder", "Lifetime", "0.7", "0.6 to 0.9"),
+    ("Panic disorder", "Current", "0.4", "0.3 to 0.5"),
+    ("Obsessive-compulsive disorder", "Current", "0.2", "0.1 to 0.4"),
+    ("Phobic anxiety disorder", "Current", "0.2", "0.1 to 0.4"),
+    ("Agoraphobia", "Current", "0.2", "0.1 to 0.4"),
+    ("Social anxiety disorder", "Current", "0.1", "0.0 to 0.3"),
+    ("Post-traumatic stress disorder", "Current", "0.0", "0.0 to 0.2"),
+    ("Schizophrenia and related", "Lifetime", "0.2", "0.1 to 0.3"),
+    ("Schizophrenia and related", "Current", "0.1", "0.1 to 0.3"),
+    ("Bipolar disorder", "Lifetime", "0.2", "0.1 to 0.5"),
+    ("Bipolar disorder", "Current", "0.1", "0.1 to 0.3"),
+    ("Alcohol use disorder", "Past 12 months", "4.2", "3.6 to 4.8"),
+    ("Adolescents, any disorder", "Lifetime", "5.2", "4.2 to 6.4"),
+]
+
+
+def data_html() -> str:
+    """The Nepal data page: the source-audited figures behind the atlas.
+
+    Standalone like /terms and /vault: not in PAGES, so no chapter number, no sidebar
+    row and no sitemap entry. Linked from the footer and from the disorder chapters that
+    carry a Nepal figure. English-only in the reader's eye; every string keeps its ne
+    slot with the hold placeholder (NE_TBD).
+    """
+    def row(cells):
+        return "<tr>" + "".join(f"<td>{c}</td>" for c in cells) + "</tr>"
+
+    prev_rows = []
+    for name, when, pct, ci in _NEPAL_PREVALENCE:
+        prev_rows.append(row([_en(name), _en(when), f"<strong>{pct}</strong>", ci]))
+
+    prev_table = (
+        '<div class="tblwrap"><table class="data">'
+        '<tr><th>' + _en("Condition") + '</th><th>' + _en("When") + '</th><th>' + _en("Percent") + '</th><th>'
+        + _en("95% confidence interval") + "</th></tr>"
+        + "".join(prev_rows)
+        + "</table></div>"
+    )
+
+    care_rows = [
+        ("Did not seek treatment (the treatment gap)", "77.3"),
+        ("Talked to anyone about symptoms", "40.1"),
+        ("Sought treatment", "22.7"),
+        ("Adhered to treatment", "21.1"),
+        ("Consulted a faith healer", "6.7"),
+        ("Admitted to hospital", "3.7"),
+        ("Talked to a health service provider", "3.5"),
+        ("Consulted a traditional healer", "1.9"),
+        ("Saw a counsellor", "0.3"),
+        ("Saw a psychologist", "0.2"),
+    ]
+    care_table = (
+        '<div class="tblwrap"><table class="data">'
+        '<tr><th>' + _en("Among adults with a mental disorder") + '</th><th>' + _en("Percent") + "</th></tr>"
+        + "".join(row([_en(k), f"<strong>{v}</strong>"]) for k, v in care_rows)
+        + "</table></div>"
+    )
+
+    cards = []
+    cards.append(_tcard(
+        "The headline",
+        NE_TBD,
+        ['<p>' + _en("One in ten adults in Nepal has had a mental disorder at some point in their life (10.0%, "
+                     "95% confidence interval 8.5 to 11.8). About one in twenty right now (4.3%, 3.5 to 5.2). "
+                     "The survey spoke to 9,200 adults and 5,888 adolescents between January 2019 and January 2020.") + '</p>',
+         '<p>' + _en("These figures come from the National Mental Health Survey 2020, the only nationally "
+                     "representative survey of adult and adolescent mental health Nepal has. They are measured, not "
+                     "modelled, and they are at least six years old now.") + '</p>']))
+    cards.append(_tcard(
+        "How common each disorder is",
+        NE_TBD,
+        [prev_table,
+         '<p>' + _en("Read the table with care. The post-traumatic stress figure is 0.0% with a confidence interval up "
+                     "to 0.2%: that is a rounding floor, not an absence. Alcohol use disorder at 4.2% over the past year "
+                     "is higher than major depressive disorder at 2.9% lifetime, so any page that leads with depression as "
+                     "the commonest condition misleads.") + '</p>',
+         '<p>' + _en("\u201cCurrent\u201d means the past 12 months. The survey labels a figure current, lifetime, or past "
+                     "12 months; a current figure should be compared only with the 4.3% any-disorder current, and a "
+                     "lifetime figure only with the 10.0% lifetime.") + '</p>']))
+    cards.append(_tcard(
+        "The treatment gap",
+        NE_TBD,
+        [care_table,
+         '<p>' + _en("About 77 in every 100 adults with a mental disorder did not seek treatment. Most told a family "
+                     "member; only a small minority reached a health worker. This gap, not the prevalence, is the number "
+                     "that matters most for anyone training to close it.") + '</p>']))
+    cards.append(_tcard(
+        "Suicide",
+        NE_TBD,
+        ['<p>' + _en("7,223 people died by suicide in fiscal year 2080/81, counted by Nepal Police. Of them, 4,011 were "
+                     "men, 2,364 women, 574 girls and 272 boys.") + '</p>',
+         '<p>' + _en("The four recorded years do not show a rising trend: 7,117, then 6,792, then 6,993, then 7,223. "
+                     "The series dips in the middle and ends near where it began.") + '</p>']))
+    cards.append(_tcard(
+        "Money and people",
+        NE_TBD,
+        ['<p>' + _en("Mental health received 0.2% of the health budget in 2020, down from 0.8% in 2008. There were 200 "
+                     "psychiatrists (up from 39), 500 psychiatric beds, and about 700 psychosocial counsellors trained to "
+                     "the 780-hour curriculum this atlas is built for.") + '</p>',
+         '<p>' + _en("Globally, the median country spends 2.1% of its government health spending on mental health, with "
+                     "13.5 specialised mental-health workers per 100,000 people. Low-income countries have 1.1 to 2.4. "
+                     "Worldwide, only about 9.1% of people with depression receive minimally adequate treatment, and that "
+                     "figure is modelled, not counted.") + '</p>']))
+    cards.append(_tcard(
+        "How to read these numbers",
+        NE_TBD,
+        ['<p>' + _en("Every figure here is measured in Nepal and names its source below, except the global depression "
+                     "coverage, which is a modelled estimate from the WHO Mental Health Atlas. The survey fieldwork ended "
+                     "in January 2020, so any figure is at least six years old, and the page says so rather than hiding "
+                     "the age.") + '</p>',
+         '<p>' + _en("Sources: the National Mental Health Survey 2020 (Ministry of Health and Population with the Nepal "
+                     "Health Research Council), peer-reviewed as Dhimal et al., and its CSVs republished on "
+                     "opendatanepal.com; the Nepal Police Annual Factsheet on Suicide and Cyber Crime, fiscal year "
+                     "2080/81; Rai et al., BJPsych International, for financing and workforce; and the WHO Mental Health "
+                     "Atlas 2024 for the global comparison.") + '</p>',
+         '<p class="fine">' + _en("This page is a reference, not a diagnosis. A number is a population pattern, not a "
+                                  "prediction about any one person.") + '</p>']))
+
+    return ('<div class="pagehead"><h1 class="kicker">'
+            + _en("Nepal in numbers") + '</h1></div>\n'
+            '<p class="secsub en">The figures behind the atlas: how common mental illness is in Nepal, how many people '
+            'get help, and where each number comes from.</p>\n'
+            + "".join(cards))
+
+
 def _llms_full(page_md: dict, page_descs: list) -> str:
     """One file with every page's full English markdown, for agents that want the atlas in a single read."""
     header = ("# Mano Atlas (मनो एट्लास)\n\n> " + SITE_DESC +
@@ -1544,6 +1690,35 @@ def main() -> None:
         htmlt = strip_ne(htmlt)
     (ROOT / "terms.html").write_text(htmlt)
     print("built terms.html")
+
+    # Nepal data: the source-audited figures behind the atlas. Standalone like /terms
+    # and /vault, linked from the footer and from the disorder chapters that carry a
+    # Nepal figure. Every number traces to review/mental-health-data.md.
+    dtitle = "Nepal in numbers" if PHASE1_ENGLISH_ONLY else "नेपाल अङ्कमा"
+    ddesc = ("How common mental illness is in Nepal, how many people get help, "
+             "and where each figure comes from.")
+    djsonld = json.dumps({
+        "@context": "https://schema.org",
+        "@graph": [
+            {"@type": "WebPage", "@id": SITE["site_url"] + "/data#webpage", "url": SITE["site_url"] + "/data",
+             "name": dtitle, "description": ddesc, "inLanguage": idx_langs,
+             "isPartOf": {"@id": SITE["site_url"] + "/#site"},
+             "about": {"@type": "Thing", "name": "Mental health data in Nepal"},
+             "author": {"@type": "Person", "name": "Pravash Karki"}},
+        ]}, ensure_ascii=False)
+    dmd_alt = f'<link rel="alternate" type="text/markdown" href="{SITE["site_url"]}/data.md" title="Markdown">'
+    htmld = SHELL.format(title=f"{dtitle} · Mano Atlas", nav=nav_html(""), content=data_html(), pager="",
+                         page_desc=ddesc, page_url=SITE["site_url"] + "/data", jsonld=djsonld,
+                         updated_en=SITE["reviewed_en"], updated_ne=SITE["reviewed_ne"], og_slug="index",
+                         og_alt="Mano Atlas", icon_search=ICON["search"], icon_menu=ICON["menu"], icon_panel=ICON["panel"], icon_phone=ICON["phone"], icon_mail=ICON["mail"],
+                         lang_boot=lang_boot, og_locale=og_locale, langsw_side=langsw_side, langsw_pill=langsw_pill, search_ph=search_ph, foot_blurb=foot_blurb, md_alt=dmd_alt, **SITE)
+    if PHASE1_ENGLISH_ONLY:
+        htmld = strip_ne(htmld)
+    (ROOT / "data.html").write_text(htmld)
+    dmd = html_to_markdown(strip_ne(data_html()), SITE["site_url"])
+    (ROOT / "data.md").write_text(dmd + "\n\n---\n\n*Source: " + SITE["site_url"] + "/data · Licence: CC BY-NC-SA 4.0. Mano Atlas is an educational resource, not a diagnostic tool.*\n")
+    print("built data.html")
+
     print(f"search index: {len(search_index)} entries, {len(idx_js)//1024} KB")
 
 

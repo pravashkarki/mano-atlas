@@ -33,7 +33,7 @@ Lifetime prevalence ~1–2% worldwide with a remarkably similar picture across c
 
 Nepal
 
-Culture supplies ready-made ritual channels: *chokho/jutho* (pure/polluted) rules, bathing after contact, puja repetition. The diagnostic line is function, not content: ritual purity observed like one's community is culture; washing until the skin breaks, or repeating puja for hours out of dread, is disorder. The National Mental Health Survey found a current rate of 0.2% (95% CI 0.1 to 0.4), so the condition is uncommon here and most people with it are never counted. Families often reach a dhami-jhankri first; engage respectfully rather than dismissing.
+Culture supplies ready-made ritual channels: *chokho/jutho* (pure/polluted) rules, bathing after contact, puja repetition. The diagnostic line is function, not content: ritual purity observed like one's community is culture; washing until the skin breaks, or repeating puja for hours out of dread, is disorder. The National Mental Health Survey found a current rate of 0.2% (95% CI 0.1 to 0.4), so the condition is uncommon here and most people with it are never counted. Families often reach a dhami-jhankri first; engage respectfully rather than dismissing. See [Nepal in numbers](https://manoatlas.com/data.md) for the full survey figures.
 
 ## Body Dysmorphic Disorder (BDD)
 

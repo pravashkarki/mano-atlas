@@ -50,6 +50,16 @@ Source intake: every instructor deck gets a row in `review/intake.md` (landing, 
 - **Both themes, numerically.** The page reuses `.card`, `.card-body`, `.callout`, `.fine`, `.pagehead .kicker` and adds no CSS, so contrast is inherited. Verified 2026-09-26 from the tokens: card/callout text `--ink` on `--surface` 14.98 light and 13.07 dark; kicker `--accent` on `--bg` 5.68 and 7.39; footer `--muted` on `--bg` 4.57 and 6.82; footer links `--accent-ink` on `--bg` 7.14 and 9.86. All pass AA. Recheck if any of those tokens move.
 - **To change a term:** edit `terms_html()` and `LICENSE` in the same commit, keep them consistent, and re-run the build. The published page governs where the two differ, and that is stated in `LICENSE`.
 
+## Nepal data (/data)
+
+`/data` ("Nepal in numbers") is a standalone page like `/terms` and `/vault`, built from `data_html()` in `build.py`, and NOT in `PAGES`: no chapter number, no sidebar row, no sitemap entry, no search-index row. It holds the source-audited Nepal figures: the National Mental Health Survey 2020 prevalence table, the treatment gap, suicide, financing and workforce, and the WHO Atlas global comparison. It is linked from the footer and from the depression, anxiety and OCD chapters.
+
+- **Every figure traces to `review/mental-health-data.md`.** That document is the single source of truth; `_NEPAL_PREVALENCE` in `build.py` is a mirror of its prevalence table. Do not add a number to the page that is not in that document, and do not change a number here without changing it there. A figure that is one-source, unsourced or still open in that document does not appear on the page.
+- **The survey is old and the page says so.** Fieldwork ended January 2020, so every figure is at least six years old; the "how to read" card states this and the "current = past 12 months" window. The PTSD 0.0% is a rounding floor, not an absence, and alcohol (4.2%) outranks depression (2.9% lifetime), so never lead a chapter with "depression is the commonest".
+- **Measured, not modelled, except the global coverage.** The Nepal figures are counted; the one global figure (9.1% depression coverage) is modelled and is labelled as such.
+- **No live call, no sync.** The data is a fixed survey and a yearly police factsheet; it is checked in, rendered statically at build time, and refreshed by hand when a new survey or factsheet lands. There is no API dependency and no runtime fetch.
+- **English-only in the reader's eye.** New prose on this page uses `_en(...)`, which fills the ne slot with the `NE_TBD` placeholder under the hold. When the hold lifts, the whole page (and the footer link label) gets a native proofread.
+
 ## Bilingual pattern (the markup never breaks, but Nepali is on hold)
 
 **Nepali is on hold until Pravo says otherwise (2026-09-26).** The site ships English only, through `PHASE1_ENGLISH_ONLY = True` in `build.py`. The hold applies to *work*, not to the markup. Two things follow from that, and they pull in opposite directions, so read both.
