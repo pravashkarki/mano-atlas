@@ -720,11 +720,15 @@ def vault_html() -> str:
             title = bi(f["title"])
             orig = f'<span class="vorig mono">{f["file"]}</span>\n' if f.get("file") else ""
             author = f'<span class="vauthor">{f["author"]}</span>' if f.get("author") else ""
+            # the author is a separate field, so the separator belongs to the join, not to
+            # whichever metadata value happens to come last (a row with no page count used
+            # to run the name straight on from the file size)
+            vmeta = " · ".join(x for x in (meta, author) if x)
             rows.append(
                 f'<li class="vfile">\n<div class="vhead">'
                 f'<a class="vname" href="{DRIVE_DL.format(id=f["id"])}">{title}</a>'
                 f'<span class="vtag">{bi(g["title"])}</span></div>\n'
-                f'<p class="vmeta mono">{meta}{author}</p>\n{orig}{about}{chapline}</li>\n')
+                f'<p class="vmeta mono">{vmeta}</p>\n{orig}{about}{chapline}</li>\n')
         sections.append(
             f'<section class="vgroup" id="v-{key}">\n'
             f'<h2>{bi(g["title"])}</h2>\n'
