@@ -17,8 +17,9 @@ content/     one HTML fragment per section (the teaching text)
 quizzes/     one small file per page: the three Quick-check questions
 keypoints/   one small file per page: the three "Key points" bullets shown before the Quick check
 assets/      style.css, lang.js, search.js, search-index.js (generated)
-build.py     SITE config + PAGES list; assembles everything → the *.html pages
+build.py     SITE config + PAGES list; assembles everything → the *.html pages, the *.md mirrors and llms.txt / llms-full.txt
 *.html       generated pages (never edit these by hand)
+*.md         generated English-only Markdown mirror of each page, for language models (never edit these by hand)
 ```
 
 ## Where to change what
@@ -33,7 +34,7 @@ build.py     SITE config + PAGES list; assembles everything → the *.html pages
 | Colours, fonts, layout | `assets/style.css` |
 | Language/theme/search/quiz behaviour | `assets/lang.js`, `assets/search.js` |
 
-After any edit: `python3 build.py`, then commit and push to `dev` (never to `main`; see Deployment). The pages, sidebar, home contents grid, pagers, gentle notes and the search index all regenerate themselves.
+After any edit: `python3 build.py`, then commit and push to `dev` (never to `main`; see Deployment). The pages, sidebar, home contents grid, pagers, gentle notes, the search index and the per-page Markdown mirrors all regenerate themselves.
 
 To add a chapter: create `content/<name>.html`, add one line to `PAGES` in `build.py`, run `python3 build.py` (this also regenerates the search index), commit.
 

@@ -2,57 +2,60 @@
 
 > Mano Atlas: a free, open atlas of mental disorders: DSM-5 criteria, teaching diagrams, and the Nepali context. English-first while the Nepali text is under review. Written for CTEVT Psychosocial Counselor students, community health workers and families in Nepal. The site is currently English-only while the Nepali text is under review. Content is licensed CC BY-NC-SA 4.0. It is an educational resource, not a diagnostic tool; diagnosis belongs to qualified clinicians.
 
+Every page below links to its Markdown mirror (same English text, no HTML chrome). The full atlas in one file is at llms-full.txt.
+
 Helplines inside Nepal: National Suicide Prevention Helpline 1166 (Mental Hospital, Lagankhel); TUTH mental-health hotline 1660 012 1600; women's helpline 1145 (NWC Khabar Garaun); emergency 112 / 100.
 
 Sources: DSM-5 (APA, 2013), CTEVT PSC Curriculum (2010), Sub-module 1 & 2 and Mental Health-3 class notes, WHO fact sheets and mhGAP, IASC MHPSS guidelines, Nepal MoHP policy documents.
 
 ## Overview
 
-- [Home & the DSM-5 map](https://manoatlas.com/): DSM-5 organises mental disorders into about twenty chapters, ordered roughly by the age at which they typically first appear.
-- [Roots: philosophy to psychology](https://manoatlas.com/roots): Psychology is a young science with a very old past. For more than two thousand years before the first laboratory, the questions of this whole site, what is mind? why do people suffer?
-- [Fear: the foundation](https://manoatlas.com/foundation): Fear is adaptive; the amygdala's alarm keeps you alive. Anxiety disorders are fear that has become untethered from real danger; the OCD spectrum is what happens when a person finds a behaviour that…
-- [Mental health basics](https://manoatlas.com/basics): Before any disorder can be named, three questions have to be answered: what is mental health, where is the line between normal and abnormal, and what causes the line to be crossed.
-- [Human development](https://manoatlas.com/development): A counselor reads every client against a map of what is normal for that age and stage . The curriculum asks for three things: the determinants of development, Maslow's hierarchy of needs, and…
+- [Home & the DSM-5 map](https://manoatlas.com/index.md): DSM-5 organises mental disorders into about twenty chapters, ordered roughly by the age at which they typically first appear.
+- [Roots: philosophy to psychology](https://manoatlas.com/roots.md): Psychology is a young science with a very old past. For more than two thousand years before the first laboratory, the questions of this whole site, what is mind? why do people suffer?
+- [Fear: the foundation](https://manoatlas.com/foundation.md): Fear is adaptive; the amygdala's alarm keeps you alive. Anxiety disorders are fear that has become untethered from real danger; the OCD spectrum is what happens when a person finds a behaviour that…
+- [Mental health basics](https://manoatlas.com/basics.md): Before any disorder can be named, three questions have to be answered: what is mental health, where is the line between normal and abnormal, and what causes the line to be crossed.
+- [Human development](https://manoatlas.com/development.md): A counselor reads every client against a map of what is normal for that age and stage . The curriculum asks for three things: the determinants of development, Maslow's hierarchy of needs, and…
 
 ## Disorder categories
 
-- [Anxiety disorders](https://manoatlas.com/anxiety): The most common family of mental disorders worldwide. In the CTEVT PSC curriculum this is the first named category ("Anxiety", M2 · Sub-module 2 · Task 3).
-- [OCD & related](https://manoatlas.com/ocd): DSM-5 moved OCD out of the anxiety chapter into its own family: disorders driven by repetitive behaviour that relieves distress.
-- [Depressive disorders](https://manoatlas.com/depression): The curriculum's second named type of mental illness, and a leading cause of disability worldwide.
-- [Trauma & stressor](https://manoatlas.com/trauma): The DSM-5 chapter built around an external event: no traumatic or stressful event, no diagnosis. A CTEVT PSC curriculum topic (trauma, PFA, IASC).
-- [Conversion & somatic](https://manoatlas.com/somatic): The curriculum's third named type, and in Nepal, arguably the most important differential a psychosocial counselor ever makes: conversion versus epilepsy.
-- [Psychosis](https://manoatlas.com/psychosis): The curriculum's fourth named type. Psychosis = a break with shared reality: delusions, hallucinations, disorganisation.
-- [Child mental illness](https://manoatlas.com/child): The curriculum's fifth item ("Be familiar with child's mental illness"). Separation anxiety is covered on the Anxiety disorders page; here are the four the CTEVT curriculum and the Mental Health-3…
-- [Eating disorders](https://manoatlas.com/eating): Anorexia nervosa has one of the highest mortality rates of any mental disorder: around 5% per decade. Never manage it alone; refer medically early.
-- [Sleep-wake disorders](https://manoatlas.com/sleep): Sleep is the most sensitive indicator of a client's mental state, and the thing you can most reliably improve in the first three sessions.
-- [Substance use](https://manoatlas.com/substance): A CTEVT PSC curriculum topic (substance abuse and the stages of change). DSM-5 merged the old "abuse" and "dependence" into one graded disorder per substance.
+- [Anxiety disorders](https://manoatlas.com/anxiety.md): The most common family of mental disorders worldwide. In the CTEVT PSC curriculum this is the first named category ("Anxiety", M2 · Sub-module 2 · Task 3).
+- [OCD & related](https://manoatlas.com/ocd.md): DSM-5 moved OCD out of the anxiety chapter into its own family: disorders driven by repetitive behaviour that relieves distress.
+- [Depressive disorders](https://manoatlas.com/depression.md): The curriculum's second named type of mental illness, and a leading cause of disability worldwide.
+- [Trauma & stressor](https://manoatlas.com/trauma.md): The DSM-5 chapter built around an external event: no traumatic or stressful event, no diagnosis. A CTEVT PSC curriculum topic (trauma, PFA, IASC).
+- [Conversion & somatic](https://manoatlas.com/somatic.md): The curriculum's third named type, and in Nepal, arguably the most important differential a psychosocial counselor ever makes: conversion versus epilepsy.
+- [Psychosis](https://manoatlas.com/psychosis.md): The curriculum's fourth named type. Psychosis = a break with shared reality: delusions, hallucinations, disorganisation.
+- [Child mental illness](https://manoatlas.com/child.md): The curriculum's fifth item ("Be familiar with child's mental illness"). Separation anxiety is covered on the Anxiety disorders page; here are the four the CTEVT curriculum and the Mental Health-3…
+- [Eating disorders](https://manoatlas.com/eating.md): Anorexia nervosa has one of the highest mortality rates of any mental disorder: around 5% per decade. Never manage it alone; refer medically early.
+- [Sleep-wake disorders](https://manoatlas.com/sleep.md): Sleep is the most sensitive indicator of a client's mental state, and the thing you can most reliably improve in the first three sessions.
+- [Substance use](https://manoatlas.com/substance.md): A CTEVT PSC curriculum topic (substance abuse and the stages of change). DSM-5 merged the old "abuse" and "dependence" into one graded disorder per substance.
 
 ## Counselling practice
 
-- [Wellbeing & intervention](https://manoatlas.com/wellbeing): "Psychosocial" is one word on purpose: the psychological (thoughts, emotions, behaviour) and the social (family, community, economy, culture) shape each other constantly.
-- [Approaches & forms](https://manoatlas.com/approaches): Counselling is a structured, confidential helping relationship in which a trained person helps a client understand their situation and find their own way through it.
-- [Communication skills](https://manoatlas.com/skills): 99 of your 780 hours go here, more than any disorder gets, because skills, not knowledge, are what the client experiences. Non-verbal skills open the door; verbal skills do the work.
-- [Listening back: reflecting skills](https://manoatlas.com/skills-listening): The table on Communication skills names seventeen verbal skills. Five of them make a client feel heard, and they are worked in full here: what to do, what to say, and the mistakes new counselors make.
-- [Moving forward: change skills](https://manoatlas.com/skills-moving): Once a client feels heard ( Listening back: reflecting skills ), four skills help them move: generating options, seeing a contradiction, getting the facts, and understanding their own body and mind.
-- [The counselling process](https://manoatlas.com/process): The curriculum breaks counselling into 24 tasks; they group into six stages. The craft is knowing which stage you are in, and not skipping ahead.
-- [The first sessions](https://manoatlas.com/first-sessions): The counselling process gives the map of the counselling process. This chapter is the first two stages in words: the four things you say before a client has told you anything, and the ten things you…
-- [Tools & techniques](https://manoatlas.com/tools): Words are not the only door. For children, for low-literacy clients, and for bodies stuck in alarm, the curriculum's toolbox, play, paper, breath, story, often works before talk does.
-- [Techniques step by step](https://manoatlas.com/techniques): These are what a trained counselor does with a person over several sessions, laid out in order so a student can see the shape of each.
-- [Suicide: assessment](https://manoatlas.com/suicide): The skill that outweighs every other in this course. The curriculum makes suicidal-thought assessment a task for every client (process task 13), because the question, asked calmly and directly, saves…
-- [PFA & emergencies](https://manoatlas.com/pfa): Nepal's counselors work in a country of earthquakes, floods, landslides, fires and bus accidents. PFA is what everyone can do in the first hours and days: humane, practical support that follows three…
-- [Gender & GBV](https://manoatlas.com/gbv): Sex is biology; gender is the roles, expectations and power a society attaches to it. GBV is violence that flows along those power lines, and in Nepal it is one of the most common wounds a counselor…
-- [HIV & AIDS counselling](https://manoatlas.com/hiv): HIV is now a manageable chronic condition: a person on treatment lives a near-normal lifespan, and effective treatment with a sustained undetectable viral load makes the virus sexually untransmittable…
-- [Case management](https://manoatlas.com/casemgmt): Module 2 in one page. Counselling that is not documented, supervised, and connected to a referral network is a conversation, not a service.
-- [Ethics & self-care](https://manoatlas.com/ethics): Grounded in the ACA Code of Ethics (the code in the CTEVT course pack) and the curriculum's ethics tasks. Ethics is not a list to memorise; it is how trust is manufactured, session after session.
+- [Wellbeing & intervention](https://manoatlas.com/wellbeing.md): "Psychosocial" is one word on purpose: the psychological (thoughts, emotions, behaviour) and the social (family, community, economy, culture) shape each other constantly.
+- [Approaches & forms](https://manoatlas.com/approaches.md): Counselling is a structured, confidential helping relationship in which a trained person helps a client understand their situation and find their own way through it.
+- [Communication skills](https://manoatlas.com/skills.md): 99 of your 780 hours go here, more than any disorder gets, because skills, not knowledge, are what the client experiences. Non-verbal skills open the door; verbal skills do the work.
+- [Listening back: reflecting skills](https://manoatlas.com/skills-listening.md): The table on Communication skills names seventeen verbal skills. Five of them make a client feel heard, and they are worked in full here: what to do, what to say, and the mistakes new counselors make.
+- [Moving forward: change skills](https://manoatlas.com/skills-moving.md): Once a client feels heard ( Listening back: reflecting skills ), four skills help them move: generating options, seeing a contradiction, getting the facts, and understanding their own body and mind.
+- [The counselling process](https://manoatlas.com/process.md): The curriculum breaks counselling into 24 tasks; they group into six stages. The craft is knowing which stage you are in, and not skipping ahead.
+- [The first sessions](https://manoatlas.com/first-sessions.md): The counselling process gives the map of the counselling process. This chapter is the first two stages in words: the four things you say before a client has told you anything, and the ten things you…
+- [Tools & techniques](https://manoatlas.com/tools.md): Words are not the only door. For children, for low-literacy clients, and for bodies stuck in alarm, the curriculum's toolbox, play, paper, breath, story, often works before talk does.
+- [Techniques step by step](https://manoatlas.com/techniques.md): These are what a trained counselor does with a person over several sessions, laid out in order so a student can see the shape of each.
+- [Suicide: assessment](https://manoatlas.com/suicide.md): The skill that outweighs every other in this course. The curriculum makes suicidal-thought assessment a task for every client (process task 13), because the question, asked calmly and directly, saves…
+- [PFA & emergencies](https://manoatlas.com/pfa.md): Nepal's counselors work in a country of earthquakes, floods, landslides, fires and bus accidents. PFA is what everyone can do in the first hours and days: humane, practical support that follows three…
+- [Gender & GBV](https://manoatlas.com/gbv.md): Sex is biology; gender is the roles, expectations and power a society attaches to it. GBV is violence that flows along those power lines, and in Nepal it is one of the most common wounds a counselor…
+- [HIV & AIDS counselling](https://manoatlas.com/hiv.md): HIV is now a manageable chronic condition: a person on treatment lives a near-normal lifespan, and effective treatment with a sustained undetectable viral load makes the virus sexually untransmittable…
+- [Case management](https://manoatlas.com/casemgmt.md): Module 2 in one page. Counselling that is not documented, supervised, and connected to a referral network is a conversation, not a service.
+- [Ethics & self-care](https://manoatlas.com/ethics.md): Grounded in the ACA Code of Ethics (the code in the CTEVT course pack) and the curriculum's ethics tasks. Ethics is not a list to memorise; it is how trust is manufactured, session after session.
 
 ## Reference
 
-- [The rest of the map](https://manoatlas.com/more): So the map has no blank spaces: the remaining DSM-5 categories, one honest sentence each. Any of these can become a full chapter later.
-- [Culture & the Nepal panorama](https://manoatlas.com/nepal): The cross-cutting Nepali material every chapter leaned on, gathered in one place: the ethnopsychology, the idioms of distress, and the history of mental health care.
-- [For PSC students](https://manoatlas.com/crosswalk): The CTEVT Psychosocial Counselor course has four modules. This page shows which pages of the atlas teach which part, so you always know where you are in the syllabus. Everyone else can safely skip it.
-- [Glossary](https://manoatlas.com/glossary): Terms that appear again and again across the atlas, each in one plain sentence. The English term is kept because it is what you will hear in hospitals, referral letters and exams; the Nepali column…
+- [The rest of the map](https://manoatlas.com/more.md): So the map has no blank spaces: the remaining DSM-5 categories, one honest sentence each. Any of these can become a full chapter later.
+- [Culture & the Nepal panorama](https://manoatlas.com/nepal.md): The cross-cutting Nepali material every chapter leaned on, gathered in one place: the ethnopsychology, the idioms of distress, and the history of mental health care.
+- [For PSC students](https://manoatlas.com/crosswalk.md): The CTEVT Psychosocial Counselor course has four modules. This page shows which pages of the atlas teach which part, so you always know where you are in the syllabus. Everyone else can safely skip it.
+- [Glossary](https://manoatlas.com/glossary.md): Terms that appear again and again across the atlas, each in one plain sentence. The English term is kept because it is what you will hear in hospitals, referral letters and exams; the Nepali column…
 
 ## Optional
 
+- [Full content (llms-full.txt)](https://manoatlas.com/llms-full.txt)
 - [Sitemap](https://manoatlas.com/sitemap.xml)
 - [Source repository](https://github.com/pravashkarki/mano-atlas)

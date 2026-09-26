@@ -458,6 +458,248 @@ def dual_title(html: str, fallback):
     return (plain_text(m.group(1)), plain_text(m.group(2)))
 
 
+# ---- English-only Markdown mirrors for language models and other agents ----
+# Each page ships a .md twin built from the same content source, so agents can read
+# the atlas without parsing the full HTML shell. The converter is stdlib-only: the
+# HTMLParser walks the already-transformed English body (Nepali stripped, refs resolved,
+# headings shifted) and emits clean CommonMark.
+_MD_SKIP_TAGS = {
+    "script", "style", "svg", "nav", "button", "input", "label", "select",
+    "textarea", "form", "noscript", "template", "iframe", "details", "img",
+    "picture", "source", "head", "title", "meta", "link", "dialog",
+}
+_MD_SKIP_CLASS = {
+    "pill", "info", "secbadge", "dot", "head-right", "pagetools", "readtime",
+    "bignum", "kicker", "careline", "gentle", "onpage", "langsw", "code", "quickcheck",
+}
+_MD_HEADING = {"h1": "#", "h2": "##", "h3": "###", "h4": "####", "h5": "#####", "h6": "######"}
+
+
+class _MarkdownWriter(HTMLParser):
+    """Streaming HTML to Markdown, tuned for the atlas content structure.
+
+    Handles headings, paragraphs, lists, definition lists, tables and the inline
+    strong/em/code/link forms. UI chrome (pills, badges, popovers, diagrams, nav)
+    is dropped so the .md carries the teaching prose only.
+    """
+
+    def __init__(self, base_url):
+        super().__init__(convert_charrefs=True)
+        self.base = (base_url or "").rstrip("/")
+        self.lines = []
+        self.cur = []        # inline tokens for the current line
+        self.skip = 0        # nesting depth inside a dropped subtree
+        self.link = []       # stack of hrefs for open <a>
+        self.list = []       # stack of {"t": "ul"/"ol", "n": int}
+        self.table = None    # list of rows while inside a <table>
+        self.cell = None     # inline buffer for the current cell (None = not in a cell)
+        self.cell_head = False
+        self.dt = None       # pending definition term, rendered with the next <dd>
+
+    # -- buffers ---------------------------------------------------------
+    def _buf(self):
+        return self.cell if self.cell is not None else self.cur
+
+    def _flush(self):
+        s = WS_RE.sub(" ", "".join(self.cur)).strip()
+        self.cur = []
+        return s
+
+    def _para(self):
+        s = self._flush()
+        if s:
+            self.lines.append(s)
+            self.lines.append("")
+
+    def _heading(self, prefix):
+        s = self._flush()
+        if s:
+            self.lines.append("")
+            self.lines.append(f"{prefix} {s}")
+            self.lines.append("")
+
+    def _item(self):
+        s = self._flush()
+        if s:
+            depth = len(self.list)
+            indent = "  " * (depth - 1) if depth else ""
+            ctx = self.list[-1] if self.list else {"t": "ul", "n": 0}
+            if ctx["t"] == "ol":
+                ctx["n"] += 1
+                marker = f"{ctx['n']}."
+            else:
+                marker = "-"
+            self.lines.append(f"{indent}{marker} {s}")
+
+    def _table(self):
+        rows = self.table or []
+        self.table = None
+        if not rows:
+            return
+        ncol = max((len(r) for r in rows), default=0)
+        if ncol == 0:
+            return
+        def norm(row):
+            return row + [("", False)] * (ncol - len(row))
+        header = norm(rows[0])
+        self.lines.append("")
+        self.lines.append("| " + " | ".join(c[0] for c in header) + " |")
+        self.lines.append("| " + " | ".join("---" for _ in range(ncol)) + " |")
+        for row in rows[1:]:
+            r = norm(row)
+            self.lines.append("| " + " | ".join(c[0] for c in r) + " |")
+        self.lines.append("")
+
+    def _href(self, href):
+        if href.startswith(("http://", "https://", "mailto:", "tel:", "#")):
+            return href
+        if href.endswith(".html"):
+            return f"{self.base}/{href[:-5]}.md"
+        return href
+
+    # -- parser callbacks -------------------------------------------------
+    def handle_starttag(self, tag, attrs):
+        a = dict(attrs)
+        if self.skip:
+            if tag not in VOID_TAGS:
+                self.skip += 1
+            return
+        cls = a.get("class", "").split()
+        if tag in _MD_SKIP_TAGS or (set(cls) & _MD_SKIP_CLASS):
+            if tag not in VOID_TAGS:
+                self.skip = 1
+            return
+        if tag == "table":
+            self.table = []
+            return
+        if self.table is not None:
+            if tag == "tr":
+                self.table.append([])
+            elif tag in ("th", "td"):
+                self.cell = []
+                self.cell_head = (tag == "th")
+            elif self.cell is not None:
+                if tag == "a":
+                    self._buf().append("[")
+                    self.link.append(self._href(a.get("href", "")))
+                elif tag in ("strong", "b"):
+                    self._buf().append("**")
+                elif tag in ("em", "i"):
+                    self._buf().append("*")
+                elif tag == "code":
+                    self._buf().append("`")
+            return
+        if tag == "a":
+            self._buf().append("[")
+            self.link.append(self._href(a.get("href", "")))
+        elif tag in ("strong", "b"):
+            self._buf().append("**")
+        elif tag in ("em", "i"):
+            self._buf().append("*")
+        elif tag == "code":
+            self._buf().append("`")
+        elif tag == "br":
+            self._buf().append(" ")
+        elif tag in _MD_HEADING:
+            pass  # text accumulates; heading prefix applied on end
+        elif tag == "ul":
+            self.list.append({"t": "ul", "n": 0})
+        elif tag == "ol":
+            self.list.append({"t": "ol", "n": 0})
+
+    def handle_endtag(self, tag):
+        if self.skip:
+            if tag not in VOID_TAGS:
+                self.skip -= 1
+            return
+        if self.table is not None:
+            if tag in ("th", "td") and self.cell is not None:
+                text = WS_RE.sub(" ", "".join(self.cell)).strip()
+                self.table[-1].append((text, self.cell_head))
+                self.cell = None
+            elif tag == "table":
+                self._table()
+            elif self.cell is not None:
+                if tag == "a":
+                    if self.link:
+                        self._buf().append(f"]({self.link.pop()})")
+                elif tag in ("strong", "b"):
+                    self._buf().append("**")
+                elif tag in ("em", "i"):
+                    self._buf().append("*")
+                elif tag == "code":
+                    self._buf().append("`")
+            return
+        if tag == "a":
+            if self.link:
+                self._buf().append(f"]({self.link.pop()})")
+        elif tag in ("strong", "b"):
+            self._buf().append("**")
+        elif tag in ("em", "i"):
+            self._buf().append("*")
+        elif tag == "code":
+            self._buf().append("`")
+        elif tag in _MD_HEADING:
+            self._heading(_MD_HEADING[tag])
+        elif tag in ("ul", "ol"):
+            if self.list:
+                self.list.pop()
+        elif tag == "li":
+            self._item()
+        elif tag == "dt":
+            s = self._flush()
+            if s:
+                self.dt = f"**{s}**"
+        elif tag == "dd":
+            s = self._flush()
+            if s:
+                self.lines.append(f"{self.dt} {s}" if self.dt else s)
+                self.lines.append("")
+            self.dt = None
+        elif tag in ("p", "div", "article", "section", "header", "footer",
+                     "figure", "figcaption", "blockquote", "dl", "pre"):
+            self._para()
+        elif tag == "hr":
+            self.lines.append("")
+            self.lines.append("---")
+            self.lines.append("")
+
+    def handle_startendtag(self, tag, attrs):
+        if tag == "br" and not self.skip:
+            self._buf().append(" ")
+
+    def handle_data(self, data):
+        if not self.skip:
+            self._buf().append(data)
+
+    def _finalize(self):
+        out = []
+        prev_blank = True
+        for line in self.lines:
+            if line == "":
+                if not prev_blank:
+                    out.append("")
+                prev_blank = True
+            else:
+                out.append(line)
+                prev_blank = False
+        while out and out[0] == "":
+            out.pop(0)
+        while out and out[-1] == "":
+            out.pop()
+        return "\n".join(out) + "\n"
+
+    def markdown(self):
+        self.close()
+        return self._finalize()
+
+
+def html_to_markdown(html: str, base_url: str) -> str:
+    w = _MarkdownWriter(base_url)
+    w.feed(html)
+    return w.markdown()
+
+
 SPOT = {'overview': '<svg class="spot" viewBox="0 0 170 120" role="img" aria-label="A compass with its needle pointing north-east.">\n  <g stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">\n    <circle cx="85" cy="62" r="40" style="fill:var(--bg)"/>\n    <circle cx="85" cy="62" r="46" fill="none" opacity=".35"/>\n    <line x1="85" y1="14" x2="85" y2="20"/><line x1="85" y1="104" x2="85" y2="110"/>\n    <line x1="37" y1="62" x2="43" y2="62"/><line x1="127" y1="62" x2="133" y2="62"/>\n  </g>\n  <path d="M85,62 L104,36 L92,62 Z" style="fill:var(--accent)"/>\n  <path d="M85,62 L66,88 L78,62 Z" fill="currentColor"/>\n  <path d="M85,62 L104,36 L92,62 L85,62 L66,88 L78,62 Z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>\n  <circle cx="85" cy="62" r="4" style="fill:var(--bg)" stroke="currentColor" stroke-width="2.4"/>\n</svg>', 'practice': '<svg class="spot" viewBox="0 0 170 120" role="img" aria-label="Two people sitting and talking, one leaning in to listen.">\n  <g stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">\n    <line x1="18" y1="104" x2="152" y2="104"/>\n    <!-- left person -->\n    <path d="M40,104 L40,82 C40,70 48,62 60,62 L66,62 C74,62 80,68 80,76 L80,104" style="fill:var(--bg)"/>\n    <path d="M80,84 C90,82 96,84 100,90" fill="none"/>\n    <circle cx="61" cy="46" r="13" style="fill:var(--bg)"/>\n    <path d="M48,44 C48,32 60,28 66,32 C72,30 76,38 74,45 C68,40 56,40 48,44 Z" fill="currentColor"/>\n    <!-- right person, leaning in -->\n    <path d="M132,104 L132,84 C132,72 124,64 112,64 L106,64 C98,64 92,70 92,78 L92,104" style="fill:var(--accent)"/>\n    <path d="M92,86 C86,88 82,92 80,96" fill="none"/>\n    <circle cx="110" cy="48" r="13" style="fill:var(--bg)"/>\n    <path d="M97,46 C97,34 108,29 116,33 C122,34 124,42 122,48 C114,42 104,42 97,46 Z" fill="currentColor"/>\n  </g>\n  <path d="M74,22 C80,14 92,14 98,22" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-dasharray="3 5"/>\n</svg>', 'disorders': '<svg class="spot" viewBox="0 0 170 120" role="img" aria-label="A small clay lamp, a diyo, burning in the dark.">\n  <circle cx="85" cy="56" r="46" fill="currentColor" opacity=".07"/>\n  <g stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">\n    <path d="M42,76 C42,72 48,70 60,70 L110,70 C122,70 128,72 128,76 C128,92 112,102 85,102 C58,102 42,92 42,76 Z" style="fill:var(--bg)"/>\n    <path d="M42,76 C50,80 70,82 85,82 C100,82 120,80 128,76" fill="none"/>\n    <path d="M66,102 C66,108 72,112 85,112 C98,112 104,108 104,102" fill="none"/>\n    <path d="M85,70 C85,66 86,62 88,58" fill="none"/>\n  </g>\n  <path d="M85,66 C74,52 78,40 85,28 C92,40 96,52 85,66 Z" style="fill:var(--accent)"/>\n  <path d="M85,60 C80,52 82,46 85,40 C88,46 90,52 85,60 Z" style="fill:var(--bg)"/>\n  <g stroke="currentColor" stroke-width="2.4" stroke-linecap="round" opacity=".7">\n    <line x1="56" y1="36" x2="62" y2="42"/><line x1="114" y1="36" x2="108" y2="42"/>\n    <line x1="85" y1="12" x2="85" y2="18"/>\n  </g>\n</svg>', 'reference': '<svg class="spot" viewBox="0 0 170 120" role="img" aria-label="An open book with a small sprig of leaves resting on it.">\n  <g stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">\n    <path d="M24,34 C44,26 66,28 85,40 L85,98 C66,86 44,84 24,92 Z" style="fill:var(--bg)"/>\n    <path d="M146,34 C126,26 104,28 85,40 L85,98 C104,86 126,84 146,92 Z" style="fill:var(--bg)"/>\n    <line x1="85" y1="40" x2="85" y2="98"/>\n    <path d="M36,50 C50,46 62,48 74,54" fill="none" opacity=".5"/><path d="M36,64 C50,60 62,62 74,68" fill="none" opacity=".5"/>\n    <path d="M96,54 C108,48 120,46 134,50" fill="none" opacity=".5"/><path d="M96,68 C108,62 120,60 134,64" fill="none" opacity=".5"/>\n    <line x1="20" y1="98" x2="150" y2="98"/>\n  </g>\n  <g stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">\n    <path d="M100,92 C110,78 120,66 134,52" fill="none"/>\n    <path d="M112,76 C104,74 100,66 102,58 C110,60 114,68 112,76 Z" style="fill:var(--accent)"/>\n    <path d="M118,68 C126,66 134,58 134,50 C126,52 118,58 118,68 Z" style="fill:var(--accent)"/>\n    <path d="M106,84 C100,82 96,76 98,70 C104,72 108,78 106,84 Z" style="fill:var(--accent)"/>\n  </g>\n</svg>'}
 
 
@@ -504,7 +746,7 @@ SHELL = """<!DOCTYPE html>
 <meta property="og:image:alt" content="{og_alt}">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="{site_url}/assets/og/{og_slug}.png">
-<link rel="alternate" type="text/plain" href="{site_url}/llms.txt" title="llms.txt">
+<link rel="alternate" type="text/plain" href="{site_url}/llms.txt" title="llms.txt">{md_alt}
 <script type="application/ld+json">{jsonld}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 48 48%22%3E%3Crect width=%2248%22 height=%2248%22 rx=%2211%22 fill=%22#1D6A73%22/%3E%3Cg stroke=%22#fff%22 stroke-width=%222.8%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22 fill=%22none%22%3E%3Cpath d=%22M24 37 C24 30 23.5 25 24 19%22/%3E%3Cpath d=%22M24 27 C18 27 14.5 22.5 14 17 C20 17.5 23.5 21.5 24 27 Z%22 fill=%22#8ACBD2%22/%3E%3Cpath d=%22M24 23 C30 23 33.5 18.5 34 13 C28 13.5 24.5 17.5 24 23 Z%22 fill=%22#8ACBD2%22/%3E%3C/g%3E%3Ccircle cx=%2224%22 cy=%2238.5%22 r=%222.6%22 fill=%22#fff%22/%3E%3C/svg%3E">
@@ -985,6 +1227,19 @@ def terms_html() -> str:
             + "".join(cards))
 
 
+def _llms_full(page_md: dict, page_descs: list) -> str:
+    """One file with every page's full English markdown, for agents that want the atlas in a single read."""
+    header = ("# Mano Atlas (मनो एट्लास)\n\n> " + SITE_DESC +
+              " Written for CTEVT Psychosocial Counselor students, community health workers and families in Nepal. "
+              "The site is currently English-only while the Nepali text is under review. "
+              "Content is licensed CC BY-NC-SA 4.0. It is an educational resource, not a diagnostic tool; diagnosis belongs to qualified clinicians.\n\n"
+              "Helplines inside Nepal: National Suicide Prevention Helpline 1166 (Mental Hospital, Lagankhel); TUTH mental-health hotline 1660 012 1600; women's helpline 1145 (NWC Khabar Garaun); emergency 112 / 100.\n\n"
+              "Sources: DSM-5 (APA, 2013), CTEVT PSC Curriculum (2010), Sub-module 1 & 2 and Mental Health-3 class notes, WHO fact sheets and mhGAP, IASC MHPSS guidelines, Nepal MoHP policy documents.\n")
+    parts = [header.rstrip()]
+    parts += [page_md[s].strip() for s, *_ in page_descs]
+    return "\n\n".join(parts) + "\n"
+
+
 def main() -> None:
     content_dir = ROOT / "content"
     hero = (content_dir / "hero.html").read_text().replace('<!--TOC-->', recent_html() + toc_html())
@@ -1002,6 +1257,7 @@ def main() -> None:
     idx_langs = ["en"] if PHASE1_ENGLISH_ONLY else ["en", "ne"]
     search_index = []
     page_descs = []
+    page_md = {}
     quiz_dir = ROOT / "quizzes"
     for i, (slug, fname, en, ne, cat, group) in enumerate(PAGES):
         num = NUM[slug]
@@ -1141,6 +1397,19 @@ def main() -> None:
         secsub = re.search(r'<p class="secsub en">(.*?)</p>', body, re.S)
         page_desc = html_mod.escape(meta_desc(plain_text(secsub.group(1)) if secsub else SITE_DESC))
         page_url = f'{SITE["site_url"]}/' if slug == "index" else f'{SITE["site_url"]}/{slug}'
+        # Markdown mirror: an English-only twin of this page for language models and
+        # other agents. Built from the same transformed body, so it can never drift
+        # from the HTML it mirrors.
+        md_slug = "index" if slug == "index" else slug
+        md_url = f'{SITE["site_url"]}/{md_slug}.md'
+        md_alt = f'<link rel="alternate" type="text/markdown" href="{md_url}" title="Markdown">'
+        md_text = html_to_markdown(strip_ne(body), SITE["site_url"])
+        if slug == "index":
+            md_text = f"# {en}\n\n" + md_text
+        page_md[slug] = (md_text + "\n\n---\n\n"
+                         f"*Source: {page_url} · Licence: CC BY-NC-SA 4.0. Mano Atlas is an "
+                         "educational resource, not a diagnostic tool.*\n")
+        (ROOT / f"{md_slug}.md").write_text(page_md[slug])
         group_en, group_ne = GROUPS[group]
         article = {
             "@type": ["Article", "LearningResource"], "@id": page_url + "#article", "url": page_url,
@@ -1168,7 +1437,7 @@ def main() -> None:
         page_descs.append((slug, en, ne, html_mod.unescape(page_desc), group_en))
         html = SHELL.format(title=title, nav=nav_html(slug), content=content, pager=pager_html(i), page_desc=page_desc, page_url=page_url, jsonld=jsonld,
                             updated_en=updated, updated_ne=updated.translate(NE_DIGITS), og_slug=slug, og_alt=html_mod.escape(f"{en}" if PHASE1_ENGLISH_ONLY else (f"{en} · {ne}" if slug != "index" else "Mano Atlas · मनो एट्लास")), icon_search=ICON["search"], icon_menu=ICON["menu"], icon_panel=ICON["panel"], icon_phone=ICON["phone"], icon_mail=ICON["mail"],
-                            lang_boot=lang_boot, og_locale=og_locale, langsw_side=langsw_side, langsw_pill=langsw_pill, search_ph=search_ph, foot_blurb=foot_blurb, **SITE)
+                            lang_boot=lang_boot, og_locale=og_locale, langsw_side=langsw_side, langsw_pill=langsw_pill, search_ph=search_ph, foot_blurb=foot_blurb, md_alt=md_alt, **SITE)
         if PHASE1_ENGLISH_ONLY:
             html = strip_ne(html)
         (ROOT / f"{slug}.html").write_text(html)
@@ -1200,20 +1469,27 @@ def main() -> None:
     by_grp = {}
     for s, e, n_, d, g in page_descs:
         title = e if PHASE1_ENGLISH_ONLY else f"{e} · {n_}"
-        by_grp.setdefault(g, []).append(f"- [{title}]({SITE['site_url']}/{'' if s == 'index' else s}): {d}")
+        md_path = "index.md" if s == "index" else f"{s}.md"
+        by_grp.setdefault(g, []).append(f"- [{title}]({SITE['site_url']}/{md_path}): {d}")
     lang_line = ("The site is currently English-only while the Nepali text is under review." if PHASE1_ENGLISH_ONLY
                  else "Every page carries the same text in English and Nepali.")
     llms = ("# Mano Atlas (मनो एट्लास)\n\n> " + SITE_DESC + " Written for CTEVT Psychosocial Counselor students, community health workers and families in Nepal. "
             + lang_line + " Content is licensed CC BY-NC-SA 4.0. It is an educational resource, not a diagnostic tool; diagnosis belongs to qualified clinicians.\n\n"
+            "Every page below links to its Markdown mirror (same English text, no HTML chrome). "
+            "The full atlas in one file is at llms-full.txt.\n\n"
             "Helplines inside Nepal: National Suicide Prevention Helpline 1166 (Mental Hospital, Lagankhel); TUTH mental-health hotline 1660 012 1600; women's helpline 1145 (NWC Khabar Garaun); emergency 112 / 100.\n\n"
             "Sources: DSM-5 (APA, 2013), CTEVT PSC Curriculum (2010), Sub-module 1 & 2 and Mental Health-3 class notes, WHO fact sheets and mhGAP, IASC MHPSS guidelines, Nepal MoHP policy documents.\n\n")
     for g, lines in by_grp.items():
         llms += f"## {g}\n\n" + "\n".join(lines) + "\n\n"
-    llms += "## Optional\n\n- [Sitemap](" + SITE["site_url"] + "/sitemap.xml)\n- [Source repository](https://github.com/pravashkarki/mano-atlas)\n"
+    llms += ("## Optional\n\n"
+             "- [Full content (llms-full.txt)](" + SITE["site_url"] + "/llms-full.txt)\n"
+             "- [Sitemap](" + SITE["site_url"] + "/sitemap.xml)\n"
+             "- [Source repository](https://github.com/pravashkarki/mano-atlas)\n")
     (ROOT / "llms.txt").write_text(llms)
+    (ROOT / "llms-full.txt").write_text(_llms_full(page_md, page_descs))
     html404 = SHELL.format(title="Page not found · Mano Atlas", nav=nav_html("index"), content=nf, pager="", page_desc=SITE_DESC, page_url=SITE["site_url"] + "/404", jsonld="{}",
                            updated_en=SITE["reviewed_en"], updated_ne=SITE["reviewed_ne"], og_slug="index", og_alt="Mano Atlas" if PHASE1_ENGLISH_ONLY else "Mano Atlas · मनो एट्लास", icon_search=ICON["search"], icon_menu=ICON["menu"], icon_panel=ICON["panel"], icon_phone=ICON["phone"], icon_mail=ICON["mail"],
-                           lang_boot=lang_boot, og_locale=og_locale, langsw_side=langsw_side, langsw_pill=langsw_pill, search_ph=search_ph, foot_blurb=foot_blurb, **SITE)
+                           lang_boot=lang_boot, og_locale=og_locale, langsw_side=langsw_side, langsw_pill=langsw_pill, search_ph=search_ph, foot_blurb=foot_blurb, md_alt="", **SITE)
     if PHASE1_ENGLISH_ONLY:
         html404 = strip_ne(html404)
     (ROOT / "404.html").write_text(html404)
@@ -1237,7 +1513,7 @@ def main() -> None:
                          page_desc=vdesc, page_url=SITE["site_url"] + "/vault", jsonld=vjsonld,
                          updated_en=SITE["reviewed_en"], updated_ne=SITE["reviewed_ne"], og_slug="index",
                          og_alt="Mano Atlas", icon_search=ICON["search"], icon_menu=ICON["menu"], icon_panel=ICON["panel"], icon_phone=ICON["phone"], icon_mail=ICON["mail"],
-                         lang_boot=lang_boot, og_locale=og_locale, langsw_side=langsw_side, langsw_pill=langsw_pill, search_ph=search_ph, foot_blurb=foot_blurb, **SITE)
+                         lang_boot=lang_boot, og_locale=og_locale, langsw_side=langsw_side, langsw_pill=langsw_pill, search_ph=search_ph, foot_blurb=foot_blurb, md_alt="", **SITE)
     if PHASE1_ENGLISH_ONLY:
         htmlv = strip_ne(htmlv)
     (ROOT / "vault.html").write_text(htmlv)
@@ -1263,7 +1539,7 @@ def main() -> None:
                          page_desc=tdesc, page_url=SITE["site_url"] + "/terms", jsonld=tjsonld,
                          updated_en=SITE["reviewed_en"], updated_ne=SITE["reviewed_ne"], og_slug="index",
                          og_alt="Mano Atlas", icon_search=ICON["search"], icon_menu=ICON["menu"], icon_panel=ICON["panel"], icon_phone=ICON["phone"], icon_mail=ICON["mail"],
-                         lang_boot=lang_boot, og_locale=og_locale, langsw_side=langsw_side, langsw_pill=langsw_pill, search_ph=search_ph, foot_blurb=foot_blurb, **SITE)
+                         lang_boot=lang_boot, og_locale=og_locale, langsw_side=langsw_side, langsw_pill=langsw_pill, search_ph=search_ph, foot_blurb=foot_blurb, md_alt="", **SITE)
     if PHASE1_ENGLISH_ONLY:
         htmlt = strip_ne(htmlt)
     (ROOT / "terms.html").write_text(htmlt)

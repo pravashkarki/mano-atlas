@@ -9,12 +9,13 @@ content/     one HTML fragment per chapter = the teaching text (EDIT THESE)
 quizzes/     one file per page: the three Quick-check questions
 keypoints/   one file per page: the three "Key points" bullets shown before the Quick check
 assets/      style.css, lang.js, search.js, search-index.js (generated)
-build.py     SITE config + PAGES list + SHELL template → generates the root *.html
+build.py     SITE config + PAGES list + SHELL template → generates the root *.html, the *.md mirrors, llms.txt and llms-full.txt
 *.html       GENERATED — never edit by hand, always edit content/ and rebuild
+*.md         GENERATED — English-only Markdown mirror of each page for language models; edit content/ and rebuild
 review/      plans, reviews, ledgers: tracked in git, kept off the site by .vercelignore (review/sources/ stays untracked)
 ```
 
-After ANY edit: `python3 build.py` then commit. The build regenerates all pages, the sidebar accordion, home contents grid, pagers, reading times, care notes, res-type icons, the search index, the per-page "updated" stamp (from git) and the home "Recently added" strip.
+After ANY edit: `python3 build.py` then commit. The build regenerates all pages, the sidebar accordion, home contents grid, pagers, reading times, care notes, res-type icons, the search index, the per-page "updated" stamp (from git), the home "Recently added" strip, and the English-only Markdown mirror of each page plus `llms.txt` and `llms-full.txt`.
 
 Add a chapter: create `content/<name>.html` (with an EMPTY `<span class="secbadge neutral"></span>`), `keypoints/<name>.html`, `quizzes/<name>.html`, add one row to `PAGES` in build.py at the reading-order position, rebuild. Chapter numbers are NOT stored anywhere: the build numbers by position (since 2026-09-02, commit c2cf486). Slugs are the stable identity; numbers are reading-order positions.
 
@@ -31,7 +32,7 @@ Source intake: every instructor deck gets a row in `review/intake.md` (landing, 
 - **Add or change a file:** put the PDF in the public course Drive folder, take the id out of its share URL, add a row to `vault.json` (id, group, filename, bilingual `title` and `about`, optional `type` / `size` / `pages`, and the `chapters` it maps to as slugs), rebuild. The build fails on a malformed Drive id or an unknown chapter slug.
 - **`chapters` is not a guess.** A row links to a chapter only when `review/intake.md` records that the deck's content landed in that chapter. An empty list is a valid answer, and four rows have one.
 - **Downloads are forced** by the `uc?export=download&id=` query parameter, not by a `download` attribute: the attribute is ignored on cross-origin links, the parameter is what makes Drive answer with `Content-Disposition: attachment`.
-- **The gate is a marker, not a security boundary.** It hashes the typed password with `crypto.subtle` in the page and compares it to `password_sha256` in `vault.json`. The Drive folder is public, so anyone who can reach the page can read the links in its source, and `vault.json` itself is served at `/vault.json` (Vercel deploys the committed files, there is no build step). Real protection means private Drive files plus a server function with a service account, which is a different build. Keep that honest in any copy about the page.
+- **The gate is a marker, not a security boundary.** It hashes the typed password with `crypto.subtle` in the page and compares it to `password_sha256` in `vault.json`. The Drive folder is public, so anyone who can reach the page can read the links in its source; `vault.json` itself is kept off the deployment by `.vercelignore` (2026-09-26), so the file list is not a public file. Real protection means private Drive files plus a server function with a service account, which is a different build. Keep that honest in any copy about the page.
 - **The gate is not a `<form>`.** A form with JS off falls back to a native GET submit and drops the password into the URL, where browser history and request logs keep it. It is a `div[role=group]` with a `button type=button`; Enter is handled by hand.
 - **To change the password:** `python3 -c "import hashlib;print(hashlib.sha256(b'...').hexdigest())"`, then put the hex in `vault.json`. It needs a secure context, so it works on the https site and on the Vercel preview, and not from `file://`; the page says so rather than falling back to something weaker.
 - **Bilingual is not optional here.** `bi()` raises and stops the build if a string has no Nepali, including the strings written inside `build.py` itself.

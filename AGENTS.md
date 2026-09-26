@@ -4,9 +4,9 @@ The full working notes for this repository are in `CLAUDE.md`. Read that first; 
 
 ## Read-only site source
 
-The root `*.html` files are generated. Never edit one by hand. Every teaching page comes from `content/<slug>.html`, its three Quick-check questions from `quizzes/<slug>.html`, its three Key points from `keypoints/<slug>.html`, and the page shell, navigation, numbering, reading time, search index, sitemap and social images from `build.py`. Edit the source, then run `python3 build.py` and commit the result.
+The root `*.html` files are generated. Never edit one by hand. Every teaching page comes from `content/<slug>.html`, its three Quick-check questions from `quizzes/<slug>.html`, its three Key points from `keypoints/<slug>.html`, and the page shell, navigation, numbering, reading time, search index, sitemap, social images and the English-only Markdown mirror (`<slug>.md`) from `build.py`. Edit the source, then run `python3 build.py` and commit the result.
 
-`review/` holds planning, review and source ledgers. It is tracked in git and kept off the deployment by `.vercelignore`. `content/`, `quizzes/`, `keypoints/` and `build.py` are also never deployed: Vercel serves the generated HTML.
+`review/` holds planning, review and source ledgers. It is tracked in git and kept off the deployment by `.vercelignore`. `content/`, `quizzes/`, `keypoints/` and `build.py` are also never deployed: Vercel serves the generated HTML plus the generated Markdown mirrors (`*.md`), `llms.txt` and `llms-full.txt`.
 
 ## Nepali is on hold
 
