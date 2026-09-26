@@ -551,7 +551,7 @@ SHELL = """<!DOCTYPE html>
         </div>
       </div>
       <p class="fine"><span class="en">Built from the CTEVT Psychosocial Counselor curriculum, class notes, and the sources named on each page.</span><span class="ne">सीटीईभीटी मनोसामाजिक परामर्शकर्ता पाठ्यक्रम, कक्षा-नोट र प्रत्येक पृष्ठमा उल्लिखित स्रोतबाट निर्मित।</span></p>
-      <p class="fine"><span class="en">Maintained and updated by <a href="https://pravashkarki.com" target="_blank" rel="noopener noreferrer">Pravash Karki</a>. Hosting and other infrastructure supported by LastDoor.</span><span class="ne">सञ्चालन र अद्यावधिकारण <a href="https://pravashkarki.com" target="_blank" rel="noopener noreferrer">पृवाश कार्की</a>द्वारा गरिएको। होस्टिङ र अन्य पूर्वाधार सहयोग लास्टडोरले गरेको छ।</span></p>
+      <p class="fine"><span class="en">Maintained and updated by <a href="https://pravashkarki.com" target="_blank" rel="noopener noreferrer">Pravash Karki</a>. Hosting and other infrastructure supported by <a href="https://lastdoorsolutions.com" target="_blank" rel="noopener noreferrer">LastDoor</a>.</span><span class="ne">सञ्चालन र अद्यावधिकारण <a href="https://pravashkarki.com" target="_blank" rel="noopener noreferrer">पृवाश कार्की</a>द्वारा गरिएको। होस्टिङ र अन्य पूर्वाधार सहयोग <a href="https://lastdoorsolutions.com" target="_blank" rel="noopener noreferrer">लास्टडोर</a>ले गरेको छ।</span></p>
     </footer>
     </div>
   </main>
