@@ -127,8 +127,8 @@
 
   /* legend + status pills */
   .pill{display:inline-flex; align-items:center; gap:6px; font-family:'Archivo','Archivo-fb','Mukta',sans-serif;
-    font-size:var(--fs-11h); font-weight:700; letter-spacing:.04em; text-transform:uppercase;
-    border-radius:4px; padding:2.5px 8px; white-space:nowrap}
+    font-size:var(--fs-11h); font-weight:700; letter-spacing:.04em; text-transform:uppercase; line-height:1.2;
+    border-radius:4px; padding:2.5px 5px; white-space:nowrap}
   html[data-lang="ne"] .pill{text-transform:none; font-size:var(--fs-12h)}
   .pill.done{background:var(--ok-wash); color:var(--ok)}
   .pill.todo{background:var(--gap-wash); color:var(--gap)}
