@@ -2,7 +2,15 @@
 
 A free, open, bilingual (English / नेपाली) atlas of mental disorders: DSM-5 criteria in plain language, teaching diagrams, international examples, and the Nepali context throughout. Born from a CTEVT Psychosocial Counselor study project; written for anyone learning. Curriculum topics carry a small "CTEVT PSC curriculum" tag for counselling students.
 
-A multi-page static site with a centred sidebar-plus-content layout, grouped navigation (Overview · Disorder categories · Counselling practice · Reference), client-side search, an English/नेपाली switcher, an Auto/Light/Dark theme switch, interactive "Quick check" questions on every page, and a site-wide footer with crisis helplines, a CC BY-NC-SA licence, and an error-report contact.
+A multi-page static site with a centred sidebar-plus-content layout, grouped navigation (Overview · Disorder categories · Counselling practice · Reference), client-side search, an English/नेपाली switcher, an Auto/Light/Dark theme switch, interactive "Quick check" questions on every page, and a site-wide footer with crisis helplines, an error-report contact, and a pointer to the terms page.
+
+## Licence
+
+Content (our own writing, diagrams, illustrations, quizzes, key points) is **CC BY-NC-SA 4.0**: share and adapt with credit, never for charge, and pass the same licence on. Build code is **MIT**. The site name and logo are reserved.
+
+Full terms, the safeguarding notice that sits beside the error-report address, and the list of material that keeps other people's rights are in [`LICENSE`](./LICENSE) and published at [`/terms`](https://manoatlas.com/terms). Not covered by the content licence: DSM-5 criteria and codes (APA), instructor teaching decks reproduced with separate permission, and third-party datasets, each used with attribution.
+
+**Not legal advice.** The licence was written to be accurate, not lawyer-reviewed. Clear any commercial reuse, paid translation, or use in a fee-charging course in writing first.
 
 ```
 content/     one HTML fragment per section (the teaching text)

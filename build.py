@@ -545,9 +545,10 @@ SHELL = """<!DOCTYPE html>
         </div>
         <div>
           <h3 class="foot-h"><span class="en">Open &amp; improvable</span><span class="ne">खुला र सुधारयोग्य</span></h3>
-          <p class="en">Content licensed <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license noopener noreferrer" target="_blank">CC BY-NC-SA 4.0</a>: share and adapt with credit, non-commercially.</p>
-          <p class="ne">सामग्री <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license noopener noreferrer" target="_blank">CC BY-NC-SA 4.0</a> अन्तर्गत: श्रेयसहित, गैर-व्यावसायिक रूपमा बाँड्न र मिलाउन पाइन्छ।</p>
+          <p class="en">Our own content is <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license noopener noreferrer" target="_blank">CC BY-NC-SA 4.0</a>: share and adapt with credit, never for charge. <a href="terms.html">Terms, licence and sources</a></p>
+          <p class="ne">हाम्रो आफ्नै सामग्री <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license noopener noreferrer" target="_blank">CC BY-NC-SA 4.0</a> अन्तर्गत: श्रेयसहित बाँड्न र मिलाउन पाइन्छ, तर कुनै शुल्क लिन पाइँदैन। <a href="terms.html">सर्त, इजाजतपत्र र स्रोतहरू</a></p>
           <p>{icon_mail} <span class="en">Spotted an error?</span><span class="ne">त्रुटि भेट्नुभयो?</span> <span class="mailrev" data-u="{email_user}" data-d="{email_domain}" data-t="{email_tld}">{email_user} [at] {email_domain} [dot] {email_tld}</span></p>
+          <p class="fine"><span class="en">If a message says a child is being harmed, we have to tell the police.</span><span class="ne">सन्देशमा बालबालिकामाथि कुटुने कुरा भनिएको छ भने, हामीले प्रहरीलाई खबर गर्नुपर्छ।</span></p>
         </div>
       </div>
       <p class="fine"><span class="en">Built from the CTEVT Psychosocial Counselor curriculum, class notes, and the sources named on each page.</span><span class="ne">सीटीईभीटी मनोसामाजिक परामर्शकर्ता पाठ्यक्रम, कक्षा-नोट र प्रत्येक पृष्ठमा उल्लिखित स्रोतबाट निर्मित।</span></p>
@@ -798,6 +799,136 @@ def vault_html() -> str:
     return head + gate + '<div id="vlist" hidden>\n' + "".join(sections) + '</div>\n' + script
 
 
+def _tcard(head_en: str, head_ne: str, body: list) -> str:
+    return ('<div class="card"><div class="card-body">\n'
+            '        <h3><span class="en">' + head_en + '</span><span class="ne">' + head_ne + '</span></h3>\n'
+            '        ' + "\n        ".join(body) + '\n      </div></div>\n')
+
+
+def terms_html() -> str:
+    """The terms, licence and safeguarding page.
+
+    Standalone like /vault: not in PAGES, so it has no chapter number, no sidebar
+    row and no sitemap entry, and adding it never renumbers anything. It is linked
+    from the site footer on every page, because a licence nobody can reach is not a
+    licence. Bilingual, and every string carries both languages.
+    """
+    cards = []
+    cards.append(_tcard(
+        "What this site is",
+        "यो साइट के हो",
+        ['<p>' + bi({"en": "Free open teaching material about mental health, in English and Nepali. "
+                            "It was written for people training to counsel and for anyone who wants to understand the subject. "
+                            "There is no account, no fee, and nothing here tracks who reads it.",
+                     "ne": "मानसिक स्वास्थ्यबारे निःशुल्क, खुला सिकाउने सामग्री, अङ्ग्रेजी र नेपाली दुवै भाषामा। "
+                           "यो परामर्शकर्ता बन्ने प्रशिक्षणार्थी र विषय बुझ्न चाहने जो कोहीका लागि लेखिएको हो। "
+                           "यहाँ न खाता छ, न शुल्क, र कसले पढ्छ भन्ने कुरा यहाँ अनुगमन हुँदैन।"}) + '</p>']))
+    cards.append(_tcard(
+        "What it is not",
+        "यो के होइन",
+        ['<p>' + bi({"en": "It is not medical advice, not legal advice, and not a diagnostic tool. "
+                            "Nothing here tells you what condition you have or what treatment you need. "
+                            "Only a qualified person can do that, and seeing one is the right step if you are struggling.",
+                     "ne": "यो चिकित्सकीय सल्लाह होइन, कानुनी सल्लाह होइन, र निदान गर्ने औजार होइन। "
+                           "यहाँ के कसैलाई कुन रोग लागेको वा कुन उपचार चाहिन्छ भन्ने बताइँदैन। "
+                           "त्यो काम योग्य व्यक्तिले मात्र गर्न सक्छ, र तपाईंलाई गाह्रो भइरहेको छ भने त्यसै व्यक्तिसँग जानु उचित हुन्छ।"}) + '</p>',
+         '<p>' + bi({"en": "Every figure on these pages carries the source and the year it comes from. "
+                            "Where a number is modelled by an international body rather than counted in Nepal, the page says so. "
+                            "Where a Nepal figure does not exist, the page says that too, rather than estimating one.",
+                     "ne": "यी पृष्ठका हरेक तथ्याङ्कसँग स्रोत र त्यसको वर्ष दिइएको छ। "
+                           "कुनै अङ्क नेपालमा गनिएको नभई अन्तर्राष्ट्रिय निकायले अनुमान गरेको हो भने, पृष्ठले त्यो भन्छ। "
+                           "नेपालको तथ्याङ्क नभएमा पनि पृष्ठले त्यही भन्छ, अनुमान गरेर दिँदैन।"}) + '</p>']))
+    cards.append(_tcard(
+        "If you are in crisis",
+        "तपाईं संकटमा हुनुहुन्छ भने",
+        ['<p>' + bi({"en": "Call 1166, the National Suicide Prevention Helpline at the Mental Hospital in Lagankhel, "
+                            "or 1660 012 1600 at Tuth Hospital. In an emergency call 112 or 100. "
+                            "These numbers are checked against two sources each, and a wrong number here is the one mistake "
+                            "on this site that matters most.",
+                     "ne": "११६६, लगनखेल मानसिक अस्पतालको राष्ट्रिय आत्महत्या रोकथाम हेल्पलाइन, वा टिचिंग अस्पतालको १६६० ०१२ १६०० मा फोन गर्नुहोस्। "
+                           "आपतकालमा ११२ वा १०० मा फोन गर्नुहोस्। "
+                           "यी नम्बर हरेक दुई स्रोतबाट जाँच गरिएका छन्, र यहाँ कुनै नम्बर गलत हुनु भनेको यो साइटको सबैभन्दा ठूलो गल्ती हुनेछ।"}) + '</p>']))
+    cards.append(_tcard(
+        "Reporting an error",
+        "त्रुटि जानकारी दिनुहोस्",
+        ['<p>' + bi({"en": "The address in the footer goes to the people who write these pages. "
+                            "Tell us what is wrong and we will read it. We may correct it, we may leave it, "
+                            "and we are not promising to change anything because you asked.",
+                     "ne": "फुटरमा रहेको ठेगाना यी पृष्ठ लेख्नेहरूकहाँ पुग्छ। "
+                           "के गलत छ भनी जानकारी दिनुहोस्, हामी पढ्छौं। हामी सुधार्न पनि सक्छौं, नसुधार्न पनि सक्छौं, "
+                           "तर तपाईंले भन्नुभयो भनेर हामी केही बदल्ने प्रतिबद्धता दिँदैनौं।"}) + '</p>',
+         '<p class="callout"><strong>' + bi({"en": "If your message says a child is being harmed, we have to tell the police.",
+                                             "ne": "तपाईंको सन्देशमा बालबालिकामाथि कुटुने कुरा भनिएको छ भने, हामीले प्रहरीलाई खबर गर्नुपर्छ।"}) +
+         '</strong> ' + bi({"en": "The law says anyone who learns of violence or sexual abuse against a child must inform the nearest police, "
+                                 "and the law protects the person who does. So a message like that cannot be kept private, "
+                                 "even if you ask us to. If someone is in danger now, do not email anyone: call 112 or 100, "
+                                 "or 1166.",
+                                 "ne": "कानुनअनुसार बालबालिकामाथि हिंसा वा यौन दुर्व्यवहारबारे थाहा पाउने जो कोहीले नजिकको प्रहरी कार्यालयमा जानकारी दिनुपर्छ, "
+                                       "र त्यसो गर्ने व्यक्तिलाई कानुनले सुरक्षा दिन्छ। त्यसैले यस्तो सन्देश गोप्य राख्न सकिँदैन, तपाईंले भन्नुभए पनि। "
+                                       "अहिले कसैलाई खतरा छ भने कसैलाई इमेल नगर्नुहोस्: ११२ वा १००, वा ११६६ मा फोन गर्नुहोस्।"}) + '</p>']))
+    cards.append(_tcard(
+        "Reusing the content",
+        "सामग्री पुनः प्रयोग",
+        ['<p>' + bi({"en": "Our own original material, which means the writing on these pages, the diagrams, the illustrations, "
+                            "the Quick check questions and the Key points, is shared under a Creative Commons "
+                            "Attribution, Non-Commercial, Share-Alike 4.0 licence.",
+                     "ne": "हाम्रो आफ्नै मौलिक सामग्री, अर्थात् यी पृष्ठका लेख, चित्र, चित्रकारी, "
+                           "Quick check प्रश्न र Key points, Creative Commons Attribution, Non-Commercial, Share-Alike 4.0 "
+                           "इजाजतपत्रअन्तर्गत दिइएको छ।"}) + '</p>',
+         '<p>' + bi({"en": "In practice: you may copy it, print it, translate it, and adapt it, including for a classroom, "
+                            "a college, or a translation into another language. You cannot sell it, charge for it, or use it "
+                            "as part of something you sell, and if you adapt it you must pass on the same licence. "
+                            "Credit is required: name Mano Atlas, link to manoatlas.com, and say whether you changed anything.",
+                     "ne": "व्यवहारमा: तपाईंले यसलाई प्रतिलिपि गर्न, छाप्न, अनुवाद गर्न वा रूपान्तरण गर्न सक्नुहुन्छ, कक्षा वा कलेजका लागि पनि, "
+                           "अर्को भाषामा अनुवादका लागि पनि। तपाईंले यसलाई बेच्न, यसको शुल्क लिन, वा बिक्ने कुनै कुराको हिस्सा बनाउन सक्नुहुन्छन्, "
+                           "र रूपान्तरण गर्दा यही इजाजतपत्र पनि अगाडि बढाउनुपर्छ। "
+                           "श्रेय दिनुपर्छ: मानो एट्लासको नाम लिनुहोस्, manoatlas.com मा लिंक गर्नुहोस्, र केही परिवर्तन गरेको हो कि होइन भनी जनाउनुहोस्।"}) + '</p>',
+         '<p class="fine">' + bi({"en": "Some sections adapt teaching material contributed by other people, who have given permission "
+                                        "separately. Those sections are listed in the source register, and the licence above applies "
+                                        "to our own material.",
+                                        "ne": "केही खण्डले अरू मानिसले दिएको सिकाउने सामग्रीको रूपान्तरण गर्दै छन्, जसले छुट्टै अनुमति दिएका छन्। "
+                                              "ती खण्डहरू स्रोत सूचीमा उल्लेख छन्, र माथिको इजाजतपत्र हाम्रो आफ्नै सामग्रीमा लागू हुन्छ।"}) + '</p>']))
+    cards.append(_tcard(
+        "The build code",
+        "बिल्ड कोड",
+        ['<p>' + bi({"en": "The scripts, styles and small pieces of JavaScript that assemble this site are under the MIT licence, "
+                            "which is separate from the content licence above and lets anyone reuse the tooling freely.",
+                     "ne": "यो साइट बनाउने स्क्रिप्ट, स्टाइल र साना जाभास्क्रिप्टहरू MIT इजाजतपत्रअन्तर्गत छन्, "
+                           "जुन माथिको सामग्रीको इजाजतपत्रभन्दा छुट्टै हो र जसले कसैलाई पनि औजार निःशुल्क पुनः प्रयोग गर्न दिन्छ।"}) + '</p>',
+         '<p class="fine">' + bi({"en": "The atlas name, the logo and the site's own visual identity are not covered by either "
+                                        "licence. Please do not republish it as your own.",
+                                        "ne": "एट्लासको नाम, लोगो र साइटको आफ्नै दृश्य पहिचान यी कुनै इजाजतपत्रअन्तर्गत छैन। "
+                                              "कृपया यसलाई आफ्नै नाममा पुनः प्रकाशित नगर्नुहोस्।"}) + '</p>']))
+    cards.append(_tcard(
+        "What belongs to other people",
+        "अरूका मालिकी सामग्री",
+        ['<p>' + bi({"en": "Some things on these pages stay with their authors. Diagnostic criteria and codes are summarised "
+                            "from DSM-5, which is published by the American Psychiatric Association, and the manual's own wording "
+                            "belongs to them. Books, films and guidelines are named in the reading lists by title. "
+                            "Figures from the national survey, the police and the health ministry, and from the World Health "
+                            "Organization and the Global Burden of Disease, belong to whoever published them, and are reproduced "
+                            "as numbers with attribution rather than as copied text.",
+                     "ne": "यी पृष्ठका केही कुरा आफ्नै मालिकका छन्। निदानका मापदण्ड र कोड DSM-5 बाट सारांश गरिएका हुन्, "
+                           "जुन अमेरिकन साइकियाट्रिक एसोसिएसनले प्रकाशन गर्छ, र पुस्तकको आफ्नै भाषा तिनीहरूकै हो। "
+                           "पुस्तक, चलचित्र र दिशानिर्देश सन्दर्भ सूचीमा नाममात्र उल्लेख गरिएका छन्। "
+                           "राष्ट्रिय सर्वेक्षण, प्रहरी र स्वास्थ्य मन्त्रालय, तथा विश्व स्वास्थ्य संगठन र विश्व भार बोझ अध्ययनबाट आएका अङ्क "
+                           "जसले प्रकाशन गरे तिनीहरूका हुन्, र तिनीहरू प्रतिलिपि गरिएका अक्षरमा होइनन्, स्रोत देखाएर अङ्कका रूपमा दिइएका छन्।"}) + '</p>']))
+    cards.append(_tcard(
+        "How a claim on this site is checked",
+        "यस साइटको दावी कसरी जाँचिन्छ",
+        ['<p>' + bi({"en": "Any figure we publish is checked against two independent sources, and both are named in the source "
+                            "register. Two articles repeating the same study count as one source, not two. "
+                            "Where only one source exists, and for the national survey there is no second survey to compare it with, "
+                            "the page says so instead of implying a corroboration that is not there.",
+                     "ne": "हामीले प्रकाशन गर्ने हरेक अङ्क दुई स्वतन्त्र स्रोतसँग जाँचिन्छ, र दुवै स्रोत स्रोत सूचीमा उल्लेख हुन्छन्। "
+                           "एउटै अध्ययन दोहोर्‍याउने दुई लेखलाई दुई स्रोत होइनन्, एउटा मात्र हुन्। "
+                           "जहाँ एउटै स्रोत मात्र छ, र राष्ट्रिय सर्वेक्षणको तुलन गर्न दोस्रो सर्वेक्षण नै छैन, त्यहाँ पृष्ठले त्यही भन्छ, "
+                           "नभएको पुष्टि छ जस्तो देखाउँदैन।"}) + '</p>']))
+    return ('<div class="pagehead"><div class="kicker">'
+            + bi({"en": "Terms, licence and sources", "ne": "सर्त, इजाजतपत्र र स्रोतहरू"}) + '</div></div>\n'
+            + "".join(cards))
+
+
 def main() -> None:
     content_dir = ROOT / "content"
     hero = (content_dir / "hero.html").read_text().replace('<!--TOC-->', recent_html() + toc_html())
@@ -1025,6 +1156,32 @@ def main() -> None:
         htmlv = strip_ne(htmlv)
     (ROOT / "vault.html").write_text(htmlv)
     print("built vault.html")
+
+    # terms, licence and safeguarding: linked from the footer on every page, because a
+    # licence the reader cannot reach is not a licence. Standalone like /vault, so it is
+    # not in PAGES: no chapter number, no sidebar row, no sitemap entry.
+    ttitle = "Terms, licence and sources" if PHASE1_ENGLISH_ONLY else "सर्त, इजाजतपत्र र स्रोतहरू"
+    tdesc = ("What Mano Atlas is and is not, how to report an error, the content and code licences, "
+             "and what belongs to other people.")
+    tjsonld = json.dumps({
+        "@context": "https://schema.org",
+        "@graph": [
+            {"@type": "WebPage", "@id": SITE["site_url"] + "/terms#webpage", "url": SITE["site_url"] + "/terms",
+             "name": ttitle, "description": tdesc, "inLanguage": idx_langs,
+             "isPartOf": {"@id": SITE["site_url"] + "/#site"},
+             "about": {"@type": "Thing", "name": "Terms, licence and sources"},
+             "author": {"@type": "Person", "name": "Pravash Karki"}},
+        ]}, ensure_ascii=False)
+    # not in the sidebar, so nothing should read as "you are here"
+    htmlt = SHELL.format(title=f"{ttitle} · Mano Atlas", nav=nav_html(""), content=terms_html(), pager="",
+                         page_desc=tdesc, page_url=SITE["site_url"] + "/terms", jsonld=tjsonld,
+                         updated_en=SITE["reviewed_en"], updated_ne=SITE["reviewed_ne"], og_slug="index",
+                         og_alt="Mano Atlas", icon_search=ICON["search"], icon_menu=ICON["menu"], icon_panel=ICON["panel"], icon_phone=ICON["phone"], icon_mail=ICON["mail"],
+                         lang_boot=lang_boot, og_locale=og_locale, langsw_side=langsw_side, langsw_pill=langsw_pill, search_ph=search_ph, foot_blurb=foot_blurb, **SITE)
+    if PHASE1_ENGLISH_ONLY:
+        htmlt = strip_ne(htmlt)
+    (ROOT / "terms.html").write_text(htmlt)
+    print("built terms.html")
     print(f"search index: {len(search_index)} entries, {len(idx_js)//1024} KB")
 
 

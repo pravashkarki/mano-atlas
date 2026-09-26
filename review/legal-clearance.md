@@ -49,6 +49,24 @@ A single footer statement of "CC BY-NC-SA" is legally imprecise here, because th
 
 **One tension to decide, not to paper over.** NC stops a private college charging for a course built from this material, and stops a translation being sold. That may be the intent, or it may cost more reach than it protects. SA is also hard to enforce in Nepal, so it is the part of the licence most likely to be ignored. If maximum spread matters more than preventing commercial reuse, CC BY 4.0 without NC is the alternative, and it is a one-word change with real consequences either way. **This is a mission decision and it is the Founder's, not mine.**
 
+### Decided 2026-09-26: NC, no charge to anyone
+
+The Founder's answer: "nobody can charge using this content." So the content licence is **CC BY-NC-SA 4.0**, and the tension above is closed in favour of protecting the free resource over maximum spread.
+
+**What NC does and does not do, stated plainly.** Nobody being able to charge is already the default position: copyright applies automatically, and without a licence nobody may copy commercially at all. A licence is a permission, not a prohibition. So the Founder has chosen how generous that permission is for non-commercial reuse, and NC is the clause that carves commercial use out. The intent is served, with one honest limit: **NC is not self-enforcing.** It is routinely ignored, and it carries no takedown mechanism of its own. The practical protection is the copyright notice, the licence statement, and willingness to ask someone to take something down. Do not describe the clause as preventing anything on its own.
+
+**NC-SA rather than NC-ND.** ND would forbid derivatives outright, which would block translation and adaptation entirely. Not wanted. SA instead keeps the no-charging intent attached to any derivative, so a free translation or a free course must also stay non-commercial, which is what makes the clause propagate instead of evaporating.
+
+**What shipped on this decision, 2026-09-26.**
+
+- `LICENSE` at the repo root: content CC BY-NC-SA 4.0 with BY/NC/SA terms spelled out in plain language, code MIT with the full text, a not-covered list, and an explicit scope note.
+- `/terms` page, built by `terms_html()` in `build.py` and linked from the footer on every page. Standalone like `/vault`, so it is not in `PAGES` and renumbers nothing.
+- Footer licence line reworded from an unscoped "Content licensed CC BY-NC-SA 4.0" to "Our own content is CC BY-NC-SA 4.0: share and adapt with credit, never for charge", with a link to the terms page.
+- The safeguarding notice added to the footer, because the error-report address was already live on every page and the notice was not.
+- `README.md` licence claim replaced with the scoped version and a pointer to `LICENSE`.
+
+**Still open, and the licence does not fix it.** The derived teaching text is still not ours to license. The terms page and the LICENSE both say so in the open rather than papering over it, and the per-author permission request is the item that actually closes the gap.
+
 ## Liability: what a disclaimer can and cannot do
 
 The Founder's stated wish is not to take ownership of errors. That is legitimate and a disclaimer is the normal tool. Two hard limits on it.
