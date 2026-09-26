@@ -20,7 +20,7 @@ This is a research reference for shaping a possible future data layer. It is not
 5. Financing and workforce block, measured (Rai et al. 2021, Table 1).
 6. Global and service-coverage block (WHO Mental Health Atlas 2024, with modelled sub-indicators labelled).
 7. Pending-verification list (subagent-reported, not yet opened).
-8. Open-decision list (global anchor, the "current" window, suicide trend, public use).
+8. Open-decision list (global anchor, whether lifetime-only conditions ship, suicide trend, public use).
 
 ## 1. The source layer
 
@@ -88,11 +88,30 @@ Source: National Mental Health Survey 2020, Ministry of Health and Population wi
 | Schizophrenia, schizotypal and delusional disorders | Current | 0.1 | 0.1 to 0.3 |
 | Post-traumatic stress disorder | Current | 0.0 | 0.0 to 0.2 |
 
+Adolescents, lifetime any disorder: 5.2% (95% CI 4.2 to 6.4). Sampled 9,200 adults and 5,888 adolescents; 99% of those contacted agreed to take part.
+
 Three cautions on this table.
 
-- The survey uses three timeframe labels, "Lifetime", "Current" and "Past 12 Months", and does not define "Current" in the CSV. Read the report before publishing any figure labelled current.
 - The PTSD figure is 0.0% with a confidence interval up to 0.2%. That is a floor, not an absence. Never print it as zero.
 - Alcohol use disorder at 4.2% over the past year is higher than major depressive disorder at 2.9% lifetime. Any framing that leads with depression as the commonest condition misleads.
+- The paper's own narrative mixes timeframes. In a passage about current prevalence it gives panic disorder as 0.7%, which is the lifetime figure; the current figure is 0.4%. Always take the number from Table 2, not from the running text.
+
+### The "current" window, resolved
+
+The CSVs use three labels, "Lifetime", "Current" and "Past 12 Months", without defining "Current". The prevalence paper reports current beside lifetime and does not define the window either. The window is nonetheless established from the survey's own design:
+
+- The survey administered the Barriers to Accessing Care Evaluation and a help-seeking questionnaire to participants "diagnosed with any mental disorders in the past 12 months" (pilot report, PMC7819577).
+- MINI 7.0.2, the instrument used, asks about the past 12 months for the modules in this table.
+
+So "current" means past 12 months. The evidence is the survey's own instrument frame plus the standard MINI frame, not a sentence in the prevalence paper. One line from the full NMHS report would confirm it outright, and that confirmation is still outstanding. Until then, label the figure "current, meaning the past 12 months" and cite the survey, which is honest about the basis.
+
+Consequence for comparison: any-disorder current is 4.3% (3.5 to 5.2) and any-disorder lifetime is 10.0% (8.5 to 11.8). Compare a current figure only with 4.3%, and a lifetime figure only with 10.0%. Setting a current figure against the 10.0% lifetime figure misleads, because 10.0% is 2.3 times the current figure. For generalized anxiety and obsessive compulsive disorder there is no lifetime figure in the survey, so no such correction can be computed for them at all, which is a reason not to set any per-disorder figure beside an any-disorder reference.
+
+Two timeframes in one sentence is the error to design against. Five of the seven conditions covered by the depression, anxiety and OCD chapters are current-only (generalized anxiety 0.8, phobic anxiety 0.2, agoraphobia 0.2, social anxiety 0.1, obsessive compulsive 0.2), and only major depressive disorder and panic disorder carry both timeframes. The survey publishes no per-disorder reference figure, only the any-disorder 4.3% and 10.0% pair, so there is nothing reliable for a per-disorder figure to be measured against.
+
+### The comparison the survey itself makes
+
+The paper compares Nepal with the Indian mental health survey at 13.7% lifetime, using the same MINI tool, and describes its own headline as "one out of every ten adults in Nepal has one or more mental morbidities". For a chapter, this is a better comparison than any Global Burden of Disease figure: same instrument, same method, no modelling, and it is the comparison the authors chose. Use the India figure for context and leave the modelled global releases out of the chapter blocks.
 
 ## 3. Care pathways (measured)
 
@@ -112,6 +131,8 @@ Source: National Mental Health Survey 2020, percentages among adults who have a 
 Who people went to, among adults with a disorder: a non-specialist doctor 8.8%, a psychiatrist 6.5%, a faith healer 6.7%, a counsellor 0.3%, a psychologist 0.2%, a paramedic 0.3%, a female community health volunteer 0.0%.
 
 This block is the strongest argument the site has for its care notes and helplines. Most people tell a family member, and only a small minority reach a health worker.
+
+One third-party paper restates this block as 52.6% spoke to someone, 21.2% sought treatment and 17.8% completed treatment, where the survey's own CSVs give 40.1%, 22.7% and 21.1%. The CSVs are the primary tables, so the site uses them. The discrepancy is recorded because it exists in the literature and a reader may meet it.
 
 ## 4. Suicide (measured)
 
@@ -171,10 +192,13 @@ The 9.1% depression figure is a modelled estimate of minimally adequate treatmen
 
 - Attribution. The survey is Ministry of Health and Population with Nepal Health Research Council, not the National Human Rights Commission. Two earlier attributions in this repo's history were wrong; correct them if they resurface.
 - The 0.2% framing. Mental health received 0.2% of the health budget in 2020, and the health budget was 6.15% of the national budget. Some secondary write-ups say "0.2% of the national health budget", which reads as 0.2% of national. State both shares whenever the 0.2% appears.
-- Per-chapter prevalence is the highest-value use. The survey ships one CSV per disorder, so each chapter that teaches a disorder can carry that disorder's Nepal figure with its year. The mapping is mechanical and checkable, it needs no new page, and it puts the number where the reader meets the disorder.
-- Global anchor conflict. GBD 2019, GBD 2023 and WHO 2025 differ because they are different releases and methods. Pick one anchor, label its release, never mix two in one sentence. Open decision: which one the site uses.
+- Per-chapter prevalence is the highest-value use. The survey ships one CSV per disorder, so each disorder section that teaches a condition can carry that condition's Nepal figure with its year. The mapping is mechanical and checkable, it needs no new page, and it puts the number where the reader meets the condition.
+- Key the data per disorder section, not per chapter. The anxiety chapter is six separate disorder cards and the OCD chapter is two, the second being body dysmorphic disorder, which the survey does not cover. A single figure per chapter would misrepresent every section it did not describe.
+- Show the figure as a number, not a bar. The values run from 0.1% to 2.9% across the conditions these chapters teach, so a bar on a ten-percent scale renders most of them as a stub inside their own confidence interval, and any minimum width would overstate the value. A large figure with its timeframe and interval is readable at any value and cannot lie about scale. The number takes the calm teal, not the chapter colour: the chapter colours clear 4.5:1 on the Nepal wash in both themes for depression and obsessive compulsive but not for anxiety, and the house rule reserves teal for non-crisis content anyway. An "about one in N adults" line is available if wanted, but it must not claim a denominator, because 9,200 is the sample size and not a population.
+- The three "no national prevalence figure exists" statements, not two. The OCD chapter, the specific phobia card in the anxiety chapter, and the site-wide standing rule on the Nepal chapter all claim it. The eating disorders sentence is true, because the survey carries no eating-disorder row, and the sleeping half of the standing rule is true for the same reason. Six strings counting the bilingual twins. Fixing the chapter prose without the standing rule leaves the site contradicting itself.
+- Global anchor conflict. GBD 2019, GBD 2023 and WHO 2025 differ because they are different releases and methods. Inside a chapter, do not use them at all: the survey's own India comparison at 13.7% lifetime uses the same MINI instrument, so it is the honest context. If a global anchor is ever needed, pick one release, label it, and never mix two in one sentence.
 - Measured versus modelled. The Atlas depression-treatment 9.1% is modelled. Every figure in this document carries that label.
-- The "current" window. The survey's own CSVs label prevalence as "Current" without defining the window. Read the report before publishing it. Open decision: resolve, or publish only the lifetime figures.
+- The "current" window, resolved. "Current" means the past 12 months, established from the survey's own help-seeking frame and the MINI frame rather than from a sentence in the prevalence paper. Publish it as "current, meaning the past 12 months" and keep the one outstanding confirmation from the full report noted in the table section. Remaining open decision: whether the two lifetime-only conditions ship at all.
 - The PTSD floor. 0.0% is a rounding floor with a confidence interval reaching 0.2%. Publishing it as zero would be wrong.
 - Suicide figures. Cite 7,223 or 7,221 with the table it came from, because the source disagrees with itself by two. Do not claim a rising trend from a four-year series that dips in the middle.
 - Public use. Whether any of this becomes public content is a separate shaped piece. When it does, every string needs both `en` and `ne`, the survey year must be shown, and Nepali needs a native proofread (still open for chapters 19, 20, 22, 24).
