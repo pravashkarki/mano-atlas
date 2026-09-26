@@ -843,11 +843,14 @@ def terms_html() -> str:
         "तपाईं संकटमा हुनुहुन्छ भने",
         ['<p>' + bi({"en": "Call 1166, the National Suicide Prevention Helpline at the Mental Hospital in Lagankhel, "
                             "or 1660 012 1600 at Tuth Hospital. In an emergency call 112 or 100. "
-                            "These numbers are checked against two sources each, and a wrong number here is the one mistake "
-                            "on this site that matters most.",
+                            "If a number does not answer, try another, and if someone is in danger now do not wait on a helpline: "
+                            "call 112 or 100. These four numbers are the highest-liability text on the whole site, which is why we "
+                            "verify them against more than one source and why we ask you to tell us if one stops working.",
                      "ne": "११६६, लगनखेल मानसिक अस्पतालको राष्ट्रिय आत्महत्या रोकथाम हेल्पलाइन, वा टिचिंग अस्पतालको १६६० ०१२ १६०० मा फोन गर्नुहोस्। "
                            "आपतकालमा ११२ वा १०० मा फोन गर्नुहोस्। "
-                           "यी नम्बर हरेक दुई स्रोतबाट जाँच गरिएका छन्, र यहाँ कुनै नम्बर गलत हुनु भनेको यो साइटको सबैभन्दा ठूलो गल्ती हुनेछ।"}) + '</p>']))
+                           "कुनै नम्बरले उत्तर नदिए अर्को प्रयास गर्नुहोस्, र अहिले कसैलाई खतरा छ भने हेल्पलाइनमा पर्खनुहोस्: ११२ वा १०० मा फोन गर्नुहोस्। "
+                           "यी चार नम्बर यो साइटका सबैभन्दा जोखिमपूर्ण अक्षर हुन्, त्यसैले हामी एकभन्दा बढी स्रोतबाट जाँच गर्छौं, "
+                           "र कुनै नम्बर बिग्रिए तपाईंले हामीलाई जानकारी दिनु हुन्छ।"}) + '</p>']))
     cards.append(_tcard(
         "Reporting an error",
         "त्रुटि जानकारी दिनुहोस्",
@@ -916,14 +919,17 @@ def terms_html() -> str:
     cards.append(_tcard(
         "How a claim on this site is checked",
         "यस साइटको दावी कसरी जाँचिन्छ",
-        ['<p>' + bi({"en": "Any figure we publish is checked against two independent sources, and both are named in the source "
-                            "register. Two articles repeating the same study count as one source, not two. "
-                            "Where only one source exists, and for the national survey there is no second survey to compare it with, "
-                            "the page says so instead of implying a corroboration that is not there.",
-                     "ne": "हामीले प्रकाशन गर्ने हरेक अङ्क दुई स्वतन्त्र स्रोतसँग जाँचिन्छ, र दुवै स्रोत स्रोत सूचीमा उल्लेख हुन्छन्। "
-                           "एउटै अध्ययन दोहोर्‍याउने दुई लेखलाई दुई स्रोत होइनन्, एउटा मात्र हुन्। "
-                           "जहाँ एउटै स्रोत मात्र छ, र राष्ट्रिय सर्वेक्षणको तुलन गर्न दोस्रो सर्वेक्षण नै छैन, त्यहाँ पृष्ठले त्यही भन्छ, "
-                           "नभएको पुष्टि छ जस्तो देखाउँदैन।"}) + '</p>']))
+        ['<p>' + bi({"en": "Our rule is that any figure we publish is checked against two independent sources, and that both are "
+                            "named. Two articles repeating the same study count as one source, not two.",
+                     "ne": "हाम्रो नियम हो: हामीले प्रकाशन गर्ने हरेक अङ्क दुई स्वतन्त्र स्रोतबाट जाँचिन्छ, र दुवै स्रोतको नाम उल्लेख हुन्छ। "
+                           "एउटै अध्ययन दोहोर्‍याउने दुई लेखलाई दुई स्रोत होइनन्, एउटा मात्र हुन्।"}) + '</p>',
+         '<p>' + bi({"en": "We are part-way through applying that rule to material published earlier, so we will not claim it is finished. "
+                            "Where a page rests on a single source, the page says so instead of implying a second one. "
+                            "The working ledger that tracks which figure stands where is in the site source, at "
+                            "review/data-ledger.md.",
+                     "ne": "हामी पहिले प्रकाशित सामग्रीमा यो नियम लागू गर्ने काम भइरहेको छ, त्यसैले यो पूरा भइसकेको दाबी गर्दैनौं। "
+                           "जहाँ पृष्ठ एउटै स्रोतमा आधारित छ, त्यहाँ दोस्रो स्रोत छ जस्तो देखाउनुका साथै पृष्ठले त्यही भन्छ। "
+                           "कुन अङ्क कहाँसम्म पुगेको छ भनी टाइ गरिएको कार्यपुस्तिका साइटको स्रोतभित्र, review/data-ledger.md मा छ।"}) + '</p>']))
     return ('<div class="pagehead"><div class="kicker">'
             + bi({"en": "Terms, licence and sources", "ne": "सर्त, इजाजतपत्र र स्रोतहरू"}) + '</div></div>\n'
             + "".join(cards))
