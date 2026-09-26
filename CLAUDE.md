@@ -49,9 +49,24 @@ Source intake: every instructor deck gets a row in `review/intake.md` (landing, 
 - **Both themes, numerically.** The page reuses `.card`, `.card-body`, `.callout`, `.fine`, `.pagehead .kicker` and adds no CSS, so contrast is inherited. Verified 2026-09-26 from the tokens: card/callout text `--ink` on `--surface` 14.98 light and 13.07 dark; kicker `--accent` on `--bg` 5.68 and 7.39; footer `--muted` on `--bg` 4.57 and 6.82; footer links `--accent-ink` on `--bg` 7.14 and 9.86. All pass AA. Recheck if any of those tokens move.
 - **To change a term:** edit `terms_html()` and `LICENSE` in the same commit, keep them consistent, and re-run the build. The published page governs where the two differ, and that is stated in `LICENSE`.
 
-## Bilingual pattern (never break this)
+## Bilingual pattern (the markup never breaks, but Nepali is on hold)
 
-Every user-visible string exists twice: `class="en"` and `class="ne"` (Nepali). CSS on `html[data-lang]` shows one. This includes text INSIDE SVG diagrams (`<text class="en">`/`<text class="ne">`). Nothing ships in one language. Nepali gets slightly larger sizes / taller line-height (Mukta renders smaller than Latin at equal nominal size).
+**Nepali is on hold until Pravo says otherwise (2026-09-26).** The site ships English only, through `PHASE1_ENGLISH_ONLY = True` in `build.py`. The hold applies to *work*, not to the markup. Two things follow from that, and they pull in opposite directions, so read both.
+
+**What stays: every user-visible string still exists twice in the source,** as `class="en"` and `class="ne"` (Nepali), including text INSIDE SVG diagrams (`<text class="en">`/`<text class="ne">`). `bi()` in `build.py` still raises and stops the build if a string has no Nepali. This is a machine gate, it is cheap to satisfy while writing English, and it is what makes the hold reversible: the day the flag flips, every page is already bilingual. **Never delete the Nepali half of a string to make a build pass, and never drop a `bi()` pair.** The Nepali sitting in the repo is unreviewed, which is exactly why it is hidden rather than deleted.
+
+**What stops: do no Nepali work.** While the hold is in force:
+
+- Do not write, translate, rewrite, expand or "improve" any Nepali. Not in `content/`, not in `quizzes/`, not in `keypoints/`, not in the `bi()` strings inside `build.py`, not in `SITE_DESC_NE`, not in the `deeper` summaries, not in SVG `<text class="ne">`.
+- Do not proofread, fact-check, transliterate, or run any language check over the Nepali. No native-speaker review passes, no romanisation fixes, no Devanagari corrections.
+- Do not schedule Nepali work, do not open a todo or Basecamp card for it, and do not treat Nepali review as a launch blocker. A previous version of this file listed a native Nepali proofread as open work. It is not, and it should not be reinstated without Pravo asking.
+- Do not extend the Nepali, do not add new Nepali-only features, and do not switch on a Nepali language toggle in the UI.
+- Leave existing Nepali untouched even where it is wrong or awkward. If you notice an error in it, note it in `review/` and move on. Fixing it is the work that is on hold.
+- New material gets English only in the reader's eye. Write the English, keep the Nepali slot filled with whatever is already there or a placeholder that is clearly marked, and never let a build gate push you into authoring real Nepali.
+
+**The one exception is a build-breaking Nepali gate,** and it is narrow: if `bi()` raises because a *new* English string has no Nepali slot at all, the fix is to satisfy the gate, not to relax the gate. Do not disable or weaken `bi()` to get a build through.
+
+Nepali typography notes are kept below for when the hold lifts, not as a cue to act now. Nepali gets slightly larger sizes / taller line-height (Mukta renders smaller than Latin at equal nominal size).
 
 ## House style rules (Pravo-set, strict)
 
@@ -59,7 +74,7 @@ Every user-visible string exists twice: `class="en"` and `class="ne"` (Nepali). 
 - No client case studies on the public site.
 - Resource links only when verified to exist; otherwise cite by title only. No TikTok links (unverifiable).
 - Never invent Nepali prevalence figures.
-- Nepali terminology (Pravo, 2026-08-27): when a clinical or technical term has no natural Nepali equivalent, use the English term in the Nepali text too; do not coin Sanskritised Nepali. Keep the site's existing convention: Devanagari transliteration for everyday spoken loans (ओसीडी, डिप्रेसन, थेरापी), Latin script for codes, acronyms and formulas (DSM-5, F42, U=U, PTSD when quoted as a code).
+- Nepali terminology (Pravo, 2026-08-27), **recorded for the day the hold lifts; not a cue to edit Nepali now**: when a clinical or technical term has no natural Nepali equivalent, use the English term in the Nepali text too; do not coin Sanskritised Nepali. Keep the site's existing convention: Devanagari transliteration for everyday spoken loans (ओसीडी, डिप्रेसन, थेरापी), Latin script for codes, acronyms and formulas (DSM-5, F42, U=U, PTSD when quoted as a code).
 - Crimson/--crisis colors are reserved strictly for crisis content; the calm teal --accent for everything else.
 - Quizzes reassure, never judge: no scores, warm explain-why feedback.
 - Soft humanistic reader voice; care elements (reading time, rotating closing notes) are dismissible.
@@ -95,12 +110,13 @@ All 29 pages fact-checked (Aug 2026) against DSM-5, WHO, and Nepali sources by f
 
 - Session s02 closed 2026-09-02; vault mirror at `~/Obsidian/Mano/` (tasks, sprint log, session files, `sources/` with the intake ledger and triage files). Starter prompt for the next intake is at the top of `TASKS.md`. The Mano app lives in `~/Work/mano-app` (see its TASKS.md).
 - Weekly deck intake until about March 2027: Pravo adds decks to the Drive folder; each deck gets a placement plan pair-reviewed before building, an intake-ledger row, bilingual chapters with keypoints and quiz, OG re-render, both-theme check, content pair review, one commit per chapter, same-day deploy. Batch 1 (Aug) and batch 2 (five Module 3 decks, Sep 2) are done; `review/intake.md` records what landed where and which claims were rejected, and those rejections hold for later decks.
-- Open: native Nepali proofread by a human (chapters 19, 20, 22, 24 and the first-session scripts first). Parked: AAA contrast mode, only if readers ask. Approaches (1837 words inside closed expanders) is the one recorded ceiling exception.
+- Parked: AAA contrast mode, only if readers ask. Approaches (1837 words inside closed expanders) is the one recorded ceiling exception.
+- **Not open work: the native Nepali proofread.** It was listed here before 2026-09-26 and is now withdrawn, because Nepali is on hold. Do not reinstate that line, or any other Nepali task, without Pravo asking for it.
 - Pair-review tooling: DeepSeek v4 Pro and GPT-5.6 via opencode against a brief in `review/`; GPT-5.6 must be told not to spawn sub-agents or it stalls (memory: opencode-review-runs).
 
 ## Verification before every commit
 
-`python3 build.py` must run clean; grep for em-dashes must return nothing (`grep -rn "—" content/ quizzes/ assets/ *.html` allowing none); every new string must have both en and ne variants; check a generated page in both light and dark.
+`python3 build.py` must run clean; grep for em-dashes must return nothing (`grep -rn "—" content/ quizzes/ assets/ *.html` allowing none); every new string must keep its `class="en"` / `class="ne"` pair filled so `bi()` passes (the Nepali slot stays, its content is not maintained while the hold is on; see the bilingual section above); check a generated page in both light and dark.
 
 **Shooting both themes in headless Chrome:** hard-coding `data-theme="dark"` on `<html>` does NOT work for a screenshot. `applyTheme('auto')` in `assets/lang.js` runs on `DOMContentLoaded` and calls `removeAttribute('data-theme')`, so a fresh profile throws the attribute away and both renders come out identical. Either set `localStorage['psc-theme']` on the same origin first, or append a script that re-applies the attribute on a `setTimeout(0)` after `DOMContentLoaded` in a throwaway copy of the page. For contrast, compute the ratio from the theme tokens rather than eyeballing a PNG: relative luminance plus `(L1+0.05)/(L2+0.05)`, 4.5:1 for text, 3:1 for anything a control needs in order to be seen.
 
