@@ -1,6 +1,6 @@
 # Mano Atlas (मनो एट्लास)
 
-A free, open, bilingual (English / नेपाली) atlas of mental disorders: DSM-5 criteria in plain language, teaching diagrams, international examples, and the Nepali context throughout. Born from a CTEVT Psychosocial Counselor study project; written for anyone learning. Curriculum topics carry a small "CTEVT PSC curriculum" tag for counselling students.
+A free, open atlas of mental disorders: DSM-5 criteria in plain language, teaching diagrams, international examples, and the Nepali context throughout. It is in English for now, while the Nepali text is under review. Born from a CTEVT Psychosocial Counselor study project; written for anyone learning. Curriculum topics carry a small "CTEVT PSC curriculum" tag for counselling students.
 
 A multi-page static site with a centred sidebar-plus-content layout, grouped navigation (Overview · Disorder categories · Counselling practice · Reference), client-side search, an English/नेपाली switcher, an Auto/Light/Dark theme switch, interactive "Quick check" questions on every page, and a site-wide footer with crisis helplines, an error-report contact, and a pointer to the terms page.
 

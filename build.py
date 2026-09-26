@@ -843,7 +843,8 @@ def terms_html() -> str:
     cards.append(_tcard(
         "What this site is",
         "यो साइट के हो",
-        ['<p>' + bi({"en": "Free open teaching material about mental health, in English and Nepali. "
+        ['<p>' + bi({"en": "Free open teaching material about mental health. "
+                            "It is in English for now, while the Nepali text is under review. "
                             "It was written for people training to counsel and for anyone who wants to understand the subject. "
                             "There is no account, no fee, and nothing here tracks who reads it.",
                      "ne": "मानसिक स्वास्थ्यबारे निःशुल्क, खुला सिकाउने सामग्री, अङ्ग्रेजी र नेपाली दुवै भाषामा। "
