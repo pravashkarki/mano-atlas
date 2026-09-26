@@ -8,6 +8,7 @@ docs/
 review/
 tools/
 build.py
+vault.json
 content/
 quizzes/
 keypoints/
