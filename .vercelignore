@@ -1,6 +1,7 @@
 # Versioned on GitHub, never deployed: planning, reviews, sources and build tooling.
 # The deployment is the generated root *.html plus assets/, vercel.json, sitemap.xml, robots.txt, llms.txt.
 CLAUDE.md
+AGENTS.md
 TASKS.md
 README.md
 docs/
