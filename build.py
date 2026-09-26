@@ -238,6 +238,29 @@ def stamp_badge(body: str, num: str, fname: str) -> str:
     return re.sub(r'(<span class="secbadge[^>]*>)\s*(</span>)', lambda m: m.group(1) + num + m.group(2), body, count=1)
 
 
+def meta_desc(txt: str, limit: int = 200) -> str:
+    """Shorten a page's standfirst to a search-snippet length without cutting mid-word.
+
+    A plain [:limit] slice chopped sentences in half, so crawlers and social
+    previews showed things like "the tag on each ce". Cut at the last sentence
+    end that fits, then at the last word boundary. An ellipsis marks a cut, and
+    is only added when text was actually dropped.
+    """
+    txt = WS_RE.sub(" ", txt).strip()
+    if len(txt) <= limit:
+        return txt
+    window = txt[:limit + 1]
+    # Prefer a real sentence end, so the snippet reads as a finished thought.
+    for stop in (". ", "? ", "! "):
+        cut = window.rfind(stop)
+        if cut >= limit * 0.5:
+            return window[:cut + 1].strip()
+    cut = window.rfind(" ")
+    if cut <= 0:
+        return txt[:limit].strip() + "…"
+    return window[:cut].strip().rstrip(",;:") + "…"
+
+
 def git_date(*paths: pathlib.Path, added: bool = False) -> str:
     """Last commit date (YYYY-MM-DD) touching any of the paths; the date the first was added if added=True.
     Untracked or uncommitted files count as changed today."""
@@ -1115,7 +1138,7 @@ def main() -> None:
                       f'<span class="ne">यस पृष्ठमा</span></span><ol>{items}</ol></nav>\n')
             content = content.replace('<div class="pagetools"></div>', '<div class="pagetools">' + onpage + '</div>', 1)
         secsub = re.search(r'<p class="secsub en">(.*?)</p>', body, re.S)
-        page_desc = html_mod.escape(plain_text(secsub.group(1))[:200] if secsub else SITE_DESC)
+        page_desc = html_mod.escape(meta_desc(plain_text(secsub.group(1)) if secsub else SITE_DESC))
         page_url = f'{SITE["site_url"]}/' if slug == "index" else f'{SITE["site_url"]}/{slug}'
         group_en, group_ne = GROUPS[group]
         article = {
