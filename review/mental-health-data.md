@@ -267,7 +267,17 @@ A reviewer re-opens each source and finds the figure:
 - Financing and workforce: DOI `10.1192/bji.2020.58`, Table 1.
 - Global: ISBN 9789240114487, WHO IRIS full text.
 
-Done means: every figure on the site traces to a source in this document, every modelled figure is labelled modelled, every timeframe is defined, and every item in section 7 is either verified into the sections above or dropped.
+## The two-source rule
+
+Set by the Founder on 2026-09-26: all data must be verified twice against sources, and cited properly. One source is not enough, for any figure, on any page.
+
+Two documents that could both be wrong for the same reason count as one. A preprint and its journal version are one. A news article quoting a study is the same source twice. The second source has to reach the number by its own route: a different dataset, a different study, a different institution.
+
+This is the rule that found the wrong psychiatrist name in the Nepali timeline, and it is why `review/data-ledger.md` exists. That file holds the full inventory for the live site: figure, where it appears, source one, source two, and status.
+
+**The case the rule cannot cover, stated plainly.** Nepal has one national mental health survey. For any figure drawn from the NMHS there is no second national survey to check it against, and insisting on one would mean either not publishing the country's own prevalence data or implying a corroboration that does not exist. So for NMHS figures the second source is a separate peer-reviewed analysis drawing on the survey, and the page says what it is: a national survey, fieldwork to January 2020, the only national measurement, and therefore at least six years old. That sentence is the honest substitute for a second survey, and it is required every time.
+
+Done means: every figure on the site traces to a source in this document, every modelled figure is labelled modelled, every timeframe is defined, every figure on the live site has two sources named in the data ledger or states why it cannot, and every item in section 7 is either verified into the sections above or dropped.
 
 ## Rollout
 

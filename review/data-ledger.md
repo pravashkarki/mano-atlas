@@ -6,6 +6,8 @@
 
 **Why this file exists.** Because the two-source rule found things one source had not. The Nepali version of the Nepal timeline named a psychiatrist who does not exist, four sources agreed, and the English version was the one that was right. A figure with no recorded source is not a figure awaiting polish, it is a figure that has never been checked.
 
+**Where two sources do not exist.** Nepal has one national mental health survey, so an NMHS figure has no second national survey to check it against. Its second source is a separate peer-reviewed analysis of the same survey, and the page must say what it is: a national survey, fieldwork to January 2020, the only national measurement, and therefore at least six years old. That sentence is the honest substitute for a second survey. It is required every time, and inventing a second corroboration is not allowed.
+
 **Scope.** Live content only, in `content/`. Helplines, dates, prevalence figures, legal claims, curriculum numbers. Study citations in the Learn more lists are named works, not claims the site asserts, so they are listed only where the prose depends on their number.
 
 Status values: **two-source** holds only when two independent sources are named. **one-source** has a real source but no independent second. **unsourced** is a figure in the prose with no source recorded anywhere. **disputed** means sources conflict and the conflict is recorded rather than resolved.
