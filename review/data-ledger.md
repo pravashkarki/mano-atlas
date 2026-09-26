@@ -58,14 +58,16 @@ These are the figures with no recorded source at all. Each needs two before it i
 
 ## 4. Absence claims
 
-Three of these are false, found in the earlier pass, and are still live.
+All three false ones were corrected on 2026-09-26, replacing the absence claim with the survey figure. The true one is left as it stands.
 
 | Claim as published | Where | Status |
 |---|---|---|
-| No national prevalence figure exists for OCD | ocd.html:66 | **false**, the survey carries an OCD row |
-| No national prevalence figure exists for specific phobia | anxiety.html:56 | **false**, the survey carries a phobia row |
-| No national prevalence figure exists for OCD, eating disorders and sleep disorders, site-wide | nepal.html:137 | **partly false**, only the eating-disorder and sleep-disorder halves hold |
-| No national prevalence figure exists for eating disorders | eating.html:159 | true, the survey has no eating-disorder row |
+| No national prevalence figure exists for OCD | ocd.html:66 | **was false**, now states the survey's 0.2% current (95% CI 0.1 to 0.4) |
+| No national prevalence figure exists for specific phobia | anxiety.html:56 | **was false**, now states phobic anxiety 0.2% current (95% CI 0.1 to 0.4) |
+| No national prevalence figure exists for OCD, eating disorders and sleep disorders, site-wide | nepal.html:137 | **was partly false**, now quotes the survey for OCD and anxiety and limits the absence to eating disorders and sleep disorders |
+| No national prevalence figure exists for eating disorders | eating.html:159 | true, the survey has no eating-disorder row. Left as published. |
+
+Lesson worth keeping: an absence claim is a claim about the whole of a country's literature, and it is the easiest sentence on the site to get wrong. The survey carried rows we had not checked. Quote the survey for what it measured and confine the absence to what it did not.
 
 ## 5. Legal and clinical claims
 
