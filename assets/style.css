@@ -137,6 +137,8 @@
   .st-part{color:var(--gap); font-weight:600}
   .st-ok{color:var(--ok); font-weight:600}
   .st-no{color:var(--muted); font-weight:400}
+  .st-soon{color:var(--accent-ink); font-weight:700}
+  tr.soon td{background:var(--accent-wash)}
 
   section{margin-top:64px; scroll-margin-top:70px}
   .sechead{display:flex; align-items:center; gap:14px; border-bottom:2px solid var(--ink); padding-bottom:10px; margin-bottom:6px}
