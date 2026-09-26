@@ -79,3 +79,5 @@ Source is bilingual (en/ne class pattern, gate-held). The current phase renders 
 - Pilot pass on the six-page calibration sample lands before the full run; its disagreements and rubric fixes are recorded.
 - Interactivity options carry evidence and a keep/skip decision; external references verified to resolve.
 - Verdicts posted on the card; every New finding is a board card or todo with a plan, per the founder's later choice of order.
+---
+PLN, 2026-09-25
