@@ -69,6 +69,10 @@ verification state of every figure is tracked in `review/data-ledger.md`.
 | World Health Organization | World prevalence, the 2025 fact sheets, suicide and service guidance |
 | Institute for Health Metrics and Evaluation, Global Burden of Disease | Global and regional prevalence, the 2019 and 2023 estimates |
 | findahelpline.com | The helpline directory linked from the footer |
+| Open Data Nepal (opendatanepal.com) | The CKAN portal run by Open Knowledge Nepal where the National Mental Health Survey and Nepal Police CSVs are republished |
+| Dhimal et al., Journal of Nepal Health Research Council | The peer-reviewed publication of the National Mental Health Survey, used as its second source (doi 10.33314/jnhrc.v19i04.4017) |
+| Rai et al., BJPsych International | Nepal financing and workforce figures (doi 10.1192/bji.2020.58) |
+| WHO Mental Health Atlas 2024 | The global comparison figures on the data page (ISBN 9789240114487) |
 
 Government emblems and the National Mental Health Survey logo are used for
 identification only, under the applicable guidelines.
@@ -78,6 +82,19 @@ identification only, under the applicable guidelines.
 Books, films, clinical guidelines and public documents are named by title in
 the Learn more sections rather than quoted. Titles and authors are facts; the
 text is not ours to copy.
+
+## Fonts and icons
+
+The typefaces and icons are not ours to licence. They are free and open, and
+the site loads them from their own sources.
+
+| Font or icon | Use | Licence |
+|---|---|---|
+| Archivo | Headings, labels and navigation | SIL Open Font License, served via Google Fonts |
+| Literata | Body text | SIL Open Font License, served via Google Fonts |
+| Mukta | Nepali text | SIL Open Font License, served via Google Fonts |
+| IBM Plex Mono | Numbers, codes and data tables | SIL Open Font License, served via Google Fonts |
+| Lucide | Inline interface and content icons | ISC licence, lucide.dev |
 
 ## Corrections
 
