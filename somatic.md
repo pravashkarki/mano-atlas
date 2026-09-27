@@ -38,7 +38,7 @@ DSM-5 dropped the old requirement to prove a psychological stressor, and "la bel
 
 Nepal: including mass conversion
 
-This is a signature Nepali presentation: episodes of fainting, jerking, or possession-like states ("chhopne") in adolescent girls, often spreading through a school classroom or hostel within hours: **mass conversion / mass psychogenic illness**, repeatedly reported in Nepali districts.
+This is a signature Nepali presentation: episodes of fainting, jerking, or possession-like states ("chhopne") in adolescent girls, often spreading through a school classroom or hostel within hours: **mass conversion / mass psychogenic illness**, repeatedly reported in Nepali districts. The National Mental Health Survey 2020 found dissociative disorder in 1.0% of adults currently and somatic symptom disorder in 0.5%. See [Nepal in numbers](https://manoatlas.com/data.md).
 
 Respond by separating affected students calmly, avoiding dramatic audiences, ruling out real medical causes, and working with the community's spiritual explanation rather than against it. Never announce "it is all in her mind": the symptom is real, involuntary, and treatable, and the family's cooperation is your main instrument.
 

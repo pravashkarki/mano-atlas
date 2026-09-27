@@ -43,7 +43,7 @@ Autism Spectrum Disorder: 299.00 · F84.0
 
 Nepal
 
-In Nepali classrooms the ADHD child is "badmash", the autistic child "lato", the child with ID "kamjor": moral labels where clinical ones belong; childhood depression hides behind stomachaches and irritability. School screening and teacher psychoeducation are high-leverage counselor tasks. Disability identity cards (four classes: red, blue, yellow, white) unlock allowances and school support: helping a family obtain one is a concrete counseling outcome.
+In Nepali classrooms the ADHD child is "badmash", the autistic child "lato", the child with ID "kamjor": moral labels where clinical ones belong; childhood depression hides behind stomachaches and irritability. School screening and teacher psychoeducation are high-leverage counselor tasks. Disability identity cards (four classes: red, blue, yellow, white) unlock allowances and school support: helping a family obtain one is a concrete counseling outcome. No national figure exists for childhood disorders specifically; the National Mental Health Survey 2020 measured adolescents and found 5.2% had a mental disorder at some point. See [Nepal in numbers](https://manoatlas.com/data.md).
 
 **A worked example:** A 9-year-old named Kiran fidgets constantly, blurts answers, and cannot finish assignments. His teacher calls him "badmash," but a counselor identifies six inattention and six hyperactivity symptoms present before age 12, in both home and school, confirming the diagnosis. The intervention focuses on task breakdown and positive reinforcement rather than moral correction.
 

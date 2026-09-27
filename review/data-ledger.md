@@ -66,6 +66,7 @@ All three false ones were corrected on 2026-09-26, replacing the absence claim w
 | No national prevalence figure exists for specific phobia | anxiety.html:56 | **was false**, now states phobic anxiety 0.2% current (95% CI 0.1 to 0.4) |
 | No national prevalence figure exists for OCD, eating disorders and sleep disorders, site-wide | nepal.html:137 | **was partly false**, now quotes the survey for OCD and anxiety and limits the absence to eating disorders and sleep disorders |
 | No national prevalence figure exists for eating disorders | eating.html:159 | true, the survey has no eating-disorder row. Left as published. |
+| No national prevalence figure exists for sleep disorders | sleep.html:110 | true, the survey has no sleep-disorder row. Stated on the chapter since 2026-09-26. |
 
 Lesson worth keeping: an absence claim is a claim about the whole of a country's literature, and it is the easiest sentence on the site to get wrong. The survey carried rows we had not checked. Quote the survey for what it measured and confine the absence to what it did not.
 
@@ -96,7 +97,7 @@ The curriculum is the authority for its own structure, so a second source here m
 
 ## 8. The /data page (live since 2026-09-26)
 
-Every figure on `data.html` ("Nepal in numbers") is measured in Nepal and sourced in `review/mental-health-data.md`, which is the two-source record for this block. The framing that makes the survey figures compliant: Nepal has one national mental health survey, so for any NMHS figure the second source is the peer-reviewed analysis of the same survey (Dhimal et al., DOI 10.33314/jnhrc.v19i04.4017), and the page states the survey is the only national measurement and is at least six years old. The one modelled figure is the global 9.1% depression coverage from the WHO Mental Health Atlas, and it is labelled modelled.
+Every figure on `data.html` ("Nepal in numbers") is measured in Nepal and sourced in `review/mental-health-data.md`, which is the two-source record for this block. The same survey figures also sit on the disorder chapters that teach the condition (depression, anxiety, OCD, trauma, somatic, psychosis, child, eating, sleep, substance), each linking to `/data`. The framing that makes the survey figures compliant: Nepal has one national mental health survey, so for any NMHS figure the second source is the peer-reviewed analysis of the same survey (Dhimal et al., DOI 10.33314/jnhrc.v19i04.4017), and the page states the survey is the only national measurement and is at least six years old. The one modelled figure is the global 9.1% depression coverage from the WHO Mental Health Atlas, and it is labelled modelled.
 
 | Figure block | Where | Source 1 | Source 2 | Status |
 |---|---|---|---|---|

@@ -56,7 +56,7 @@ Long framed as a Western thin-ideal illness, but Hong Kong research (Sing Lee) d
 
 Nepal
 
-No national prevalence figure exists. Expect the non-fat-phobic presentation; distinguish disorder from poverty-driven undernutrition and from religious fasting (bartha): DSM-5 excludes culturally sanctioned practice. Urban private-school girls and gym-going young men (muscle-focused restriction, supplements) are the visible emerging groups. Weight loss + amenorrhoea in a young woman deserves an eating-disorder question before a TB work-up ends the conversation.
+No national prevalence figure exists. Expect the non-fat-phobic presentation; distinguish disorder from poverty-driven undernutrition and from religious fasting (bartha): DSM-5 excludes culturally sanctioned practice. Urban private-school girls and gym-going young men (muscle-focused restriction, supplements) are the visible emerging groups. Weight loss + amenorrhoea in a young woman deserves an eating-disorder question before a TB work-up ends the conversation. See [Nepal in numbers](https://manoatlas.com/data.md) for what the survey did measure.
 
 A skill to try · two minutes
 

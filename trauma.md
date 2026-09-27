@@ -60,7 +60,7 @@ First systematised after the Vietnam war ("shell shock", "war neurosis" before t
 
 Nepal
 
-Three national layers: the 1996–2006 conflict (disappearances, torture survivors), the 2015 earthquakes, and yearly floods and landslides; plus trafficking survivors and returned migrant workers. Post-earthquake research (e.g., TPO Nepal studies) found distress often expressed through the heart-mind: fear idioms like "man aatteko", "saato gaeko" (the spirit has fled). PFA's Look-Listen-Link, not debriefing, is the evidence-based first response; most acute reactions settle without a disorder label.
+Three national layers: the 1996–2006 conflict (disappearances, torture survivors), the 2015 earthquakes, and yearly floods and landslides; plus trafficking survivors and returned migrant workers. Post-earthquake research (e.g., TPO Nepal studies) found distress often expressed through the heart-mind: fear idioms like "man aatteko", "saato gaeko" (the spirit has fled). PFA's Look-Listen-Link, not debriefing, is the evidence-based first response; most acute reactions settle without a disorder label. The National Mental Health Survey 2020 put post-traumatic stress disorder under 0.2% (its confidence interval reaches 0.2), a rounding floor rather than an absence. See [Nepal in numbers](https://manoatlas.com/data.md).
 
 The window of tolerance (Siegel). A survivor is not "overreacting"; their window has been narrowed. Grounding (5-4-3-2-1, feet on the floor, cold water on the face) does not solve the trauma; it brings the person back inside the window, where talking becomes possible.
 

@@ -41,7 +41,7 @@ Lifetime prevalence ~0.3–0.7% in every population studied; onset typically lat
 
 Nepal
 
-Stigma is the central fact: "paagal" labels, hidden family members, and in the worst cases chaining; plus years of dhami-jhankri treatment before any clinical contact.
+Stigma is the central fact: "paagal" labels, hidden family members, and in the worst cases chaining; plus years of dhami-jhankri treatment before any clinical contact. The National Mental Health Survey 2020 found schizophrenia-spectrum disorders in 0.1% of adults currently (0.2% lifetime). See [Nepal in numbers](https://manoatlas.com/data.md).
 
 Hearing culturally sanctioned voices (a deceased relative during mourning, deity communication in trance for a jhankri) is *not* psychosis; the flags are decline in functioning, disorganisation, and distress.
 

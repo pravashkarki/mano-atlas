@@ -318,6 +318,11 @@ def nav_html(active_slug: str) -> str:
                 f'<a href="{href}"{cls}><span class="secnum">{num}</span>{mark}'
                 f'<span class="en">{en}</span><span class="ne">{ne}</span></a>'
             )
+        if group == "reference":
+            links.append(
+                f'<a href="data.html"><span class="secnum"></span><span class="catmark" style="background:transparent"></span>'
+                f'<span class="en">Nepal in numbers</span><span class="ne">{NE_TBD}</span></a>'
+            )
         links_html = "\n        ".join(links)
         out.append(
             f'<details class="snav-sec" data-g="{group}"{is_open}>\n'
@@ -1281,8 +1286,8 @@ def data_html() -> str:
 
     prev_table = (
         '<div class="tblwrap"><table class="data">'
-        '<tr><th>' + _en("Condition") + '</th><th>' + _en("When") + '</th><th>' + _en("Percent") + '</th><th>'
-        + _en("95% confidence interval") + "</th></tr>"
+        '<tr><th>' + _en("Condition") + '</th><th>' + _en("When") + '</th><th>' + _en("%") + '</th><th>'
+        + _en("95% CI") + "</th></tr>"
         + "".join(prev_rows)
         + "</table></div>"
     )
@@ -1301,7 +1306,7 @@ def data_html() -> str:
     ]
     care_table = (
         '<div class="tblwrap"><table class="data">'
-        '<tr><th>' + _en("Among adults with a mental disorder") + '</th><th>' + _en("Percent") + "</th></tr>"
+        '<tr><th>' + _en("Among adults with a mental disorder") + '</th><th>' + _en("%") + "</th></tr>"
         + "".join(row([_en(k), f"<strong>{v}</strong>"]) for k, v in care_rows)
         + "</table></div>"
     )
@@ -1311,36 +1316,38 @@ def data_html() -> str:
         "The headline",
         NE_TBD,
         ['<p>' + _en("One in ten adults in Nepal has had a mental disorder at some point in their life (10.0%, "
-                     "95% confidence interval 8.5 to 11.8). About one in twenty right now (4.3%, 3.5 to 5.2). "
-                     "The survey spoke to 9,200 adults and 5,888 adolescents between January 2019 and January 2020.") + '</p>',
-         '<p>' + _en("These figures come from the National Mental Health Survey 2020, the only nationally "
-                     "representative survey of adult and adolescent mental health Nepal has. They are measured, not "
-                     "modelled, and they are at least six years old now.") + '</p>']))
+                     "95% confidence interval 8.5 to 11.8). About one in twenty right now (4.3%, 3.5 to 5.2).") + '</p>',
+         '<p>' + _en("The survey spoke to 9,200 adults and 5,888 adolescents between January 2019 and January 2020.") + '</p>',
+         '<p class="fine">' + _en("Source: National Mental Health Survey 2020, Ministry of Health and Population with the "
+                                  "Nepal Health Research Council.") + '</p>']))
     cards.append(_tcard(
         "How common each disorder is",
         NE_TBD,
         [prev_table,
          '<p>' + _en("Read the table with care. The post-traumatic stress figure is 0.0% with a confidence interval up "
-                     "to 0.2%: that is a rounding floor, not an absence. Alcohol use disorder at 4.2% over the past year "
-                     "is higher than major depressive disorder at 2.9% lifetime, so any page that leads with depression as "
-                     "the commonest condition misleads.") + '</p>',
-         '<p>' + _en("\u201cCurrent\u201d means the past 12 months. The survey labels a figure current, lifetime, or past "
-                     "12 months; a current figure should be compared only with the 4.3% any-disorder current, and a "
-                     "lifetime figure only with the 10.0% lifetime.") + '</p>']))
+                     "to 0.2%: a rounding floor, not an absence. Alcohol use disorder at 4.2% over the past year is higher "
+                     "than major depressive disorder at 2.9% lifetime, so any page that leads with depression as the most "
+                     "common condition misleads.") + '</p>',
+         '<p>' + _en("\u201cCurrent\u201d means the past 12 months. Compare a current figure only with the 4.3% "
+                     "any-disorder current, and a lifetime figure only with the 10.0% lifetime.") + '</p>',
+         '<p class="fine">' + _en("Source: National Mental Health Survey 2020.") + '</p>']))
     cards.append(_tcard(
         "The treatment gap",
         NE_TBD,
         [care_table,
          '<p>' + _en("About 77 in every 100 adults with a mental disorder did not seek treatment. Most told a family "
                      "member; only a small minority reached a health worker. This gap, not the prevalence, is the number "
-                     "that matters most for anyone training to close it.") + '</p>']))
+                     "that matters most for anyone training to close it.") + '</p>',
+         '<p class="fine">' + _en("Source: National Mental Health Survey 2020.") + '</p>']))
     cards.append(_tcard(
         "Suicide",
         NE_TBD,
         ['<p>' + _en("7,223 people died by suicide in fiscal year 2080/81, counted by Nepal Police. Of them, 4,011 were "
                      "men, 2,364 women, 574 girls and 272 boys.") + '</p>',
          '<p>' + _en("The four recorded years do not show a rising trend: 7,117, then 6,792, then 6,993, then 7,223. "
-                     "The series dips in the middle and ends near where it began.") + '</p>']))
+                     "The series dips in the middle and ends near where it began.") + '</p>',
+         '<p class="fine">' + _en("Source: Nepal Police, Annual Factsheet on Suicide and Cyber Crime, fiscal year "
+                                  "2080/81.") + '</p>']))
     cards.append(_tcard(
         "Money and people",
         NE_TBD,
@@ -1349,25 +1356,33 @@ def data_html() -> str:
                      "the 780-hour curriculum this atlas is built for.") + '</p>',
          '<p>' + _en("Globally, the median country spends 2.1% of its government health spending on mental health, with "
                      "13.5 specialised mental-health workers per 100,000 people. Low-income countries have 1.1 to 2.4. "
-                     "Worldwide, only about 9.1% of people with depression receive minimally adequate treatment, and that "
-                     "figure is modelled, not counted.") + '</p>']))
+                     "About 9.1% of people with depression worldwide receive minimally adequate treatment, and that figure "
+                     "is modelled, not counted.") + '</p>',
+         '<p class="fine">' + _en("Sources: Rai et al., BJPsych International (Nepal); WHO Mental Health Atlas 2024 "
+                                  "(global).") + '</p>']))
     cards.append(_tcard(
         "How to read these numbers",
         NE_TBD,
-        ['<p>' + _en("Every figure here is measured in Nepal and names its source below, except the global depression "
-                     "coverage, which is a modelled estimate from the WHO Mental Health Atlas. The survey fieldwork ended "
-                     "in January 2020, so any figure is at least six years old, and the page says so rather than hiding "
-                     "the age.") + '</p>',
-         '<p>' + _en("Sources: the National Mental Health Survey 2020 (Ministry of Health and Population with the Nepal "
-                     "Health Research Council), peer-reviewed as Dhimal et al., and its CSVs republished on "
-                     "opendatanepal.com; the Nepal Police Annual Factsheet on Suicide and Cyber Crime, fiscal year "
-                     "2080/81; Rai et al., BJPsych International, for financing and workforce; and the WHO Mental Health "
-                     "Atlas 2024 for the global comparison.") + '</p>',
-         '<p class="fine">' + _en("This page is a reference, not a diagnosis. A number is a population pattern, not a "
-                                  "prediction about any one person.") + '</p>']))
+        ['<p>' + _en("Every figure here is measured in Nepal and names its source, except the global depression coverage, "
+                     "which is a modelled estimate from the WHO Mental Health Atlas. The survey fieldwork ended in January "
+                     "2020, so every survey figure is at least six years old.") + '</p>',
+         '<ul>'
+         + '<li>' + _en('<a href="https://doi.org/10.33314/jnhrc.v19i04.4017" target="_blank" rel="noopener noreferrer">'
+                        'National Mental Health Survey 2020</a>, Dhimal et al., Journal of Nepal Health Research Council, '
+                        'and its CSVs on <a href="https://opendatanepal.com" target="_blank" rel="noopener noreferrer">'
+                        'opendatanepal.com</a>.') + '</li>'
+         + '<li>' + _en('<a href="https://opendatanepal.com" target="_blank" rel="noopener noreferrer">'
+                        'Nepal Police, Annual Factsheet on Suicide and Cyber Crime, fiscal year 2080/81</a>.') + '</li>'
+         + '<li>' + _en('<a href="https://doi.org/10.1192/bji.2020.58" target="_blank" rel="noopener noreferrer">'
+                        'Rai et al., BJPsych International</a>, for financing and workforce.') + '</li>'
+         + '<li>' + _en('<a href="https://www.who.int/publications/i/item/9789240114487" target="_blank" rel="noopener noreferrer">'
+                        'WHO Mental Health Atlas 2024</a>, for the global comparison.') + '</li>'
+         + '</ul>',
+         '<p class="fine">' + _en("A number is a population pattern, not a prediction about any one person. This page is "
+                                  "a reference, not a diagnosis.") + '</p>']))
 
-    return ('<div class="pagehead"><h1 class="kicker">'
-            + _en("Nepal in numbers") + '</h1></div>\n'
+    return ('<div class="pagehead"></div>\n'
+            '<div class="sechead"><h1>' + _en("Nepal in numbers") + '</h1></div>\n'
             '<p class="secsub en">The figures behind the atlas: how common mental illness is in Nepal, how many people '
             'get help, and where each number comes from.</p>\n'
             + "".join(cards))

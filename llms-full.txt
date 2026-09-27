@@ -787,7 +787,7 @@ First systematised after the Vietnam war ("shell shock", "war neurosis" before t
 
 Nepal
 
-Three national layers: the 1996–2006 conflict (disappearances, torture survivors), the 2015 earthquakes, and yearly floods and landslides; plus trafficking survivors and returned migrant workers. Post-earthquake research (e.g., TPO Nepal studies) found distress often expressed through the heart-mind: fear idioms like "man aatteko", "saato gaeko" (the spirit has fled). PFA's Look-Listen-Link, not debriefing, is the evidence-based first response; most acute reactions settle without a disorder label.
+Three national layers: the 1996–2006 conflict (disappearances, torture survivors), the 2015 earthquakes, and yearly floods and landslides; plus trafficking survivors and returned migrant workers. Post-earthquake research (e.g., TPO Nepal studies) found distress often expressed through the heart-mind: fear idioms like "man aatteko", "saato gaeko" (the spirit has fled). PFA's Look-Listen-Link, not debriefing, is the evidence-based first response; most acute reactions settle without a disorder label. The National Mental Health Survey 2020 put post-traumatic stress disorder under 0.2% (its confidence interval reaches 0.2), a rounding floor rather than an absence. See [Nepal in numbers](https://manoatlas.com/data.md).
 
 The window of tolerance (Siegel). A survivor is not "overreacting"; their window has been narrowed. Grounding (5-4-3-2-1, feet on the floor, cold water on the face) does not solve the trauma; it brings the person back inside the window, where talking becomes possible.
 
@@ -882,7 +882,7 @@ DSM-5 dropped the old requirement to prove a psychological stressor, and "la bel
 
 Nepal: including mass conversion
 
-This is a signature Nepali presentation: episodes of fainting, jerking, or possession-like states ("chhopne") in adolescent girls, often spreading through a school classroom or hostel within hours: **mass conversion / mass psychogenic illness**, repeatedly reported in Nepali districts.
+This is a signature Nepali presentation: episodes of fainting, jerking, or possession-like states ("chhopne") in adolescent girls, often spreading through a school classroom or hostel within hours: **mass conversion / mass psychogenic illness**, repeatedly reported in Nepali districts. The National Mental Health Survey 2020 found dissociative disorder in 1.0% of adults currently and somatic symptom disorder in 0.5%. See [Nepal in numbers](https://manoatlas.com/data.md).
 
 Respond by separating affected students calmly, avoiding dramatic audiences, ruling out real medical causes, and working with the community's spiritual explanation rather than against it. Never announce "it is all in her mind": the symptom is real, involuntary, and treatable, and the family's cooperation is your main instrument.
 
@@ -961,7 +961,7 @@ Lifetime prevalence ~0.3–0.7% in every population studied; onset typically lat
 
 Nepal
 
-Stigma is the central fact: "paagal" labels, hidden family members, and in the worst cases chaining; plus years of dhami-jhankri treatment before any clinical contact.
+Stigma is the central fact: "paagal" labels, hidden family members, and in the worst cases chaining; plus years of dhami-jhankri treatment before any clinical contact. The National Mental Health Survey 2020 found schizophrenia-spectrum disorders in 0.1% of adults currently (0.2% lifetime). See [Nepal in numbers](https://manoatlas.com/data.md).
 
 Hearing culturally sanctioned voices (a deceased relative during mourning, deity communication in trance for a jhankri) is *not* psychosis; the flags are decline in functioning, disorganisation, and distress.
 
@@ -1040,7 +1040,7 @@ Autism Spectrum Disorder: 299.00 · F84.0
 
 Nepal
 
-In Nepali classrooms the ADHD child is "badmash", the autistic child "lato", the child with ID "kamjor": moral labels where clinical ones belong; childhood depression hides behind stomachaches and irritability. School screening and teacher psychoeducation are high-leverage counselor tasks. Disability identity cards (four classes: red, blue, yellow, white) unlock allowances and school support: helping a family obtain one is a concrete counseling outcome.
+In Nepali classrooms the ADHD child is "badmash", the autistic child "lato", the child with ID "kamjor": moral labels where clinical ones belong; childhood depression hides behind stomachaches and irritability. School screening and teacher psychoeducation are high-leverage counselor tasks. Disability identity cards (four classes: red, blue, yellow, white) unlock allowances and school support: helping a family obtain one is a concrete counseling outcome. No national figure exists for childhood disorders specifically; the National Mental Health Survey 2020 measured adolescents and found 5.2% had a mental disorder at some point. See [Nepal in numbers](https://manoatlas.com/data.md).
 
 **A worked example:** A 9-year-old named Kiran fidgets constantly, blurts answers, and cannot finish assignments. His teacher calls him "badmash," but a counselor identifies six inattention and six hyperactivity symptoms present before age 12, in both home and school, confirming the diagnosis. The intervention focuses on task breakdown and positive reinforcement rather than moral correction.
 
@@ -1130,7 +1130,7 @@ Long framed as a Western thin-ideal illness, but Hong Kong research (Sing Lee) d
 
 Nepal
 
-No national prevalence figure exists. Expect the non-fat-phobic presentation; distinguish disorder from poverty-driven undernutrition and from religious fasting (bartha): DSM-5 excludes culturally sanctioned practice. Urban private-school girls and gym-going young men (muscle-focused restriction, supplements) are the visible emerging groups. Weight loss + amenorrhoea in a young woman deserves an eating-disorder question before a TB work-up ends the conversation.
+No national prevalence figure exists. Expect the non-fat-phobic presentation; distinguish disorder from poverty-driven undernutrition and from religious fasting (bartha): DSM-5 excludes culturally sanctioned practice. Urban private-school girls and gym-going young men (muscle-focused restriction, supplements) are the visible emerging groups. Weight loss + amenorrhoea in a young woman deserves an eating-disorder question before a TB work-up ends the conversation. See [Nepal in numbers](https://manoatlas.com/data.md) for what the survey did measure.
 
 A skill to try · two minutes
 
@@ -1188,7 +1188,7 @@ DSM-5 Criteria
 
 Nepal
 
-"Nindra lagdaina" is among the most common presenting complaints in Nepali primary care, and often the socially acceptable doorway to depression, anxiety, or trauma underneath. Ask about tea (strong, late, many cups), load-shedding-era phone habits, shift work in security and transport jobs, and crowded sleeping rooms. Sleep hygiene plus stimulus control is a counselor-deliverable intervention with fast, credibility-building results.
+"Nindra lagdaina" is among the most common presenting complaints in Nepali primary care, and often the socially acceptable doorway to depression, anxiety, or trauma underneath. Ask about tea (strong, late, many cups), load-shedding-era phone habits, shift work in security and transport jobs, and crowded sleeping rooms. Sleep hygiene plus stimulus control is a counselor-deliverable intervention with fast, credibility-building results. No national prevalence figure exists for sleep disorders; the survey has no sleep-disorder row. See [Nepal in numbers](https://manoatlas.com/data.md) for what it did measure.
 
 A skill to try · two minutes
 
@@ -1255,7 +1255,7 @@ The same frame applies to alcohol, opioids, cannabis, stimulants, sedatives and 
 - Withdrawal, or use to avoid withdrawal
 Nepal · International
 
-Globally, alcohol and tobacco dwarf all illicit drugs in disease burden. In Nepal, alcohol sits inside culture unevenly, customary in some communities, prohibited in others, so "how much is a problem" must be judged by the 11 criteria, not by drinking per se. Home-brew (raksi, jaand) makes quantity hard to estimate; ask in local units. Watch returned migrant workers, transport and security workers; and screen for depression and suicide risk alongside alcohol in every assessment. Pair the criteria with the Stages of Change (precontemplation → contemplation → preparation → action → maintenance → relapse) from your Month-4 block for counseling planning.
+Globally, alcohol and tobacco dwarf all illicit drugs in disease burden. In Nepal, alcohol sits inside culture unevenly, customary in some communities, prohibited in others, so "how much is a problem" must be judged by the 11 criteria, not by drinking per se. The National Mental Health Survey 2020 found alcohol use disorder in 4.2% of adults over the past year (95% CI 3.6 to 4.8); see [Nepal in numbers](https://manoatlas.com/data.md). Home-brew (raksi, jaand) makes quantity hard to estimate; ask in local units. Watch returned migrant workers, transport and security workers; and screen for depression and suicide risk alongside alcohol in every assessment. Pair the criteria with the Stages of Change (precontemplation → contemplation → preparation → action → maintenance → relapse) from your Month-4 block for counseling planning.
 
 The addiction cycle (after Koob & Volkow's three-stage model). Counselling enters at the craving stage: mapping each person's cues and building a plan for the moment the tea shop comes into view, which is why "just promise to stop" fails and cue-plans work.
 

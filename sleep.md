@@ -30,7 +30,7 @@ DSM-5 Criteria
 
 Nepal
 
-"Nindra lagdaina" is among the most common presenting complaints in Nepali primary care, and often the socially acceptable doorway to depression, anxiety, or trauma underneath. Ask about tea (strong, late, many cups), load-shedding-era phone habits, shift work in security and transport jobs, and crowded sleeping rooms. Sleep hygiene plus stimulus control is a counselor-deliverable intervention with fast, credibility-building results.
+"Nindra lagdaina" is among the most common presenting complaints in Nepali primary care, and often the socially acceptable doorway to depression, anxiety, or trauma underneath. Ask about tea (strong, late, many cups), load-shedding-era phone habits, shift work in security and transport jobs, and crowded sleeping rooms. Sleep hygiene plus stimulus control is a counselor-deliverable intervention with fast, credibility-building results. No national prevalence figure exists for sleep disorders; the survey has no sleep-disorder row. See [Nepal in numbers](https://manoatlas.com/data.md) for what it did measure.
 
 A skill to try · two minutes
 
