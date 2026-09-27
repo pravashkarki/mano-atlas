@@ -320,7 +320,7 @@ def nav_html(active_slug: str) -> str:
             )
         if group == "reference":
             links.append(
-                f'<a href="data.html"><span class="secnum"></span><span class="catmark" style="background:transparent"></span>'
+                f'<a href="data.html"><span class="secnum">{len(PAGES) + 1:02d}</span><span class="catmark" style="background:transparent"></span>'
                 f'<span class="en">Nepal in numbers</span><span class="ne">{NE_TBD}</span></a>'
             )
         links_html = "\n        ".join(links)
@@ -1070,11 +1070,13 @@ def vault_html() -> str:
 
 
 def _tcard(head_en: str, head_ne: str, body: list) -> str:
-    # h2, not h3: these pages' title is the pagehead h1, so the card heads sit
-    # directly beneath it. The size is pinned in style.css (.termscard h2) because
-    # the browser default for h2 is larger than the h3 this replaced.
-    return ('<div class="card termscard"><div class="card-body">\n'
+    # h2 card head, not h3: these pages' title is the pagehead h1, so the card heads
+    # sit directly beneath it. The size is pinned in style.css (.termscard h2) because
+    # the browser default for h2 is larger than the h3 this replaced. The head gets the
+    # same .card-head padding (and top rule) as every teaching card.
+    return ('<div class="card termscard"><div class="card-head">\n'
             '        <h2><span class="en">' + head_en + '</span><span class="ne">' + head_ne + '</span></h2>\n'
+            '      </div><div class="card-body">\n'
             '        ' + "\n        ".join(body) + '\n      </div></div>\n')
 
 
@@ -1381,8 +1383,8 @@ def data_html() -> str:
          '<p class="fine">' + _en("A number is a population pattern, not a prediction about any one person. This page is "
                                   "a reference, not a diagnosis.") + '</p>']))
 
-    return ('<div class="pagehead"></div>\n'
-            '<div class="sechead"><h1>' + _en("Nepal in numbers") + '</h1></div>\n'
+    return ('<div class="pagehead vault-head"><h1 class="kicker">'
+            + _en("Nepal in numbers") + '</h1></div>\n'
             '<p class="secsub en">The figures behind the atlas: how common mental illness is in Nepal, how many people '
             'get help, and where each number comes from.</p>\n'
             + "".join(cards))
